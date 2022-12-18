@@ -1,0 +1,40 @@
+.Body-Container{
+  position: absolute;
+width: 391px;
+height: 622px;
+left: -1px;
+top: 128px;
+
+background: #FFFFFF;
+border-radius: 40px 40px 0px 0px;
+
+}
+.SeatCounter{
+  position: absolute;
+width: 332px;
+height: 85px;
+left: 31px;
+top: 26px;
+}
+.SeatCount{
+  position: absolute;
+  width: 332px;
+  height: 85px;
+  left: 0px;
+  top: 0px;
+  
+  background: rgba(51, 28, 158, 0.74);
+  border-radius: 20px;
+z-index: 1;
+}
+.Contour{
+  position: absolute;
+  width: 85px;
+  height: 0px;
+  left: 120px;
+  top: 45px;
+  
+  border: 1px dashed #FEF9F9;
+  transform: rotate(90deg);
+  z-index :2;
+}
