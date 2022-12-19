@@ -16,6 +16,7 @@
   left: 22px;
   top: 322px;
 }
+
 .App-text {
   position: absolute;
   width: 346px;
@@ -42,6 +43,7 @@
 
   border-radius: 45px;
 }
+
 .App-footer-text {
   position: absolute;
   width: 390px;

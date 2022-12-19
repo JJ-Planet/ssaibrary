@@ -1,55 +1,59 @@
-.Container{
+.userInfo {
   position: absolute;
   width: 332px;
   height: 71px;
   left: 29px;
   top: 33px;
 }
-.InfoText{
+
+.profileTitle {
   position: absolute;
   width: 210px;
   height: 30px;
   left: 0px;
   top: 11px;
-  
+
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
-  
+
   color: #312082;
 }
-.WelcomeText{
+
+.profileTitleDesc {
   position: absolute;
   width: 220px;
   height: 17px;
   left: 0px;
   top: 54px;
-  
+
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
   /* identical to box height */
-  
+
   display: flex;
   align-items: flex-end;
-  
+
   color: #B3A7FF;
 }
-.ProfileBox{
+
+.profileImgDiv {
   position: absolute;
   width: 67px;
   height: 67px;
   left: 265px;
   top: 4px;
-  
+
   background: #D9D9D9;
   border-radius: 20px;
 }
-.ProfileImg{
+
+.ProfileImg {
   position: absolute;
   width: 50px;
   height: 50px;

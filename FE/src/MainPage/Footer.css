@@ -1,0 +1,176 @@
+.bottomBar {
+  position: absolute;
+  width: 390px;
+  height: 94px;
+  left: 0px;
+  top: 750px;
+
+  border-radius: 40px;
+}
+
+.homeBtn {
+  position: absolute;
+  width: 35px;
+  height: 58px;
+  left: 35px;
+  top: 18px;
+  z-index: 1;
+}
+
+.home {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  left: 0px;
+  top: 0px;
+
+  background: url(../../public/DefaultProfile.png);
+  background-size: 100% 100%;
+  border-radius: 10%;
+}
+
+.homeTitle {
+  position: absolute;
+  width: 35px;
+  height: 15px;
+  left: 1px;
+  top: 43px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+
+
+  color: #624DC2;
+}
+
+.reservationBtn {
+  position: absolute;
+  width: 71px;
+  height: 58px;
+  left: 103px;
+  top: 18px;
+  z-index: 1;
+}
+
+.reservation {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  left: 15px;
+  top: 0px;
+
+  background: url(../../public/DefaultProfile.png);
+  background-size: 100% 100%;
+  border-radius: 10%;
+}
+
+.reservationTitle {
+  position: absolute;
+  width: 71px;
+  height: 15px;
+  left: 0px;
+  top: 43px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+
+
+  color: #B3A7FF;
+}
+
+.communityBtn {
+  position: absolute;
+  width: 69px;
+  height: 58px;
+  left: 207px;
+  top: 18px;
+
+  z-index: 1;
+}
+
+.community {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  left: 17px;
+  top: 0px;
+  background: url(../../public/DefaultProfile.png);
+  background-size: 100% 100%;
+  border-radius: 10%;
+}
+
+.communityTitle {
+  position: absolute;
+  width: 69px;
+  height: 15px;
+  left: 0px;
+  top: 43px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+
+
+  color: #B3A7FF;
+}
+
+.accountBtn {
+  position: absolute;
+  width: 50px;
+  height: 58px;
+  left: 309px;
+  top: 18px;
+  z-index: 1;
+}
+
+.account {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  left: 5px;
+  top: 0px;
+  background: url(../../public/DefaultProfile.png);
+  background-size: 100% 100%;
+  border-radius: 10%;
+}
+
+.accountTitle {
+  position: absolute;
+  width: 50px;
+  height: 15px;
+  left: 0px;
+  top: 43px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+
+
+  color: #B3A7FF;
+}
+
+.bottomBarDiv {
+  position: absolute;
+  width: 390px;
+  height: 94px;
+  left: 0px;
+  top: 0px;
+
+  background: #ECF4F3;
+  border-radius: 20px 20px 40px 40px;
+  z-index: 0;
+}
