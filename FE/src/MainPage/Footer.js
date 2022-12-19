@@ -1,29 +1,39 @@
 import React from "react";
 import "./Footer.css";
-function Body() {
+import { Link } from "react-router-dom";
+
+function Footer() {
   return (
     <>
       <div className="bottomBar">
-        <div className="homeBtn">
-          <div className="home"></div>
-          <div className="homeTitle">Home</div>
-        </div>
-        <div className="reservationBtn">
-          <div className="reservation"></div>
-          <div className="reservationTitle">Reservation</div>
-        </div>
-        <div className="communityBtn">
-          <div className="community"></div>
-          <div className="communityTitle">Community</div>
-        </div>
-        <div className="accountBtn">
-          <div className="account"></div>
-          <div className="accountTitle">Account</div>
-        </div>
+        <Link to="/main">
+          <div className="homeBtn">
+            <div className="home"></div>
+            <div className="homeTitle">Home</div>
+          </div>
+        </Link>
+        <Link to="/reservation">
+          <div className="reservationBtn">
+            <div className="reservation"></div>
+            <div className="reservationTitle">Reservation</div>
+          </div>
+        </Link>
+        <Link to="/community">
+          <div className="communityBtn">
+            <div className="community"></div>
+            <div className="communityTitle">Community</div>
+          </div>
+        </Link>
+        <Link to="/account">
+          <div className="accountBtn">
+            <div className="account"></div>
+            <div className="accountTitle">Account</div>
+          </div>
+        </Link>
         <div className="bottomBarDiv"> </div>
       </div>
     </>
   );
 }
 
-export default Body;
+export default Footer;

@@ -1,0 +1,52 @@
+import React from "react";
+import "./AccountBody.css";
+function Body() {
+  return (
+    <>
+      <div className="accountMain">
+        <div className="accountMainDiv1">
+          <div className="accountMainSeperator"> </div>
+          <div className="MainDiv1Label">내 정보</div>
+          <div className="accountUpdateDiv">
+            <div className="accountUpdateTitle">정보 수정</div>
+            <div className="accountUpdateIcon"></div>
+          </div>
+          <div className="accountLogOutDiv">
+            <div className="LogOutTitle">로그아웃</div>
+            <div className="accountLogOutIcon"></div>
+          </div>
+        </div>
+        <div className="accountMainDiv2">
+          <div className="accountMainSeperator"> </div>
+          <div className="MainDiv2Label">예약 확인 및 관리</div>
+          <div className="ReservationDiv">
+            <div className="accountUpdateTitle">예약 확인</div>
+            <div className="accountUpdateIcon"></div>
+          </div>
+          <div className="UsageHistoryDiv">
+            <div className="UsageHistoryTitle">이용 내역</div>
+            <div className="accountLogOutIcon"></div>
+          </div>
+        </div>
+        <div className="accountMainDiv3">
+          <div className="accountMainSeperator"> </div>
+          <div className="MainDiv1Label">일반</div>
+          <div className="accountUpdateDiv">
+            <div className="accountUpdateTitle">공지사항</div>
+            <div className="accountUpdateIcon"></div>
+          </div>
+          <div className="accountUpdateDiv">
+            <div className="accountUpdateTitle">FAQ</div>
+            <div className="accountUpdateIcon"></div>
+          </div>
+          <div className="accountUpdateDiv">
+            <div className="accountUpdateTitle">문의하기</div>
+            <div className="accountUpdateIcon"></div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default Body;
