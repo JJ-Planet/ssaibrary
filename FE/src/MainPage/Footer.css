@@ -24,7 +24,7 @@
   left: 0px;
   top: 0px;
 
-  background: url(../../public/DefaultProfile.png);
+  background: url(../assets/images/home.png);
   background-size: 100% 100%;
   border-radius: 10%;
 }
@@ -36,15 +36,13 @@
   left: 1px;
   top: 43px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;
   /* identical to box height */
 
-
-  color: #624DC2;
+  color: #624dc2;
 }
 
 .reservationBtn {
@@ -63,9 +61,10 @@
   left: 15px;
   top: 0px;
 
-  background: url(../../public/DefaultProfile.png);
+  background: url(../assets/images/schedule.png);
   background-size: 100% 100%;
   border-radius: 10%;
+  opacity: 20%;
 }
 
 .reservationTitle {
@@ -75,15 +74,13 @@
   left: 0px;
   top: 43px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;
   /* identical to box height */
 
-
-  color: #B3A7FF;
+  color: #b3a7ff;
 }
 
 .communityBtn {
@@ -102,9 +99,10 @@
   height: 35px;
   left: 17px;
   top: 0px;
-  background: url(../../public/DefaultProfile.png);
+  background: url(../assets/images/notebook.png);
   background-size: 100% 100%;
   border-radius: 10%;
+  opacity: 20%;
 }
 
 .communityTitle {
@@ -114,15 +112,13 @@
   left: 0px;
   top: 43px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;
   /* identical to box height */
 
-
-  color: #B3A7FF;
+  color: #b3a7ff;
 }
 
 .accountBtn {
@@ -140,9 +136,10 @@
   height: 35px;
   left: 5px;
   top: 0px;
-  background: url(../../public/DefaultProfile.png);
+  background: url(../assets/images/user.png);
   background-size: 100% 100%;
   border-radius: 10%;
+  opacity: 20%;
 }
 
 .accountTitle {
@@ -152,15 +149,13 @@
   left: 0px;
   top: 43px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;
   /* identical to box height */
 
-
-  color: #B3A7FF;
+  color: #b3a7ff;
 }
 
 .bottomBarDiv {
@@ -170,7 +165,7 @@
   left: 0px;
   top: 0px;
 
-  background: #ECF4F3;
+  background: #ecf4f3;
   border-radius: 20px 20px 40px 40px;
   z-index: 0;
 }

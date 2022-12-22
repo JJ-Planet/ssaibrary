@@ -10,7 +10,6 @@ html {
 .App {
   position: absolute;
   width: 390px;
-  /* height: 844px;
-   */
   height: 100%;
+  background: #ecf4f3;
 }

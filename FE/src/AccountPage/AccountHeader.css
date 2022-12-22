@@ -2,7 +2,7 @@
   position: absolute;
   width: 355px;
   height: 60px;
-  left: 10px;
+  left: 15px;
   top: 25px;
 }
 
@@ -13,7 +13,7 @@
   left: 0px;
   top: 0px;
 
-  background: #D9D9D9;
+  background: #d9d9d9;
   border-radius: 20px;
 }
 
@@ -23,12 +23,11 @@
   height: 40px;
   left: 10px;
   top: 10px;
-  background-image: url(../../public/DefaultProfile.png);
+  background-image: url(../assets/images/man.png);
   background-size: 100% 100%;
   border-radius: 10%;
   z-index: 999;
 }
-
 
 .accountUserName {
   position: absolute;
@@ -37,7 +36,6 @@
   left: 77px;
   top: 19px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -53,7 +51,6 @@
   left: 288px;
   top: 29px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -69,7 +66,6 @@
   left: 182px;
   top: 29px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -85,7 +81,6 @@
   left: 305px;
   top: 0px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -102,7 +97,6 @@
   left: 195px;
   top: 0px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -110,6 +104,4 @@
   text-align: center;
 
   color: #312082;
-
-
 }
