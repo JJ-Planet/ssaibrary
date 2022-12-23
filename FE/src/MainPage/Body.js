@@ -13,12 +13,12 @@ function Body() {
             <div className="Contour"> </div>
           </div>
         </div>
-        <div className="BtnsDiv">
+        <div className="MainBtnsDiv">
           {/* 자습실 예약 */}
           <div className="SingleResvationDiv">
             <div className="btnDiv">
               <div className="imgDiv"> </div>
-              <div id="singleIcon"></div>
+              <div id="singleIcon1"></div>
               <span id="btnTitle">자습실 예약</span>
             </div>
           </div>
@@ -26,7 +26,7 @@ function Body() {
           <div className="MultiResvationDiv">
             <div className="btnDiv">
               <div className="imgDiv"> </div>
-              <div id="singleIcon"></div>
+              <div id="singleIcon2"></div>
               <span id="btnTitle">스터디룸 예약</span>
             </div>
           </div>
@@ -34,7 +34,7 @@ function Body() {
           <div className="BoardDiv">
             <div className="btnDiv">
               <div className="imgDiv"> </div>
-              <div id="singleIcon"></div>
+              <div id="singleIcon3"></div>
               <span id="btnTitle">게시판 보기</span>
             </div>
           </div>
@@ -42,7 +42,7 @@ function Body() {
           <div className="NoticeDiv">
             <div className="btnDiv">
               <div className="imgDiv"> </div>
-              <div id="singleIcon"></div>
+              <div id="singleIcon4"></div>
               <span id="btnTitle">공지사항</span>
             </div>
           </div>

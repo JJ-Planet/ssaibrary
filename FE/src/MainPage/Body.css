@@ -5,7 +5,7 @@
   left: -1px;
   top: 128px;
 
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 40px 40px 0px 0px;
 }
 
@@ -42,12 +42,11 @@
 
 #spareSeatLabel {
   position: absolute;
-  width: 75px;
-  height: 16px;
-  left: 45px;
-  top: 18px;
+  width: 59px;
+  height: 19px;
+  left: 51px;
+  top: 16px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -56,56 +55,64 @@
   align-items: center;
   text-align: center;
 
-  color: #E0D8D8;
+  color: #e0d8d8;
 }
 
 #spareSeatCnt {
   position: absolute;
-  width: 50px;
-  height: 25px;
-  left: 57px;
-  top: 44px;
+  width: 29px;
+  height: 29px;
+  left: 68px;
+  top: 42px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 29px;
+  /* identical to box height */
+
   display: flex;
   align-items: center;
   text-align: center;
 
-  color: #FFFFFF;
+  color: #ffffff;
 }
-
 
 #allSeatCnt {
   position: absolute;
-  width: 50px;
-  height: 25px;
-  left: 223px;
-  top: 44px;
+  width: 46px;
+  height: 29px;
+  left: 222px;
+  top: 42px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 29px;
+  /* identical to box height */
+
   display: flex;
   align-items: center;
   text-align: center;
 
-  color: #FFFFFF;
+  color: #ffffff;
+}
+
+.frame2 {
+  position: absolute;
+  width: 75px;
+  height: 51px;
+  left: 209px;
+  top: 18px;
 }
 
 #allSeatLabel {
   position: absolute;
-  width: 75px;
-  height: 16px;
-  left: 212px;
-  top: 18px;
+  width: 46px;
+  height: 19px;
+  left: 222px;
+  top: 16px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -114,7 +121,7 @@
   align-items: center;
   text-align: center;
 
-  color: #E0D8D8;
+  color: #e0d8d8;
 }
 
 .Contour {
@@ -122,14 +129,14 @@
   width: 85px;
   height: 0px;
   left: 120px;
-  top: 45px;
+  top: 43px;
 
-  border: 1px dashed #FEF9F9;
+  border: 1px dashed #fef9f9;
   transform: rotate(90deg);
   z-index: 2;
 }
 
-.BtnsDiv {
+.MainBtnsDiv {
   position: absolute;
   width: 329px;
   height: 228px;
@@ -152,7 +159,7 @@
   left: 31px;
   top: 0px;
 
-  background: #ECF4F3;
+  background: #ecf4f3;
   border-radius: 20px;
 }
 
@@ -163,18 +170,54 @@
   left: 12px;
   top: 10px;
 
-  background: #B6D8F2;
+  background: #b6d8f2;
   border-radius: 10px;
 }
 
-#singleIcon {
+#singleIcon1 {
   position: absolute;
   width: 35px;
   height: 35px;
   left: 15px;
   top: 12px;
 
-  background: url(../../public/laptop.png);
+  background: url(../assets/images/laptop.png);
+  background-size: 100% 100%;
+  border-radius: 10%;
+}
+
+#singleIcon2 {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  left: 15px;
+  top: 12px;
+
+  background: url(../assets/images/group.png);
+  background-size: 100% 100%;
+  border-radius: 10%;
+}
+
+#singleIcon3 {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: 19.5px;
+  top: 17px;
+
+  background: url(../assets/images/board.png);
+  background-size: 100% 100%;
+  border-radius: 10%;
+}
+
+#singleIcon4 {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: 19px;
+  top: 17px;
+
+  background: url(../assets/images/bulb.png);
   background-size: 100% 100%;
   border-radius: 10%;
 }
@@ -186,14 +229,12 @@
   left: 12px;
   top: 65px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
 
   color: #312082;
-
 }
 
 .MultiResvationDiv {
@@ -235,7 +276,7 @@
   left: 0px;
   top: 27px;
 
-  background: #DFECDD;
+  background: #dfecdd;
   border-radius: 20px;
 }
 
@@ -246,13 +287,12 @@
   left: 110px;
   top: 27px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 800;
   font-size: 18px;
   line-height: 19px;
 
-  color: #5B42CF;
+  color: #5b42cf;
 }
 
 #currentbtnTitleDesc {
@@ -262,18 +302,14 @@
   left: 110px;
   top: 50px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 16px;
   /* identical to box height */
 
-
-  color: #B3A7FF;
+  color: #b3a7ff;
 }
-
-
 
 #seatDivLabel {
   position: absolute;
@@ -282,14 +318,12 @@
   left: 0px;
   top: 0px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
 
   color: #000000;
-
 }
 
 #ancestors {
@@ -299,5 +333,7 @@
   left: 20px;
   top: 11px;
 
-  background: url(../../public/laptop.png);
+  background: url(../assets/images/ancestors.png);
+  background-size: 100% 100%;
+  border-radius: 10%;
 }

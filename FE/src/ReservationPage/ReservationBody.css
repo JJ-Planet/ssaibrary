@@ -1,0 +1,178 @@
+.Body {
+  position: absolute;
+  width: 390px;
+  height: 645px;
+  left: calc(50% - 390px / 2);
+  top: calc(50% - 645px / 2 + 5.5px);
+}
+.ReservationCardDiv {
+  position: absolute;
+  width: 350px;
+  height: 250px;
+  left: 20px;
+  top: 33px;
+}
+.ReservationCardDiv2 {
+  position: absolute;
+  width: 350px;
+  height: 250px;
+  left: 20px;
+  top: 333px;
+}
+.DateLabelDiv {
+  position: absolute;
+  width: 350px;
+  height: 35px;
+  left: 0px;
+  top: 0px;
+
+  background: #b6d8f2;
+  border-radius: 10px 10px 0px 0px;
+  z-index: 999;
+}
+.DateText {
+  position: absolute;
+  width: 160px;
+  height: 20px;
+  left: 15px;
+  top: 8px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+
+  color: #312082;
+}
+.ReservationDiv {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 350px;
+  height: 215px;
+  left: calc(50% - 350px / 2);
+  top: calc(50% - 215px / 2 + 16.5px);
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
+
+  border-radius: 0px 0px 10px 10px;
+}
+.ReservationDescDiv {
+  position: relative;
+  width: 281px;
+  height: 112px;
+  left: calc(50% - 281px / 2);
+  top: 25px;
+
+  background: #ecf4f3;
+  border-radius: 10px;
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.ReservationDescText {
+  position: absolute;
+  width: 107px;
+  height: 53px;
+  left: 17px;
+  top: 30px;
+}
+.SeatData {
+  position: absolute;
+  width: 107px;
+  height: 28px;
+  left: 0px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  align-items: center;
+
+  color: #312082;
+}
+.TimeData {
+  position: absolute;
+  width: 107px;
+  height: 25px;
+  left: 0px;
+  top: 29px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  align-items: center;
+
+  color: #312082;
+}
+.ImgBar {
+  position: absolute;
+  width: 107px;
+  height: 3px;
+  left: 17px;
+  top: 16px;
+
+  background: #60b7fa;
+}
+.QRImg {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 171px;
+  top: 16px;
+
+  background: url(../assets/images/QRImg.png);
+}
+.ShareBtnDiv {
+  position: absolute;
+  width: 130px;
+  height: 42px;
+  left: 35px;
+  top: 160px;
+
+  background: #ecf4f3;
+  border-radius: 20px;
+}
+.ShareText {
+  position: absolute;
+  width: 60px;
+  height: 26px;
+  left: 35px;
+  top: 8px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 28.5px;
+  text-align: center;
+
+  color: #312082;
+}
+.ResvationCancleBtnDiv {
+  position: absolute;
+  width: 130px;
+  height: 42px;
+  left: 185px;
+  top: 160px;
+
+  background: #ecf4f3;
+  border-radius: 20px;
+}
+.ResvationCancleText {
+  position: absolute;
+  width: 60px;
+  height: 26px;
+  left: 35px;
+  top: 8px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 28.5px;
+  align-items: center;
+  text-align: center;
+
+  color: #312082;
+}

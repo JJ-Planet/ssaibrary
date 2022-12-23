@@ -4,19 +4,17 @@
   height: 638px;
   left: 0px;
   top: 112px;
-
 }
-
 
 .accountMainDiv1 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px 0px 0px 10px;
+  padding: 0px 0px 0px 15px;
   gap: 30px;
 
   position: absolute;
-  width: 390px;
+  width: 375px;
   height: 158px;
   left: 0px;
   top: 0px;
@@ -40,17 +38,14 @@
   width: 65px;
   height: 22px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 637;
   font-size: 18px;
   line-height: 22px;
   /* identical to box height */
 
-
   color: #312082;
-  font-variation-settings: 'slnt' 0;
-
+  font-variation-settings: "slnt" 0;
 
   /* Inside auto layout */
 
@@ -60,8 +55,7 @@
 }
 
 .accountUpdateDiv {
-
-  width: 380px;
+  width: 375px;
   height: 20px;
 
   /* Inside auto layout */
@@ -78,7 +72,6 @@
   left: 0px;
   top: 1px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -87,27 +80,49 @@
   align-items: center;
 
   color: #312082;
-
 }
-
-.accountUpdateIcon {
-  position: relative;
+.accountUpdateIcon1 {
+  position: absolute;
   width: 16px;
   height: 16px;
-  left: 346px;
-  top: 1px;
+  right: 20px;
+  top: 90px;
+  opacity: 30%;
 
-  background-image: url(../../public/DefaultProfile.png);
+  background-image: url(../assets/images/arrowRight.png);
   background-size: 100% 100%;
   border-radius: 10%;
   z-index: 999;
 }
+.accountUpdateIcon2 {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: 20px;
+  top: 140px;
+  opacity: 30%;
 
+  background-image: url(../assets/images/arrowRight.png);
+  background-size: 100% 100%;
+  border-radius: 10%;
+  z-index: 999;
+}
+.accountUpdateIcon3 {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: 20px;
+  top: 190px;
+  opacity: 30%;
 
+  background-image: url(../assets/images/arrowRight.png);
+  background-size: 100% 100%;
+  border-radius: 10%;
+  z-index: 999;
+}
 .accountLogOutDiv {
-  width: 380px;
+  width: 375px;
   height: 20px;
-
 
   /* Inside auto layout */
 
@@ -123,7 +138,6 @@
   left: 0px;
   top: 0px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -142,7 +156,7 @@
   height: 16px;
   left: 346px;
   top: 2px;
-  background-image: url(../../public/DefaultProfile.png);
+  background-image: url(../assets/images/arrowRight.png);
   background-size: 100% 100%;
   border-radius: 10%;
   z-index: 999;
@@ -152,11 +166,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px 0px 0px 10px;
+  padding: 0px 0px 0px 15px;
   gap: 30px;
 
   position: absolute;
-  width: 390px;
+  width: 375px;
   height: 158px;
   left: 0px;
   top: 193px;
@@ -166,16 +180,13 @@
   width: 150px;
   height: 22px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;
   /* identical to box height */
 
-
   color: #312082;
-
 
   /* Inside auto layout */
 
@@ -185,9 +196,8 @@
 }
 
 .ReservationDiv {
-  width: 380px;
+  width: 375px;
   height: 20px;
-
 
   /* Inside auto layout */
 
@@ -197,9 +207,8 @@
 }
 
 .UsageHistoryDiv {
-  width: 380px;
+  width: 375px;
   height: 20px;
-
 
   /* Inside auto layout */
 
@@ -215,7 +224,6 @@
   left: 0px;
   top: 0px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -232,11 +240,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px 0px 0px 10px;
+  padding: 0px 0px 0px 15px;
   gap: 30px;
 
   position: absolute;
-  width: 390px;
+  width: 375px;
   height: 208px;
   left: 0px;
   top: 390px;
