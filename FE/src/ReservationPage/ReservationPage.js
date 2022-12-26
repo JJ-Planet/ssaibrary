@@ -1,16 +1,16 @@
 import React from "react";
 import Header from "./ReservationHeader";
-import Body from "./ReservationBody";
+import Main from "./ReservationMain";
 import Footer from "../MainPage/Footer";
 import "./Reservation.css";
-const Reservation = () => {
+const ReservationPage = () => {
   return (
     <div className="Reservation">
       <Header />
-      <Body />
+      <Main />
       <Footer />
     </div>
   );
 };
 
-export default Reservation;
+export default ReservationPage;

@@ -1,5 +1,5 @@
 import React from "react";
-import "./ReservationBody.css";
+import "./ReservationMain.css";
 function Body() {
   return (
     <>

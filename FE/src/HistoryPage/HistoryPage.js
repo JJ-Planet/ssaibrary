@@ -1,16 +1,16 @@
 import React from "react";
 import Header from "./HistoryHeader";
-import Body from "./HistoryBody";
+import Main from "./HistoryMain";
 import Footer from "../MainPage/Footer";
-import "./History.css";
-const Reservation = () => {
+import "./HistoryPage.css";
+const ReservationPage = () => {
   return (
     <div className="History">
       <Header />
-      <Body />
+      <Main />
       <Footer />
     </div>
   );
 };
 
-export default Reservation;
+export default ReservationPage;

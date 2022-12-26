@@ -1,16 +1,16 @@
 import React from "react";
 import Header from "./AccountHeader";
-import Body from "./AccountBody";
+import Main from "./AccountMain";
 import Footer from "../MainPage/Footer";
-import "./Account.css";
-const Account = () => {
+import "./AccountPage.css";
+const AccountPage = () => {
   return (
     <div className="Account">
       <Header />
-      <Body />
+      <Main />
       <Footer />
     </div>
   );
 };
 
-export default Account;
+export default AccountPage;

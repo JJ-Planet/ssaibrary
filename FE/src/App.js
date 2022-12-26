@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LandingPage from "./landingPage/Landing";
-import Account from "./AccountPage/Account";
-import Reservation from "./ReservationPage/Reservation";
-import History from "./HistoryPage/History";
-import Main from "./MainPage/Main";
+import LandingPage from "./landingPage/LandingPage";
+import Account from "./AccountPage/AccountPage";
+import Reservation from "./ReservationPage/ReservationPage";
+import History from "./HistoryPage/HistoryPage";
+import Main from "./MainPage/MainPage";
 import "./App.css";
 
 const App = () => {

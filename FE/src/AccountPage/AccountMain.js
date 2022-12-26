@@ -1,8 +1,8 @@
 import React from "react";
-import "./AccountBody.css";
+import "./AccountMain.css";
 import { Link } from "react-router-dom";
 
-function Body() {
+function Main() {
   return (
     <>
       <div className="accountMain">
@@ -53,4 +53,4 @@ function Body() {
   );
 }
 
-export default Body;
+export default Main;

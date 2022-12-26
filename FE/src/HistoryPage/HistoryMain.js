@@ -1,5 +1,5 @@
 import React from "react";
-import "./HistoryBody.css";
+import "./HistoryMain.css";
 
 // let [data, setData] = useState([]);
 
