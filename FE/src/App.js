@@ -6,6 +6,7 @@ import Reservation from "./ReservationPage/ReservationPage";
 import History from "./HistoryPage/HistoryPage";
 import Main from "./MainPage/MainPage";
 import Community from "./CommunityPage/CommunityPage";
+import Login from "./LoginPage/LoginPage";
 import "./App.css";
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/history" element={<History />}></Route>
           <Route path="/account/modify" element={<History />}></Route>
           <Route path="/community" element={<Community />}></Route>
+          <Route path="/login" element={<Login />}></Route>
           {/* <Route path="/product/*" element={<Product />}></Route> */}
           {/* 상단에 위치하는 라우트들의 규칙을 모두 확인, 일치하는 라우트가 없는경우 처리 */}
         </Routes>

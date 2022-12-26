@@ -7,7 +7,7 @@ function LandingPage() {
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <div className="App-logo">
-          <Link to="/main">
+          <Link to="/login">
             <span className="App-text">SSAIBRARY</span>
           </Link>
         </div>
