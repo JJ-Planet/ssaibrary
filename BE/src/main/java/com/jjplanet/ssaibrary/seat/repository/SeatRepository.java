@@ -11,5 +11,5 @@ import com.jjplanet.ssaibrary.seat.domain.Seat;
 public interface SeatRepository extends JpaRepository<Seat, Long> {
 
 	@Query(value = "select * from seat where id = :id", nativeQuery = true)
-	public Seat findOndById(@Param("id") Long id);
+	public Seat findOneById(@Param("id") Long id);
 }
