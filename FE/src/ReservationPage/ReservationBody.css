@@ -170,7 +170,8 @@
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
-  line-height: 28.5px;
+  /* line-height: 28.5px; */
+  display: flex;
   align-items: center;
   text-align: center;
 

@@ -1,5 +1,7 @@
 import React from "react";
 import "./AccountBody.css";
+import { Link } from "react-router-dom";
+
 function Body() {
   return (
     <>
@@ -8,8 +10,10 @@ function Body() {
           <div className="accountMainSeperator"> </div>
           <div className="MainDiv1Label">내 정보</div>
           <div className="accountUpdateDiv">
-            <span className="accountUpdateTitle">정보 수정</span>
-            <div className="accountUpdateIcon1"></div>
+            <Link to="/reservation">
+              <span className="accountUpdateTitle">정보 수정</span>
+              <div className="accountUpdateIcon1"></div>
+            </Link>
           </div>
           <div className="accountLogOutDiv">
             <div className="LogOutTitle">로그아웃</div>
@@ -19,7 +23,7 @@ function Body() {
         <div className="accountMainDiv2">
           <div className="accountMainSeperator"> </div>
           <div className="MainDiv2Label">예약 확인 및 관리</div>
-          <div className="ReservationDiv">
+          <div className="AccountReservationDiv">
             <div className="accountUpdateTitle">예약 확인</div>
             <div className="accountUpdateIcon1"></div>
           </div>

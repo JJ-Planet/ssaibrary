@@ -1,5 +1,5 @@
 import React from "react";
-import "./ReservationHeader.css";
+import "./HistoryHeader.css";
 import { Link } from "react-router-dom";
 function Header() {
   return (
@@ -10,13 +10,13 @@ function Header() {
       <div className="ReservationBtnsDiv">
         <Link to="/reservation">
           <div className="ReservationBtnDiv">
-            <span className="ReservationBtnText1">Reservation</span>
-            <div className="ShowingBar"></div>
+            <span className="ReservationBtnText">Reservation</span>
           </div>
         </Link>
         <Link to="/history">
           <div className="HistoryBtnDiv">
-            <span className="HistoryBtnText1">History</span>
+            <span className="HistoryBtnText">History</span>
+            <div className="ShowingBar"></div>
           </div>
         </Link>
       </div>
