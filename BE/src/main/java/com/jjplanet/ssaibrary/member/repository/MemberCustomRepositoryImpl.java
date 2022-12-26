@@ -14,11 +14,11 @@ public class MemberCustomRepositoryImpl implements MemberCustomRepository{
 	private final EntityManager em;
 	
     //상세조회
-	@Override
-	public Member findByNickname(String nickname) {
-        return em.createQuery("select c from Member c where c.nickname=:nickname", Member.class)
-                .setParameter("nickname", nickname)
-                .getSingleResult();
-	}
+//	@Override
+//	public Member findByNickname(String nickname) {
+//        return em.createQuery("select c from Member c where c.nickname=:nickname", Member.class)
+//                .setParameter("nickname", nickname)
+//                .getSingleResult();
+//	}
 
 }

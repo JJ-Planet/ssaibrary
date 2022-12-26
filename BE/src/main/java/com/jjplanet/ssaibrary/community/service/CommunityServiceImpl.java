@@ -20,11 +20,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CommunityServiceImpl implements CommunityService{
 	
-	private final CommunityRepository communityRepository;
+//	private final CommunityRepository communityRepository;
 	
 	//private final CommunityCustomRepositoryImpl communityCustomRepository;
 	
-	private final MemberRepository memberRepository;
+//	private final MemberRepository memberRepository;
 
 //	@Override
 //	public void insert(CommunityRequestDTO c) {

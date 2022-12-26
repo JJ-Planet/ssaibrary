@@ -13,8 +13,8 @@ public interface MemberRepository extends JpaRepository<Member, String>{
 	//Account
 	Optional<Member> findById(String id);
 	
-	//상세조회
-	@Query(value="select * from Member where nickname=:nickname")
-    Member findByNickname(@Param("nickname") String nickname);
+//	//상세조회
+//	@Query(value="select * from Member where nickname=:nickname")
+//    Member findByNickname(@Param("nickname") String nickname);
 
 }
