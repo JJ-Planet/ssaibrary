@@ -71,14 +71,14 @@ const rendering = () => {
   return result;
 };
 
-function Body() {
+function Main() {
   return (
     <>
-      <div className="Body">
+      <div className="HistoryMain">
         <div className="DataDiv">{rendering()}</div>
       </div>
     </>
   );
 }
 
-export default Body;
+export default Main;

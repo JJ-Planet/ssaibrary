@@ -23,6 +23,37 @@ const DataInfo = [
     desc: "IOS 14.1 버전 지원 종료 안내",
   },
   {
+    id: 5,
+    date: "2022.12.20",
+    desc: "IOS 14.1 버전 지원 종료 안내",
+  },
+  {
+    id: 6,
+    date: "2022.12.20",
+    desc: "IOS 14.1 버전 지원 종료 안내",
+  },
+  {
+    id: 7,
+    date: "2022.12.20",
+    desc: "IOS 14.1 버전 지원 종료 안내",
+  },
+  {
+    id: 8,
+    date: "2022.12.20",
+    desc: "IOS 14.1 버전 지원 종료 안내",
+  },
+  {
+    id: 9,
+    date: "2022.12.20",
+    desc: "IOS 14.1 버전 지원 종료 안내",
+  },
+  {
+    id: 10,
+    date: "2022.12.20",
+    desc: "IOS 14.1 버전 지원 종료 안내",
+  },
+  {
+    id: 11,
     date: "2022.12.20",
     desc: "IOS 14.1 버전 지원 종료 안내",
   },
@@ -33,9 +64,10 @@ const rendering = () => {
   for (let i = 0; i < DataInfo.length; i++) {
     result.push(
       <div className="Dummy" key={DataInfo[i].id}>
+        <div className="ArrowBottomImg"></div>
         <div className="Line"></div>
-        <span className="Data">{DataInfo[i].date}</span>
-        <span className="SubData">{DataInfo[i].desc}</span>
+        <span className="CommunityData">{DataInfo[i].date}</span>
+        <span className="CommunitySubData">{DataInfo[i].desc}</span>
       </div>
     );
   }

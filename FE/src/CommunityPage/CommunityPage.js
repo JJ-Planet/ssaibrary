@@ -1,14 +1,14 @@
 import React from "react";
 import Header from "./CommunityHeader";
 import Main from "./CommunityMain";
-// import Footer from "./Footer";
+import Footer from "../MainPage/Footer";
 import "./CommunityPage.css";
 const CommunityPage = () => {
   return (
     <div>
       <Header />
       <Main />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
