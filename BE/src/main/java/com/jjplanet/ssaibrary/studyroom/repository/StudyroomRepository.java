@@ -11,5 +11,5 @@ import com.jjplanet.ssaibrary.studyroom.domain.Studyroom;
 public interface StudyroomRepository extends JpaRepository<Studyroom, Long> {
 
 	@Query(value = "select * from studyroom where id = :id", nativeQuery = true)
-	public Studyroom findOndById(@Param("id") Long id);
+	public Studyroom findOneById(@Param("id") Long id);
 }

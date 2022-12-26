@@ -23,7 +23,7 @@ public class StudyroomServiceImpl implements StudyroomService {
 
 	@Override
 	public void updateStudyroom(Studyroom studyroom) throws Exception {
-		Studyroom updateStudyroom = studyroomRepository.findOndById(studyroom.getId());
+		Studyroom updateStudyroom = studyroomRepository.findOneById(studyroom.getId());
 
 		// if updateStudyroom == null
 
@@ -46,7 +46,7 @@ public class StudyroomServiceImpl implements StudyroomService {
 
 	@Override
 	public StudyroomDTO findStudyroomById(Long id) throws Exception {
-		Studyroom studyroom = studyroomRepository.findOndById(id);
+		Studyroom studyroom = studyroomRepository.findOneById(id);
 		StudyroomDTO studyroomDTO = new StudyroomDTO(studyroom.getId(), studyroom.getFloor(), studyroom.getSize(),
 				studyroom.getMaxUser(), studyroom.getStatus());
 		return studyroomDTO;

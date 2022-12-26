@@ -23,15 +23,15 @@ public class SeatServiceImpl implements SeatService {
 	
 	@Override
 	public void insertSeat(SeatDTO seatDTO) throws Exception {
-		Room room = roomRepository.findOndById(seatDTO.getRoomId());
+		Room room = roomRepository.findOneById(seatDTO.getRoomId());
 		Seat seat = new Seat(seatDTO.getId(), room, seatDTO.getPassword(), seatDTO.getStatus());
 		seatRepository.save(seat);
 	}
 
 	@Override
 	public void updateSeat(SeatDTO seatDTO) throws Exception {
-		Seat updateSeat = seatRepository.findOndById(seatDTO.getId());
-		Room room = roomRepository.findOndById(seatDTO.getRoomId());
+		Seat updateSeat = seatRepository.findOneById(seatDTO.getId());
+		Room room = roomRepository.findOneById(seatDTO.getRoomId());
 		
 		// if updateSeat == null
 
@@ -53,7 +53,7 @@ public class SeatServiceImpl implements SeatService {
 
 	@Override
 	public SeatDTO findSeatById(Long id) throws Exception {
-		Seat seat = seatRepository.findOndById(id);
+		Seat seat = seatRepository.findOneById(id);
 		SeatDTO seatDTO = new SeatDTO(seat.getId(), seat.getRoom().getId(), seat.getPassword(), seat.getStatus());
 		return seatDTO;
 	}
