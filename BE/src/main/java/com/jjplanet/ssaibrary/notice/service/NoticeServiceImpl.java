@@ -10,8 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.jjplanet.ssaibrary.member.domain.Member;
 import com.jjplanet.ssaibrary.member.repository.MemberRepository;
 import com.jjplanet.ssaibrary.notice.domain.Notice;
+import com.jjplanet.ssaibrary.notice.dto.FindAllNoticeDTO;
+import com.jjplanet.ssaibrary.notice.dto.InsertNoticeDTO;
 import com.jjplanet.ssaibrary.notice.dto.NoticeRequestDTO;
-import com.jjplanet.ssaibrary.notice.dto.NoticeResponseDTO;
 import com.jjplanet.ssaibrary.notice.repository.NoticeCustomRepositoryImpl;
 import com.jjplanet.ssaibrary.notice.repository.NoticeRepository;
 
@@ -21,92 +22,92 @@ import lombok.RequiredArgsConstructor;
 @Transactional
 @RequiredArgsConstructor
 public class NoticeServiceImpl implements NoticeService{
-	
+
 	private final NoticeRepository noticeRepository;
-	
+
 	private final NoticeCustomRepositoryImpl noticeCustomRepository;
-	
+
 	private final MemberRepository memberRepository;
 
-	//±€¿€º∫
+	//Í∏ÄÏûëÏÑ±
 	@Override
-	public void insert(NoticeRequestDTO n) {
-		Member writer = memberRepository.findById(n.getMemberId()).get();
-		
+	public void insertNotice(InsertNoticeDTO n) {
+		Member writer = memberRepository.findOneById(n.getMemberId()).get();
+
 		n.setStatus('V');
-		
+
 		Notice notice = new Notice(writer, n.getTitle(), n.getContent(), n.getRegisterDate(), n.getIsPriority(), n.getStatus());
-		
+
 		noticeRepository.save(notice);
 	}
 
-	//¿¸√º∏Ò∑œ¡∂»∏
+	//Ï†ÑÏ≤¥Î™©Î°ùÏ°∞Ìöå
 	@Override
-	public List<NoticeResponseDTO> getAllList() {
+	public List<FindAllNoticeDTO> findAllNotice() {
 
 		List<Notice> list = noticeCustomRepository.getAllList();
-		List<NoticeResponseDTO> outputList = new ArrayList<>();
-		
+		List<FindAllNoticeDTO> outputList = new ArrayList<>();
+
 
 		for(Notice n:list) {
 			Member writer = n.getMemberId();
-			NoticeResponseDTO output = new NoticeResponseDTO(n.getId(), writer.getId(), n.getTitle(), n.getContent(), n.getHitCount(), n.getRegisterDate(), n.getUpdateDate(), n.getIsPriority(), n.getStatus());
+			FindAllNoticeDTO output = new FindAllNoticeDTO(n.getId(), writer.getId(), n.getTitle(), n.getContent(), n.getHitCount(), n.getRegisterDate(), n.getUpdateDate(), n.getIsPriority(), n.getStatus());
 			outputList.add(output);
 		}
-		
+
 		return outputList;
 	}
 
-	//ªÛºº¡∂»∏
-	@Override
-	public NoticeResponseDTO getOneById(Long id) {
-		
-		Notice n = noticeCustomRepository.getOneById(id);
-		if(n==null) {
-			System.out.println("¡∏¿Á «œ¡ˆ æ ¥¬ ∞‘Ω√±€¿‘¥œ¥Ÿ.");
-		}
-		
-		NoticeResponseDTO notice = new NoticeResponseDTO(n.getId(), n.getMemberId().getId(), n.getTitle(), n.getContent(), n.getHitCount(), n.getRegisterDate(), n.getUpdateDate(), n.getIsPriority(), n.getStatus());
-		
-		return notice;
-	}
+	//ÏÉÅÏÑ∏Ï°∞Ìöå
+//	@Override
+//	public NoticeResponseDTO getOneById(Long id) {
+//
+//		Notice n = noticeCustomRepository.getOneById(id);
+//		if(n==null) {
+//			System.out.println("Ï°¥Ïû¨ ÌïòÏßÄ ÏïäÎäî Í≤åÏãúÍ∏ÄÏûÖÎãàÎã§.");
+//		}
+//
+//		NoticeResponseDTO notice = new NoticeResponseDTO(n.getId(), n.getMemberId().getId(), n.getTitle(), n.getContent(), n.getHitCount(), n.getRegisterDate(), n.getUpdateDate(), n.getIsPriority(), n.getStatus());
+//
+//		return notice;
+//	}
 
-	//±€ºˆ¡§
+	//Í∏ÄÏàòÏ†ï
 	@Override
 	public void update(Long id, NoticeRequestDTO n) {
-		
+
 		Member writer = memberRepository.findById(n.getMemberId()).get();
-		
+
 		if(writer==null || !writer.equals("admin")) {
-			System.out.println("ºˆ¡§«“ ºˆ æ¯Ω¿¥œ¥Ÿ.");
+			System.out.println("ÏàòÏ†ïÌï† Ïàò ÏóÜÏäµÎãàÎã§.");
 		}
-		
+
 		Notice notice = noticeCustomRepository.getOneById(id);
-		
+
 		notice.setTitle(n.getTitle());
 		notice.setContent(n.getContent());
 		notice.setUpdateDate(n.getUpdateDate());
 		notice.setIsPriority(n.getIsPriority());
 		//notice.setStatus(n.getStatus());
-		
+
 		noticeRepository.save(notice);
 	}
 
-	//±€ªË¡¶
+	//Í∏ÄÏÇ≠Ï†ú
 	@Override
 	public void delete(Long id) {
-		
+
 		Notice notice = noticeCustomRepository.getOneById(id);
-		
+
 		notice.setStatus('D');
-		
+
 		noticeRepository.save(notice);
-		
-		
-		
+
+
+
 	}
-	
-	
-	
+
+
+
 
 }

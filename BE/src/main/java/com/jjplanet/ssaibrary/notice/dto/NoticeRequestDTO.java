@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /*
- * post, put¿äÃ»
+ * post, putìš”ì²­
  */
 
 @Getter

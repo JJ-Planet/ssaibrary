@@ -24,56 +24,56 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Builder
-@AllArgsConstructor(access = AccessLevel.PROTECTED) //¸ğµç ÇÊµå °ªÀ» ÆÄ¶ó¹ÌÅÍ·Î ¹Ş´Â »ı¼ºÀÚ¸¦ ¸¸µê
-@NoArgsConstructor(access = AccessLevel.PROTECTED) //±âº»»ı¼ºÀÚ »ı¼º
-@Getter //getter »ı¼º
+@AllArgsConstructor(access = AccessLevel.PROTECTED) //ëª¨ë“  í•„ë“œ ê°’ì„ íŒŒë¼ë¯¸í„°ë¡œ ë°›ëŠ” ìƒì„±ìë¥¼ ë§Œë“¦
+@NoArgsConstructor(access = AccessLevel.PROTECTED) //ê¸°ë³¸ìƒì„±ì ìƒì„±
+@Getter //getter ìƒì„±
 public class Comment {
-	
-	//´ñ±Û¹øÈ£
+
+	//ëŒ“ê¸€ë²ˆí˜¸
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	//±Û¹øÈ£
+
+	//ê¸€ë²ˆí˜¸
 	@ManyToOne(cascade = CascadeType.REMOVE, targetEntity = Community.class)
 	@JoinColumn(name = "community_id")
 	//@Column(name = "community_id", nullable = false)
 	private int communityId;
-	
-	//ÀÛ¼ºÀÚ´Ğ³×ÀÓ
+
+	//ì‘ì„±ìë‹‰ë„¤ì„
 	@ManyToOne(targetEntity = Member.class, cascade = { CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE })
 	@JoinColumn(name = "member_nickname", referencedColumnName = "nickname")
 	//@Column(name = "member_nickname", nullable = false, length = 20)
 	private String memberNickname;
-	
-	//³»¿ë
+
+	//ë‚´ìš©
 	@Column(nullable = false, length = 2000)
 	private String content;
-	
-	//ºÎ¸ğ´ñ±Û
+
+	//ë¶€ëª¨ëŒ“ê¸€
 	@Column(name = "parent_id", nullable = false, columnDefinition = "DEFAULT 0")
 	private int parentId;
-	
-	//´ñ±Û°èÃş(±íÀÌ)
+
+	//ëŒ“ê¸€ê³„ì¸µ(ê¹Šì´)
 	@Column(name = "depth_no", nullable = false, columnDefinition = "DEFAULT 0")
 	private int depthNo;
-	
-	//Á¤·Ä¼ø¼­
+
+	//ì •ë ¬ìˆœì„œ
 	@Column(name = "order_no", nullable = false, columnDefinition = "DEFAULT 0")
 	private int orderNo;
-	
-	//ÁÁ¾Æ¿ä¼ö
+
+	//ì¢‹ì•„ìš”ìˆ˜
 	@Column(name = "like_count", nullable = true, columnDefinition = "DEFAULT 0")
 	private int likeCount;
-	
-	//µî·ÏÀÏ½Ã
+
+	//ë“±ë¡ì¼ì‹œ
 	@Column(name = "register_date", nullable = false, columnDefinition = "DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registerDate;
-	
-	//»óÅÂ(V:³ëÃâ,D:»èÁ¦,B:½Å°í)
+
+	//ìƒíƒœ(V:ë…¸ì¶œ,D:ì‚­ì œ,B:ì‹ ê³ )
 	@Column(nullable = false, columnDefinition = "CHAR(1) DEFAULT 'V'")
 	private char status;
-	
+
 
 }

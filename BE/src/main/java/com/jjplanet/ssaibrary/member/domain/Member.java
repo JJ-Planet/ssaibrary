@@ -20,66 +20,66 @@ import lombok.Setter;
 
 @Entity
 @Builder
-@AllArgsConstructor(access = AccessLevel.PROTECTED) //¸ğµç ÇÊµå °ªÀ» ÆÄ¶ó¹ÌÅÍ·Î ¹Ş´Â »ı¼ºÀÚ¸¦ ¸¸µê
-@NoArgsConstructor(access = AccessLevel.PROTECTED) //±âº»»ı¼ºÀÚ »ı¼º
-@Getter //getter »ı¼º
+@AllArgsConstructor(access = AccessLevel.PROTECTED) //ëª¨ë“  í•„ë“œ ê°’ì„ íŒŒë¼ë¯¸í„°ë¡œ ë°›ëŠ” ìƒì„±ìë¥¼ ë§Œë“¦
+@NoArgsConstructor(access = AccessLevel.PROTECTED) //ê¸°ë³¸ìƒì„±ì ìƒì„±
+@Getter //getter ìƒì„±
 public class Member {
 
-	
-	//¾ÆÀÌµğ(ÀüÈ­¹øÈ£)
+
+	//ì•„ì´ë””(ì „í™”ë²ˆí˜¸)
 	@Id
 	@Column(nullable = false, length = 20)
 	private String id;
-	
-	//ºñ¹Ğ¹øÈ£
+
+	//ë¹„ë°€ë²ˆí˜¸
 	@Setter
 	@Column(nullable = false, length = 255)
 	private String password;
-	
-	//jwtÅäÅ«
+
+	//jwtí† í°
 	@Column(name = "refresh_token", nullable = true, length = 255)
 	private String refreshToken;
-	
-	//ÀÌ¸§
+
+	//ì´ë¦„
 	@Setter
 	@Column(nullable = false, length = 20)
 	private String name;
-	
-	//´Ğ³×ÀÓ
+
+	//ë‹‰ë„¤ì„
 	@Setter
 	@Column(nullable = false, length = 20, unique = true)
 	private String nickname;
-	
-	//¿øº»ÀÌ¹ÌÁö¸í
+
+	//ì›ë³¸ì´ë¯¸ì§€ëª…
 	@Column(name = "origin_image", nullable = false, length = 255, columnDefinition = "DEFAULT 'default.jpg'")
 	private String originImage;
-	
-	//ÀúÀåÀÌ¹ÌÁö¸í
+
+	//ì €ì¥ì´ë¯¸ì§€ëª…
 	@Column(name = "save_image", nullable = false, length = 255, columnDefinition = "DEFAULT 'default.jpg'")
 	private String saveImage;
-	
-	//°¡ÀÔÀÏ½Ã
+
+	//ê°€ì…ì¼ì‹œ
 	@Column(name = "join_date", nullable = false, columnDefinition = "DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date joinDate;
-	
-	//Å»ÅğÀÏ½Ã
+
+	//íƒˆí‡´ì¼ì‹œ
 	@Setter
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "exit_date", nullable = true)
 	private Date exitDate; 
-	
-	//°ü¸®ÀÚ¿©ºÎ(Y:°ü¸®ÀÚ,N:ÀÏ¹İÈ¸¿ø)
+
+	//ê´€ë¦¬ìì—¬ë¶€(Y:ê´€ë¦¬ì,N:ì¼ë°˜íšŒì›)
 	@Column(name = "is_admin", nullable = false, columnDefinition = "CHAR(1) DEFAULT 'N'")
 	private char isAdmin;
 
-	//»óÅÂ(A:È°µ¿»óÅÂ,X:Å»Åğ»óÅÂ)
+	//ìƒíƒœ(A:í™œë™ìƒíƒœ,X:íƒˆí‡´ìƒíƒœ)
 	@Setter
 	@Column(nullable = false, columnDefinition = "CHAR(1) DEFAULT 'A'")
 	private char status;
-	
 
-	//È¸¿ø°¡ÀÔ
+
+	//íšŒì›ê°€ì…
 	@Builder
 	public Member(String id, String password, String name, String nickname, String originImage, String saveImage, Date joinDate, char isAdmin, char status) {
 		this.id = id;
@@ -92,8 +92,8 @@ public class Member {
 		this.isAdmin = isAdmin;
 		this.status = status;
 	}
-	
-	//È¸¿øÁ¤º¸¼öÁ¤
+
+	//íšŒì›ì •ë³´ìˆ˜ì •
 	@Builder
 	public Member(String name, String nickname, String password) {
 		this.name = name;
@@ -101,7 +101,7 @@ public class Member {
 		this.password = password;
 	}
 
-	
-	
+
+
 
 }

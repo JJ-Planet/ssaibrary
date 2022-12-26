@@ -1,18 +1,19 @@
 package com.jjplanet.ssaibrary.member.service;
 
-import com.jjplanet.ssaibrary.member.dto.MemberRequestDTO;
-import com.jjplanet.ssaibrary.member.dto.MemberResponseDTO;
+import com.jjplanet.ssaibrary.member.dto.DeleteMemberDTO;
+import com.jjplanet.ssaibrary.member.dto.FindMemberDTO;
+import com.jjplanet.ssaibrary.member.dto.JoinMemberDTO;
+import com.jjplanet.ssaibrary.member.dto.UpdateMemberDTO;
 
 public interface MemberService {
-	
-	void join(MemberRequestDTO m); //È¸¿ø°¡ÀÔ
-	
-	MemberResponseDTO getInfo(String id); //Account
-	
-	//public void deleteById(String id); //È¸¿ø»èÁ¦ - ¿¬½À¿ë
-	public MemberRequestDTO deleteMember(String id); //ÁøÂ¥ È¸¿ø»èÁ¦
-	
-	public MemberRequestDTO updateMember(MemberRequestDTO mydto); //È¸¿øÁ¤º¸¼öÁ¤
+
+	void joinMember(JoinMemberDTO m); //íšŒì›ê°€ì…
+
+	FindMemberDTO findMember(String id); //Account
+
+	public DeleteMemberDTO deleteMember(String id); //íšŒì›ì‚­ì œ
+
+	public UpdateMemberDTO updateMember(UpdateMemberDTO mydto); //íšŒì›ì •ë³´ìˆ˜ì •
 
 
 }

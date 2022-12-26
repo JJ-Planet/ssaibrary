@@ -7,7 +7,7 @@ import com.jjplanet.ssaibrary.community.domain.Community;
 import lombok.Getter;
 
 /*
- * get��û
+ * get 요청시
  */
 @Getter
 public class CommunityResponseDTO {

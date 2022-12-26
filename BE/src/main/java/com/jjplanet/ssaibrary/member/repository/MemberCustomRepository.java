@@ -4,7 +4,7 @@ import com.jjplanet.ssaibrary.member.domain.Member;
 
 public interface MemberCustomRepository {
 
-	//»ó¼¼Á¶È¸
+	//ì™¸ëž˜í‚¤ ì°¸ì¡°
 //	Member findByNickname(String nickname);
 
 }

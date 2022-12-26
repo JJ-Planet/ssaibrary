@@ -26,6 +26,7 @@ public class CommunityServiceImpl implements CommunityService{
 	
 //	private final MemberRepository memberRepository;
 
+	//글작성
 //	@Override
 //	public void insert(CommunityRequestDTO c) {
 //		

@@ -24,40 +24,40 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Builder
-@AllArgsConstructor(access = AccessLevel.PROTECTED) //¸ğµç ÇÊµå °ªÀ» ÆÄ¶ó¹ÌÅÍ·Î ¹Ş´Â »ı¼ºÀÚ¸¦ ¸¸µê
-@NoArgsConstructor(access = AccessLevel.PROTECTED) //±âº»»ı¼ºÀÚ »ı¼º
-@Getter //getter »ı¼º
+@AllArgsConstructor(access = AccessLevel.PROTECTED) //ëª¨ë“  í•„ë“œ ê°’ì„ íŒŒë¼ë¯¸í„°ë¡œ ë°›ëŠ” ìƒì„±ìë¥¼ ë§Œë“¦
+@NoArgsConstructor(access = AccessLevel.PROTECTED) //ê¸°ë³¸ìƒì„±ì ìƒì„±
+@Getter //getter ìƒì„±
 public class Inquiry {
-	
-	//±Û¹øÈ£
+
+	//ê¸€ë²ˆí˜¸
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	//ÀÛ¼ºÀÚ´Ğ³×ÀÓ
+
+	//ì‘ì„±ìë‹‰ë„¤ì„
 	//@Column(name = "member_nickname", nullable = false, length = 20)
 	@ManyToOne(targetEntity = Member.class, cascade = { CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE })
 	@JoinColumn(name = "member_nickname", referencedColumnName = "nickname")
 	private String memberNickname;
-	
-	//Á¦¸ñ
+
+	//ì œëª©
 	@Column(nullable = false, length = 100)
 	private String title;
-	
-	//Áú¹®
+
+	//ì§ˆë¬¸
 	@Column(nullable = false, length = 2000)
 	private String question;
-	
-	//´äº¯
+
+	//ë‹µë³€
 	@Column(nullable = true, length = 2000)
 	private String answer;
-	
-	//µî·ÏÀÏ½Ã
+
+	//ë“±ë¡ì¼ì‹œ
 	@Column(name = "register_date", nullable = false, columnDefinition = "DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registerDate;
-	
-	//»óÅÂ(W:´äº¯´ë±â,C:´äº¯¿Ï·á,D:»èÁ¦)
+
+	//ìƒíƒœ(W:ë‹µë³€ëŒ€ê¸°,C:ë‹µë³€ì™„ë£Œ,D:ì‚­ì œ)
 	@Column(nullable = false, columnDefinition = "CHAR(1) DEFAULT 'W'")
 	private char status;
 

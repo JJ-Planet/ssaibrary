@@ -13,7 +13,7 @@ public class MemberCustomRepositoryImpl implements MemberCustomRepository{
 	
 	private final EntityManager em;
 	
-    //»ó¼¼Á¶È¸
+	//ì™¸ëž˜í‚¤ ì°¸ì¡°
 //	@Override
 //	public Member findByNickname(String nickname) {
 //        return em.createQuery("select c from Member c where c.nickname=:nickname", Member.class)

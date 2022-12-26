@@ -4,7 +4,7 @@ import com.jjplanet.ssaibrary.community.dto.CommunityRequestDTO;
 
 public interface CommunityService {
 	
-	//±ÛÀÛ¼º
+	//ê¸€ìž‘ì„±
 //	void insert(CommunityRequestDTO c);
 
 }

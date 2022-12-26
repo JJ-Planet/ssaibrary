@@ -26,58 +26,58 @@ import lombok.Setter;
 
 @Entity
 @Builder
-@AllArgsConstructor(access = AccessLevel.PROTECTED) //¸ğµç ÇÊµå °ªÀ» ÆÄ¶ó¹ÌÅÍ·Î ¹Ş´Â »ı¼ºÀÚ¸¦ ¸¸µê
-@NoArgsConstructor(access = AccessLevel.PROTECTED) //±âº»»ı¼ºÀÚ »ı¼º
-@Getter //getter »ı¼º
+@AllArgsConstructor(access = AccessLevel.PROTECTED) //ëª¨ë“  í•„ë“œ ê°’ì„ íŒŒë¼ë¯¸í„°ë¡œ ë°›ëŠ” ìƒì„±ìë¥¼ ë§Œë“¦
+@NoArgsConstructor(access = AccessLevel.PROTECTED) //ê¸°ë³¸ìƒì„±ì ìƒì„±
+@Getter //getter ìƒì„±
 public class Notice {
-	
-	//±Û¹øÈ£
+
+	//ê¸€ë²ˆí˜¸
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) //Auto_Increment¸¦ Áö¿øÇØÁÜ.
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //Auto_Incrementë¥¼ ì§€ì›í•´ì¤Œ.
 	private Long id;
-	
-	//ÀÛ¼ºÀÚ¾ÆÀÌµğ
+
+	//ì‘ì„±ìì•„ì´ë””
 	//@Column(name = "member_id", nullable = false, length = 20)
 	@ManyToOne(targetEntity = Member.class, cascade = CascadeType.REMOVE)
-	@JoinColumn(name = "member_id") //±âº»Å°¸¦ ÂüÁ¶ÇÏ¹Ç·Î referencedColumnName »ı·«ÇÔ.
+	@JoinColumn(name = "member_id") //ê¸°ë³¸í‚¤ë¥¼ ì°¸ì¡°í•˜ë¯€ë¡œ referencedColumnName ìƒëµí•¨.
 	private Member memberId;
-	
-	//Á¦¸ñ
+
+	//ì œëª©
 	@Setter
 	@Column(nullable = false, length = 100)
 	private String title;
-	
-	//³»¿ë
+
+	//ë‚´ìš©
 	@Setter
 	@Column(nullable = false, length = 2000)
 	private String content;
-	
-	//Á¶È¸¼ö
+
+	//ì¡°íšŒìˆ˜
 	@Column(name = "hit_count", nullable = false, columnDefinition = "DEFAULT 0")
 	private int hitCount;
-	
-	//µî·ÏÀÏ½Ã
+
+	//ë“±ë¡ì¼ì‹œ
 	@Column(name = "register_date", nullable = false, columnDefinition = "DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registerDate;
-	
-	//¼öÁ¤ÀÏ½Ã
+
+	//ìˆ˜ì •ì¼ì‹œ
 	@Setter
 	@Column(name = "update_date", nullable = true)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updateDate;
-	
-	//ÁÖ¿ä°øÁö»çÇ×¿©ºÎ(Y:ÁÖ¿ä°øÁö»çÇ×,N:ÀÏ¹İ°øÁö»çÇ×)
+
+	//ì£¼ìš”ê³µì§€ì‚¬í•­ì—¬ë¶€(Y:ì£¼ìš”ê³µì§€ì‚¬í•­,N:ì¼ë°˜ê³µì§€ì‚¬í•­)
 	@Setter
 	@Column(name = "is_priority", nullable = false, columnDefinition = "CHAR(1) DEFAULT 'N'")
 	private char isPriority;
-	
-	//»óÅÂ(V:³ëÃâ,D:»èÁ¦)
+
+	//ìƒíƒœ(V:ë…¸ì¶œ,D:ì‚­ì œ)
 	@Setter
 	@Column(nullable = false, columnDefinition = "CHAR(1) DEFAULT 'V'")
 	private char status;
-	
-	//±ÛÀÛ¼º
+
+	//ê¸€ì‘ì„±
 	@Builder
 	public Notice(Member memberId, String title, String content, Date registerDate, char isPriority, char status) {
 		this.memberId = memberId;
@@ -94,7 +94,7 @@ public class Notice {
 				+ ", hitCount=" + hitCount + ", registerDate=" + registerDate + ", updateDate=" + updateDate
 				+ ", isPriority=" + isPriority + ", status=" + status + "]";
 	}
-	
-	
-	
+
+
+
 }

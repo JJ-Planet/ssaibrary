@@ -9,12 +9,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /*
- * get¿äÃ»
+ * getìš”ì²­
  */
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class NoticeResponseDTO {
+public class FindAllNoticeDTO {
 	
 	private Long id;
 	private String memberId;

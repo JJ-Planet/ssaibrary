@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /*
- * POST, PUT¿äÃ»
+ * POST, PUTìš”ì²­
  */
 
 @Getter
@@ -18,42 +18,42 @@ import lombok.Setter;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class MemberRequestDTO {
-	
+
 	private String id;
 	private String password;
-	private String refreshToken;
+	//private String refreshToken;
 	private String name;
 	private String nickname;
 	private String originImage;
 	private String saveImage;
 	private Date joinDate;
-	private Date exitDate;
+	//private Date exitDate;
 	private char isAdmin;
 	private char status;
-	
 
-	//È¸¿øÁ¤º¸¼öÁ¤
+
+	//íšŒì›ì •ë³´ìˆ˜ì •
 	@Builder
 	public MemberRequestDTO(String name, String nickname, String password) {
 		this.name = name;
 		this.nickname = nickname;
 		this.password = password;
 	}
-	
-	//ÁøÂ¥È¸¿ø»èÁ¦
-	@Builder
-	public MemberRequestDTO(Date exitDate, char status) {
-		this.exitDate = exitDate;
-		this.status = status;
-	}
 
-	@Override
-	public String toString() {
-		return "MemberRequestDTO [id=" + id + ", password=" + password + ", refreshToken=" + refreshToken + ", name="
-				+ name + ", nickname=" + nickname + ", originImage=" + originImage + ", saveImage=" + saveImage
-				+ ", joinDate=" + joinDate + ", exitDate=" + exitDate + ", isAdmin=" + isAdmin + ", status=" + status
-				+ "]";
-	}
-	
-	
+//	//ì§„ì§œíšŒì›ì‚­ì œ
+//	@Builder
+//	public MemberRequestDTO(Date exitDate, char status) {
+//		this.exitDate = exitDate;
+//		this.status = status;
+//	}
+
+//	@Override
+//	public String toString() {
+//		return "MemberRequestDTO [id=" + id + ", password=" + password + ", refreshToken=" + refreshToken + ", name="
+//				+ name + ", nickname=" + nickname + ", originImage=" + originImage + ", saveImage=" + saveImage
+//				+ ", joinDate=" + joinDate + ", exitDate=" + exitDate + ", isAdmin=" + isAdmin + ", status=" + status
+//				+ "]";
+//	}
+
+
 }
