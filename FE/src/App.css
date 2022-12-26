@@ -5,26 +5,25 @@
   src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.eot");
   src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.eot?#iefix")
       format("embedded-opentype"),
-    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.woff2") format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.woff2")
+      format("woff2"),
     url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.woff") format("woff"),
-    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.ttf") format("truetype");
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.ttf")
+      format("truetype");
   font-display: swap;
 }
 
 .App {
-  /* position: absolute; */
   position: relative;
-  margin: auto;
-  /* width: 390px; */
+  width: 390px;
   height: 844px;
   overflow: hidden;
-  left: 0px;
-  top: 0px;
 
-  line-height: 844px;
+  left: 0px;
 
   background: #ecf4f3;
   border-radius: 20px;
+  margin: auto;
 
   font-family: "Pretendard";
 }
