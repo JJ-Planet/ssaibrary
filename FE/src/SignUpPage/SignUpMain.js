@@ -5,7 +5,7 @@ function Main() {
   return (
     <>
       <div className="SignUpMain">
-        <div className="SignUpInputsDiv">
+        <div className="SignUpInputsDiv1234567">
           <div className="SignUpIDDiv">
             <span className="SignUpIDLabel">ID</span>
             <form>
@@ -52,13 +52,55 @@ function Main() {
             <span className="SignUpAuthBtnLabel">인증하기</span>
             <div className="SignUpAuthBtn"></div>
           </div>
-          <div className="SignUpAccept1">
-            <div className="SignUpAccept1CB"></div>
-            <span className="SignUpAccept1Text">전체동의</span>
+          <div className="SignUpAcceptDiv">
+            <div className="SignUpAcceptCB CB1"></div>
+            <span className="SignUpAcceptText AcceptText1">전체 동의</span>
             <div className="SignUpSeperator2"></div>
+            <div className="SignUpAcceptCB CB2"></div>
+            <div className="SignUpAcceptText AcceptText2">
+              <span className="MandatoryOption">[필수]</span>
+              <span>이용약관 동의</span>
+              <span className="SignUpLink">보기</span>
+            </div>
+            <div className="SignUpAcceptCB CB3"></div>
+            <div className="SignUpAcceptText AcceptText3">
+              <span className="MandatoryOption">[필수]</span>
+              <span>개인정보 처리방침 동의</span>
+              <span className="SignUpLink">보기</span>
+            </div>
+            <div className="SignUpAcceptCB CB4"></div>
+            <div className="SignUpAcceptText AcceptText4">
+              <span className="MandatoryOption">[필수]</span>
+              <span>위치정보 처리방침 동의</span>
+              <span className="SignUpLink">보기</span>
+            </div>
+            <div className="SignUpAcceptCB CB5"></div>
+            <div className="SignUpAcceptText AcceptText5">
+              <span className="OptionalOption">[선택]</span>
+              <span>마켓팅 정보 수신 선택 동의</span>
+            </div>
+            <div className="SignUpAcceptCB CB6"></div>
+            <div className="SignUpAcceptText AcceptText6">
+              <span className="OptionalOption">[선택]</span>
+              <span>이메일 수신 동의</span>
+            </div>
+            <div className="SignUpAcceptCB CB7"></div>
+            <div className="SignUpAcceptText AcceptText7">
+              <span className="OptionalOption">[선택]</span>
+              <span>SMS 수신 동의</span>
+            </div>
+          </div>
+          <div className="SignUpBtnDivs">
+            <div className="SignUpReigsterBtnDiv">
+              <span className="SingUpBtnText">회원 가입</span>
+              <div className="SingUpBtn"></div>
+            </div>
+            <div className="SignUpInitBtnDiv">
+              <span className="SignUpClearBtnDivText">초기화</span>
+              <div className="SignUpClearBtn"></div>
+            </div>
           </div>
         </div>
-        {/* <div></div> */}
       </div>
     </>
   );

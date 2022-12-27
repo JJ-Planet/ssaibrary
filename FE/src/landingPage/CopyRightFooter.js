@@ -5,7 +5,8 @@ function CopyRightFooter() {
     <>
       <div className="CopyRightFooter">
         <span className="CopyRightTitle">
-          Copy Right <br></br>©JJ Planet All Rights Reserved
+          Copy Right <br></br>
+          <a href="https://github.com/JJ-Planet">©JJ Planet All Rights Reserved</a>
         </span>
       </div>
     </>

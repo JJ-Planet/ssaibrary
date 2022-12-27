@@ -5,12 +5,31 @@ input {
 
 .SignUpMain {
   position: absolute;
-  width: 350px;
-  height: 500px;
+  width: 340px;
+  height: 550px;
   left: 30px;
-  top: 240px;
+  top: 200px;
   overflow: scroll;
+  overflow-x: hidden;
 }
+
+/* Scroll Option Adjust*/
+.SignUpMain::-webkit-scrollbar {
+  width: 5px;
+}
+
+.SignUpMain::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: gray;
+}
+
+.SignUpMain::-webkit-scrollbar-track {
+  background-color: #ecf4f3;
+
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px #ecf4f3;
+}
+
 
 .SignUpSeperator1 {
   box-sizing: border-box;
@@ -301,47 +320,12 @@ input {
   border-radius: 20px;
 }
 
-.SignUpAccept1 {
+.SignUpAcceptDiv {
   position: absolute;
   width: 80px;
   height: 20px;
   left: 0px;
   top: 651px;
-}
-
-.SignUpAccept1CB {
-  box-sizing: border-box;
-
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  left: 0px;
-  top: 1px;
-
-  background: #FFFFFF;
-  mix-blend-mode: normal;
-  border: 1px solid rgba(0, 0, 0, 0.35);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-}
-
-.SignUpAccept1Text {
-  position: absolute;
-  width: 60px;
-  height: 20px;
-  left: 29px;
-  top: 0px;
-
-  font-family: 'Itim';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 16px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-
-  color: #000000;
 }
 
 .SignUpSeperator2 {
@@ -356,4 +340,207 @@ input {
   background: #FFFFFF;
   border: 1px solid #E4E4F4;
   border-radius: 5px;
+}
+
+.SignUpAcceptCB {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 0px;
+
+  box-sizing: border-box;
+  background: #FFFFFF;
+  mix-blend-mode: normal;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.SignUpAcceptText {
+  position: absolute;
+  width: 300px;
+  height: 20px;
+  left: 29px;
+  line-height: 16px;
+
+  font-family: 'Itim';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+
+
+.CB1 {
+  top: 1px;
+}
+
+.CB2 {
+  top: 53px;
+}
+
+.CB3 {
+  top: 91px;
+}
+
+.CB4 {
+  top: 129px;
+}
+
+.CB5 {
+  top: 167px;
+}
+
+.CB6 {
+  top: 205px;
+}
+
+.CB7 {
+  top: 243px;
+}
+
+.AcceptText1 {
+  width: 100px;
+  top: 0px;
+  font-size: 20px;
+}
+
+.AcceptText2 {
+  top: 53px;
+}
+
+.AcceptText3 {
+  top: 91px;
+}
+
+.AcceptText4 {
+  top: 129px;
+}
+
+.AcceptText5 {
+  top: 167px;
+}
+
+.AcceptText6 {
+  top: 205px;
+}
+
+.AcceptText7 {
+  top: 243px;
+}
+
+.SignUpLink {
+  position: absolute;
+  right: 10px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-decoration-line: underline;
+
+  color: rgba(0, 0, 0, 0.37);
+}
+
+.MandatoryOption {
+  color: rgba(49, 32, 130, 0.73);
+  padding-right: 5px;
+}
+
+.OptionalOption {
+  padding-right: 5px;
+}
+
+.SignUpBtnDivs {
+  position: absolute;
+  width: 80px;
+  height: 20px;
+  left: 0px;
+  top: 950px;
+}
+
+.SignUpReigsterBtnDiv {
+  position: relative;
+  width: 304px;
+  height: 47px;
+  left: 1px;
+  top: 0px;
+}
+
+.SingUpBtnText {
+  position: absolute;
+  width: 70px;
+  height: 20px;
+  left: 120px;
+  top: 14px;
+
+  font-family: 'Itim';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #FFFFFF;
+  z-index: 1;
+}
+
+.SingUpBtn {
+  position: absolute;
+  width: 304px;
+  height: 47px;
+  left: 0px;
+  top: 0px;
+
+  background: rgba(51, 28, 158, 0.74);
+  border-radius: 20px;
+}
+
+.SignUpInitBtnDiv {
+  position: absolute;
+  width: 304px;
+  height: 47px;
+  left: 0px;
+  top: 68px;
+}
+
+.SignUpClearBtnDivText {
+  position: absolute;
+  width: 45px;
+  height: 20px;
+  left: 130px;
+  top: 14px;
+
+  font-family: 'Itim';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #FFFFFF;
+  z-index: 1;
+}
+
+.SignUpClearBtn {
+  position: absolute;
+  width: 304px;
+  height: 47px;
+  left: 0px;
+  top: 0px;
+
+  background: rgba(51, 28, 158, 0.74);
+  border-radius: 20px;
 }
