@@ -2,11 +2,9 @@ package com.jjplanet.ssaibrary.seat.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
 public class SeatDTO {
 
 	// 좌석번호

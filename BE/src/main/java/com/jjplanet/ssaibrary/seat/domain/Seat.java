@@ -6,10 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import com.jjplanet.ssaibrary.room.domain.Room;
@@ -18,7 +16,6 @@ import com.jjplanet.ssaibrary.room.domain.Room;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Seat {
 	
 	// 좌석번호

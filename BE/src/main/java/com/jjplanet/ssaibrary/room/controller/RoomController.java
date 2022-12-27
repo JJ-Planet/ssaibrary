@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jjplanet.ssaibrary.room.domain.Room;
 import com.jjplanet.ssaibrary.room.dto.RoomDTO;
 import com.jjplanet.ssaibrary.room.service.RoomService;
 
@@ -24,13 +23,13 @@ public class RoomController {
 	private RoomService roomService;
 
 	@PostMapping
-	public void insertRoom(@RequestBody Room room) throws Exception {
-		roomService.insertRoom(room);
+	public void insertRoom(@RequestBody RoomDTO roomDTO) throws Exception {
+		roomService.insertRoom(roomDTO);
 	}
 
 	@PutMapping("/{id}")
-	public void updateRoom(@RequestBody Room room) throws Exception {
-		roomService.updateRoom(room);
+	public void updateRoom(@RequestBody RoomDTO roomDTO) throws Exception {
+		roomService.updateRoom(roomDTO);
 	}
 
 	@DeleteMapping("/{id}")
@@ -45,7 +44,6 @@ public class RoomController {
 
 	@GetMapping("/{id}")
 	public RoomDTO findRoomById(@PathVariable Long id) throws Exception {
-		System.out.println("id : " + id);
 		return roomService.findRoomById(id);
 	}
 }
