@@ -23,6 +23,6 @@ public interface NoticeService {
 	void updateNotice(UpdateNoticeDTO n);
 
 	//글삭제
-	void delete(Long id);
+	void deleteNotice(Long id);
 
 }

@@ -95,7 +95,7 @@ public class NoticeServiceImpl implements NoticeService{
 
 	//글삭제
 	@Override
-	public void delete(Long id) {
+	public void deleteNotice(Long id) {
 
 		Notice notice = noticeCustomRepository.getOneById(id);
 
