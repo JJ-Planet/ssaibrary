@@ -13,7 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.jjplanet.ssaibrary.community.dto.CommunityRequestDTO;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jjplanet.ssaibrary.member.domain.Member;
 
 import lombok.AccessLevel;
@@ -21,6 +23,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /*
  * pk가 아닌 컬럼을 참조할 때 referencedColumnName을 꼭!! 적어줘야함.
@@ -49,10 +52,12 @@ public class Community {
 	private Member memberNickname;
 
 	// 제목
+	@Setter
 	@Column(nullable = false, length = 100)
 	private String title;
 
 	// 내용
+	@Setter
 	@Column(nullable = false, length = 2000)
 	private String content;
 
@@ -65,20 +70,24 @@ public class Community {
 	private int likeCount;
 
 	// 등록일시
+//	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+//	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "Asia/Seoul")
 	@Column(name = "register_date", nullable = false, columnDefinition = "DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registerDate;
 
 	// 수정일시
+	@Setter
 	@Column(name = "update_date", nullable = true)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updateDate;
 
 	// 상태(V:노출,D:삭제,B:신고)
+	@Setter
 	@Column(nullable = false, columnDefinition = "CHAR(1) DEFAULT 'V'")
 	private char status;
 
-	//글작성
+	// 글작성
 	@Builder
 	public Community(Member memberNickname, String title, String content, Date registerDate, char status) {
 		this.memberNickname = memberNickname;

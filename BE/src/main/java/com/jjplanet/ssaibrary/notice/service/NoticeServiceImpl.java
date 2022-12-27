@@ -29,9 +29,7 @@ import lombok.RequiredArgsConstructor;
 public class NoticeServiceImpl implements NoticeService{
 
 	private final NoticeRepository noticeRepository;
-
 	private final NoticeCustomRepositoryImpl noticeCustomRepository;
-
 	private final MemberRepository memberRepository;
 
 	//글작성
@@ -70,7 +68,7 @@ public class NoticeServiceImpl implements NoticeService{
 
 		Notice n = noticeCustomRepository.findOneById(id);
 		if(n==null) {
-			System.out.println("존재 하지 않는 게시글입니다.");
+			throw new NotFoundException("존재 하지 않는 게시글입니다.");
 		}
 
 		FindOneNoticeByIdDTO notice = new FindOneNoticeByIdDTO(n.getId(), n.getMemberId().getId(), n.getTitle(), n.getContent(), n.getHitCount(), n.getRegisterDate(), n.getUpdateDate(), n.getIsPriority(), n.getStatus());
