@@ -4,8 +4,9 @@ import java.util.List;
 
 import com.jjplanet.ssaibrary.notice.domain.Notice;
 import com.jjplanet.ssaibrary.notice.dto.FindAllNoticeDTO;
+import com.jjplanet.ssaibrary.notice.dto.FindOneNoticeByIdDTO;
 import com.jjplanet.ssaibrary.notice.dto.InsertNoticeDTO;
-import com.jjplanet.ssaibrary.notice.dto.NoticeRequestDTO;
+import com.jjplanet.ssaibrary.notice.dto.UpdateNoticeDTO;
 
 public interface NoticeService {
 
@@ -16,10 +17,10 @@ public interface NoticeService {
 	List<FindAllNoticeDTO> findAllNotice(); 
 
 	//상세조회
-	//NoticeResponseDTO getOneById(Long id);
+	FindOneNoticeByIdDTO findOneNoticeById(Long id);
 
 	//글수정
-	void update(Long id, NoticeRequestDTO n);
+	void updateNotice(UpdateNoticeDTO n);
 
 	//글삭제
 	void delete(Long id);

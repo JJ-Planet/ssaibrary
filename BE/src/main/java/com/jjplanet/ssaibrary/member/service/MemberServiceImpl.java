@@ -48,7 +48,7 @@ public class MemberServiceImpl implements MemberService{
 
 	//회원삭제
 	public DeleteMemberDTO deleteMember(String id) {
-		Member m = memberRepository.findById(id).get();
+		Member m = memberRepository.findOneById(id).get();
 
 		if(m==null) {
 			System.out.println("유효한 회원이 아닙니다.");
@@ -69,7 +69,7 @@ public class MemberServiceImpl implements MemberService{
 
 	//회원정보수정
 	public UpdateMemberDTO updateMember(UpdateMemberDTO mydto) {
-		Member m = memberRepository.findById(mydto.getId()).get();
+		Member m = memberRepository.findOneById(mydto.getId()).get();
 
 		if(m==null) {
 			System.out.println("유효한 회원이 아닙니다.");

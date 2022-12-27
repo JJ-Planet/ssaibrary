@@ -15,7 +15,6 @@ import javax.persistence.TemporalType;
 
 import com.jjplanet.ssaibrary.community.domain.Community;
 import com.jjplanet.ssaibrary.member.domain.Member;
-import com.jjplanet.ssaibrary.notice.dto.NoticeRequestDTO;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
