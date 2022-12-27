@@ -5,11 +5,11 @@ import java.util.Date;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.jjplanet.ssaibrary.exception.NotFoundException;
 import com.jjplanet.ssaibrary.member.domain.Member;
 import com.jjplanet.ssaibrary.member.dto.DeleteMemberDTO;
 import com.jjplanet.ssaibrary.member.dto.FindMemberDTO;
 import com.jjplanet.ssaibrary.member.dto.JoinMemberDTO;
-import com.jjplanet.ssaibrary.member.dto.MemberRequestDTO;
 import com.jjplanet.ssaibrary.member.dto.UpdateMemberDTO;
 import com.jjplanet.ssaibrary.member.repository.MemberRepository;
 
@@ -24,12 +24,23 @@ public class MemberServiceImpl implements MemberService{
 
 	//회원가입
 	@Override
-	public void joinMember(JoinMemberDTO m) {
+	public void joinMember(JoinMemberDTO m) throws NotFoundException {
 		Member member = new Member(m.getId(), m.getPassword(), m.getName(), m.getNickname(), m.getOriginImage(), m.getSaveImage(), m.getJoinDate(), m.getIsAdmin(), m.getStatus());
 
+		duplicateNickname(member.getNickname());
+		
 		memberRepository.save(member);
-	}
+		System.out.println("success");
 
+	}
+	
+	//닉네임 중복체크
+	private void duplicateNickname(String nickname) {
+		if(memberRepository.findByNickname(nickname)!=null) {
+			throw new NotFoundException("중복된 닉네임입니다.");
+		}
+		
+	}
 	//Account
 	@Override
 	public FindMemberDTO findMember(String id) {
@@ -48,7 +59,7 @@ public class MemberServiceImpl implements MemberService{
 
 	//회원삭제
 	public DeleteMemberDTO deleteMember(String id) {
-		Member m = memberRepository.findById(id).get();
+		Member m = memberRepository.findOneById(id).get();
 
 		if(m==null) {
 			System.out.println("유효한 회원이 아닙니다.");
@@ -69,7 +80,7 @@ public class MemberServiceImpl implements MemberService{
 
 	//회원정보수정
 	public UpdateMemberDTO updateMember(UpdateMemberDTO mydto) {
-		Member m = memberRepository.findById(mydto.getId()).get();
+		Member m = memberRepository.findOneById(mydto.getId()).get();
 
 		if(m==null) {
 			System.out.println("유효한 회원이 아닙니다.");

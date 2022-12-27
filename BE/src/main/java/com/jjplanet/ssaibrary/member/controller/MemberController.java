@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jjplanet.ssaibrary.exception.NotFoundException;
 import com.jjplanet.ssaibrary.member.dto.DeleteMemberDTO;
 import com.jjplanet.ssaibrary.member.dto.FindMemberDTO;
 import com.jjplanet.ssaibrary.member.dto.JoinMemberDTO;
@@ -23,12 +24,15 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/member")
 @RequiredArgsConstructor	
 public class MemberController {
+	
+	private static final String SUCCESS = "success";
+	private static final String FAIL = "fail";
 
 	private final MemberServiceImpl memberService;
 
 	//회원가입
 	@PostMapping
-	public void joinMember(@RequestBody JoinMemberDTO member, HttpSession session) {
+	public void joinMember(@RequestBody JoinMemberDTO member, HttpSession session) throws NotFoundException{
 		memberService.joinMember(member);
 	}
 

@@ -2,23 +2,31 @@ package com.jjplanet.ssaibrary.notice.dto;
 
 import java.util.Date;
 
-import com.jjplanet.ssaibrary.notice.domain.Notice;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.jjplanet.ssaibrary.member.domain.Member;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-/*
- * get요청
- */
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class FindAllNoticeDTO {
+public class FindOneNoticeByIdDTO {
 	
 	//글번호
 	private Long id;
-	
+
 	//작성자아이디
 	private String memberId;
 
@@ -27,7 +35,7 @@ public class FindAllNoticeDTO {
 
 	//내용
 	private String content;
-	
+
 	//조회수
 	private int hitCount;
 
@@ -41,6 +49,6 @@ public class FindAllNoticeDTO {
 	private char isPriority;
 
 	//상태(V:노출,D:삭제)
-	private char status;	
+	private char status;
 
 }

@@ -42,7 +42,7 @@ public class RoomServiceImpl implements RoomService {
 			roomDTOList.add(
 					new RoomDTO(r.getId(), r.getFloor(), r.getTotalSeat(), r.getReserveSeat(), r.getIsAvailable()));
 		}
-		return roomDTOList; 
+		return roomDTOList;
 	}
 
 	@Override

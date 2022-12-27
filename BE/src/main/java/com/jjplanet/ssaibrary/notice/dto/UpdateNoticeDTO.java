@@ -16,27 +16,25 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class NoticeRequestDTO {
+public class UpdateNoticeDTO {
 	
+	//글번호
 	private Long id;
+	
+	//작성자아이디
 	private String memberId;
+	
+	//제목
 	private String title;
+	
+	//내용
 	private String content;
-	private int hitCount;
-	private Date registerDate;
+	
+	//수정일시
 	private Date updateDate;
+	
+	//주요공지사항여부(Y:주요공지사항,N:일반공지사항)
 	private char isPriority;
-	private char status;
-
-	@Override
-	public String toString() {
-		return "NoticeRequestDTO [memberId=" + memberId + ", title=" + title + ", content=" + content + ", hitCount="
-				+ hitCount + ", registerDate=" + registerDate + ", isPriority=" + isPriority + ", status=" + status
-				+ "]";
-	}
-
-
-
 
 
 }
