@@ -2,11 +2,15 @@ package com.jjplanet.ssaibrary.notice.service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.jjplanet.ssaibrary.exception.NotFoundException;
 import com.jjplanet.ssaibrary.member.domain.Member;
 import com.jjplanet.ssaibrary.member.repository.MemberRepository;
 import com.jjplanet.ssaibrary.notice.domain.Notice;
@@ -32,8 +36,8 @@ public class NoticeServiceImpl implements NoticeService{
 
 	//글작성
 	@Override
-	public void insertNotice(InsertNoticeDTO n) {
-		Member writer = memberRepository.findOneById(n.getMemberId()).get();
+	public void insertNotice(InsertNoticeDTO n) throws NotFoundException{
+		Member writer = memberRepository.findOneById(n.getMemberId()).orElseThrow(NotFoundException::new);
 
 		n.setStatus('V');
 
@@ -44,26 +48,27 @@ public class NoticeServiceImpl implements NoticeService{
 
 	//전체목록조회
 	@Override
-	public List<FindAllNoticeDTO> findAllNotice() {
+	public Map<String, Object> findAllNotice() throws NotFoundException {
 
-		List<Notice> list = noticeCustomRepository.getAllList();
-		List<FindAllNoticeDTO> outputList = new ArrayList<>();
+		List<Notice> list = noticeCustomRepository.findAllList();
+		List<FindAllNoticeDTO> noticeList = new ArrayList<>();
 
+		Map<String, Object> result = new HashMap<String, Object>();
 
 		for(Notice n:list) {
-			Member writer = n.getMemberId();
-			FindAllNoticeDTO output = new FindAllNoticeDTO(n.getId(), writer.getId(), n.getTitle(), n.getContent(), n.getHitCount(), n.getRegisterDate(), n.getUpdateDate(), n.getIsPriority(), n.getStatus());
-			outputList.add(output);
+			FindAllNoticeDTO output = new FindAllNoticeDTO(n.getId(), n.getMemberId().getId(), n.getTitle(), n.getContent(), n.getHitCount(), n.getRegisterDate(), n.getUpdateDate(), n.getIsPriority(), n.getStatus());
+			noticeList.add(output);
 		}
+		result.put("noticeList", noticeList);
 
-		return outputList;
+		return result;
 	}
 
 	//상세조회
 	@Override
-	public FindOneNoticeByIdDTO findOneNoticeById(Long id) {
+	public FindOneNoticeByIdDTO findOneNoticeById(Long id) throws NotFoundException {
 
-		Notice n = noticeCustomRepository.getOneById(id);
+		Notice n = noticeCustomRepository.findOneById(id);
 		if(n==null) {
 			System.out.println("존재 하지 않는 게시글입니다.");
 		}
@@ -75,15 +80,16 @@ public class NoticeServiceImpl implements NoticeService{
 
 	//글수정
 	@Override
-	public void updateNotice(UpdateNoticeDTO n) {
+	public void updateNotice(UpdateNoticeDTO n) throws NotFoundException {
 
-		Member writer = memberRepository.findById(n.getMemberId()).get();
+		Member writer = memberRepository.findOneById(n.getMemberId()).orElseThrow(NotFoundException::new);
 
-		if(writer==null || !writer.equals("admin")) {
-			System.out.println("수정할 수 없습니다.");
+		if(!writer.equals("admin")) {
+			throw new NotFoundException("수정 권한이 없는 계정입니다.");
 		}
+		
 
-		Notice notice = noticeCustomRepository.getOneById(n.getId());
+		Notice notice = noticeCustomRepository.findOneById(n.getId());
 
 		notice.setTitle(n.getTitle());
 		notice.setContent(n.getContent());
@@ -95,9 +101,9 @@ public class NoticeServiceImpl implements NoticeService{
 
 	//글삭제
 	@Override
-	public void deleteNotice(Long id) {
+	public void deleteNotice(Long id) throws NotFoundException {
 
-		Notice notice = noticeCustomRepository.getOneById(id);
+		Notice notice = noticeCustomRepository.findOneById(id);
 
 		notice.setStatus('D');
 

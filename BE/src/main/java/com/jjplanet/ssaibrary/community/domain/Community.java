@@ -44,7 +44,6 @@ public class Community {
 	private Long id;
 
 	// 작성자 닉네임
-	//@Column(name = "member_nickname", nullable = false, length = 20)
 	@ManyToOne(targetEntity = Member.class, cascade = { CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE })
 	@JoinColumn(name = "member_nickname", referencedColumnName = "nickname")
 	private Member memberNickname;

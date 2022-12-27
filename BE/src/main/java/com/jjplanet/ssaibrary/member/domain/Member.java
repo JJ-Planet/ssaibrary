@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.jjplanet.ssaibrary.member.dto.MemberRequestDTO;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

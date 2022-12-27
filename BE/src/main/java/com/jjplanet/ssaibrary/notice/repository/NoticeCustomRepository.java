@@ -9,9 +9,9 @@ import com.jjplanet.ssaibrary.notice.domain.Notice;
 public interface NoticeCustomRepository{
 
 	// 전체 목록 불러오기
-    List<Notice> getAllList();
+    List<Notice> findAllList();
 
     //상세조회
-    Notice getOneById(Long id);
+    Notice findOneById(Long id);
 
 }

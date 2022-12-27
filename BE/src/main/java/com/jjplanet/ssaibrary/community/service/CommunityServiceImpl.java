@@ -7,6 +7,7 @@ import com.jjplanet.ssaibrary.community.domain.Community;
 import com.jjplanet.ssaibrary.community.dto.CommunityRequestDTO;
 import com.jjplanet.ssaibrary.community.repository.CommunityCustomRepositoryImpl;
 import com.jjplanet.ssaibrary.community.repository.CommunityRepository;
+import com.jjplanet.ssaibrary.exception.NotFoundException;
 import com.jjplanet.ssaibrary.member.domain.Member;
 import com.jjplanet.ssaibrary.member.repository.MemberCustomRepositoryImpl;
 import com.jjplanet.ssaibrary.member.repository.MemberRepository;
@@ -20,25 +21,25 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CommunityServiceImpl implements CommunityService{
 	
-//	private final CommunityRepository communityRepository;
+	private final CommunityRepository communityRepository;
 	
-	//private final CommunityCustomRepositoryImpl communityCustomRepository;
+//	private final CommunityCustomRepositoryImpl communityCustomRepository;
 	
-//	private final MemberRepository memberRepository;
+	private final MemberRepository memberRepository;
 
 	//글작성
-//	@Override
-//	public void insert(CommunityRequestDTO c) {
-//		
-//		Member writer = memberRepository.findByNickname(c.getMemberNickname());
-//		System.out.println(writer);
-//		
-//		c.setStatus('V');
-//		
-//		Community community = new Community(writer, c.getTitle(), c.getContent(), c.getRegisterDate(), c.getStatus());
-//		
-//		communityRepository.save(community);
-//		
-//	}
+	@Override
+	public void insertCommunity(CommunityRequestDTO c) throws NotFoundException {
+		
+		Member writer = memberRepository.findByNickname(c.getMemberNickname());
+		System.out.println(writer);
+		
+		c.setStatus('V');
+		
+		Community community = new Community(writer, c.getTitle(), c.getContent(), c.getRegisterDate(), c.getStatus());
+		
+		communityRepository.save(community);
+		
+	}
 
 }
