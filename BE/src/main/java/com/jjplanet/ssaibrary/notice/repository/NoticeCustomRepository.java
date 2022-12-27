@@ -7,11 +7,11 @@ import javax.persistence.EntityManager;
 import com.jjplanet.ssaibrary.notice.domain.Notice;
 
 public interface NoticeCustomRepository{
-	
-	// ÀüÃ¼ ¸ñ·Ï ºÒ·¯¿À±â
+
+	// ì „ì²´ ëª©ë¡ ë¶ˆëŸ¬ì˜¤ê¸°
     List<Notice> getAllList();
-    
-    //»ó¼¼Á¶È¸
+
+    //ìƒì„¸ì¡°íšŒ
     Notice getOneById(Long id);
 
 }

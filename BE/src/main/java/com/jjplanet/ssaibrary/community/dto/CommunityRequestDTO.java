@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /*
- * post, put¿äÃ»
+ * post, put ìš”ì²­ì‹œ
  * 
  */
 
@@ -30,7 +30,7 @@ public class CommunityRequestDTO {
 	private Date updateDate;
 	private char status;
 	
-	//±ÛÀÛ¼º
+	//ê¸€ìž‘ì„±
 	@Builder
 	public CommunityRequestDTO(String memberNickname, String title, String content, Date registerDate, char status) {
 		this.memberNickname = memberNickname;
@@ -41,7 +41,7 @@ public class CommunityRequestDTO {
 	}
 	
 	
-	//±Û¼öÁ¤
+	//ê¸€ìˆ˜ì •
 	@Builder
 	public CommunityRequestDTO(String title, String content, Date updateDate) {
 		this.title = title;

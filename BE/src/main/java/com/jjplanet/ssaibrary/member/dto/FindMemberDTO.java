@@ -7,13 +7,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /*
- * GET¿äÃ»
+ * GET ìš”ì²­
  */
 
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class MemberResponseDTO {
+public class FindMemberDTO {
 	
 	
 	private String id;

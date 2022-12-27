@@ -6,8 +6,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jjplanet.ssaibrary.member.domain.Member;
+import com.jjplanet.ssaibrary.member.dto.DeleteMemberDTO;
+import com.jjplanet.ssaibrary.member.dto.FindMemberDTO;
+import com.jjplanet.ssaibrary.member.dto.JoinMemberDTO;
 import com.jjplanet.ssaibrary.member.dto.MemberRequestDTO;
-import com.jjplanet.ssaibrary.member.dto.MemberResponseDTO;
+import com.jjplanet.ssaibrary.member.dto.UpdateMemberDTO;
 import com.jjplanet.ssaibrary.member.repository.MemberRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -16,12 +19,12 @@ import lombok.RequiredArgsConstructor;
 @Transactional
 @RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService{
-	
+
 	private final MemberRepository memberRepository;
 
-	//È¸¿ø°¡ÀÔ
+	//íšŒì›ê°€ì…
 	@Override
-	public void join(MemberRequestDTO m) {
+	public void joinMember(JoinMemberDTO m) {
 		Member member = new Member(m.getId(), m.getPassword(), m.getName(), m.getNickname(), m.getOriginImage(), m.getSaveImage(), m.getJoinDate(), m.getIsAdmin(), m.getStatus());
 
 		memberRepository.save(member);
@@ -29,66 +32,60 @@ public class MemberServiceImpl implements MemberService{
 
 	//Account
 	@Override
-	public MemberResponseDTO getInfo(String id) {
-		
-		Member m = memberRepository.findById(id).get();
-		
-		if(m==null) {
-			System.out.println("À¯È¿ÇÑ È¸¿øÀÌ ¾Æ´Ô" + id);
-		}
-		
+	public FindMemberDTO findMember(String id) {
 
-		MemberResponseDTO member = new MemberResponseDTO(m.getId(), m.getPassword(), m.getName(), m.getNickname(), m.getOriginImage(), m.getSaveImage());
-		
+		Member m = memberRepository.findOneById(id).get();
+
+		if(m==null) {
+			System.out.println("ìœ íš¨í•œ íšŒì›ì´ ì•„ë‹˜" + id);
+		}
+
+
+		FindMemberDTO member = new FindMemberDTO(m.getId(), m.getPassword(), m.getName(), m.getNickname(), m.getOriginImage(), m.getSaveImage());
+
 		return member;
 	}
-	
-	
-	//È¸¿ø»èÁ¦ - ¿¬½À¿ë
-//	public void deleteById(String id) {
-//		memberRepository.deleteById(id);
-//	}
-	
-	//ÁøÂ¥È¸¿ø»èÁ¦
-	public MemberRequestDTO deleteMember(String id) {
+
+	//íšŒì›ì‚­ì œ
+	public DeleteMemberDTO deleteMember(String id) {
 		Member m = memberRepository.findById(id).get();
-		
+
 		if(m==null) {
-			System.out.println("À¯È¿ÇÑ È¸¿øÀÌ ¾Æ´Õ´Ï´Ù.");
+			System.out.println("ìœ íš¨í•œ íšŒì›ì´ ì•„ë‹™ë‹ˆë‹¤.");
 		}
 		Date now = new Date();
-		
+
 		m.setExitDate(now);
 		m.setStatus('X');
-		
-		memberRepository.save(m);
-		
-		MemberRequestDTO member = new MemberRequestDTO(m.getExitDate(), m.getStatus());
-		
-		return member;
-		
-	}
-	
 
-	//È¸¿øÁ¤º¸¼öÁ¤
-	public MemberRequestDTO updateMember(MemberRequestDTO mydto) {
+		memberRepository.save(m);
+
+		DeleteMemberDTO member = new DeleteMemberDTO(m.getExitDate(), m.getStatus());
+
+		return member;
+
+	}
+
+
+	//íšŒì›ì •ë³´ìˆ˜ì •
+	public UpdateMemberDTO updateMember(UpdateMemberDTO mydto) {
 		Member m = memberRepository.findById(mydto.getId()).get();
-		
+
 		if(m==null) {
-			System.out.println("À¯È¿ÇÑ È¸¿øÀÌ ¾Æ´Õ´Ï´Ù.");
-			
+			System.out.println("ìœ íš¨í•œ íšŒì›ì´ ì•„ë‹™ë‹ˆë‹¤.");
+
 		}
-		
+
 		m.setName(mydto.getName());
 		m.setNickname(mydto.getNickname());
 		m.setPassword(mydto.getPassword());
-		
+
 		memberRepository.save(m);
-		
-		MemberRequestDTO member = new MemberRequestDTO(m.getName(), m.getNickname(), m.getPassword());
-		
+
+		UpdateMemberDTO member = new UpdateMemberDTO(m.getName(), m.getNickname(), m.getPassword());
+
 		return member;
-		
+
 	}
 
 }

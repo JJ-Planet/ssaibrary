@@ -15,16 +15,16 @@ import lombok.RequiredArgsConstructor;
 public class NoticeCustomRepositoryImpl implements NoticeCustomRepository{
 
 	private final EntityManager em;
-	
-	// ÀüÃ¼ ¸ñ·Ï ºÒ·¯¿À±â
+
+	// ì „ì²´ ëª©ë¡ ë¶ˆëŸ¬ì˜¤ê¸°
     @Override
     public List<Notice> getAllList() {
-    	//status°¡ 'V'ÀÎ °Ô½Ã±Û¸¸ ºÒ·¯¿Ã ¼ö ÀÖÀ½.
+    	//statusê°€ 'V'ì¸ ê²Œì‹œê¸€ë§Œ ë¶ˆëŸ¬ì˜¬ ìˆ˜ ìˆìŒ.
         return em.createQuery("select n from Notice n where n.status='V'",Notice.class)
                 .getResultList();
     }
 
-    //»ó¼¼Á¶È¸
+    //ìƒì„¸ì¡°íšŒ
 	@Override
 	public Notice getOneById(Long id) {
         return em.createQuery("select n from Notice n where n.id=:id", Notice.class)

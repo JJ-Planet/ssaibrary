@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jjplanet.ssaibrary.member.dto.MemberRequestDTO;
-import com.jjplanet.ssaibrary.member.dto.MemberResponseDTO;
+import com.jjplanet.ssaibrary.member.dto.DeleteMemberDTO;
+import com.jjplanet.ssaibrary.member.dto.FindMemberDTO;
+import com.jjplanet.ssaibrary.member.dto.JoinMemberDTO;
+import com.jjplanet.ssaibrary.member.dto.UpdateMemberDTO;
 import com.jjplanet.ssaibrary.member.service.MemberServiceImpl;
 
 import lombok.RequiredArgsConstructor;
@@ -21,41 +23,32 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/member")
 @RequiredArgsConstructor	
 public class MemberController {
-	
+
 	private final MemberServiceImpl memberService;
-	
-	//È¸¿ø°¡ÀÔ
-	@PostMapping("/join")
-	public void join(@RequestBody MemberRequestDTO member, HttpSession session) {
-		//System.out.println(member.toString());
-		memberService.join(member);
+
+	//íšŒì›ê°€ì…
+	@PostMapping
+	public void joinMember(@RequestBody JoinMemberDTO member, HttpSession session) {
+		memberService.joinMember(member);
 	}
-	
+
 	//Account
-	@GetMapping("/account/{id}")
-	public MemberResponseDTO getInfo(@PathVariable("id") String id) {
-		return memberService.getInfo(id);
+	@GetMapping("/{id}")
+	public FindMemberDTO findMember(@PathVariable("id") String id) {
+		return memberService.findMember(id);
 	}
-	
-//	//È¸¿ø»èÁ¦ - ¿¬½À¿ë
-//	@DeleteMapping("/delete/{id}")
-//	public void deleteById(@PathVariable("id") String id) {
-//		memberService.deleteById(id);
-//	}
-	
-	//ÁøÂ¥È¸¿ø»èÁ¦
-	@PutMapping("/delete/{id}")
-	public MemberRequestDTO deleteMember(@PathVariable("id") String id) {
+
+	//íšŒì›ì‚­ì œ
+	@DeleteMapping("/{id}")
+	public DeleteMemberDTO deleteMember(@PathVariable("id") String id) {
 		return memberService.deleteMember(id);
 	}
 
-	
-	//È¸¿øÁ¤º¸¼öÁ¤
-	@PutMapping("/update")
-	public MemberRequestDTO updateMember(@RequestBody MemberRequestDTO mydto) {
-		
+
+	//íšŒì›ì •ë³´ìˆ˜ì •
+	@PutMapping
+	public UpdateMemberDTO updateMember(@RequestBody UpdateMemberDTO mydto) {
 		return memberService.updateMember(mydto);
-		
 	}
 
 }

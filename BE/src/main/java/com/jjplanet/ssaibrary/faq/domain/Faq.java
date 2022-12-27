@@ -18,25 +18,25 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Builder
-@AllArgsConstructor(access = AccessLevel.PROTECTED) //¸ğµç ÇÊµå °ªÀ» ÆÄ¶ó¹ÌÅÍ·Î ¹Ş´Â »ı¼ºÀÚ¸¦ ¸¸µê
-@NoArgsConstructor(access = AccessLevel.PROTECTED) //±âº»»ı¼ºÀÚ »ı¼º
-@Getter //getter »ı¼º
+@AllArgsConstructor(access = AccessLevel.PROTECTED) //ëª¨ë“  í•„ë“œ ê°’ì„ íŒŒë¼ë¯¸í„°ë¡œ ë°›ëŠ” ìƒì„±ìë¥¼ ë§Œë“¦
+@NoArgsConstructor(access = AccessLevel.PROTECTED) //ê¸°ë³¸ìƒì„±ì ìƒì„±
+@Getter //getter ìƒì„±
 public class Faq {
-	
-	//±Û¹øÈ£
+
+	//ê¸€ë²ˆí˜¸
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	//Áú¹®
+
+	//ì§ˆë¬¸
 	@Column(nullable = false, length = 2000)
 	private String question;
-	
-	//´äº¯
+
+	//ë‹µë³€
 	@Column(nullable = false, length = 2000)
 	private String answer;
-	
-	//»óÅÂ(V:³ëÃâ,D:»èÁ¦)
+
+	//ìƒíƒœ(V:ë…¸ì¶œ,D:ì‚­ì œ)
 	@Column(nullable = false, columnDefinition = "CHAR(1) DEFAULT 'V'")
 	private char status;
 

@@ -23,63 +23,63 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /*
- * pk°¡ ¾Æ´Ñ ÄÃ·³À» ÂüÁ¶ÇÒ ¶§ referencedColumnNameÀ» ²À!! Àû¾îÁà¾ßÇÔ.
- * ¿Ö³ÄÇÏ¸é, referencedColumnName ±âº»°ªÀÌ pk¶ó¼­  
- * »ı·«½Ã pk¸¦ ÂüÁ¶ÇÏ´Â °ÍÀ¸·Î ÀÎ½ÄÇÔ.
- *  (memberNickname º¯¼öÀÇ @JoinColumn Âü°í)
+ * pkê°€ ì•„ë‹Œ ì»¬ëŸ¼ì„ ì°¸ì¡°í•  ë•Œ referencedColumnNameì„ ê¼­!! ì ì–´ì¤˜ì•¼í•¨.
+ * ì™œëƒí•˜ë©´, referencedColumnName ê¸°ë³¸ê°’ì´ pkë¼ì„œ  
+ * ìƒëµì‹œ pkë¥¼ ì°¸ì¡°í•˜ëŠ” ê²ƒìœ¼ë¡œ ì¸ì‹í•¨.
+ *  (memberNickname ë³€ìˆ˜ì˜ @JoinColumn ì°¸ê³ )
  *  
- *  String Å¸ÀÔÀº ¹«Á¶°Ç @Column ¿¡´Ù°¡ length¸¦ ²À Àû¾îÁà¾ß ÇÔ.
+ *  String íƒ€ì…ì€ ë¬´ì¡°ê±´ @Column ì—ë‹¤ê°€ lengthë¥¼ ê¼­ ì ì–´ì¤˜ì•¼ í•¨.
  */
 
 @Entity
 @Builder
-@AllArgsConstructor(access = AccessLevel.PROTECTED) // ¸ğµç ÇÊµå °ªÀ» ÆÄ¶ó¹ÌÅÍ·Î ¹Ş´Â »ı¼ºÀÚ¸¦ ¸¸µê
-@NoArgsConstructor(access = AccessLevel.PROTECTED) // ±âº»»ı¼ºÀÚ »ı¼º
-@Getter // getter »ı¼º
+@AllArgsConstructor(access = AccessLevel.PROTECTED) // ëª¨ë“  í•„ë“œ ê°’ì„ íŒŒë¼ë¯¸í„°ë¡œ ë°›ëŠ” ìƒì„±ìë¥¼ ë§Œë“¦
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // ê¸°ë³¸ìƒì„±ì ìƒì„±
+@Getter // getter ìƒì„±
 public class Community {
 
-	// ±Û¹øÈ£
+	// ê¸€ë²ˆí˜¸
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // Auto_Increment¸¦ Áö¿øÇØÁÜ.
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Auto_Incrementë¥¼ ì§€ì›í•´ì¤Œ.
 	private Long id;
 
-	// ÀÛ¼ºÀÚ ´Ğ³×ÀÓ
+	// ì‘ì„±ì ë‹‰ë„¤ì„
 	//@Column(name = "member_nickname", nullable = false, length = 20)
 	@ManyToOne(targetEntity = Member.class, cascade = { CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE })
 	@JoinColumn(name = "member_nickname", referencedColumnName = "nickname")
 	private Member memberNickname;
 
-	// Á¦¸ñ
+	// ì œëª©
 	@Column(nullable = false, length = 100)
 	private String title;
 
-	// ³»¿ë
+	// ë‚´ìš©
 	@Column(nullable = false, length = 2000)
 	private String content;
 
-	// Á¶È¸¼ö
+	// ì¡°íšŒìˆ˜
 	@Column(name = "hit_count", nullable = true, columnDefinition = "DEFAULT 0")
 	private int hitCount;
 
-	// ÁÁ¾Æ¿ä¼ö
+	// ì¢‹ì•„ìš”ìˆ˜
 	@Column(name = "like_count", nullable = true, columnDefinition = "DEFAULT 0")
 	private int likeCount;
 
-	// µî·ÏÀÏ½Ã
+	// ë“±ë¡ì¼ì‹œ
 	@Column(name = "register_date", nullable = false, columnDefinition = "DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registerDate;
 
-	// ¼öÁ¤ÀÏ½Ã
+	// ìˆ˜ì •ì¼ì‹œ
 	@Column(name = "update_date", nullable = true)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updateDate;
 
-	// »óÅÂ(V:³ëÃâ,D:»èÁ¦,B:½Å°í)
+	// ìƒíƒœ(V:ë…¸ì¶œ,D:ì‚­ì œ,B:ì‹ ê³ )
 	@Column(nullable = false, columnDefinition = "CHAR(1) DEFAULT 'V'")
 	private char status;
-	
-	//±ÛÀÛ¼º
+
+	//ê¸€ì‘ì„±
 	@Builder
 	public Community(Member memberNickname, String title, String content, Date registerDate, char status) {
 		this.memberNickname = memberNickname;

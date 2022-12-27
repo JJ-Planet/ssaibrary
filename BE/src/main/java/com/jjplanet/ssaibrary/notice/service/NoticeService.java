@@ -3,24 +3,25 @@ package com.jjplanet.ssaibrary.notice.service;
 import java.util.List;
 
 import com.jjplanet.ssaibrary.notice.domain.Notice;
+import com.jjplanet.ssaibrary.notice.dto.FindAllNoticeDTO;
+import com.jjplanet.ssaibrary.notice.dto.InsertNoticeDTO;
 import com.jjplanet.ssaibrary.notice.dto.NoticeRequestDTO;
-import com.jjplanet.ssaibrary.notice.dto.NoticeResponseDTO;
 
 public interface NoticeService {
-	
-	//±ÛÀÛ¼º
-	void insert(NoticeRequestDTO n); 
-	
-	//ÀüÃ¼¸ñ·ÏÁ¶È¸
-	List<NoticeResponseDTO> getAllList(); 
-	
-	//»ó¼¼Á¶È¸
-	NoticeResponseDTO getOneById(Long id);
-	
-	//±Û¼öÁ¤
+
+	//ê¸€ì‘ì„±
+	void insertNotice(InsertNoticeDTO n); 
+
+	//ì „ì²´ëª©ë¡ì¡°íšŒ
+	List<FindAllNoticeDTO> findAllNotice(); 
+
+	//ìƒì„¸ì¡°íšŒ
+	//NoticeResponseDTO getOneById(Long id);
+
+	//ê¸€ìˆ˜ì •
 	void update(Long id, NoticeRequestDTO n);
-	
-	//±Û»èÁ¦
+
+	//ê¸€ì‚­ì œ
 	void delete(Long id);
 
 }
