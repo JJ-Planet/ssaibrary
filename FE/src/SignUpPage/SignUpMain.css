@@ -1,0 +1,359 @@
+input {
+  padding-left: 15px;
+  font-size: large;
+}
+
+.SignUpMain {
+  position: absolute;
+  width: 350px;
+  height: 500px;
+  left: 30px;
+  top: 240px;
+  overflow: scroll;
+}
+
+.SignUpSeperator1 {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 320px;
+  height: 5px;
+  left: 0px;
+  top: 507px;
+
+  background: #FFFFFF;
+  border: 1px solid #E4E4F4;
+  border-radius: 5px;
+}
+
+.SignUpInputsDiv {
+  position: absolute;
+  width: 304px;
+  height: 485px;
+  left: 0px;
+  top: 0px;
+
+}
+
+.SignUpIDDiv {
+  position: absolute;
+  width: 304px;
+  height: 73px;
+  left: 0px;
+  top: 0px;
+}
+
+.SignUpIDLabel {
+  position: absolute;
+  width: 16px;
+  height: 18px;
+  left: 0px;
+  top: 0px;
+
+  font-family: 'Itim';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  /* identical to box height */
+
+
+  color: #312082;
+}
+
+.SignUpIDInput {
+  position: absolute;
+  width: 304px;
+  height: 47px;
+  left: 0px;
+  top: 26px;
+
+  background: #FFFFFF;
+  border-radius: 20px;
+}
+
+.SignUpNameDiv {
+  position: absolute;
+  width: 304px;
+  height: 73px;
+  left: 0px;
+  top: 103px;
+}
+
+.SignUpNameLabel {
+  position: absolute;
+  width: 38px;
+  height: 18px;
+  left: 0px;
+  top: 0px;
+
+  font-family: 'Itim';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  /* identical to box height */
+
+
+  color: #312082;
+}
+
+.SignUpNameInput {
+  position: absolute;
+  width: 304px;
+  height: 47px;
+  left: 0px;
+  top: 26px;
+
+  background: #FFFFFF;
+  border-radius: 20px;
+}
+
+.SignUpNickNameDiv {
+  position: absolute;
+  width: 304px;
+  height: 73px;
+  left: 0px;
+  top: 206px;
+}
+
+.SignUpNickLabel {
+  position: absolute;
+  width: 100px;
+  height: 18px;
+  left: 0px;
+  top: 0px;
+
+  font-family: 'Itim';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  /* identical to box height */
+
+
+  color: #312082;
+}
+
+.SignUpNickInput {
+  position: absolute;
+  width: 304px;
+  height: 47px;
+  left: 0px;
+  top: 26px;
+
+  background: #FFFFFF;
+  border-radius: 20px;
+}
+
+.SignUpPWDiv {
+  position: absolute;
+  width: 304px;
+  height: 73px;
+  left: 0px;
+  top: 309px;
+
+}
+
+.SignUpPWView {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: 280px;
+  top: 40px;
+
+  background: url(../assets/images/view.png);
+  background-size: 100% 100%;
+  z-index: 11;
+}
+
+.SignUpPWLabel {
+  position: absolute;
+  width: 62px;
+  height: 18px;
+  left: 0px;
+  top: 0px;
+
+  font-family: 'Itim';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  /* identical to box height */
+
+
+  color: #312082;
+}
+
+.SignUpPWInput {
+  position: absolute;
+  width: 304px;
+  height: 47px;
+  left: 0px;
+  top: 26px;
+
+  background: #FFFFFF;
+  border-radius: 20px;
+}
+
+.SignUpPWChkDiv {
+  position: absolute;
+  width: 304px;
+  height: 73px;
+  left: 0px;
+  top: 412px;
+}
+
+.SignUpPWHidden {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: 280px;
+  top: 48px;
+
+  background: url(../assets/images/hidden.png);
+  background-size: 100% 100%;
+  opacity: 0.5;
+  z-index: 11;
+}
+
+.SignUpPWChkLabel {
+  position: absolute;
+  width: 120px;
+  height: 18px;
+  left: 0px;
+  top: 0px;
+
+  font-family: 'Itim';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  /* identical to box height */
+
+
+  color: #312082;
+}
+
+.SignUpPWChkInput {
+  position: absolute;
+  width: 304px;
+  height: 47px;
+  left: 0px;
+  top: 34px;
+
+  background: #FFFFFF;
+  border-radius: 20px;
+}
+
+.SignUpAuthDiv {
+  position: absolute;
+  width: 304px;
+  height: 78px;
+  left: 0px;
+  top: 539px;
+}
+
+.SignUpAuthLabel {
+  position: absolute;
+  width: 110px;
+  height: 17px;
+  left: 0px;
+  top: 0px;
+
+  font-family: 'Itim';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+
+  color: #312082;
+}
+
+.SignUpAuthBtnLabel {
+  position: absolute;
+  width: 60px;
+  height: 18px;
+  left: 124px;
+  top: 40px;
+
+  font-family: 'Itim';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  /* identical to box height */
+  z-index: 1;
+
+  color: #312082;
+}
+
+.SignUpAuthBtn {
+  position: absolute;
+  width: 320px;
+  height: 47px;
+  left: 0px;
+  top: 25px;
+
+  background: #B6D8F2;
+  border-radius: 20px;
+}
+
+.SignUpAccept1 {
+  position: absolute;
+  width: 80px;
+  height: 20px;
+  left: 0px;
+  top: 651px;
+}
+
+.SignUpAccept1CB {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 0px;
+  top: 1px;
+
+  background: #FFFFFF;
+  mix-blend-mode: normal;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.SignUpAccept1Text {
+  position: absolute;
+  width: 60px;
+  height: 20px;
+  left: 29px;
+  top: 0px;
+
+  font-family: 'Itim';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+}
+
+.SignUpSeperator2 {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 320px;
+  height: 5px;
+  left: 1px;
+  top: 35px;
+
+  background: #FFFFFF;
+  border: 1px solid #E4E4F4;
+  border-radius: 5px;
+}

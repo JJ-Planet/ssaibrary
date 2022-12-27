@@ -1,6 +1,6 @@
 import "./LandingPage.css";
 import { Link } from "react-router-dom";
-
+import Footer from "./CopyRightFooter";
 function LandingPage() {
   return (
     <div className="App">
@@ -12,9 +12,8 @@ function LandingPage() {
           </Link>
         </div>
       </header>
-      <div className="App-footer">
-        <div className="App-footer-text">Copy Right ©JJ Planet All Rights Reserved</div>
-      </div>
+
+      <Footer></Footer>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./LoginHeader";
 import Main from "./LoginMain";
+import Footer from "../LandingPage/CopyRightFooter";
 // import Footer from "./LoginFooter";
 import "./LoginPage.css";
 const LoginPage = () => {
@@ -8,7 +9,7 @@ const LoginPage = () => {
     <div className="Login">
       <Header />
       <Main />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

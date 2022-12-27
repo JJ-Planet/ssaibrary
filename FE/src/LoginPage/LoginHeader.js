@@ -10,9 +10,6 @@ function Header() {
           <Link to="/reservation">
             <span className="FastCheckBtn">빠른조회</span>
           </Link>
-          <Link to="/main">
-            <span className="FastCheckBtn1">홈으로</span>
-          </Link>
         </div>
       </div>
     </>

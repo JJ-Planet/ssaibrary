@@ -1,10 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import "./LoginMain.css";
 function Main() {
   return (
     <>
       <div className="LoginMain">
-        <span className="MainTitle">안녕하세요✋ 예약을 빠르게 돕는 SSaibrary 입니다:)</span>
+        <span className="MainTitle">
+          안녕하세요✋ <br></br>예약을 빠르게 돕는<br></br> SSaibrary 입니다:)
+        </span>
         <div className="IdDiv">
           <span className="IDLabel">ID</span>
           <form>
@@ -14,7 +18,7 @@ function Main() {
         <div className="PwDiv">
           <span className="PWLabel">Password</span>
           <form>
-            <input type="text" placeholder="Password" className="PWInput"></input>
+            <input type="password" placeholder="Password" className="PWInput"></input>
           </form>
         </div>
         <div className="SubDiv">
@@ -23,12 +27,16 @@ function Main() {
           <span className="searchPWBtn">아이디 / 비밀번호 찾기</span>
         </div>
         <div className="LoginBtnDiv">
-          <span className="LoginBtnTitle">로그인</span>
+          <Link to="/main">
+            <span className="LoginBtnTitle">로그인</span>
+          </Link>
           <div className="LoginBtn"></div>
         </div>
         <div className="SingUpDiv">
-          <span className="SignUpTitle">회원가입을 하지 않았다면 ?</span>
-          <span className="SignUpBtn">회원가입</span>
+          <span className="SignUpTitle">회원가입을 하지 않았다면?</span>
+          <Link to="/signUp">
+            <span className="SignUpBtn">회원가입</span>
+          </Link>
         </div>
         <div className="SNSFrame">
           <div className="SNSTitle"></div>

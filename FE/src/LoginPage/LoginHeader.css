@@ -1,42 +1,49 @@
 .LoginHeader {
   position: absolute;
-  width: 216px;
+  width: 250px;
   height: 19px;
-  left: 132px;
-  top: 16px;
+  left: 130px;
+  top: 20px;
+
 }
+
 .FastCheckDiv {
   position: absolute;
-  width: 216px;
+  width: 250px;
   height: 19px;
   left: 0px;
   top: 0px;
 }
+
 .FastCheckTitle {
   position: absolute;
-  width: 171px;
-  height: 19px;
+  width: 190px;
+  height: 15px;
   left: 0px;
-  top: 0px;
+  top: 4px;
 
-  font-family: "Itim";
+  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 15px;
+  /* identical to box height */
+
   display: flex;
   align-items: flex-end;
 
-  color: #7b7f7e;
+  color: #7B7F7E;
+
 }
+
 .FastCheckBtn {
   position: absolute;
-  width: 45px;
+  width: 60px;
   height: 15px;
-  left: 171px;
+  left: 190px;
   top: 4px;
 
-  font-family: "Inter";
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
@@ -47,25 +54,5 @@
   align-items: flex-end;
   text-align: center;
 
-  color: #6359a1;
-}
-.FastCheckBtn1 {
-  position: absolute;
-  width: 45px;
-  height: 15px;
-  left: 10px;
-  top: 4px;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
-  /* identical to box height */
-
-  display: flex;
-  align-items: flex-end;
-  text-align: center;
-
-  color: #6359a1;
+  color: #6359A1;
 }
