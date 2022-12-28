@@ -5,6 +5,7 @@
   left: calc(50% - 390px / 2);
   top: calc(50% - 645px / 2 + 5.5px);
 }
+
 .ReservationCardDiv {
   position: absolute;
   width: 350px;
@@ -12,6 +13,7 @@
   left: 20px;
   top: 33px;
 }
+
 .ReservationCardDiv2 {
   position: absolute;
   width: 350px;
@@ -19,6 +21,7 @@
   left: 20px;
   top: 333px;
 }
+
 .DateLabelDiv {
   position: absolute;
   width: 350px;
@@ -30,6 +33,7 @@
   border-radius: 10px 10px 0px 0px;
   z-index: 999;
 }
+
 .DateText {
   position: absolute;
   width: 160px;
@@ -46,6 +50,7 @@
 
   color: #312082;
 }
+
 .ReservationDiv {
   box-sizing: border-box;
 
@@ -59,6 +64,7 @@
 
   border-radius: 0px 0px 10px 10px;
 }
+
 .ReservationDescDiv {
   position: relative;
   width: 281px;
@@ -70,6 +76,7 @@
   border-radius: 10px;
   filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
 }
+
 .ReservationDescText {
   position: absolute;
   width: 107px;
@@ -77,6 +84,7 @@
   left: 17px;
   top: 30px;
 }
+
 .SeatData {
   position: absolute;
   width: 107px;
@@ -92,6 +100,7 @@
 
   color: #312082;
 }
+
 .TimeData {
   position: absolute;
   width: 107px;
@@ -107,6 +116,7 @@
 
   color: #312082;
 }
+
 .ImgBar {
   position: absolute;
   width: 107px;
@@ -116,6 +126,7 @@
 
   background: #60b7fa;
 }
+
 .QRImg {
   position: absolute;
   width: 80px;
@@ -125,6 +136,7 @@
 
   background: url(../assets/images/QRImg.png);
 }
+
 .ShareBtnDiv {
   position: absolute;
   width: 130px;
@@ -135,6 +147,7 @@
   background: #ecf4f3;
   border-radius: 20px;
 }
+
 .ShareText {
   position: absolute;
   width: 60px;
@@ -150,6 +163,7 @@
 
   color: #312082;
 }
+
 .ResvationCancleBtnDiv {
   position: absolute;
   width: 130px;
@@ -160,6 +174,7 @@
   background: #ecf4f3;
   border-radius: 20px;
 }
+
 .ResvationCancleText {
   position: absolute;
   width: 60px;
