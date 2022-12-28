@@ -60,7 +60,7 @@ FE - SignUp Page
 
 ## 12.28
 
-BE -  
+BE - 스터디룸예약 CRUD, 스터디룸예약 관련 DB FK  
 FE - Account Modify Page, router config, Community Page
 
 # DB ERD Diagram
