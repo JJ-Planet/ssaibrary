@@ -21,6 +21,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Builder
@@ -35,10 +36,9 @@ public class Inquiry {
 	private Long id;
 
 	//작성자닉네임
-	//@Column(name = "member_nickname", nullable = false, length = 20)
 	@ManyToOne(targetEntity = Member.class, cascade = { CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE })
 	@JoinColumn(name = "member_nickname", referencedColumnName = "nickname")
-	private String memberNickname;
+	private Member memberNickname;
 
 	//제목
 	@Column(nullable = false, length = 100)
@@ -49,6 +49,7 @@ public class Inquiry {
 	private String question;
 
 	//답변
+	@Setter
 	@Column(nullable = true, length = 2000)
 	private String answer;
 
@@ -58,7 +59,18 @@ public class Inquiry {
 	private Date registerDate;
 
 	//상태(W:답변대기,C:답변완료,D:삭제)
+	@Setter
 	@Column(nullable = false, columnDefinition = "CHAR(1) DEFAULT 'W'")
 	private char status;
+	
+	//글 작성
+	@Builder
+	public Inquiry(Member memberNickname, String title, String question, Date registerDate, char status) {
+		this.memberNickname = memberNickname;
+		this.title = title;
+		this.question = question;
+		this.registerDate = registerDate;
+		this.status = status;
+	}
 
 }
