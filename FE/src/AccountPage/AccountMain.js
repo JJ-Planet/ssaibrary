@@ -10,7 +10,7 @@ function Main() {
           <div className="accountMainSeperator"> </div>
           <div className="MainDiv1Label">내 정보</div>
           <div className="accountUpdateDiv">
-            <Link to="/reservation">
+            <Link to="/modify">
               <span className="accountUpdateTitle">정보 수정</span>
               <div className="accountUpdateIcon1"></div>
             </Link>
