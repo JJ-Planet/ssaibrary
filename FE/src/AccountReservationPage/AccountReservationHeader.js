@@ -8,7 +8,7 @@ function Header() {
         <span className="Title">예약 확인</span>
       </div>
       <div className="ReservationBtnsDiv">
-        <Link to="/reservation">
+        <Link to="/account/reservation">
           <div className="ReservationBtnDiv">
             <span className="ReservationBtnText1">Reservation</span>
             <div className="ShowingBar"></div>

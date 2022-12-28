@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Main.css";
 function Main() {
   return (
@@ -31,21 +32,25 @@ function Main() {
             </div>
           </div>
           {/* 게시판 보기 */}
-          <div className="BoardDiv">
-            <div className="btnDiv">
-              <div className="imgDiv"> </div>
-              <div id="singleIcon3"></div>
-              <span id="btnTitle">게시판 보기</span>
+          <Link to="/community">
+            <div className="BoardDiv">
+              <div className="btnDiv">
+                <div className="imgDiv"> </div>
+                <div id="singleIcon3"></div>
+                <span id="btnTitle">게시판 보기</span>
+              </div>
             </div>
-          </div>
+          </Link>
           {/* 공지사항 */}
-          <div className="NoticeDiv">
-            <div className="btnDiv">
-              <div className="imgDiv"> </div>
-              <div id="singleIcon4"></div>
-              <span id="btnTitle">공지사항</span>
+          <Link to="/notice">
+            <div className="NoticeDiv">
+              <div className="btnDiv">
+                <div className="imgDiv"> </div>
+                <div id="singleIcon4"></div>
+                <span id="btnTitle">공지사항</span>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
         <div className="SeatDiv">
           <div id="seatDivLabel">좌석 현황 보기</div>
