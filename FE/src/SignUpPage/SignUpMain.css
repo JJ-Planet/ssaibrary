@@ -6,9 +6,9 @@ input {
 .SignUpMain {
   position: absolute;
   width: 340px;
-  height: 550px;
+  height: 580px;
   left: 30px;
-  top: 200px;
+  top: 170px;
   overflow: scroll;
   overflow-x: hidden;
 }
@@ -30,28 +30,12 @@ input {
   box-shadow: inset 0px 0px 5px #ecf4f3;
 }
 
-
-.SignUpSeperator1 {
-  box-sizing: border-box;
-
-  position: absolute;
-  width: 320px;
-  height: 5px;
-  left: 0px;
-  top: 507px;
-
-  background: #FFFFFF;
-  border: 1px solid #E4E4F4;
-  border-radius: 5px;
-}
-
 .SignUpInputsDiv {
   position: absolute;
   width: 304px;
   height: 485px;
   left: 0px;
   top: 0px;
-
 }
 
 .SignUpIDDiv {
@@ -75,7 +59,6 @@ input {
   font-size: 15px;
   line-height: 18px;
   /* identical to box height */
-
 
   color: #312082;
 }
@@ -113,7 +96,6 @@ input {
   line-height: 18px;
   /* identical to box height */
 
-
   color: #312082;
 }
 
@@ -150,7 +132,6 @@ input {
   line-height: 18px;
   /* identical to box height */
 
-
   color: #312082;
 }
 
@@ -171,7 +152,6 @@ input {
   height: 73px;
   left: 0px;
   top: 309px;
-
 }
 
 .SignUpPWView {
@@ -199,7 +179,6 @@ input {
   font-size: 15px;
   line-height: 18px;
   /* identical to box height */
-
 
   color: #312082;
 }
@@ -250,7 +229,6 @@ input {
   line-height: 18px;
   /* identical to box height */
 
-
   color: #312082;
 }
 
@@ -263,6 +241,20 @@ input {
 
   background: #FFFFFF;
   border-radius: 20px;
+}
+
+.SignUpSeperator1 {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 320px;
+  height: 5px;
+  left: 0px;
+  top: 515px;
+
+  background: #FFFFFF;
+  border: 1px solid #E4E4F4;
+  border-radius: 5px;
 }
 
 .SignUpAuthDiv {
@@ -286,7 +278,6 @@ input {
   font-size: 14px;
   line-height: 17px;
   /* identical to box height */
-
 
   color: #312082;
 }
@@ -325,7 +316,7 @@ input {
   width: 80px;
   height: 20px;
   left: 0px;
-  top: 651px;
+  top: 640px;
 }
 
 .SignUpSeperator2 {
@@ -464,7 +455,7 @@ input {
   width: 80px;
   height: 20px;
   left: 0px;
-  top: 950px;
+  top: 930px;
 }
 
 .SignUpReigsterBtnDiv {
