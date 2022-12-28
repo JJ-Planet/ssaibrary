@@ -8,11 +8,8 @@ import Main from "./MainPage/MainPage";
 import Community from "./CommunityPage/CommunityPage";
 import Login from "./LoginPage/LoginPage";
 import SignUp from "./SignUpPage/SignUpPage";
-<<<<<<< HEAD
 import Notice from "./NoticePage/NoticePage";
-=======
 import Modify from "./AccountModifyPage/AccountModifyPage";
->>>>>>> 811840191d7286543ecb9e57b4c6ec49834c7140
 import "./App.css";
 
 const App = () => {
