@@ -1,4 +1,4 @@
-package com.jjplanet.ssaibrary.reservation.domain;
+package com.jjplanet.ssaibrary.seat.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,8 +21,8 @@ import com.jjplanet.ssaibrary.seat.domain.Seat;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor(access = AccessLevel.PROTECTED) // 동일한 패키지 내 클래스에서만 객체 생성
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // 동일한 패키지 내 클래스에서만 객체 생성
+@AllArgsConstructor
 public class SeatReservation {
 
 	// 번호

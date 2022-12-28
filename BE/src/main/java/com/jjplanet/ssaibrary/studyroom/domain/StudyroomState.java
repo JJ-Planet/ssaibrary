@@ -1,9 +1,12 @@
-package com.jjplanet.ssaibrary.reservation.domain;
+package com.jjplanet.ssaibrary.studyroom.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -13,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // 동일한 패키지 내 클래스에서만 객체 생성
 public class StudyroomState {
 
 	// 번호
@@ -21,6 +24,11 @@ public class StudyroomState {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment
 	private Long id;
 
+	// 스터디룸예약번호
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "studyroom_reservation_id")
+	private StudyroomReservation studyroomReservation;
+	
 	// 청결상태(Y/N)
 	private char isDirty;
 

@@ -6,13 +6,13 @@ import com.jjplanet.ssaibrary.seat.dto.SeatDTO;
 
 public interface SeatService {
 	
-	boolean insertSeat(SeatDTO seatDTO) throws Exception;
-
-	boolean updateSeat(SeatDTO seatDTO) throws Exception;
-
 	List<SeatDTO> findAllSeat() throws Exception;
 
 	SeatDTO findSeatById(Long id) throws Exception;
+	
+	void insertSeat(SeatDTO seatDTO) throws Exception;
 
-	boolean deleteSeat(Long id) throws Exception;
+	void updateSeat(SeatDTO seatDTO) throws Exception;
+
+	void deleteSeat(Long id) throws Exception;
 }

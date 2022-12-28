@@ -1,4 +1,4 @@
-package com.jjplanet.ssaibrary.reservation.domain;
+package com.jjplanet.ssaibrary.studyroom.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,14 +13,15 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import com.jjplanet.ssaibrary.member.domain.Member;
-import com.jjplanet.ssaibrary.studyroom.domain.Studyroom;
 
 @Entity
 @Getter
+@Setter
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // 동일한 패키지 내 클래스에서만 객체 생성
 public class StudyroomReservation {
 
 	// 번호
@@ -38,11 +39,6 @@ public class StudyroomReservation {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "studyroom_id")
 	private Studyroom studyroom;
-
-	// 스터디룸상태번호
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "studyroom_state_id")
-	private StudyroomState studyroomState;
 
 	// 이용목적
 	private String purpose;
