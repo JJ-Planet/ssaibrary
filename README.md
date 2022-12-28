@@ -55,7 +55,7 @@ FE - Community Page, Login Page
 
 ## 12.27
 
-BE - Controller내 method 리턴값 ResponseEntity로 변경, community CRUD  
+BE - Controller내 method 리턴값 ResponseEntity로 변경, community CRUD, NotFoundException 생성, 좌석예약 CRUD  
 FE - SignUp Page
 
 # DB ERD Diagram
