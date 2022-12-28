@@ -36,8 +36,10 @@ function Main() {
           <div className="accountMainSeperator"> </div>
           <div className="MainDiv1Label">일반</div>
           <div className="accountUpdateDiv">
-            <div className="accountUpdateTitle">공지사항</div>
-            <div className="accountUpdateIcon1"></div>
+            <Link to="/notice">
+              <div className="accountUpdateTitle">공지사항</div>
+              <div className="accountUpdateIcon1"></div>
+            </Link>
           </div>
           <div className="accountUpdateDiv">
             <div className="accountUpdateTitle">FAQ</div>

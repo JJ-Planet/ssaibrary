@@ -1,10 +1,10 @@
 import React from "react";
-import "./CommunityHeader.css";
+import "./NoticeHeader.css";
 function Header() {
   return (
     <>
       <div className="HeaderDiv">
-        <div className="HeaderTitle">커뮤 니티</div>
+        <div className="HeaderTitle">공지 사항</div>
       </div>
     </>
   );
