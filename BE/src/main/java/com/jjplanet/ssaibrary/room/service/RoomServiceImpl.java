@@ -17,21 +17,21 @@ public class RoomServiceImpl implements RoomService {
 	private RoomRepository roomRepository;
 
 	@Override
-	public void insertRoom(Room room) throws Exception {
-		roomRepository.save(room);
+	public void insertRoom(RoomDTO roomDTO) throws Exception {
+//		roomRepository.save(room);
 	}
 
 	@Override
-	public void updateRoom(Room room) throws Exception {
-		Room updateRoom = roomRepository.findOneById(room.getId());
+	public void updateRoom(RoomDTO roomDTO) throws Exception {
+//		Room updateRoom = roomRepository.findOneById(room.getId());
 
 		// if updateRoom == null
 
-		updateRoom.setFloor(room.getFloor());
-		updateRoom.setTotalSeat(room.getTotalSeat());
-		updateRoom.setReserveSeat(room.getReserveSeat());
-		updateRoom.setIsAvailable(room.getIsAvailable());
-		roomRepository.save(updateRoom);
+//		updateRoom.setFloor(room.getFloor());
+//		updateRoom.setTotalSeat(room.getTotalSeat());
+//		updateRoom.setReserveSeat(room.getReserveSeat());
+//		updateRoom.setIsAvailable(room.getIsAvailable());
+//		roomRepository.save(updateRoom);
 	}
 
 	@Override

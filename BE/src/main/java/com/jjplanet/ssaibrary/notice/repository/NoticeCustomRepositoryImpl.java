@@ -18,7 +18,7 @@ public class NoticeCustomRepositoryImpl implements NoticeCustomRepository{
 
 	// 전체 목록 불러오기
     @Override
-    public List<Notice> getAllList() {
+    public List<Notice> findAllList() {
     	//status가 'V'인 게시글만 불러올 수 있음.
         return em.createQuery("select n from Notice n where n.status='V'",Notice.class)
                 .getResultList();
@@ -26,7 +26,7 @@ public class NoticeCustomRepositoryImpl implements NoticeCustomRepository{
 
     //상세조회
 	@Override
-	public Notice getOneById(Long id) {
+	public Notice findOneById(Long id) {
         return em.createQuery("select n from Notice n where n.id=:id", Notice.class)
                 .setParameter("id", id)
                 .getSingleResult();

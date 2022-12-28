@@ -36,7 +36,6 @@ public class Notice {
 	private Long id;
 
 	//작성자아이디
-	//@Column(name = "member_id", nullable = false, length = 20)
 	@ManyToOne(targetEntity = Member.class, cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "member_id") //기본키를 참조하므로 referencedColumnName 생략함.
 	private Member memberId;

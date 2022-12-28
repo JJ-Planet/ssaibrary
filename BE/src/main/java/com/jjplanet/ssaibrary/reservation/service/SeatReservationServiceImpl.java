@@ -31,7 +31,7 @@ public class SeatReservationServiceImpl implements SeatReservationService {
 	@Override
 	public void reservationSeat(SeatReservationDTO seatReservationDTO) throws Exception {
 		Member member = memberRepository.findOneById(seatReservationDTO.getMember_id()).orElseThrow(NotFoundException::new);
-		Seat seat = seatRepository.findOneById(seatReservationDTO.getSeat_id());
+		Seat seat = seatRepository.findOneById(seatReservationDTO.getSeat_id()).orElseThrow(NotFoundException::new);
 //		SeatReservation seatReservation = new SeatReservation(seatReservationDTO.getId(), member, seat, seatReservationDTO.getReservationDate(), seatReservationDTO.getStartDate(), seatReservationDTO.getTime(), seatReservationDTO.getCheckinDate(), seatReservationDTO.getCheckoutDate(), seatReservationDTO.getAddTime(), seatReservationDTO.getAddCount(), seatReservationDTO.getStatus()));
 //		seatReservationRepository.save(seatReservation);
 	}

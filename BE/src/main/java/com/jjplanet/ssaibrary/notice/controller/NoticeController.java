@@ -1,9 +1,12 @@
 package com.jjplanet.ssaibrary.notice.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jjplanet.ssaibrary.exception.NotFoundException;
 import com.jjplanet.ssaibrary.notice.dto.FindAllNoticeDTO;
 import com.jjplanet.ssaibrary.notice.dto.FindOneNoticeByIdDTO;
 import com.jjplanet.ssaibrary.notice.dto.InsertNoticeDTO;
@@ -25,37 +29,42 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/notice")
 @RequiredArgsConstructor
 public class NoticeController {
+	
+	private static final String SUCCESS = "success";
 
 	private final NoticeServiceImpl noticeService;
 
 	//글작성
 	@PostMapping
-	public void insertNotice(@RequestBody InsertNoticeDTO notice, HttpSession session) {
+	public ResponseEntity<String> insertNotice(@RequestBody InsertNoticeDTO notice, HttpSession session) throws NotFoundException {
 		noticeService.insertNotice(notice);
+		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 
 	//전체목록조회
 	@GetMapping
-	public List<FindAllNoticeDTO> findAllNotice(){
-		return noticeService.findAllNotice();
+	public ResponseEntity<Map<String, Object>> findAllNotice() throws NotFoundException{
+		return new ResponseEntity<Map<String, Object>>(noticeService.findAllNotice(), HttpStatus.ACCEPTED);
 	}
 
 	//상세조회
 	@GetMapping("/{id}")
-	public FindOneNoticeByIdDTO findOneNoticeById(@PathVariable("id") Long id) {
-		return noticeService.findOneNoticeById(id);
+	public ResponseEntity<Map<String, Object>> findOneNoticeById(@PathVariable("id") Long id) throws NotFoundException {
+		return new ResponseEntity(noticeService.findOneNoticeById(id), HttpStatus.ACCEPTED);
 	}
 
 	//글수정
 	@PutMapping
-	public void updateNotice(@RequestBody UpdateNoticeDTO n) {
+	public ResponseEntity<String> updateNotice(@RequestBody UpdateNoticeDTO n) throws NotFoundException {
 		noticeService.updateNotice(n);
+		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 
 	//글삭제
 	@DeleteMapping("/{id}")
-	public void deleteNotice(@PathVariable("id")Long id) {
+	public ResponseEntity<String> deleteNotice(@PathVariable("id")Long id) throws NotFoundException {
 		noticeService.deleteNotice(id);
+		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 
 }
