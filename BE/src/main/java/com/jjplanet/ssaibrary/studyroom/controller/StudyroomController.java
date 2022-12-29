@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jjplanet.ssaibrary.studyroom.dto.StudyroomDTO;
+import com.jjplanet.ssaibrary.studyroom.dto.StudyroomReservationDTO;
+import com.jjplanet.ssaibrary.studyroom.dto.StudyroomStateDTO;
+import com.jjplanet.ssaibrary.studyroom.service.StudyroomReservationService;
 import com.jjplanet.ssaibrary.studyroom.service.StudyroomService;
+import com.jjplanet.ssaibrary.studyroom.service.StudyroomStateService;
 
 @RestController
 @RequestMapping("/studyroom")
@@ -25,6 +29,14 @@ public class StudyroomController {
 
 	@Autowired
 	private StudyroomService studyroomService;
+
+	@Autowired
+	private StudyroomReservationService studyroomReservationService;
+
+	@Autowired
+	private StudyroomStateService studyroomStateService;
+
+	// 스터디룸
 
 	@GetMapping
 	public ResponseEntity<List<StudyroomDTO>> findAllStudyroom() throws Exception {
@@ -51,6 +63,53 @@ public class StudyroomController {
 	@DeleteMapping("{id}")
 	public ResponseEntity<?> deleteStudyroom(@PathVariable Long id) throws Exception {
 		studyroomService.deleteStudyroom(id);
+		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
+	}
+
+	// 스터디룸 예약
+
+	@GetMapping("reservation")
+	public ResponseEntity<List<StudyroomReservationDTO>> findAllStudyroomReservation() throws Exception {
+		return new ResponseEntity<List<StudyroomReservationDTO>>(
+				studyroomReservationService.findAllStudyroomReservation(), HttpStatus.OK);
+	}
+
+	@GetMapping("reservation/{id}")
+	public ResponseEntity<StudyroomReservationDTO> findStudyroomReservationById(@PathVariable Long id)
+			throws Exception {
+		return new ResponseEntity<StudyroomReservationDTO>(studyroomReservationService.findStudyroomReservationById(id),
+				HttpStatus.OK);
+	}
+
+	@PostMapping("reservation")
+	public ResponseEntity<?> reservationStudyroom(@RequestBody StudyroomReservationDTO studyroomReservationDTO)
+			throws Exception {
+		studyroomReservationService.reservationStudyroom(studyroomReservationDTO);
+		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
+	}
+
+	@DeleteMapping("reservation/{id}")
+	public ResponseEntity<?> deleteStudyroomReservation(@PathVariable Long id) throws Exception {
+		studyroomReservationService.deleteStudyroomReservation(id);
+		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
+	}
+
+	// 스터디룸 상태
+
+	@GetMapping("state")
+	public ResponseEntity<List<StudyroomStateDTO>> findAllStudyroomState() throws Exception {
+		return new ResponseEntity<List<StudyroomStateDTO>>(studyroomStateService.findAllStudyroomState(),
+				HttpStatus.OK);
+	}
+
+	@GetMapping("state/{id}")
+	public ResponseEntity<StudyroomStateDTO> findStudyroomStateById(@PathVariable Long id) throws Exception {
+		return new ResponseEntity<StudyroomStateDTO>(studyroomStateService.findStudyroomStateById(id), HttpStatus.OK);
+	}
+
+	@PostMapping("state")
+	public ResponseEntity<?> insertStudyroomState(@RequestBody StudyroomStateDTO studyroomStateDTO) throws Exception {
+		studyroomStateService.insertStudyroomState(studyroomStateDTO);
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 }

@@ -29,7 +29,7 @@ public class StudyroomServiceImpl implements StudyroomService {
 
 	@Override
 	public StudyroomDTO findStudyroomById(Long id) throws Exception {
-		Studyroom studyroom = studyroomRepository.findOneById(id).orElseThrow(NotFoundException::new);
+		Studyroom studyroom = studyroomRepository.findById(id).orElseThrow(NotFoundException::new);
 		StudyroomDTO studyroomDTO = new StudyroomDTO(studyroom.getId(), studyroom.getFloor(), studyroom.getSize(),
 				studyroom.getMaxUser(), studyroom.getStatus());
 		return studyroomDTO;
@@ -37,13 +37,15 @@ public class StudyroomServiceImpl implements StudyroomService {
 
 	@Override
 	public void insertStudyroom(StudyroomDTO studyroomDTO) throws Exception {
-		Studyroom studyroom = new Studyroom(studyroomDTO.getId(), studyroomDTO.getFloor(), studyroomDTO.getSize(), studyroomDTO.getMaxUser(), studyroomDTO.getStatus());
+		Studyroom studyroom = new Studyroom(studyroomDTO.getId(), studyroomDTO.getFloor(), studyroomDTO.getSize(),
+				studyroomDTO.getMaxUser(), studyroomDTO.getStatus());
 		studyroomRepository.save(studyroom);
 	}
 
 	@Override
 	public void updateStudyroom(StudyroomDTO studyroomDTO) throws Exception {
-		Studyroom updateStudyroom = studyroomRepository.findOneById(studyroomDTO.getId()).orElseThrow(NotFoundException::new);
+		Studyroom updateStudyroom = studyroomRepository.findById(studyroomDTO.getId())
+				.orElseThrow(NotFoundException::new);
 
 		updateStudyroom.setFloor(studyroomDTO.getFloor());
 		updateStudyroom.setSize(studyroomDTO.getSize());
