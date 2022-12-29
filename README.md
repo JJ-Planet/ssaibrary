@@ -58,11 +58,16 @@ FE - Community Page, Login Page
 BE - Controller내 method 리턴값 ResponseEntity로 변경, community CRUD, NotFoundException 생성, 좌석예약 CRUD  
 FE - SignUp Page
 
+## 12.28
+
+BE - 스터디룸예약 CRUD, 스터디룸예약 관련 DB FK 수정, faq CRUD, 문의하기 CRUD  
+FE - Account Modify Page, router config, Community Page
+
 # DB ERD Diagram
 
 <img src = "./Files/Diagram.png">
 
 # Version Info
 
-node - 18.12.1 LTS
+node - 18.12.1 LTS  
 mysql - 8.0.30

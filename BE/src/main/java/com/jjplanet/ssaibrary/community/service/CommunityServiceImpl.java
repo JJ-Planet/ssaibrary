@@ -40,6 +40,10 @@ public class CommunityServiceImpl implements CommunityService {
 	public void insertCommunity(insertCommunityDTO c) throws NotFoundException {
 
 		Member writer = memberRepository.findByNickname(c.getMemberNickname());
+		
+		if(writer==null) {
+			throw new NotFoundException("존재하지 않는 사용자입니다.");
+		}
 
 		// swagger에서 registerDate 값을 입력하면 자꾸 reject해서 임시로 적어놓은 코드
 		// start

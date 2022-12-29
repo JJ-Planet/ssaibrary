@@ -236,17 +236,17 @@ INSERT INTO `studyroom` (`id`, `floor`, `size`, `max_user`, `status`)
 VALUES (304, 3, 19, 4, 'A');
 INSERT INTO `studyroom` (`id`, `floor`, `size`, `max_user`) 
 VALUES (305, 3, 24, 6);
-       
--- 스터디룸 상태 정보
-
-INSERT INTO `studyroom_state` (`is_dirty`, `is_damage`, `is_not_lock`) 
-VALUES ('Y','N', 'N');
 
 -- 스터디룸 예약 정보
 
-INSERT INTO `studyroom_reservation` (`member_id`, `member_nickname`, `studyroom_id`, `studyroom_state_id`, `purpose`, `user_count`, `start_date`, `time`, `status`) 
-VALUES ("010-1111-1111", "행성주인님", 304, 1, "싸이브러리 회의를 하기 위해서", 4, "2022-12-18 22:00:00", 2, 'A');
+INSERT INTO `studyroom_reservation` (`member_id`, `member_nickname`, `studyroom_id`, `purpose`, `user_count`, `start_date`, `time`, `status`) 
+VALUES ("010-1111-1111", "행성주인님", 304, "싸이브러리 회의를 하기 위해서", 4, "2022-12-18 22:00:00", 2, 'A');
 INSERT INTO `studyroom_reservation` (`member_id`, `member_nickname`, `studyroom_id`, `purpose`, `user_count`, `start_date`, `time`) 
 VALUES ("010-3333-3333", "싸피브레인2", 305, "금주 회의를 하기 위해서", 5, "2023-1-9 09:30:00", 4);
 
 UPDATE `studyroom` SET `status` = 'A' WHERE `id` = 304;
+
+-- 스터디룸 상태 정보
+
+INSERT INTO `studyroom_state` (`studyroom_reservation_id`, `is_dirty`, `is_damage`, `is_not_lock`) 
+VALUES (1, 'Y','N', 'N');

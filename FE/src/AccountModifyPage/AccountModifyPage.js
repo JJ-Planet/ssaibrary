@@ -71,7 +71,9 @@ const AccountModifyPage = () => {
             <div className="AcceptBtn"></div>
           </div>
           <div className="CancleBtnDiv">
-            <span className="CancleBtnText">취소</span>
+            <Link to="/account">
+              <span className="CancleBtnText">취소</span>
+            </Link>
             <div className="CancleBtn"></div>
           </div>
         </div>

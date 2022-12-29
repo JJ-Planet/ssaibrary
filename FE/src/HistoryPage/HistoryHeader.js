@@ -5,10 +5,10 @@ function Header() {
   return (
     <>
       <div className="TitleDiv">
-        <span className="Title">예약 확인</span>
+        <span className="Title">이용 내역</span>
       </div>
       <div className="ReservationBtnsDiv">
-        <Link to="/reservation">
+        <Link to="/account/reservation">
           <div className="ReservationBtnDiv">
             <span className="ReservationBtnText">Reservation</span>
           </div>

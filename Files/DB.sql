@@ -219,22 +219,6 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
--- 스터디룸 상태 테이블 
-
-CREATE TABLE IF NOT EXISTS `studyroom_state` (
-  `id` INT NOT NULL AUTO_INCREMENT COMMENT '번호',
-  `is_dirty` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '청결상태(Y/N)',
-  `is_damage` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '손상상태(Y/N)',
-  `is_not_lock` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '잠금상태(Y/N)',
-  `origin_image` VARCHAR(255) COMMENT '원본이미지명',
-  `save_image` VARCHAR(255) COMMENT '저장이미지명',
-  PRIMARY KEY (`id`)
-)
-ENGINE = InnoDB
-AUTO_INCREMENT = 1
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
 -- 스터디룸 예약 테이블 
 
 CREATE TABLE IF NOT EXISTS `studyroom_reservation` (
@@ -242,7 +226,6 @@ CREATE TABLE IF NOT EXISTS `studyroom_reservation` (
   `member_id` VARCHAR(20) NOT NULL COMMENT '예약자아이디',
   `member_nickname` VARCHAR(20) NOT NULL COMMENT '예약자닉네임',
   `studyroom_id` INT NOT NULL COMMENT '스터디룸번호',
-  `studyroom_state_id` INT COMMENT '스터디룸상태번호',
   `purpose` VARCHAR(255) NOT NULL COMMENT '이용목적',
   `user_count` INT NOT NULL COMMENT '인원수',
   `reservation_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '예약일시',
@@ -260,10 +243,27 @@ CREATE TABLE IF NOT EXISTS `studyroom_reservation` (
     REFERENCES `member` (`nickname`) ON UPDATE CASCADE,
   CONSTRAINT `fk_studyroom_studyroom_reservation`
     FOREIGN KEY (`studyroom_id`)
-    REFERENCES `studyroom` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `fk_studyroom_state_studyroom_reservation`
-    FOREIGN KEY (`studyroom_state_id`)
-    REFERENCES `studyroom_state` (`id`) ON DELETE CASCADE
+    REFERENCES `studyroom` (`id`) ON DELETE CASCADE
+)
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+-- 스터디룸 상태 테이블 
+
+CREATE TABLE IF NOT EXISTS `studyroom_state` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '번호',
+  `studyroom_reservation_id` INT COMMENT '스터디룸예약번호',
+  `is_dirty` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '청결상태(Y/N)',
+  `is_damage` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '손상상태(Y/N)',
+  `is_not_lock` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '잠금상태(Y/N)',
+  `origin_image` VARCHAR(255) COMMENT '원본이미지명',
+  `save_image` VARCHAR(255) COMMENT '저장이미지명',
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_studyroom_reservation_studyroom_state`
+    FOREIGN KEY (`studyroom_reservation_id`)
+    REFERENCES `studyroom_reservation` (`id`) ON DELETE CASCADE
 )
 ENGINE = InnoDB
 AUTO_INCREMENT = 1

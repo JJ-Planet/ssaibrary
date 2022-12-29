@@ -10,7 +10,7 @@ function Main() {
           <div className="accountMainSeperator"> </div>
           <div className="MainDiv1Label">내 정보</div>
           <div className="accountUpdateDiv">
-            <Link to="/modify">
+            <Link to="/account/modify">
               <span className="accountUpdateTitle">정보 수정</span>
               <div className="accountUpdateIcon1"></div>
             </Link>
@@ -24,12 +24,16 @@ function Main() {
           <div className="accountMainSeperator"> </div>
           <div className="MainDiv2Label">예약 확인 및 관리</div>
           <div className="AccountReservationDiv">
-            <div className="accountUpdateTitle">예약 확인</div>
-            <div className="accountUpdateIcon1"></div>
+            <Link to="/account/reservation">
+              <div className="accountUpdateTitle">예약 확인</div>
+              <div className="accountUpdateIcon1"></div>
+            </Link>
           </div>
           <div className="UsageHistoryDiv">
-            <div className="UsageHistoryTitle">이용 내역</div>
-            <div className="accountUpdateIcon2"></div>
+            <Link to="/history">
+              <div className="UsageHistoryTitle">이용 내역</div>
+              <div className="accountUpdateIcon2"></div>
+            </Link>
           </div>
         </div>
         <div className="accountMainDiv3">

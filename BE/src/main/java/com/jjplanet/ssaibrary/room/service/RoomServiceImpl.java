@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jjplanet.ssaibrary.exception.NotFoundException;
 import com.jjplanet.ssaibrary.room.domain.Room;
 import com.jjplanet.ssaibrary.room.dto.RoomDTO;
 import com.jjplanet.ssaibrary.room.repository.RoomRepository;
@@ -15,24 +16,6 @@ public class RoomServiceImpl implements RoomService {
 
 	@Autowired
 	private RoomRepository roomRepository;
-
-	@Override
-	public void insertRoom(RoomDTO roomDTO) throws Exception {
-//		roomRepository.save(room);
-	}
-
-	@Override
-	public void updateRoom(RoomDTO roomDTO) throws Exception {
-//		Room updateRoom = roomRepository.findOneById(room.getId());
-
-		// if updateRoom == null
-
-//		updateRoom.setFloor(room.getFloor());
-//		updateRoom.setTotalSeat(room.getTotalSeat());
-//		updateRoom.setReserveSeat(room.getReserveSeat());
-//		updateRoom.setIsAvailable(room.getIsAvailable());
-//		roomRepository.save(updateRoom);
-	}
 
 	@Override
 	public List<RoomDTO> findAllRoom() throws Exception {
@@ -47,10 +30,27 @@ public class RoomServiceImpl implements RoomService {
 
 	@Override
 	public RoomDTO findRoomById(Long id) throws Exception {
-		Room room = roomRepository.findOneById(id);
+		Room room = roomRepository.findOneById(id).orElseThrow(NotFoundException::new);
 		RoomDTO roomDTO = new RoomDTO(room.getId(), room.getFloor(), room.getTotalSeat(), room.getReserveSeat(),
 				room.getIsAvailable());
 		return roomDTO;
+	}
+
+	@Override
+	public void insertRoom(RoomDTO roomDTO) throws Exception {
+		Room room = new Room(roomDTO.getId(), roomDTO.getFloor(), roomDTO.getTotalSeat(), roomDTO.getReserveSeat(), roomDTO.getIsAvailable());
+		roomRepository.save(room);
+	}
+
+	@Override
+	public void updateRoom(RoomDTO roomDTO) throws Exception {
+		Room updateRoom = roomRepository.findOneById(roomDTO.getId()).orElseThrow(NotFoundException::new);
+
+		updateRoom.setFloor(roomDTO.getFloor());
+		updateRoom.setTotalSeat(roomDTO.getTotalSeat());
+		updateRoom.setReserveSeat(roomDTO.getReserveSeat());
+		updateRoom.setIsAvailable(roomDTO.getIsAvailable());
+		roomRepository.save(updateRoom);
 	}
 
 	@Override

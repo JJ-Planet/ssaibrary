@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./LandingPage/LandingPage";
 import Account from "./AccountPage/AccountPage";
-import Reservation from "./ReservationPage/ReservationPage";
+import AccountReservation from "./AccountReservationPage/AccountReservationPage";
 import History from "./HistoryPage/HistoryPage";
 import Main from "./MainPage/MainPage";
 import Community from "./CommunityPage/CommunityPage";
@@ -11,6 +11,7 @@ import SignUp from "./SignUpPage/SignUpPage";
 import Notice from "./NoticePage/NoticePage";
 import Modify from "./AccountModifyPage/AccountModifyPage";
 import CommunityWrite from "./CommunityWritePage/CommunityWritePage";
+import AccountModify from "./AccountModifyPage/AccountModifyPage";
 import "./App.css";
 
 const App = () => {
@@ -21,9 +22,9 @@ const App = () => {
           <Route path="/" element={<LandingPage />}></Route>
           <Route path="/main" element={<Main />}></Route>
           <Route path="/account" element={<Account />}></Route>
-          <Route path="/reservation" element={<Reservation />}></Route>
+          <Route path="/account/reservation" element={<AccountReservation />}></Route>
+          <Route path="/account/modify" element={<AccountModify />}></Route>
           <Route path="/history" element={<History />}></Route>
-          <Route path="/account/modify" element={<History />}></Route>
           <Route path="/community" element={<Community />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signUp" element={<SignUp />}></Route>

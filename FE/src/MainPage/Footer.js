@@ -12,7 +12,7 @@ function Footer() {
             <div className="homeTitle">Home</div>
           </div>
         </Link>
-        <Link to="/reservation">
+        <Link to="/account/reservation">
           <div className="reservationBtn">
             <div className="reservation"></div>
             <div className="reservationTitle">Reservation</div>

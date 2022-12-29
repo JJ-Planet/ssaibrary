@@ -35,7 +35,7 @@ public class CommunityController {
 
 	// 글 작성
 	@PostMapping
-	public ResponseEntity<String> insertCommunity(insertCommunityDTO community, HttpSession session)
+	public ResponseEntity<String> insertCommunity(@RequestBody insertCommunityDTO community, HttpSession session)
 			throws NotFoundException {
 		communityService.insertCommunity(community);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
@@ -63,8 +63,8 @@ public class CommunityController {
 	}
 
 	// 글 삭제
-	@DeleteMapping
-	public ResponseEntity<String> deleteCommunity(Long id) throws NotFoundException {
+	@DeleteMapping("/{id}")
+	public ResponseEntity<String> deleteCommunity(@PathVariable("id") Long id) throws NotFoundException {
 		communityService.deleteCommunity(id);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}

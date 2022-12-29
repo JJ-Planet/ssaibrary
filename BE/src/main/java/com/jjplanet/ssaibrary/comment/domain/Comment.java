@@ -37,14 +37,12 @@ public class Comment {
 	//글번호
 	@ManyToOne(cascade = CascadeType.REMOVE, targetEntity = Community.class)
 	@JoinColumn(name = "community_id")
-	//@Column(name = "community_id", nullable = false)
-	private int communityId;
+	private Community communityId;
 
 	//작성자닉네임
 	@ManyToOne(targetEntity = Member.class, cascade = { CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE })
 	@JoinColumn(name = "member_nickname", referencedColumnName = "nickname")
-	//@Column(name = "member_nickname", nullable = false, length = 20)
-	private String memberNickname;
+	private Member memberNickname;
 
 	//내용
 	@Column(nullable = false, length = 2000)

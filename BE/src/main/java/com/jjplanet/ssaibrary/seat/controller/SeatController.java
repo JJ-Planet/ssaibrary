@@ -39,18 +39,18 @@ public class SeatController {
 	@PostMapping
 	public ResponseEntity<?> insertSeat(@RequestBody SeatDTO seatDTO) throws Exception {
 		seatService.insertSeat(seatDTO);
-		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 
 	@PutMapping("{id}")
 	public ResponseEntity<?> updateSeat(@RequestBody SeatDTO seatDTO) throws Exception {
 		seatService.updateSeat(seatDTO);
-		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 
 	@DeleteMapping("{id}")
 	public ResponseEntity<?> deleteSeat(@PathVariable Long id) throws Exception {
 		seatService.deleteSeat(id);
-		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 }
