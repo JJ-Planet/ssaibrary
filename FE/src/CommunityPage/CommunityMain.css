@@ -1,7 +1,7 @@
 .MenuBarDiv {
   position: absolute;
   width: 390px;
-  height: 40px;
+  height: 45px;
   left: 0px;
   top: 0px;
 }
@@ -14,6 +14,7 @@
 
   background: #ecf4f3;
   border-radius: 10px;
+  cursor: pointer;
 }
 .WriteBtnTitle {
   position: absolute;
@@ -34,9 +35,10 @@
 .MenuBarAllBtn {
   position: absolute;
   width: 130px;
-  height: 40px;
+  height: 45px;
   left: 0px;
   top: 0px;
+  cursor: pointer;
 }
 .MenuBarAllBtnTitle {
   position: absolute;
@@ -51,12 +53,20 @@
   line-height: 23.5px;
   text-align: center;
 }
+.WriteBtn:hover,
+.MenuBarAllBtn:hover,
+.MenuBarPopularBtn:hover,
+.MenuBarFavoriteBtn:hover {
+  background-color: #c5dcd9;
+  color: #331c9e;
+}
 .MenuBarPopularBtn {
   position: absolute;
   width: 130px;
-  height: 40px;
+  height: 45px;
   left: 130px;
   top: 0px;
+  cursor: pointer;
 }
 .MenuBarPopularBtnTitle {
   position: absolute;
@@ -75,9 +85,10 @@
 .MenuBarFavoriteBtn {
   position: absolute;
   width: 130px;
-  height: 40px;
+  height: 45px;
   left: 260px;
   top: 0px;
+  cursor: pointer;
 }
 .MenuBarFavoriteBtnTitle {
   position: absolute;
@@ -100,7 +111,8 @@
   left: calc(50% - 390px / 2);
   top: calc(50% - 550px / 2 + 46px);
 }
-.PostingDiv {
+.PostingDiv,
+.PostingDivTemp {
   box-sizing: border-box;
   position: relative;
   width: 390px;
@@ -196,8 +208,11 @@
   position: absolute;
   width: 45px;
   height: 45px;
-  left: 299px;
-  top: 12px;
+  left: 297px;
+  top: 10px;
+
+  background: #ffeded;
+  border-radius: 10px;
 }
 .AttachImg {
   position: absolute;
@@ -211,22 +226,13 @@
   border-radius: 10%;
   z-index: 999;
 }
-.attachImgBackDiv {
-  position: absolute;
-  width: 45px;
-  height: 45px;
-  left: 0px;
-  top: 0px;
 
-  background: #ffeded;
-  border-radius: 10px;
-}
 .CommentDiv {
   position: absolute;
   width: 23px;
   height: 10px;
   left: 354px;
-  top: 30px;
+  top: 28px;
 }
 .CommentImg {
   position: absolute;
@@ -251,4 +257,7 @@
   font-weight: 500;
   font-size: 9px;
   line-height: 11px;
+}
+a {
+  color: black;
 }

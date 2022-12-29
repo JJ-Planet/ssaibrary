@@ -9,14 +9,14 @@
   border-radius: 45px;
 }
 
-.PostingWritingHeader {
+.PWHeader {
   position: absolute;
   width: 390px;
   height: 95px;
   left: 0px;
   top: 0px;
 }
-.PostingWritingTitle {
+.PWTitleText {
   position: absolute;
   width: 350px;
   height: 40px;
@@ -34,7 +34,7 @@
 
   color: rgba(0, 0, 0, 0.5);
 }
-.PostingWritingBtnBoxDiv {
+.PWBtnBoxDiv {
   position: absolute;
   width: 390px;
   height: 38px;
@@ -201,14 +201,14 @@
   border-radius: 10%;
   z-index: 999;
 }
-.PostingDesc {
+.PWDescDiv {
   position: absolute;
   width: 390px;
   height: 595px;
   left: calc(50% - 390px / 2);
   top: calc(50% - 595px / 2 + 47.5px);
 }
-.PDAttachImgDiv {
+.PWDescAttachImgDiv {
   position: absolute;
   width: 360px;
   height: 300px;
@@ -218,7 +218,7 @@
   background: #ffeded;
   border-radius: 10px;
 }
-.PDAttachImg {
+.PWDescAttachImg {
   position: absolute;
   width: 280px;
   height: 280px;
@@ -230,14 +230,14 @@
   border-radius: 10%;
   z-index: 999;
 }
-.PDDescTextDiv {
+.PWDescTextDiv {
   position: absolute;
   width: 360px;
   height: 70px;
   left: 15px;
   top: 341px;
 }
-.PDDescText {
+.PWDescText {
   position: absolute;
   width: 360px;
   height: 70px;
@@ -255,14 +255,14 @@
 
   color: rgba(0, 0, 0, 0.5);
 }
-.TagDiv {
+.PWTagDiv {
   position: absolute;
   width: 390px;
   height: 52px;
   left: 0px;
   top: 425px;
 }
-.TagSeperator1 {
+.PWSeperator3 {
   position: absolute;
   width: 390px;
   height: 1px;
@@ -271,7 +271,7 @@
 
   background: rgba(49, 32, 130, 0.2);
 }
-.TagSeperator2 {
+.PWSeperator4 {
   position: absolute;
   width: 390px;
   height: 1px;
@@ -280,7 +280,7 @@
 
   background: rgba(49, 32, 130, 0.2);
 }
-.TagText {
+.PWTagText {
   position: absolute;
   width: 340px;
   height: 25px;
@@ -298,14 +298,14 @@
 
   color: rgba(0, 0, 0, 0.3);
 }
-.PostingControlBtnDiv {
+.PWControlBtnDiv {
   position: absolute;
   width: 300px;
   height: 40px;
   left: 45px;
   top: 504px;
 }
-.PostingModifyBtn {
+.PWModifyBtn {
   position: absolute;
   width: 140px;
   height: 40px;
@@ -324,7 +324,7 @@
   padding: 0px;
   cursor: pointer;
 }
-.PostingCancleBtn {
+.PWCancleBtn {
   position: absolute;
   width: 140px;
   height: 40px;

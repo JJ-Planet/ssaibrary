@@ -3,7 +3,7 @@ import Header from "./CommunityWriteHeader";
 import Main from "./CommunityWriteMain";
 import Footer from "../MainPage/Footer";
 import "./CommunityWritePage.css";
-const CommunityPage = () => {
+const CommunityWritePage = () => {
   return (
     <div className="CommunityWritePage">
       <Header />
@@ -13,4 +13,4 @@ const CommunityPage = () => {
   );
 };
 
-export default CommunityPage;
+export default CommunityWritePage;

@@ -5,7 +5,7 @@ import Footer from "../MainPage/Footer";
 import "./CommunityPage.css";
 const CommunityPage = () => {
   return (
-    <div>
+    <div className="CommunityPage1">
       <Header />
       <Main />
       <Footer />

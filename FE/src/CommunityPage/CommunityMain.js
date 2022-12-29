@@ -64,23 +64,26 @@ const rendering = () => {
   for (let i = 0; i < DataInfo.length; i++) {
     result.push(
       <div className="PostingDiv" key={DataInfo[i].id}>
-        <span className="PostingTitle">{DataInfo[i].title}</span>
-        <div className="PostingSubDiv">
-          <span className="PostingUserTitle">{DataInfo[i].user}</span>
-          <span className="PostingTimeTitle">{DataInfo[i].postingTime}</span>
-          <div className="HitsDiv">
-            <span className="HitsTitle">조회</span>
-            <span className="HitsCnt">{DataInfo[i].hits}</span>
+        <Link to={`/community/detail/${DataInfo[i].id}`} state={{ data: DataInfo[i] }}>
+          <div className="PostingDivTemp">
+            <span className="PostingTitle">{DataInfo[i].title}</span>
+            <div className="PostingSubDiv">
+              <span className="PostingUserTitle">{DataInfo[i].user}</span>
+              <span className="PostingTimeTitle">{DataInfo[i].postingTime}</span>
+              <div className="HitsDiv">
+                <span className="HitsTitle">조회</span>
+                <span className="HitsCnt">{DataInfo[i].hits}</span>
+              </div>
+            </div>
+            <div className="AttachImgDiv">
+              <div className="AttachImg"></div>
+            </div>
+            <div className="CommentDiv">
+              <div className="CommentImg"></div>
+              <span className="CommentCnt">{DataInfo[i].commentCnt}</span>
+            </div>
           </div>
-        </div>
-        <div className="AttachImgDiv">
-          <div className="AttachImg"></div>
-          <div className="AttachImgBackDiv"></div>
-        </div>
-        <div className="CommentDiv">
-          <div className="CommentImg"></div>
-          <span className="CommentCnt">{DataInfo[i].commentCnt}</span>
-        </div>
+        </Link>
       </div>
     );
   }

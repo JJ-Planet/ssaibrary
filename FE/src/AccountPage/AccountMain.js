@@ -46,8 +46,10 @@ function Main() {
             </Link>
           </div>
           <div className="accountUpdateDiv">
-            <div className="accountUpdateTitle">FAQ</div>
-            <div className="accountUpdateIcon2"></div>
+            <Link to="/faq">
+              <div className="accountUpdateTitle">FAQ</div>
+              <div className="accountUpdateIcon2"></div>
+            </Link>
           </div>
           <div className="accountUpdateDiv">
             <div className="accountUpdateTitle">문의하기</div>

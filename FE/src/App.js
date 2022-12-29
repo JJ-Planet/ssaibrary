@@ -11,7 +11,9 @@ import SignUp from "./SignUpPage/SignUpPage";
 import Notice from "./NoticePage/NoticePage";
 import Modify from "./AccountModifyPage/AccountModifyPage";
 import CommunityWrite from "./CommunityWritePage/CommunityWritePage";
+import CommunityDetail from "./CommunityDetailPage/CommunityDetailPage";
 import AccountModify from "./AccountModifyPage/AccountModifyPage";
+import FAQ from "./FAQPage/FAQPage";
 import "./App.css";
 
 const App = () => {
@@ -31,6 +33,8 @@ const App = () => {
           <Route path="/notice" element={<Notice />}></Route>
           <Route path="/modify" element={<Modify />}></Route>
           <Route path="/community/write" element={<CommunityWrite />}></Route>
+          <Route path="/community/detail/:key" element={<CommunityDetail />}></Route>
+          <Route path="/faq" element={<FAQ />}></Route>
           {/* <Route path="/product/*" element={<Product />}></Route> */}
           {/* 상단에 위치하는 라우트들의 규칙을 모두 확인, 일치하는 라우트가 없는경우 처리 */}
         </Routes>
