@@ -13,6 +13,7 @@ import Modify from "./AccountModifyPage/AccountModifyPage";
 import CommunityWrite from "./CommunityWritePage/CommunityWritePage";
 import CommunityDetail from "./CommunityDetailPage/CommunityDetailPage";
 import AccountModify from "./AccountModifyPage/AccountModifyPage";
+import ReservationList from "./ReservationListPage/ReservationListPage";
 import FAQ from "./FAQPage/FAQPage";
 import "./App.css";
 
@@ -23,15 +24,20 @@ const App = () => {
         <Routes>
           <Route path="/" element={<LandingPage />}></Route>
           <Route path="/main" element={<Main />}></Route>
+
           <Route path="/account" element={<Account />}></Route>
           <Route path="/account/reservation" element={<AccountReservation />}></Route>
           <Route path="/account/modify" element={<AccountModify />}></Route>
+
+          <Route path="/reservation/list" element={<ReservationList />}></Route>
+
           <Route path="/history" element={<History />}></Route>
-          <Route path="/community" element={<Community />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signUp" element={<SignUp />}></Route>
           <Route path="/notice" element={<Notice />}></Route>
           <Route path="/modify" element={<Modify />}></Route>
+
+          <Route path="/community" element={<Community />}></Route>
           <Route path="/community/write" element={<CommunityWrite />}></Route>
           <Route path="/community/detail/:key" element={<CommunityDetail />}></Route>
           <Route path="/faq" element={<FAQ />}></Route>

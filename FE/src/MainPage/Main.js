@@ -16,21 +16,25 @@ function Main() {
         </div>
         <div className="MainBtnsDiv">
           {/* 자습실 예약 */}
-          <div className="SingleResvationDiv">
-            <div className="btnDiv">
-              <div className="imgDiv"> </div>
-              <div id="singleIcon1"></div>
-              <span id="btnTitle">자습실 예약</span>
+          <Link to="/reservation/list">
+            <div className="SingleResvationDiv">
+              <div className="btnDiv">
+                <div className="imgDiv"> </div>
+                <div id="singleIcon1"></div>
+                <span id="btnTitle">자습실 예약</span>
+              </div>
             </div>
-          </div>
+          </Link>
           {/* 스터디룸 예약 */}
-          <div className="MultiResvationDiv">
-            <div className="btnDiv">
-              <div className="imgDiv"> </div>
-              <div id="singleIcon2"></div>
-              <span id="btnTitle">스터디룸 예약</span>
-            </div>
-          </div>
+          <Link to="/reservation/list">
+            <div className="MultiResvationDiv">
+              <div className="btnDiv">
+                <div className="imgDiv"> </div>
+                <div id="singleIcon2"></div>
+                <span id="btnTitle">스터디룸 예약</span>
+              </div>
+            </div>{" "}
+          </Link>
           {/* 게시판 보기 */}
           <Link to="/community">
             <div className="BoardDiv">
