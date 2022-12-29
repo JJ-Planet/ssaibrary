@@ -34,22 +34,22 @@ public class SeatServiceImpl implements SeatService {
 
 	@Override
 	public SeatDTO findSeatById(Long id) throws Exception {
-		Seat seat = seatRepository.findOneById(id).orElseThrow(NotFoundException::new);
+		Seat seat = seatRepository.findById(id).orElseThrow(NotFoundException::new);
 		SeatDTO seatDTO = new SeatDTO(seat.getId(), seat.getRoom().getId(), seat.getPassword(), seat.getStatus());
 		return seatDTO;
 	}
 	
 	@Override
 	public void insertSeat(SeatDTO seatDTO) throws Exception {
-		Room room = roomRepository.findOneById(seatDTO.getRoomId()).orElseThrow(NotFoundException::new);
+		Room room = roomRepository.findById(seatDTO.getRoomId()).orElseThrow(NotFoundException::new);
 		Seat seat = new Seat(seatDTO.getId(), room, seatDTO.getPassword(), seatDTO.getStatus());
 		seatRepository.save(seat);
 	}
 
 	@Override
 	public void updateSeat(SeatDTO seatDTO) throws Exception {
-		Seat updateSeat = seatRepository.findOneById(seatDTO.getId()).orElseThrow(NotFoundException::new);
-		Room room = roomRepository.findOneById(seatDTO.getRoomId()).orElseThrow(NotFoundException::new);
+		Seat updateSeat = seatRepository.findById(seatDTO.getId()).orElseThrow(NotFoundException::new);
+		Room room = roomRepository.findById(seatDTO.getRoomId()).orElseThrow(NotFoundException::new);
 
 		updateSeat.setRoom(room);
 		updateSeat.setPassword(seatDTO.getPassword());

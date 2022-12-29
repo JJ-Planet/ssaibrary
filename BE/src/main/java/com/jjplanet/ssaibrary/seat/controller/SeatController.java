@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jjplanet.ssaibrary.seat.dto.SeatDTO;
+import com.jjplanet.ssaibrary.seat.dto.SeatReservationDTO;
+import com.jjplanet.ssaibrary.seat.dto.SeatReservationExtensionDTO;
+import com.jjplanet.ssaibrary.seat.service.SeatReservationService;
 import com.jjplanet.ssaibrary.seat.service.SeatService;
 
 @RestController
@@ -22,9 +25,15 @@ import com.jjplanet.ssaibrary.seat.service.SeatService;
 public class SeatController {
 
 	private static final String SUCCESS = "success";
-
+	private static final String FAIL = "fail";
+	
 	@Autowired
 	private SeatService seatService;
+	
+	@Autowired
+	private SeatReservationService seatReservationService;
+
+	// 좌석
 
 	@GetMapping
 	public ResponseEntity<List<SeatDTO>> findAllSeat() throws Exception {
@@ -51,6 +60,44 @@ public class SeatController {
 	@DeleteMapping("{id}")
 	public ResponseEntity<?> deleteSeat(@PathVariable Long id) throws Exception {
 		seatService.deleteSeat(id);
+		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
+	}
+
+	// 좌석 예약
+	
+	@GetMapping("reservation")
+	public ResponseEntity<List<SeatReservationDTO>> findAllSeatReservation() throws Exception {
+		return new ResponseEntity<List<SeatReservationDTO>>(seatReservationService.findAllSeatReservation(),
+				HttpStatus.OK);
+	}
+
+	@GetMapping("reservation/{id}")
+	public ResponseEntity<SeatReservationDTO> findSeatReservationById(@PathVariable Long id) throws Exception {
+		return new ResponseEntity<SeatReservationDTO>(seatReservationService.findSeatReservationById(id),
+				HttpStatus.OK);
+	}
+
+	@PostMapping("reservation")
+	public ResponseEntity<?> reservationSeat(@RequestBody SeatReservationDTO seatReservationDTO) throws Exception {
+		seatReservationService.reservationSeat(seatReservationDTO);
+		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
+	}
+
+	@PutMapping("reservation")
+	public ResponseEntity<?> addTime(@RequestBody SeatReservationExtensionDTO seatReservationExtensionDTO)
+			throws Exception {
+		if (seatReservationService.addTime(seatReservationExtensionDTO)) {
+			// 연장 완료
+			return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
+		} else {
+			// 연장 불가능
+			return new ResponseEntity<>(FAIL, HttpStatus.OK);
+		}
+	}
+
+	@DeleteMapping("reservation/{id}")
+	public ResponseEntity<?> deleteSeatReservation(@PathVariable Long id) throws Exception {
+		seatReservationService.deleteSeatReservation(id);
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 }

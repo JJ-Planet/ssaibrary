@@ -30,7 +30,7 @@ public class RoomServiceImpl implements RoomService {
 
 	@Override
 	public RoomDTO findRoomById(Long id) throws Exception {
-		Room room = roomRepository.findOneById(id).orElseThrow(NotFoundException::new);
+		Room room = roomRepository.findById(id).orElseThrow(NotFoundException::new);
 		RoomDTO roomDTO = new RoomDTO(room.getId(), room.getFloor(), room.getTotalSeat(), room.getReserveSeat(),
 				room.getIsAvailable());
 		return roomDTO;
@@ -44,7 +44,7 @@ public class RoomServiceImpl implements RoomService {
 
 	@Override
 	public void updateRoom(RoomDTO roomDTO) throws Exception {
-		Room updateRoom = roomRepository.findOneById(roomDTO.getId()).orElseThrow(NotFoundException::new);
+		Room updateRoom = roomRepository.findById(roomDTO.getId()).orElseThrow(NotFoundException::new);
 
 		updateRoom.setFloor(roomDTO.getFloor());
 		updateRoom.setTotalSeat(roomDTO.getTotalSeat());

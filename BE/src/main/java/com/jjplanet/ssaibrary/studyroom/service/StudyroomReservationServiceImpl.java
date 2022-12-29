@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jjplanet.ssaibrary.exception.NotFoundException;
 import com.jjplanet.ssaibrary.member.domain.Member;
@@ -14,6 +15,7 @@ import com.jjplanet.ssaibrary.studyroom.dto.StudyroomReservationDTO;
 import com.jjplanet.ssaibrary.studyroom.repository.StudyroomRepository;
 import com.jjplanet.ssaibrary.studyroom.repository.StudyroomReservationRepository;
 
+@Service
 public class StudyroomReservationServiceImpl implements StudyroomReservationService {
 
 	@Autowired
@@ -40,7 +42,7 @@ public class StudyroomReservationServiceImpl implements StudyroomReservationServ
 
 	@Override
 	public StudyroomReservationDTO findStudyroomReservationById(Long id) throws Exception {
-		StudyroomReservation reservation = studyroomReservationRepository.findOneById(id)
+		StudyroomReservation reservation = studyroomReservationRepository.findById(id)
 				.orElseThrow(NotFoundException::new);
 		StudyroomReservationDTO reservationDTO = new StudyroomReservationDTO(reservation.getId(),
 				reservation.getMember().getId(), reservation.getMember().getNickname(),
@@ -54,7 +56,7 @@ public class StudyroomReservationServiceImpl implements StudyroomReservationServ
 	public void reservationStudyroom(StudyroomReservationDTO studyroomReservationDTO) throws Exception {
 		Member member = memberRepository.findOneById(studyroomReservationDTO.getMemberId())
 				.orElseThrow(NotFoundException::new);
-		Studyroom studyroom = studyroomRepository.findOneById(studyroomReservationDTO.getStudyroomId())
+		Studyroom studyroom = studyroomRepository.findById(studyroomReservationDTO.getStudyroomId())
 				.orElseThrow(NotFoundException::new);
 		StudyroomReservation studyroomReservation = new StudyroomReservation(studyroomReservationDTO.getId(), member,
 				studyroom, studyroomReservationDTO.getPurpose(), studyroomReservationDTO.getUserCount(),
@@ -66,7 +68,8 @@ public class StudyroomReservationServiceImpl implements StudyroomReservationServ
 
 	@Override
 	public void deleteStudyroomReservation(Long id) throws Exception {
-		StudyroomReservation studyroomReservation = studyroomReservationRepository.findOneById(id).orElseThrow(NotFoundException::new);
+		StudyroomReservation studyroomReservation = studyroomReservationRepository.findById(id)
+				.orElseThrow(NotFoundException::new);
 		studyroomReservation.setStatus('X'); // X:예약취소
 		studyroomReservationRepository.save(studyroomReservation);
 	}
