@@ -10,6 +10,7 @@ import Login from "./LoginPage/LoginPage";
 import SignUp from "./SignUpPage/SignUpPage";
 import Notice from "./NoticePage/NoticePage";
 import Modify from "./AccountModifyPage/AccountModifyPage";
+import CommunityWrite from "./CommunityWritePage/CommunityWritePage";
 import "./App.css";
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/signUp" element={<SignUp />}></Route>
           <Route path="/notice" element={<Notice />}></Route>
           <Route path="/modify" element={<Modify />}></Route>
+          <Route path="/community/write" element={<CommunityWrite />}></Route>
           {/* <Route path="/product/*" element={<Product />}></Route> */}
           {/* 상단에 위치하는 라우트들의 규칙을 모두 확인, 일치하는 라우트가 없는경우 처리 */}
         </Routes>

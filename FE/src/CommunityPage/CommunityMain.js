@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./CommunityMain.css";
 
 const DataInfo = [
@@ -101,9 +102,11 @@ function Main() {
             <span className="MenuBarFavoriteBtnTitle">즐겨 찾기</span>
           </div>
         </div>
-        <div className="WriteBtn">
-          <span className="WriteBtnTitle">글 쓰기</span>
-        </div>
+        <Link to="/community/write">
+          <div className="WriteBtn">
+            <span className="WriteBtnTitle">글 쓰기</span>
+          </div>
+        </Link>
         <div className="CommunityDummyDiv">{rendering()}</div>
       </div>
     </>

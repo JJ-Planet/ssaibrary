@@ -1,0 +1,21 @@
+.PostingWritingHeader {
+  position: absolute;
+  width: 390px;
+  height: 92px;
+  left: 0px;
+  top: 0px;
+}
+.PostingWritingTitle {
+  position: absolute;
+  width: 350px;
+  height: 40px;
+  left: 20px;
+  top: 8px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 21px;
+
+  color: rgba(0, 0, 0, 0.5);
+}
