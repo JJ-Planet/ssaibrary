@@ -26,22 +26,22 @@ FE - Main Page, Account Page
 
 ## 2022.12.21
 
-aws setting EC2
+AWS setting EC2
 
 ## 2022.12.22
 
-aws setting RDS  
+AWS setting RDS  
 FE - assets, Reservation Page
-
 BE- study room read
 
 ## 2022.12.23
 
-FE - structuring
+FE - structuring, convention configuration
 
 ## 2022.12.24
 
-BE - CRUD
+BE - CRUD  
+FE - assests adding
 
 ## 12.25
 
@@ -61,7 +61,21 @@ FE - SignUp Page
 ## 12.28
 
 BE - 스터디룸예약 CRUD, 스터디룸예약 관련 DB FK 수정, faq CRUD, 문의하기 CRUD  
-FE - Account Modify Page, router config, Community Page
+FE - Account Modify Page, Community Page
+
+## 12.29
+
+BE - 댓글 테이블 구조 변경  
+FE - FAQPage, Router config
+
+## 12.30
+
+BE - 댓글 Create  
+FE - Notice Page,
+
+## 12.31
+
+FE - Reservation - RoomDetail Figma Design
 
 # DB ERD Diagram
 
