@@ -44,22 +44,14 @@ const AccountModifyPage = () => {
             {/* <div className="SignUpPWView"></div> */}
             <span className="SignUpPWLabel">Password</span>
             <form>
-              <input
-                className="SignUpPWInput"
-                type="password"
-                placeholder="변경할 비밀번호를 입력해 주세요 :)"
-              ></input>
+              <input className="SignUpPWInput" type="password" placeholder="변경할 비밀번호를 입력해 주세요 :)"></input>
             </form>
           </div>
           <div className="SignUpPWChkDiv">
             {/* <div className="SignUpPWHidden"></div> */}
             <span className="SignUpPWChkLabel">Password Check</span>
             <form>
-              <input
-                className="SignUpPWChkInput"
-                type="password"
-                placeholder="한번 더 똑같이 적어주세요."
-              ></input>
+              <input className="SignUpPWChkInput" type="password" placeholder="한번 더 똑같이 적어주세요."></input>
             </form>
           </div>
         </div>

@@ -1,19 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LeftSeat from "./LeftSeat";
 import "./Main.css";
 function Main() {
   return (
     <>
       <div className="main">
-        <div className="SeatCounter">
-          <div className="SeatCountDiv">
-            <span id="spareSeatLabel">남은 좌석</span>
-            <span id="spareSeatCnt">76</span>
-            <span id="allSeatLabel">총 좌석</span>
-            <span id="allSeatCnt">240</span>
-            <div className="Contour"> </div>
-          </div>
-        </div>
+        <LeftSeat></LeftSeat>
         <div className="MainBtnsDiv">
           {/* 자습실 예약 */}
           <Link to="/reservation/list">

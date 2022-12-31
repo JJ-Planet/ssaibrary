@@ -14,6 +14,7 @@ import CommunityWrite from "./CommunityWritePage/CommunityWritePage";
 import CommunityDetail from "./CommunityDetailPage/CommunityDetailPage";
 import AccountModify from "./AccountModifyPage/AccountModifyPage";
 import ReservationList from "./ReservationListPage/ReservationListPage";
+import FastCheckPage from "./FastCheckPage/FastCheckPage";
 import FAQ from "./FAQPage/FAQPage";
 import "./App.css";
 
@@ -24,6 +25,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<LandingPage />}></Route>
           <Route path="/main" element={<Main />}></Route>
+          <Route path="/fastCheck" element={<FastCheckPage />}></Route>
 
           <Route path="/account" element={<Account />}></Route>
           <Route path="/account/reservation" element={<AccountReservation />}></Route>
