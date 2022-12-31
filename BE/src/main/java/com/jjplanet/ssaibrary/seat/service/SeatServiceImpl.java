@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.jjplanet.ssaibrary.exception.NotFoundException;
 import com.jjplanet.ssaibrary.room.domain.Room;
-import com.jjplanet.ssaibrary.room.repository.RoomRepository;
+import com.jjplanet.ssaibrary.room.repository.RoomJpaRepository;
 import com.jjplanet.ssaibrary.seat.domain.Seat;
 import com.jjplanet.ssaibrary.seat.dto.SeatDTO;
 import com.jjplanet.ssaibrary.seat.repository.SeatRepository;
@@ -20,7 +20,7 @@ public class SeatServiceImpl implements SeatService {
 	private SeatRepository seatRepository;
 
 	@Autowired
-	private RoomRepository roomRepository;
+	private RoomJpaRepository roomRepository;
 
 	@Override
 	public List<SeatDTO> findAllSeat() throws Exception {

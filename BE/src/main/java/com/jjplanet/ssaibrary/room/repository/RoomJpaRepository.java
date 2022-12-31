@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.jjplanet.ssaibrary.room.domain.Room;
 
 @Repository
-public interface RoomRepository extends JpaRepository<Room, Long> {
+public interface RoomJpaRepository extends JpaRepository<Room, Long> {
 
 }
