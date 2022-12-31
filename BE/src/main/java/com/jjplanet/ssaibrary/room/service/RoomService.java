@@ -6,13 +6,13 @@ import com.jjplanet.ssaibrary.room.dto.RoomDTO;
 
 public interface RoomService {
 
-	List<RoomDTO> findAllRoom() throws Exception;
+	List<RoomDTO> findAllRoom();
 	
-	RoomDTO findRoomById(Long id) throws Exception;
+	RoomDTO findRoomById(Long id);
 
-	void insertRoom(RoomDTO roomDTO) throws Exception;
+	void insertRoom(RoomDTO roomDTO);
 
-	void updateRoom(RoomDTO roomDTO) throws Exception;
+	void updateRoom(RoomDTO roomDTO);
 
-	void deleteRoom(Long id) throws Exception;
+	void deleteRoom(Long id);
 }
