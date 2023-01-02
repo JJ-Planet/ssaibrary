@@ -6,7 +6,7 @@
   top: calc(50% - 645px / 2 + 5.5px);
 }
 
-.DataDiv {
+.HistoryDataDiv {
   position: absolute;
   width: 350px;
   height: 575px;
@@ -14,14 +14,18 @@
   top: 16px;
 }
 
-.Dummy {
+.HistoryDummy {
+  position: relative;
   width: 350px;
-  height: 37px;
+  height: 30px;
   left: 0px;
   top: 0px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  padding-top: 10px;
 }
-.Line {
+.HistorySeperator {
+  position: relative;
+
   width: 348px;
   height: 0px;
   left: 0px;
@@ -30,10 +34,9 @@
   border: 1px solid #dedbf6;
   transform: matrix(1, 0, 0, 1, 0, 0);
 }
-.Data {
+.HistoryData {
   display: block;
   width: 155px;
-  height: 30px;
   left: calc(50% - 155px / 2 - 87.5px);
   top: calc(50% - 30px / 2 + 3.5px);
   margin-top: 5px;
@@ -47,7 +50,7 @@
   color: #312082;
 }
 
-.SubData {
+.HistorySubData {
   position: relative;
 
   width: 48px;
@@ -58,8 +61,7 @@
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
-  line-height: 15px;
+  line-height: 10px;
   /* identical to box height */
-
   color: #312082;
 }

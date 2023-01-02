@@ -5,7 +5,7 @@ import Footer from "../MainPage/Footer";
 import "./NoticePage.css";
 const NoticePage = () => {
   return (
-    <div className="Notice">
+    <div className="NoticePage">
       <Header />
       <Main />
       <Footer />

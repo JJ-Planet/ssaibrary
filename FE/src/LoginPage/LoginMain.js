@@ -1,7 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./LoginMain.css";
+
+// const LoginMainPage = document.querySelector('.LoginMain');
+
 function Main() {
   return (
     <>

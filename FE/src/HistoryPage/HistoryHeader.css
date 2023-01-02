@@ -94,4 +94,5 @@
   top: 45px;
   border: 2px solid #b3a7ff;
   transform: matrix(1, 0, 0, 1, 0, 0);
+  z-index: 999;
 }

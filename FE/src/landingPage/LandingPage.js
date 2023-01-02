@@ -2,6 +2,7 @@ import "./LandingPage.css";
 import { useNavigate } from "react-router-dom";
 import Footer from "./CopyRightFooter";
 import React, { useEffect } from "react";
+
 function LandingPage() {
   // push 사용 위해 usehistory 불러오기
   const navigate = useNavigate();
@@ -9,8 +10,9 @@ function LandingPage() {
   const timeout = () => {
     setTimeout(() => {
       navigate("/login");
-    }, 1500);
+    }, 2000);
   };
+
   // 컴포넌트가 화면에 다 나타나면 timeout 함수 실행
   useEffect(() => {
     timeout();

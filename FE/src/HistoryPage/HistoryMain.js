@@ -61,10 +61,10 @@ const rendering = () => {
   const result = [];
   for (let i = 0; i < DataInfo.length; i++) {
     result.push(
-      <div className="Dummy" key={DataInfo[i].id}>
-        <div className="Line"></div>
-        <span className="Data">{DataInfo[i].desc}</span>
-        <span className="SubData">{DataInfo[i].time} min</span>
+      <div className="HistoryDummy" key={DataInfo[i].id}>
+        <span className="HistoryData">{DataInfo[i].desc}</span>
+        <span className="HistorySubData">{DataInfo[i].time} min</span>
+        <div className="HistorySeperator"></div>
       </div>
     );
   }
@@ -75,7 +75,7 @@ function Main() {
   return (
     <>
       <div className="HistoryMain">
-        <div className="DataDiv">{rendering()}</div>
+        <div className="HistoryDataDiv">{rendering()}</div>
       </div>
     </>
   );
