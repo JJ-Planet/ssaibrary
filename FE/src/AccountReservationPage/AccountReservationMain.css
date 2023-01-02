@@ -31,7 +31,7 @@
 
   background: #b6d8f2;
   border-radius: 10px 10px 0px 0px;
-  z-index: 999;
+  z-index: 9;
 }
 
 .DateText {
@@ -135,6 +135,7 @@
   top: 16px;
 
   background: url(../assets/images/QRImg.png);
+  cursor: pointer;
 }
 
 .ShareBtnDiv {
@@ -146,6 +147,7 @@
 
   background: #ecf4f3;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .ShareText {
@@ -164,7 +166,8 @@
   color: #312082;
 }
 
-.ResvationCancleBtnDiv {
+.ResvationCancleBtnDiv,
+.ResvationCancleBtnDiv1 {
   position: absolute;
   width: 130px;
   height: 42px;
@@ -173,6 +176,7 @@
 
   background: #ecf4f3;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .ResvationCancleText {
@@ -192,3 +196,71 @@
 
   color: #312082;
 }
+/* .modal {
+  position: absolute;
+  top: -105px;
+  left: 0;
+
+  width: 390px;
+  height: 844px;
+
+  display: none;
+
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+.modal_body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 250px;
+  height: 180px;
+  z-index: 999;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+  transform: translateX(-50%) translateY(-50%);
+}
+.m_head {
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #b6d8f2;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.modal_title {
+  position: relative;
+  font-size: 15px;
+  color: #312082;
+  font-weight: 500;
+  top: 10px;
+  left: 15px;
+  text-align: center;
+}
+
+.m_body {
+  display: flex;
+  justify-content: center;
+}
+.modal_btn {
+  width: 80px;
+  height: 30px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+  top: 100px;
+
+  position: absolute;
+  margin-left: 5px;
+}
+.cancle {
+  background-color: white;
+  color: black;
+}
+.save {
+  background-color: rgb(50, 77, 158);
+  color: white;
+} */

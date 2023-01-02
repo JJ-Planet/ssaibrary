@@ -36,10 +36,10 @@
 }
 .HistoryData {
   display: block;
+  position: relative;
   width: 155px;
   left: calc(50% - 155px / 2 - 87.5px);
-  top: calc(50% - 30px / 2 + 3.5px);
-  margin-top: 5px;
+  top: 5px;
   margin-left: 5px;
 
   font-style: normal;
@@ -56,7 +56,7 @@
   width: 48px;
   height: 15px;
   left: calc(50% - 48px / 2 + 142px);
-  bottom: 35px;
+  bottom: 30px;
 
   font-style: normal;
   font-weight: 700;
@@ -64,4 +64,14 @@
   line-height: 10px;
   /* identical to box height */
   color: #312082;
+}
+.HistorySeperator2 {
+  position: relative;
+  width: 348px;
+  height: 0px;
+  left: 0px;
+  top: 5px;
+
+  border: 1px solid #dedbf6;
+  transform: matrix(1, 0, 0, 1, 0, 0);
 }

@@ -16,42 +16,42 @@ const DataInfo = [
     time: 480,
   },
   {
-    id: 2,
+    id: 3,
     desc: "2022. 12. 11 15:00 - 23:00 자습실 303호 120번",
     time: 480,
   },
   {
-    id: 2,
+    id: 4,
     desc: "2022. 12. 11 15:00 - 23:00 자습실 303호 120번",
     time: 480,
   },
   {
-    id: 2,
+    id: 5,
     desc: "2022. 12. 11 15:00 - 23:00 자습실 303호 120번",
     time: 480,
   },
   {
-    id: 2,
+    id: 6,
     desc: "2022. 12. 11 15:00 - 23:00 자습실 303호 120번",
     time: 480,
   },
   {
-    id: 2,
+    id: 7,
     desc: "2022. 12. 11 15:00 - 23:00 자습실 303호 120번",
     time: 480,
   },
   {
-    id: 2,
+    id: 8,
     desc: "2022. 12. 11 15:00 - 23:00 자습실 303호 120번",
     time: 480,
   },
   {
-    id: 2,
+    id: 9,
     desc: "2022. 12. 11 15:00 - 23:00 자습실 303호 120번",
     time: 480,
   },
   {
-    id: 2,
+    id: 10,
     desc: "2022. 12. 11 15:00 - 23:00 자습실 303호 120번",
     time: 480,
   },
@@ -75,7 +75,10 @@ function Main() {
   return (
     <>
       <div className="HistoryMain">
-        <div className="HistoryDataDiv">{rendering()}</div>
+        <div className="HistoryDataDiv">
+          <div className="HistorySeperator2"></div>
+          {rendering()}
+        </div>
       </div>
     </>
   );

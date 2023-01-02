@@ -1,9 +1,30 @@
 import React from "react";
 import "./AccountReservationMain.css";
+// const cancleBtn = document.querySelector(".ResvationCancleBtnDiv1");
+// const cancleModal = document.querySelector("#modal");
+// cancleBtn.addEventListener("click", () => {
+//   cancleModal.style.display = "block";
+//   console.log("hi");
+// });
 function Body() {
   return (
     <>
       <div className="Body">
+        {/* <div className="modal" id="modal">
+          <div className="modal_body">
+            <div className="m_head">
+              <div className="modal_title">예약을 취소하시겠습니까?</div>
+            </div>
+            <div className="m_body">
+              <div className="modal_btn cancle" id="close_btn">
+                CANCLE
+              </div>
+              <div className="modal_btn save" id="save_btn">
+                SAVE
+              </div>
+            </div>
+          </div>
+        </div> */}
         <div className="ReservationCardDiv">
           <div className="DateLabelDiv">
             <span className="DateText">2022. 12. 22 (목)</span>
@@ -20,7 +41,7 @@ function Body() {
             <div className="ShareBtnDiv">
               <span className="ShareText">공유 하기</span>
             </div>
-            <div className="ResvationCancleBtnDiv">
+            <div className="ResvationCancleBtnDiv1">
               <span className="ResvationCancleText">예약 취소</span>
             </div>
           </div>

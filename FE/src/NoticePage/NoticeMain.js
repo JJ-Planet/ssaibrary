@@ -65,7 +65,7 @@ const rendering = () => {
     result.push(
       <div className="Dummy" key={DataInfo[i].id}>
         <div className="ArrowBottomImg"></div>
-        <div className="Line"></div>
+        <div className="NoticeLine"></div>
         <span className="NoticeData">{DataInfo[i].date}</span>
         <span className="NoticeSubData">{DataInfo[i].desc}</span>
       </div>
@@ -78,7 +78,10 @@ function Main() {
   return (
     <>
       <div className="MainDiv">
-        <div className="DataDiv">{rendering()}</div>
+        <div className="DataDiv">
+          {rendering()}
+          <div className="NoticeLine1"></div>
+        </div>
       </div>
     </>
   );
