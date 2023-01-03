@@ -1,6 +1,7 @@
 package com.jjplanet.ssaibrary.community.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -17,5 +18,5 @@ public interface CommunityRepository extends JpaRepository<Community, Long> {
 
 	// 상세조회
 	@Query(value = "select * from Community where id=:id", nativeQuery = true)
-	Community findOneById(@Param("id") Long id);
+	Optional<Community> findOneById(@Param("id") Long id);
 }

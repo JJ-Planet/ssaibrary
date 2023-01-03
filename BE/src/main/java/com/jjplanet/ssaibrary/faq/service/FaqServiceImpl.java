@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -59,16 +60,16 @@ public class FaqServiceImpl implements FaqService {
 	@Override
 	public void updateFaq(UpdateFaqDTO f) throws NotFoundException {
 
-		Faq faq = faqRepository.findOneById(f.getId());
+		Optional<Faq> faq = faqRepository.findOneById(f.getId());
 
 		if (faq == null) {
 			throw new NotFoundException("존재하지 않는 게시글입니다.");
 		}
 
-		faq.setQuestion(f.getQuestion());
-		faq.setAnswer(f.getAnswer());
+		faq.get().setQuestion(f.getQuestion());
+		faq.get().setAnswer(f.getAnswer());
 
-		faqRepository.save(faq);
+		faqRepository.save(faq.get());
 
 	}
 
@@ -76,15 +77,15 @@ public class FaqServiceImpl implements FaqService {
 	@Override
 	public void deleteFaq(Long id) throws NotFoundException {
 
-		Faq faq = faqRepository.findOneById(id);
+		Optional<Faq> faq = faqRepository.findOneById(id);
 
-		if (faq == null) {
+		if (!faq.isPresent()) {
 			throw new NotFoundException("존재하지 않는 게시글입니다.");
 		}
 
-		faq.setStatus('D');
+		faq.get().setStatus('D');
 
-		faqRepository.save(faq);
+		faqRepository.save(faq.get());
 
 	}
 

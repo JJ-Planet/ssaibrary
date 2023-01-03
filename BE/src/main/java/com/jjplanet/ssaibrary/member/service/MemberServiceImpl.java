@@ -1,6 +1,8 @@
 package com.jjplanet.ssaibrary.member.service;
 
 import java.util.Date;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
@@ -43,14 +45,14 @@ public class MemberServiceImpl implements MemberService {
 
 	// 아이디 중복 체크
 	private void duplicateId(String id) {
-		if (memberRepository.findOneById(id) != null) {
+		if (memberRepository.findOneById(id).isPresent()) {
 			throw new NotFoundException("중복된 아이디입니다.");
 		}
 	}
 
 	// 닉네임 중복체크
 	private void duplicateNickname(String nickname) {
-		if (memberRepository.findByNickname(nickname) != null) {
+		if (memberRepository.findByNickname(nickname).isPresent()) {
 			throw new NotFoundException("중복된 닉네임입니다.");
 		}
 
@@ -60,42 +62,42 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public FindMemberDTO findMember(String id) {
 
-		Member m = memberRepository.findOneById(id).orElseThrow(NotFoundException::new);
+		Optional<Member> m = memberRepository.findOneById(id);
 
-		FindMemberDTO member = new FindMemberDTO(m.getId(), m.getPassword(), m.getName(), m.getNickname(),
-				m.getOriginImage(), m.getSaveImage());
+		FindMemberDTO member = new FindMemberDTO(m.get().getId(), m.get().getPassword(), m.get().getName(), m.get().getNickname(),
+				m.get().getOriginImage(), m.get().getSaveImage());
 
 		return member;
 	}
 
 	// 회원삭제
 	public void deleteMember(String id) throws NotFoundException {
-		Member member = memberRepository.findOneById(id).orElseThrow(NotFoundException::new);
+		Optional<Member> member = memberRepository.findOneById(id);
 
-		if (member.getStatus() == 'X') {
+		if (member.get().getStatus() == 'X') {
 			throw new NotFoundException("유효한 회원이 아닙니다.");
 		}
 		Date now = new Date();
 
-		member.setExitDate(now);
-		member.setStatus('X');
+		member.get().setExitDate(now);
+		member.get().setStatus('X');
 
-		memberRepository.save(member);
+		memberRepository.save(member.get());
 
 	}
 
 	// 회원정보수정
 	public void updateMember(UpdateMemberDTO m) throws NotFoundException {
-		Member member = memberRepository.findOneById(m.getId()).orElseThrow(NotFoundException::new);
+		Optional<Member> member = memberRepository.findOneById(m.getId());
 
 		// 닉네임 중복 체크
 		duplicateNickname(m.getNickname());
 
-		member.setName(m.getName());
-		member.setNickname(m.getNickname());
-		member.setPassword(m.getPassword());
+		member.get().setName(m.getName());
+		member.get().setNickname(m.getNickname());
+		member.get().setPassword(m.getPassword());
 
-		memberRepository.save(member);
+		memberRepository.save(member.get());
 
 	}
 

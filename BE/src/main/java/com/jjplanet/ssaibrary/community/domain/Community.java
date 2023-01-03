@@ -1,5 +1,6 @@
 package com.jjplanet.ssaibrary.community.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -39,7 +40,7 @@ import lombok.Setter;
 @AllArgsConstructor(access = AccessLevel.PROTECTED) // 모든 필드 값을 파라미터로 받는 생성자를 만듦
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // 기본생성자 생성
 @Getter // getter 생성
-public class Community {
+public class Community implements Serializable{
 
 	// 글번호
 	@Id

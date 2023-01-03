@@ -1,6 +1,7 @@
 package com.jjplanet.ssaibrary.inquiry.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,6 +17,6 @@ public interface InquiryRepository extends JpaRepository<Inquiry, Long> {
 	
 	//상세조회
 	@Query(value = "select * from Inquiry where id=:id", nativeQuery = true)
-	Inquiry findOneById(@Param("id")Long id);
+	Optional<Inquiry> findOneById(@Param("id")Long id);
 
 }

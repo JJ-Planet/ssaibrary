@@ -15,7 +15,7 @@ public interface MemberRepository extends JpaRepository<Member, String>{
 
 	
 	@Query(value="select * from Member where nickname=:nickname", nativeQuery = true)
-    Member findByNickname(@Param("nickname") String nickname);
+    Optional<Member> findByNickname(@Param("nickname") String nickname);
 	
 	
 

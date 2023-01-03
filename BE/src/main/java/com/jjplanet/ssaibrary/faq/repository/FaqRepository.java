@@ -1,6 +1,7 @@
 package com.jjplanet.ssaibrary.faq.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -15,6 +16,6 @@ public interface FaqRepository extends JpaRepository<Faq, Long> {
 	List<Faq> findAllList();
 
 	@Query(value = "select * from Faq where id=:id", nativeQuery = true)
-	Faq findOneById(@Param("id") Long id);
+	Optional<Faq> findOneById(@Param("id") Long id);
 
 }

@@ -1,6 +1,7 @@
 package com.jjplanet.ssaibrary.notice.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 
@@ -24,11 +25,5 @@ public class NoticeCustomRepositoryImpl implements NoticeCustomRepository{
                 .getResultList();
     }
 
-    //상세조회
-	@Override
-	public Notice findOneById(Long id) {
-        return em.createQuery("select n from Notice n where n.id=:id", Notice.class)
-                .setParameter("id", id)
-                .getSingleResult();
-	}
+
 }

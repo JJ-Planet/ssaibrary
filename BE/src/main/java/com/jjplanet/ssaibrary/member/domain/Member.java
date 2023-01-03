@@ -101,6 +101,14 @@ public class Member implements Serializable{
 		this.password = password;
 	}
 
+	@Override
+	public String toString() {
+		return "Member [id=" + id + ", password=" + password + ", refreshToken=" + refreshToken + ", name=" + name
+				+ ", nickname=" + nickname + ", originImage=" + originImage + ", saveImage=" + saveImage + ", joinDate="
+				+ joinDate + ", exitDate=" + exitDate + ", isAdmin=" + isAdmin + ", status=" + status + "]";
+	}
+
+	
 
 
 
