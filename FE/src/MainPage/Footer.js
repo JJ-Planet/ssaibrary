@@ -1,8 +1,10 @@
 import React from "react";
 import "./Footer.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Footer() {
+  const location = useLocation();
+  console.log(location);
   return (
     <>
       <div className="bottomBar">
