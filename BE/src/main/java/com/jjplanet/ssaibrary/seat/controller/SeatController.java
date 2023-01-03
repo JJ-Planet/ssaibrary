@@ -51,7 +51,7 @@ public class SeatController {
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 
-	@PutMapping("{id}")
+	@PutMapping
 	public ResponseEntity<?> updateSeat(@RequestBody SeatDTO seatDTO) throws Exception {
 		seatService.updateSeat(seatDTO);
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);

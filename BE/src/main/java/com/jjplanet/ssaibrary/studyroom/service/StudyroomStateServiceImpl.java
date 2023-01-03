@@ -2,6 +2,7 @@ package com.jjplanet.ssaibrary.studyroom.service;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,7 @@ public class StudyroomStateServiceImpl implements StudyroomStateService {
 
 	@Override
 	public StudyroomStateDTO findStudyroomStateById(Long id) throws Exception {
+		if(studyroomStateRepository.findById(id).isPresent()) {}
 		StudyroomState state = studyroomStateRepository.findById(id).orElseThrow(NotFoundException::new);
 		StudyroomStateDTO stateDTO = new StudyroomStateDTO(state.getId(), state.getStudyroomReservation().getId(),
 				state.getIsDirty(), state.getIsDamage(), state.getIsNotLock(), state.getOriginImage(),

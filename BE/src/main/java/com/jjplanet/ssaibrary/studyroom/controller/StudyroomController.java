@@ -54,7 +54,7 @@ public class StudyroomController {
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 
-	@PutMapping("{id}")
+	@PutMapping
 	public ResponseEntity<?> updateStudyroom(@RequestBody StudyroomDTO studyroomDTO) throws Exception {
 		studyroomService.updateStudyroom(studyroomDTO);
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);

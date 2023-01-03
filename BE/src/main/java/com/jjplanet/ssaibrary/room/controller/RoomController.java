@@ -42,7 +42,7 @@ public class RoomController {
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 
-	@PutMapping("{id}")
+	@PutMapping
 	public ResponseEntity<?> updateRoom(@RequestBody RoomDTO roomDTO) throws Exception {
 		roomService.updateRoom(roomDTO);
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
