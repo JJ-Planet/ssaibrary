@@ -1,9 +1,10 @@
 package com.jjplanet.ssaibrary.seat.service;
 
-import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.jjplanet.ssaibrary.exception.NotFoundException;
@@ -13,48 +14,38 @@ import com.jjplanet.ssaibrary.seat.domain.Seat;
 import com.jjplanet.ssaibrary.seat.dto.SeatDTO;
 import com.jjplanet.ssaibrary.seat.repository.SeatRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class SeatServiceImpl implements SeatService {
 
-	@Autowired
-	private SeatRepository seatRepository;
+	private final SeatRepository seatRepository;
 
-	@Autowired
-	private RoomRepository roomRepository;
+	private final RoomRepository roomRepository;
 
 	@Override
 	public List<SeatDTO> findAllSeat() throws Exception {
-		List<Seat> seatList = seatRepository.findAll();
-		List<SeatDTO> seatDTOList = new LinkedList<>();
-		for (Seat s : seatList) {
-			seatDTOList.add(new SeatDTO(s.getId(), s.getRoom().getId(), s.getPassword(), s.getStatus()));
-		}
-		return seatDTOList;
+		return seatRepository.findAll().stream().map(Seat::toDTOWithSeat).collect(Collectors.toList());
 	}
 
 	@Override
 	public SeatDTO findSeatById(Long id) throws Exception {
-		Seat seat = seatRepository.findById(id).orElseThrow(NotFoundException::new);
-		SeatDTO seatDTO = new SeatDTO(seat.getId(), seat.getRoom().getId(), seat.getPassword(), seat.getStatus());
-		return seatDTO;
+		return seatRepository.findById(id).orElseThrow(NotFoundException::new).toDTO();
 	}
-	
+
 	@Override
+	@Transactional
 	public void insertSeat(SeatDTO seatDTO) throws Exception {
-		Room room = roomRepository.findById(seatDTO.getRoomId()).orElseThrow(NotFoundException::new);
-		Seat seat = new Seat(seatDTO.getId(), room, seatDTO.getPassword(), seatDTO.getStatus());
+		Seat seat = Seat.builder().seatDTO(seatDTO).build();
 		seatRepository.save(seat);
 	}
 
 	@Override
 	public void updateSeat(SeatDTO seatDTO) throws Exception {
-		Seat updateSeat = seatRepository.findById(seatDTO.getId()).orElseThrow(NotFoundException::new);
+		Seat seat = seatRepository.findById(seatDTO.getId()).orElseThrow(NotFoundException::new);
 		Room room = roomRepository.findById(seatDTO.getRoomId()).orElseThrow(NotFoundException::new);
-
-		updateSeat.setRoom(room);
-		updateSeat.setPassword(seatDTO.getPassword());
-		updateSeat.setStatus(seatDTO.getStatus());
-		seatRepository.save(updateSeat);
+		seat.updateSeat(seatDTO, room);
 	}
 
 	@Override

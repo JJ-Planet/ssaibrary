@@ -54,7 +54,7 @@ public class StudyroomReservationServiceImpl implements StudyroomReservationServ
 
 	@Override
 	public void reservationStudyroom(StudyroomReservationDTO studyroomReservationDTO) throws Exception {
-		Member member = memberRepository.findOneById(studyroomReservationDTO.getMemberId())
+		Member member = memberRepository.findById(studyroomReservationDTO.getMemberId())
 				.orElseThrow(NotFoundException::new);
 		Studyroom studyroom = studyroomRepository.findById(studyroomReservationDTO.getStudyroomId())
 				.orElseThrow(NotFoundException::new);

@@ -2,7 +2,6 @@ package com.jjplanet.ssaibrary.seat.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,18 +19,19 @@ import com.jjplanet.ssaibrary.seat.dto.SeatReservationExtensionDTO;
 import com.jjplanet.ssaibrary.seat.service.SeatReservationService;
 import com.jjplanet.ssaibrary.seat.service.SeatService;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/seat")
+@RequiredArgsConstructor
 public class SeatController {
 
 	private static final String SUCCESS = "success";
 	private static final String FAIL = "fail";
 	
-	@Autowired
-	private SeatService seatService;
+	private final SeatService seatService;
 	
-	@Autowired
-	private SeatReservationService seatReservationService;
+	private final SeatReservationService seatReservationService;
 
 	// 좌석
 

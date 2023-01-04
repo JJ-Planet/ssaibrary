@@ -11,16 +11,15 @@ import javax.persistence.ManyToOne;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import com.jjplanet.ssaibrary.member.domain.Member;
-import com.jjplanet.ssaibrary.seat.domain.Seat;
+import com.jjplanet.ssaibrary.seat.dto.SeatReservationDTO;
 
 @Entity
 @Getter
-@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // 동일한 패키지 내 클래스에서만 객체 생성
 @AllArgsConstructor
 public class SeatReservation {
@@ -64,4 +63,40 @@ public class SeatReservation {
 
 	// 상태(W:대기,A:사용중,C:사용완료,X:취소)
 	private char status;
+
+	@Builder
+	public SeatReservation(SeatReservationDTO seatReservaionDTO, Member member, Seat seat) {
+		this.member = member;
+		this.seat = seat;
+		this.reservationDate = seatReservaionDTO.getReservationDate();
+		this.startDate = seatReservaionDTO.getStartDate();
+		this.time = seatReservaionDTO.getTime();
+		this.checkinDate = seatReservaionDTO.getCheckinDate();
+		this.checkoutDate = seatReservaionDTO.getCheckoutDate();
+		this.addTime = seatReservaionDTO.getAddTime();
+		this.addCount = seatReservaionDTO.getAddCount();
+		this.status = seatReservaionDTO.getStatus();
+	}
+
+	public static SeatReservationDTO toDTOWithSeatReservation(SeatReservation seatReservation) {
+		return new SeatReservationDTO(seatReservation.getId(), seatReservation.getMember().getId(),
+				seatReservation.getMember().getNickname(), seatReservation.getSeat().getId(),
+				seatReservation.getReservationDate(), seatReservation.getStartDate(), seatReservation.getTime(),
+				seatReservation.getCheckinDate(), seatReservation.getCheckoutDate(), seatReservation.getAddTime(),
+				seatReservation.getAddCount(), seatReservation.getStatus());
+	}
+
+	public SeatReservationDTO toDTO() {
+		return new SeatReservationDTO(id, member.getId(), member.getNickname(), seat.getId(), reservationDate,
+				startDate, time, checkinDate, checkoutDate, addTime, addCount, status);
+	}
+
+	public void updateAddData(int addTime) {
+		this.addTime = this.addTime + addTime;
+		addCount = addCount + 1;
+	}
+
+	public void updateStatus(char status) {
+		this.status = status;
+	}
 }
