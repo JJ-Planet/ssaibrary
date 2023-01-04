@@ -27,6 +27,11 @@
 
   font-family: "Pretendard";
 }
+::selection{
+  background-color: rgba(51, 28, 158, 0.74);
+  color: white;
+
+}
 
 a {
   text-decoration: none;
