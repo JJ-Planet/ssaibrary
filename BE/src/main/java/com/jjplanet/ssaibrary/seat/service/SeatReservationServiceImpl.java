@@ -2,6 +2,7 @@ package com.jjplanet.ssaibrary.seat.service;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,24 +10,27 @@ import org.springframework.stereotype.Service;
 import com.jjplanet.ssaibrary.exception.NotFoundException;
 import com.jjplanet.ssaibrary.member.domain.Member;
 import com.jjplanet.ssaibrary.member.repository.MemberRepository;
+import com.jjplanet.ssaibrary.room.domain.Room;
+import com.jjplanet.ssaibrary.room.repository.RoomRepository;
 import com.jjplanet.ssaibrary.seat.domain.SeatReservation;
 import com.jjplanet.ssaibrary.seat.dto.SeatReservationDTO;
 import com.jjplanet.ssaibrary.seat.dto.SeatReservationExtensionDTO;
 import com.jjplanet.ssaibrary.seat.repository.SeatReservationRepository;
+
+import lombok.RequiredArgsConstructor;
+
 import com.jjplanet.ssaibrary.seat.domain.Seat;
 import com.jjplanet.ssaibrary.seat.repository.SeatRepository;
 
 @Service
+@RequiredArgsConstructor
 public class SeatReservationServiceImpl implements SeatReservationService {
 
-	@Autowired
-	private SeatReservationRepository seatReservationRepository;
+	private final SeatReservationRepository seatReservationRepository;
 	
-	@Autowired
-	private SeatRepository seatRepository;
+	private final SeatRepository seatRepository;
 
-	@Autowired
-	private MemberRepository memberRepository;
+	private final MemberRepository memberRepository;
 
 	@Override
 	public List<SeatReservationDTO> findAllSeatReservation() throws Exception {
@@ -39,6 +43,8 @@ public class SeatReservationServiceImpl implements SeatReservationService {
 					sr.getStatus()));
 		}
 		return reservationDTOList;
+//		return seatReservationRepository.findAll().stream().map(SeatReservation::toDTOWithRoom).collect(Collectors.toList());
+		
 	}
 
 	@Override
@@ -54,7 +60,7 @@ public class SeatReservationServiceImpl implements SeatReservationService {
 
 	@Override
 	public void reservationSeat(SeatReservationDTO seatReservationDTO) throws Exception {
-		Member member = memberRepository.findOneById(seatReservationDTO.getMemberId())
+		Member member = memberRepository.findById(seatReservationDTO.getMemberId())
 				.orElseThrow(NotFoundException::new);
 		Seat seat = seatRepository.findById(seatReservationDTO.getSeatId()).orElseThrow(NotFoundException::new);
 		SeatReservation seatReservation = new SeatReservation(seatReservationDTO.getId(), member, seat,

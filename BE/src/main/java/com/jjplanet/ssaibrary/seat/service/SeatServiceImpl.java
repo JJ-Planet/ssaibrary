@@ -41,9 +41,9 @@ public class SeatServiceImpl implements SeatService {
 	
 	@Override
 	public void insertSeat(SeatDTO seatDTO) throws Exception {
-		Room room = roomRepository.findById(seatDTO.getRoomId()).orElseThrow(NotFoundException::new);
-		Seat seat = new Seat(seatDTO.getId(), room, seatDTO.getPassword(), seatDTO.getStatus());
-		seatRepository.save(seat);
+//		Room room = roomRepository.findById(seatDTO.getRoomId()).orElseThrow(NotFoundException::new);
+//		Seat seat = new Seat(seatDTO.getId(), room, seatDTO.getPassword(), seatDTO.getStatus());
+//		seatRepository.save(seat);
 	}
 
 	@Override
