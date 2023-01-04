@@ -11,6 +11,7 @@ function LandingPage() {
     setTimeout(() => {
       navigate("/login");
     }, 2000);
+    console.log("HEllo")
   };
 
   // 컴포넌트가 화면에 다 나타나면 timeout 함수 실행
@@ -20,7 +21,7 @@ function LandingPage() {
       // clear 해줌
       clearTimeout(timeout);
     };
-  });
+  }, []);
   return (
     <div className="App">
       <header className="App-header">

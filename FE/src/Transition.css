@@ -4,6 +4,7 @@ transitions-wrapper {
   height: calc(var(--vh, 1vh) * 100);
   width: 100vw;
 }
+
 .right-enter {
   transform: translateX(100%);
 }
