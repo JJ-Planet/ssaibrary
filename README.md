@@ -76,7 +76,16 @@ FE - Notice Page,
 ## 12.31
 
 FE - Reservation - RoomDetail Figma Design
-
+- 페이지 마다 애니메이션 적용
+ㅁ react transition group를 이용한 route 사이의 애니메이션 적용
+ㅁ 오른쪽으로 넘어가는 슬라이딩 효과를 줌
+(양방향으로 주기 위해서는 페이지 뎁스를 구체화 해야하는데, 같이 상의를 하지 않았기에 오른쪽으로만 구현했음)
+랜딩 페이지 -> 로그인 페이지로 이동하고 랜더링이 3번 되는 문제점 고쳐야 함
+- 공지사항/히스토리 seperator width 조정
+ㅁ 공지사항 디자인 정리(간격 및 폰트 조정, History 페이지와 동일한 className을 사용했다가 분리했음)
+ㅁ 히스토리 디자인 정리(간격 조정)
+- AccountReservationPage의 QRImg, 공유하기, 예약취소 버튼 cursor: point 표시
+ㅁ 공유하기/예약취소 버튼 클릭시 모달창 나오는거 진행 중
 # DB ERD Diagram
 
 <img src = "./Files/Diagram.png">

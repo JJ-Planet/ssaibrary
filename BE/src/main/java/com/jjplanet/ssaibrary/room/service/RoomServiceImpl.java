@@ -1,13 +1,10 @@
 package com.jjplanet.ssaibrary.room.service;
 
-import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jjplanet.ssaibrary.exception.NotFoundException;
@@ -21,8 +18,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class RoomServiceImpl implements RoomService {
 
-	@Autowired
-	private RoomRepository roomRepository;
+	private final RoomRepository roomRepository;
 
 	@Override
 	public List<RoomDTO> findAllRoom() throws Exception {

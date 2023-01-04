@@ -47,10 +47,10 @@ public class StudyroomServiceImpl implements StudyroomService {
 		Studyroom updateStudyroom = studyroomRepository.findById(studyroomDTO.getId())
 				.orElseThrow(NotFoundException::new);
 
-		updateStudyroom.setFloor(studyroomDTO.getFloor());
-		updateStudyroom.setSize(studyroomDTO.getSize());
-		updateStudyroom.setMaxUser(studyroomDTO.getMaxUser());
-		updateStudyroom.setStatus(studyroomDTO.getStatus());
+//		updateStudyroom.setFloor(studyroomDTO.getFloor());
+//		updateStudyroom.setSize(studyroomDTO.getSize());
+//		updateStudyroom.setMaxUser(studyroomDTO.getMaxUser());
+//		updateStudyroom.setStatus(studyroomDTO.getStatus());
 		studyroomRepository.save(updateStudyroom);
 	}
 
