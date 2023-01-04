@@ -36,7 +36,7 @@ public class NoticeServiceImpl implements NoticeService {
 	// 글작성
 	@Override
 	public void insertNotice(InsertNoticeDTO n) throws NotFoundException {
-		Optional<Member> writer = memberRepository.findOneById(n.getMemberId());
+		Optional<Member> writer = memberRepository.findById(n.getMemberId());
 		
 		if(!writer.isPresent()) {
 			throw new NotFoundException("존재하지 않는 사용자입니다.");
@@ -94,7 +94,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public void updateNotice(UpdateNoticeDTO n) throws NotFoundException {
 
-		Optional<Member> writer = memberRepository.findOneById(n.getMemberId());
+		Optional<Member> writer = memberRepository.findById(n.getMemberId());
 		
 		if(!writer.isPresent()) {
 			throw new NotFoundException("존재하지 않는 사용자입니다.");

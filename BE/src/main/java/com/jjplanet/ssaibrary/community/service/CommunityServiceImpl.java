@@ -58,7 +58,7 @@ public class CommunityServiceImpl implements CommunityService {
 	// 전체목록조회
 	@Override
 	public Map<String, Object> findAllCommunity() throws NotFoundException {
-		List<Community> list = communityRepository.findAllList();
+		List<Community> list = communityRepository.findAllByStatus('V');
 		List<FindAllCommunityDTO> communityList = new ArrayList<>();
 
 		Map<String, Object> result = new HashMap<String, Object>();

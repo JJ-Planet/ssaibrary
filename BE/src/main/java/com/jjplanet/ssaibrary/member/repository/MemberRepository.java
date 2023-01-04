@@ -10,12 +10,9 @@ import com.jjplanet.ssaibrary.member.domain.Member;
 
 public interface MemberRepository extends JpaRepository<Member, String>{
 	
-	//Account
-	Optional<Member> findOneById(String id);
 
 	
-	@Query(value="select * from Member where nickname=:nickname", nativeQuery = true)
-    Optional<Member> findByNickname(@Param("nickname") String nickname);
+    Optional<Member> findByNickname(String nickname);
 	
 	
 
