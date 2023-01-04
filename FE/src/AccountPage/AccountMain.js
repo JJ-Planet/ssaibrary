@@ -1,10 +1,31 @@
 import React from "react";
 import "./AccountMain.css";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+function LogoutAlert(){
+  Swal.fire({
+    title: '로그아웃 하시려고요??',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+    }
+  })
+}
 
 function Main() {
   return (
     <>
+    
       <div className="accountMain">
         <div className="accountMainDiv1">
           <div className="accountMainSeperator"> </div>
@@ -16,7 +37,7 @@ function Main() {
             </Link>
           </div>
           <div className="accountLogOutDiv">
-            <div className="LogOutTitle">로그아웃</div>
+            <div className="LogOutTitle" onClick={LogoutAlert}>로그아웃</div>
             <div className="accountUpdateIcon2"></div>
           </div>
         </div>
