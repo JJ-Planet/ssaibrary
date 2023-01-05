@@ -86,6 +86,15 @@ FE - Reservation - RoomDetail Figma Design
 ㅁ 히스토리 디자인 정리(간격 조정)
 - AccountReservationPage의 QRImg, 공유하기, 예약취소 버튼 cursor: point 표시
 ㅁ 공유하기/예약취소 버튼 클릭시 모달창 나오는거 진행 중
+
+
+
+## 1.4
+FE - LandingPage에서 LoginPage로 이동할 때, 렌더링 여러번 되는 이슈 해결
+
+
+## 1.5
+FE - FastCheck Footer를 통한 component loading 구현
 # DB ERD Diagram
 
 <img src = "./Files/Diagram.png">
