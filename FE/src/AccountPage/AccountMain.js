@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 function Main() {
   const navigate = useNavigate();
-  function LogoutAlert() {
+  function logoutAlert() {
     Swal.fire({
       title: "로그아웃 하시려고요??",
       text: "떠나지마요..",
@@ -33,7 +33,7 @@ function Main() {
               <div className="accountUpdateIcon1"></div>
             </Link>
           </div>
-          <div className="accountLogOutDiv" onClick={LogoutAlert}>
+          <div className="accountLogOutDiv" onClick={logoutAlert}>
             <div className="LogOutTitle">로그아웃</div>
             <div className="accountUpdateIcon2"></div>
           </div>
