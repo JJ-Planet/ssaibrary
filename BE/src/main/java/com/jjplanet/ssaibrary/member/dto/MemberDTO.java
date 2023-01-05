@@ -1,19 +1,20 @@
 package com.jjplanet.ssaibrary.member.dto;
 
-import com.jjplanet.ssaibrary.member.domain.Member;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-/*
- * GET 요청
- */
+import lombok.Setter;
 
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class FindMemberDTO {
+public class MemberDTO {
 	
 	//아이디(전화번호)
 	private String id;
@@ -22,7 +23,7 @@ public class FindMemberDTO {
 	private String password;
 	
 	//jwt토큰
-//	private String refreshToken;
+	private String refreshToken;
 	
 	//이름
 	private String name;
@@ -35,6 +36,17 @@ public class FindMemberDTO {
 	
 	//저장이미지명
 	private String saveImage;
-
+	
+	//가입일시
+	private Date joinDate;
+	
+	//탈퇴일시
+	private Date exitDate; 
+	
+	//관리자여부(Y:관리자,N:일반회원)
+	private char isAdmin;
+	
+	//상태(A:활동상태,X:탈퇴상태)
+	private char status;
 
 }

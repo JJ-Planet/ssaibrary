@@ -1,8 +1,10 @@
 package com.jjplanet.ssaibrary.member.service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,8 +13,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.jjplanet.ssaibrary.exception.NotFoundException;
 import com.jjplanet.ssaibrary.member.domain.Member;
+import com.jjplanet.ssaibrary.member.dto.DeleteMemberDTO;
 import com.jjplanet.ssaibrary.member.dto.FindMemberDTO;
 import com.jjplanet.ssaibrary.member.dto.JoinMemberDTO;
+import com.jjplanet.ssaibrary.member.dto.MemberDTO;
 import com.jjplanet.ssaibrary.member.dto.UpdateMemberDTO;
 import com.jjplanet.ssaibrary.member.repository.MemberRepository;
 import com.jjplanet.ssaibrary.notice.repository.NoticeCustomRepositoryImpl;
@@ -21,7 +25,6 @@ import com.jjplanet.ssaibrary.notice.repository.NoticeRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@Transactional
 @RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService {
 
@@ -29,9 +32,10 @@ public class MemberServiceImpl implements MemberService {
 
 	// 회원가입
 	@Override
-	public void joinMember(JoinMemberDTO m) throws NotFoundException {
-		Member member = new Member(m.getId(), m.getPassword(), m.getName(), m.getNickname(), m.getOriginImage(),
-				m.getSaveImage(), m.getJoinDate(), m.getIsAdmin(), m.getStatus());
+	@Transactional
+	public void joinMember(JoinMemberDTO joinMemberDTO) throws NotFoundException {
+		
+		Member member = Member.builder().joinMemberDTO(joinMemberDTO).build();
 
 		// 아이디 중복 체크
 		duplicateId(member.getId());
@@ -45,7 +49,7 @@ public class MemberServiceImpl implements MemberService {
 
 	// 아이디 중복 체크
 	private void duplicateId(String id) {
-		if (memberRepository.findOneById(id).isPresent()) {
+		if (memberRepository.findById(id).isPresent()) {
 			throw new NotFoundException("중복된 아이디입니다.");
 		}
 	}
@@ -57,48 +61,42 @@ public class MemberServiceImpl implements MemberService {
 		}
 
 	}
+	
+	//Account List
+	@Override
+	public List<MemberDTO> findAllMember() throws NotFoundException {
+		return memberRepository.findAll().stream().map(Member::toDTOWithMember).collect(Collectors.toList());
+	}
 
 	// Account
 	@Override
-	public FindMemberDTO findMember(String id) {
-
-		Optional<Member> m = memberRepository.findOneById(id);
-
-		FindMemberDTO member = new FindMemberDTO(m.get().getId(), m.get().getPassword(), m.get().getName(), m.get().getNickname(),
-				m.get().getOriginImage(), m.get().getSaveImage());
-
-		return member;
+	public FindMemberDTO findMember(String id) throws NotFoundException  {
+		return memberRepository.findById(id).orElseThrow(NotFoundException::new).toDTO();
 	}
+	
+	
 
 	// 회원삭제
-	public void deleteMember(String id) throws NotFoundException {
-		Optional<Member> member = memberRepository.findOneById(id);
+	@Transactional
+	public void deleteMember(DeleteMemberDTO deleteMemberDTO) throws NotFoundException {
+		Member member = memberRepository.findById(deleteMemberDTO.getId()).orElseThrow(NotFoundException::new);
 
-		if (member.get().getStatus() == 'X') {
+		if (member.getStatus() == 'X') {
 			throw new NotFoundException("유효한 회원이 아닙니다.");
 		}
-		Date now = new Date();
-
-		member.get().setExitDate(now);
-		member.get().setStatus('X');
-
-		memberRepository.save(member.get());
+		member.deleteMember(deleteMemberDTO);
 
 	}
 
 	// 회원정보수정
-	public void updateMember(UpdateMemberDTO m) throws NotFoundException {
-		Optional<Member> member = memberRepository.findOneById(m.getId());
+	@Transactional
+	public void updateMember(UpdateMemberDTO updateMemberDTO) throws NotFoundException {
+		Member member = memberRepository.findById(updateMemberDTO.getId()).orElseThrow(NotFoundException::new);
 
 		// 닉네임 중복 체크
-		duplicateNickname(m.getNickname());
+		duplicateNickname(updateMemberDTO.getNickname());
 
-		member.get().setName(m.getName());
-		member.get().setNickname(m.getNickname());
-		member.get().setPassword(m.getPassword());
-
-		memberRepository.save(member.get());
-
+		member.updateMember(updateMemberDTO);
 	}
 
 }

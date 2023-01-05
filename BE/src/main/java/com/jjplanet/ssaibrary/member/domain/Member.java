@@ -10,6 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.jjplanet.ssaibrary.member.dto.DeleteMemberDTO;
+import com.jjplanet.ssaibrary.member.dto.FindMemberDTO;
+import com.jjplanet.ssaibrary.member.dto.JoinMemberDTO;
+import com.jjplanet.ssaibrary.member.dto.MemberDTO;
+import com.jjplanet.ssaibrary.member.dto.UpdateMemberDTO;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -81,24 +86,41 @@ public class Member implements Serializable{
 
 	//회원가입
 	@Builder
-	public Member(String id, String password, String name, String nickname, String originImage, String saveImage, Date joinDate, char isAdmin, char status) {
-		this.id = id;
-		this.password = password;
-		this.name = name;
-		this.nickname = nickname;
-		this.originImage = originImage;
-		this.saveImage = saveImage;
-		this.joinDate = joinDate;
-		this.isAdmin = isAdmin;
-		this.status = status;
+	public Member(JoinMemberDTO joinMemberDTO) {
+		this.id = joinMemberDTO.getId();
+		this.password = joinMemberDTO.getPassword();
+		this.name = joinMemberDTO.getName();
+		this.nickname = joinMemberDTO.getNickname();
+		this.originImage = joinMemberDTO.getOriginImage();
+		this.saveImage = joinMemberDTO.getSaveImage();
+		this.joinDate = joinMemberDTO.getJoinDate();
+		this.isAdmin = joinMemberDTO.getIsAdmin();
+		this.status = joinMemberDTO.getStatus();
+	}
+	
+	//Account List
+	public static MemberDTO toDTOWithMember(Member member) {
+		return new MemberDTO(member.getId(), member.getPassword(), member.getRefreshToken(), member.getName(), member.getNickname(), member.getOriginImage(), member.getSaveImage(), member.getJoinDate(), member.getExitDate(), member.getIsAdmin(), member.getStatus());
+	}
+	
+	//Account
+	public FindMemberDTO toDTO() {
+		return new FindMemberDTO(id, password, name, nickname, originImage, saveImage);
+	}
+	
+	//회원삭제
+	public void deleteMember(DeleteMemberDTO deleteMemberDTO) {
+		this.exitDate = deleteMemberDTO.getExitDate();
+		this.status = 'X'; 
 	}
 
 	//회원정보수정
-	@Builder
-	public Member(String name, String nickname, String password) {
-		this.name = name;
-		this.nickname = nickname;
-		this.password = password;
+	public void updateMember(UpdateMemberDTO updateMemberDTO) {
+		this.name = updateMemberDTO.getName();
+		this.nickname = updateMemberDTO.getNickname();
+		this.password = updateMemberDTO.getPassword();
+		this.originImage = updateMemberDTO.getOriginImage();
+		this.saveImage = updateMemberDTO.getSaveImage();
 	}
 
 	@Override

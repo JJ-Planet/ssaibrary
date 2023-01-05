@@ -1,5 +1,8 @@
 package com.jjplanet.ssaibrary.member.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpStatus;
@@ -14,8 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jjplanet.ssaibrary.exception.NotFoundException;
+import com.jjplanet.ssaibrary.member.domain.Member;
+import com.jjplanet.ssaibrary.member.dto.DeleteMemberDTO;
 import com.jjplanet.ssaibrary.member.dto.FindMemberDTO;
 import com.jjplanet.ssaibrary.member.dto.JoinMemberDTO;
+import com.jjplanet.ssaibrary.member.dto.MemberDTO;
 import com.jjplanet.ssaibrary.member.dto.UpdateMemberDTO;
 import com.jjplanet.ssaibrary.member.service.MemberServiceImpl;
 
@@ -39,6 +45,12 @@ public class MemberController {
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 
 	}
+	
+	//Account List
+	@GetMapping
+	public ResponseEntity<List<MemberDTO>> findAllMember() throws NotFoundException{
+		return new ResponseEntity<List<MemberDTO>>(memberService.findAllMember(), HttpStatus.ACCEPTED);
+	}
 
 	// Account
 	@GetMapping("/{id}")
@@ -47,16 +59,16 @@ public class MemberController {
 	}
 
 	// 회원삭제
-	@DeleteMapping("/{id}")
-	public ResponseEntity<String> deleteMember(@PathVariable("id") String id) throws NotFoundException {
-		memberService.deleteMember(id);
+	@DeleteMapping
+	public ResponseEntity<String> deleteMember(@RequestBody DeleteMemberDTO deleteMemberDTO) throws NotFoundException {
+		memberService.deleteMember(deleteMemberDTO);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 
 	// 회원정보수정
 	@PutMapping
-	public ResponseEntity<String> updateMember(@RequestBody UpdateMemberDTO m) throws NotFoundException {
-		memberService.updateMember(m);
+	public ResponseEntity<String> updateMember(@RequestBody UpdateMemberDTO updateMemberDTO) throws NotFoundException {
+		memberService.updateMember(updateMemberDTO);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 

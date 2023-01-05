@@ -13,10 +13,8 @@ import com.jjplanet.ssaibrary.community.dto.FindOneCommunityByIdDTO;
 public interface CommunityRepository extends JpaRepository<Community, Long> {
 
 	// 전체 목록 불러오기
-	@Query(value = "select * from Community where status='V'", nativeQuery = true)
-	List<Community> findAllList();
-
+	List<Community> findAllByStatus(char status);
+	
 	// 상세조회
-	@Query(value = "select * from Community where id=:id", nativeQuery = true)
-	Optional<Community> findOneById(@Param("id") Long id);
+	Optional<Community> findOneById(Long id);
 }
