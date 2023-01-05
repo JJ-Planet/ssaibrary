@@ -21,6 +21,7 @@ function Main() {
       }
     });
   }
+  
   return (
     <>
       <div className="accountMain">
