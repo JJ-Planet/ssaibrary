@@ -2,7 +2,6 @@ package com.jjplanet.ssaibrary.studyroom.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,20 +20,20 @@ import com.jjplanet.ssaibrary.studyroom.service.StudyroomReservationService;
 import com.jjplanet.ssaibrary.studyroom.service.StudyroomService;
 import com.jjplanet.ssaibrary.studyroom.service.StudyroomStateService;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/studyroom")
+@RequiredArgsConstructor
 public class StudyroomController {
 
 	private static final String SUCCESS = "success";
 
-	@Autowired
-	private StudyroomService studyroomService;
+	private final StudyroomService studyroomService;
 
-	@Autowired
-	private StudyroomReservationService studyroomReservationService;
+	private final StudyroomReservationService studyroomReservationService;
 
-	@Autowired
-	private StudyroomStateService studyroomStateService;
+	private final StudyroomStateService studyroomStateService;
 
 	// 스터디룸
 

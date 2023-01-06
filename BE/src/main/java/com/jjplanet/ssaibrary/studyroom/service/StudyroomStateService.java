@@ -6,9 +6,9 @@ import com.jjplanet.ssaibrary.studyroom.dto.StudyroomStateDTO;
 
 public interface StudyroomStateService {
 
-	List<StudyroomStateDTO> findAllStudyroomState() throws Exception;
+	List<StudyroomStateDTO> findAllStudyroomState();
 
-	StudyroomStateDTO findStudyroomStateById(Long id) throws Exception;
+	StudyroomStateDTO findStudyroomStateById(Long id);
 
-	void insertStudyroomState(StudyroomStateDTO studyroomStateDTO) throws Exception;
+	void insertStudyroomState(StudyroomStateDTO studyroomStateDTO);
 }

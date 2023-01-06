@@ -8,8 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.jjplanet.ssaibrary.studyroom.dto.StudyroomStateDTO;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -28,7 +31,7 @@ public class StudyroomState {
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "studyroom_reservation_id")
 	private StudyroomReservation studyroomReservation;
-	
+
 	// 청결상태(Y/N)
 	private char isDirty;
 
@@ -37,10 +40,25 @@ public class StudyroomState {
 
 	// 잠금상태(Y/N)
 	private char isNotLock;
-	
+
 	// 원본이미지명
 	private String originImage;
-	
+
 	// 저장이미지명
 	private String saveImage;
+
+	@Builder
+	public StudyroomState(StudyroomStateDTO studyroomStateDTO, StudyroomReservation studyroomReservation) {
+		this.studyroomReservation = studyroomReservation;
+		this.isDirty = studyroomStateDTO.getIsDirty();
+		this.isDamage = studyroomStateDTO.getIsDamage();
+		this.isNotLock = studyroomStateDTO.getIsNotLock();
+		this.originImage = studyroomStateDTO.getOriginImage();
+		this.saveImage = studyroomStateDTO.getSaveImage();
+	}
+
+	public StudyroomStateDTO toDTO() {
+		return new StudyroomStateDTO(id, studyroomReservation.getId(), isDirty, isDamage, isNotLock, originImage,
+				saveImage);
+	}
 }

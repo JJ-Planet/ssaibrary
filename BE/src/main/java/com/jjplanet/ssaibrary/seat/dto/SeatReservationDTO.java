@@ -21,9 +21,6 @@ public class SeatReservationDTO {
 	// 좌석번호
 	private Long seatId;
 
-	// 예약일시
-	private String reservationDate;
-
 	// 예약시작일시
 	private String startDate;
 

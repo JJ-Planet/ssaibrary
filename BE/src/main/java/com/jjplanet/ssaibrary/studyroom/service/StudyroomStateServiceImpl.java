@@ -1,10 +1,10 @@
 package com.jjplanet.ssaibrary.studyroom.service;
 
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.jjplanet.ssaibrary.exception.NotFoundException;
@@ -14,43 +14,32 @@ import com.jjplanet.ssaibrary.studyroom.dto.StudyroomStateDTO;
 import com.jjplanet.ssaibrary.studyroom.repository.StudyroomReservationRepository;
 import com.jjplanet.ssaibrary.studyroom.repository.StudyroomStateRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@Transactional
+@RequiredArgsConstructor
 public class StudyroomStateServiceImpl implements StudyroomStateService {
 
-	@Autowired
-	private StudyroomStateRepository studyroomStateRepository;
+	private final StudyroomStateRepository studyroomStateRepository;
 
-	@Autowired
-	private StudyroomReservationRepository studyroomReservationRepository;
+	private final StudyroomReservationRepository studyroomReservationRepository;
 
 	@Override
-	public List<StudyroomStateDTO> findAllStudyroomState() throws Exception {
-		List<StudyroomState> stateList = studyroomStateRepository.findAll();
-		List<StudyroomStateDTO> stateDTOList = new LinkedList<>();
-		for (StudyroomState ss : stateList) {
-			stateDTOList.add(new StudyroomStateDTO(ss.getId(), ss.getStudyroomReservation().getId(), ss.getIsDirty(),
-					ss.getIsDamage(), ss.getIsNotLock(), ss.getOriginImage(), ss.getSaveImage()));
-		}
-		return stateDTOList;
+	public List<StudyroomStateDTO> findAllStudyroomState() {
+		return studyroomStateRepository.findAll().stream().map(StudyroomState::toDTO).collect(Collectors.toList());
 	}
 
 	@Override
-	public StudyroomStateDTO findStudyroomStateById(Long id) throws Exception {
-		if(studyroomStateRepository.findById(id).isPresent()) {}
-		StudyroomState state = studyroomStateRepository.findById(id).orElseThrow(NotFoundException::new);
-		StudyroomStateDTO stateDTO = new StudyroomStateDTO(state.getId(), state.getStudyroomReservation().getId(),
-				state.getIsDirty(), state.getIsDamage(), state.getIsNotLock(), state.getOriginImage(),
-				state.getSaveImage());
-		return stateDTO;
+	public StudyroomStateDTO findStudyroomStateById(Long id) {
+		return studyroomStateRepository.findById(id).orElseThrow(NotFoundException::new).toDTO();
 	}
 
 	@Override
-	public void insertStudyroomState(StudyroomStateDTO studyroomStateDTO) throws Exception {
+	public void insertStudyroomState(StudyroomStateDTO studyroomStateDTO) {
 		StudyroomReservation studyroomReservation = studyroomReservationRepository
 				.findById(studyroomStateDTO.getStudyroomReservationID()).orElseThrow(NotFoundException::new);
-		StudyroomState studyroomState = new StudyroomState(studyroomStateDTO.getId(), studyroomReservation,
-				studyroomStateDTO.getIsDirty(), studyroomStateDTO.getIsDamage(), studyroomStateDTO.getIsNotLock(),
-				studyroomStateDTO.getOriginImage(), studyroomStateDTO.getSaveImage());
+		StudyroomState studyroomState = StudyroomState.builder().studyroomStateDTO(studyroomStateDTO).studyroomReservation(studyroomReservation).build();
 		studyroomStateRepository.save(studyroomState);
 	}
 }

@@ -1,9 +1,10 @@
 package com.jjplanet.ssaibrary.studyroom.service;
 
-import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.jjplanet.ssaibrary.exception.NotFoundException;
@@ -11,51 +12,39 @@ import com.jjplanet.ssaibrary.studyroom.domain.Studyroom;
 import com.jjplanet.ssaibrary.studyroom.dto.StudyroomDTO;
 import com.jjplanet.ssaibrary.studyroom.repository.StudyroomRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@Transactional
+@RequiredArgsConstructor
 public class StudyroomServiceImpl implements StudyroomService {
 
-	@Autowired
-	private StudyroomRepository studyroomRepository;
+	private final StudyroomRepository studyroomRepository;
 
 	@Override
-	public List<StudyroomDTO> findAllStudyroom() throws Exception {
-		List<Studyroom> studyroomList = studyroomRepository.findAll();
-		List<StudyroomDTO> studyroomDTOList = new LinkedList<>();
-		for (Studyroom s : studyroomList) {
-			studyroomDTOList.add(new StudyroomDTO(s.getId(), s.getFloor(), s.getSize(), s.getMaxUser(), s.getStatus()));
-		}
-		return studyroomDTOList;
+	public List<StudyroomDTO> findAllStudyroom() {
+		return studyroomRepository.findAll().stream().map(Studyroom::toDTO).collect(Collectors.toList());
 	}
 
 	@Override
-	public StudyroomDTO findStudyroomById(Long id) throws Exception {
-		Studyroom studyroom = studyroomRepository.findById(id).orElseThrow(NotFoundException::new);
-		StudyroomDTO studyroomDTO = new StudyroomDTO(studyroom.getId(), studyroom.getFloor(), studyroom.getSize(),
-				studyroom.getMaxUser(), studyroom.getStatus());
-		return studyroomDTO;
+	public StudyroomDTO findStudyroomById(Long id) {
+		return studyroomRepository.findById(id).orElseThrow(NotFoundException::new).toDTO();
 	}
 
 	@Override
-	public void insertStudyroom(StudyroomDTO studyroomDTO) throws Exception {
-		Studyroom studyroom = new Studyroom(studyroomDTO.getId(), studyroomDTO.getFloor(), studyroomDTO.getSize(),
-				studyroomDTO.getMaxUser(), studyroomDTO.getStatus());
+	public void insertStudyroom(StudyroomDTO studyroomDTO) {
+		Studyroom studyroom = Studyroom.builder().studyroomDTO(studyroomDTO).build();
 		studyroomRepository.save(studyroom);
 	}
 
 	@Override
-	public void updateStudyroom(StudyroomDTO studyroomDTO) throws Exception {
-		Studyroom updateStudyroom = studyroomRepository.findById(studyroomDTO.getId())
-				.orElseThrow(NotFoundException::new);
-
-//		updateStudyroom.setFloor(studyroomDTO.getFloor());
-//		updateStudyroom.setSize(studyroomDTO.getSize());
-//		updateStudyroom.setMaxUser(studyroomDTO.getMaxUser());
-//		updateStudyroom.setStatus(studyroomDTO.getStatus());
-		studyroomRepository.save(updateStudyroom);
+	public void updateStudyroom(StudyroomDTO studyroomDTO) {
+		Studyroom studyroom = studyroomRepository.findById(studyroomDTO.getId()).orElseThrow(NotFoundException::new);
+		studyroom.updateRoom(studyroomDTO);
 	}
 
 	@Override
-	public void deleteStudyroom(Long id) throws Exception {
+	public void deleteStudyroom(Long id) {
 		studyroomRepository.deleteById(id);
 	}
 }

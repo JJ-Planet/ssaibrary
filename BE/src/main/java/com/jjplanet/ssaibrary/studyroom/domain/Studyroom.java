@@ -3,8 +3,6 @@ package com.jjplanet.ssaibrary.studyroom.domain;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import com.jjplanet.ssaibrary.room.domain.Room;
-import com.jjplanet.ssaibrary.room.dto.RoomDTO;
 import com.jjplanet.ssaibrary.studyroom.dto.StudyroomDTO;
 
 import lombok.AccessLevel;
@@ -12,7 +10,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Getter
@@ -35,28 +32,24 @@ public class Studyroom {
 
 	// 상태(W:대기중,R:예약중,A:사용중,X:이용불가능)
 	private char status;
-	
+
 	@Builder
 	public Studyroom(StudyroomDTO studyroomDTO) {
+		this.id = studyroomDTO.getId();
 		this.floor = studyroomDTO.getFloor();
 		this.size = studyroomDTO.getSize();
 		this.maxUser = studyroomDTO.getMaxUser();
 		this.status = studyroomDTO.getStatus();
 	}
 
-//	public static StudyroomDTO toDTOWithStudyroom(Studyroom studyroom) {
-//		return new StudyroomDTO(studyroom.getId(), studyroom.getFloor(), studyroom.getTotalSeat(), studyroom.getReserveSeat(),
-//				studyroom.getIsAvailable());
-//	}
+	public StudyroomDTO toDTO() {
+		return new StudyroomDTO(id, floor, size, maxUser, status);
+	}
 
-//	public RoomDTO toDTO() {
-//		return new RoomDTO(id, floor, totalSeat, reserveSeat, isAvailable);
-//	}
-//
-//	public void updateRoom(RoomDTO roomDTO) {
-//		this.floor = roomDTO.getFloor();
-//		this.totalSeat = roomDTO.getTotalSeat();
-//		this.reserveSeat = roomDTO.getReserveSeat();
-//		this.isAvailable = roomDTO.getIsAvailable();
-//	}
+	public void updateRoom(StudyroomDTO studyroomDTO) {
+		this.floor = studyroomDTO.getFloor();
+		this.size = studyroomDTO.getSize();
+		this.maxUser = studyroomDTO.getMaxUser();
+		this.status = studyroomDTO.getStatus();
+	}
 }

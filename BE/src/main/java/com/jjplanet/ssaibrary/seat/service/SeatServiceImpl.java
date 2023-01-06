@@ -17,6 +17,7 @@ import com.jjplanet.ssaibrary.seat.repository.SeatRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class SeatServiceImpl implements SeatService {
 
@@ -25,31 +26,31 @@ public class SeatServiceImpl implements SeatService {
 	private final RoomRepository roomRepository;
 
 	@Override
-	public List<SeatDTO> findAllSeat() throws Exception {
-		return seatRepository.findAll().stream().map(Seat::toDTOWithSeat).collect(Collectors.toList());
+	public List<SeatDTO> findAllSeat() {
+		return seatRepository.findAll().stream().map(Seat::toDTO).collect(Collectors.toList());
 	}
 
 	@Override
-	public SeatDTO findSeatById(Long id) throws Exception {
+	public SeatDTO findSeatById(Long id) {
 		return seatRepository.findById(id).orElseThrow(NotFoundException::new).toDTO();
 	}
 
 	@Override
-	@Transactional
-	public void insertSeat(SeatDTO seatDTO) throws Exception {
-		Seat seat = Seat.builder().seatDTO(seatDTO).build();
+	public void insertSeat(SeatDTO seatDTO) {
+		Room room = roomRepository.findById(seatDTO.getRoomId()).orElseThrow(NotFoundException::new);
+		Seat seat = Seat.builder().seatDTO(seatDTO).room(room).build();
 		seatRepository.save(seat);
 	}
 
 	@Override
-	public void updateSeat(SeatDTO seatDTO) throws Exception {
+	public void updateSeat(SeatDTO seatDTO) {
 		Seat seat = seatRepository.findById(seatDTO.getId()).orElseThrow(NotFoundException::new);
 		Room room = roomRepository.findById(seatDTO.getRoomId()).orElseThrow(NotFoundException::new);
 		seat.updateSeat(seatDTO, room);
 	}
 
 	@Override
-	public void deleteSeat(Long id) throws Exception {
+	public void deleteSeat(Long id) {
 		seatRepository.deleteById(id);
 	}
 }

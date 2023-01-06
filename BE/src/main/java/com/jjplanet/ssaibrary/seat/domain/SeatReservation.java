@@ -40,9 +40,6 @@ public class SeatReservation {
 	@JoinColumn(name = "seat_id")
 	private Seat seat;
 
-	// 예약일시
-	private String reservationDate;
-
 	// 예약시작일시
 	private String startDate;
 
@@ -68,7 +65,6 @@ public class SeatReservation {
 	public SeatReservation(SeatReservationDTO seatReservaionDTO, Member member, Seat seat) {
 		this.member = member;
 		this.seat = seat;
-		this.reservationDate = seatReservaionDTO.getReservationDate();
 		this.startDate = seatReservaionDTO.getStartDate();
 		this.time = seatReservaionDTO.getTime();
 		this.checkinDate = seatReservaionDTO.getCheckinDate();
@@ -78,17 +74,9 @@ public class SeatReservation {
 		this.status = seatReservaionDTO.getStatus();
 	}
 
-	public static SeatReservationDTO toDTOWithSeatReservation(SeatReservation seatReservation) {
-		return new SeatReservationDTO(seatReservation.getId(), seatReservation.getMember().getId(),
-				seatReservation.getMember().getNickname(), seatReservation.getSeat().getId(),
-				seatReservation.getReservationDate(), seatReservation.getStartDate(), seatReservation.getTime(),
-				seatReservation.getCheckinDate(), seatReservation.getCheckoutDate(), seatReservation.getAddTime(),
-				seatReservation.getAddCount(), seatReservation.getStatus());
-	}
-
 	public SeatReservationDTO toDTO() {
-		return new SeatReservationDTO(id, member.getId(), member.getNickname(), seat.getId(), reservationDate,
-				startDate, time, checkinDate, checkoutDate, addTime, addCount, status);
+		return new SeatReservationDTO(id, member.getId(), member.getNickname(), seat.getId(), startDate, time,
+				checkinDate, checkoutDate, addTime, addCount, status);
 	}
 
 	public void updateAddData(int addTime) {
