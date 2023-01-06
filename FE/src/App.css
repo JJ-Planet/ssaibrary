@@ -27,14 +27,17 @@
 
   font-family: "Pretendard";
 }
-::selection{
+::selection {
   background-color: rgba(51, 28, 158, 0.74);
   color: white;
-
 }
 
 a {
   text-decoration: none;
+}
+
+input {
+  font-family: "Pretendard";
 }
 
 /* .App-header {

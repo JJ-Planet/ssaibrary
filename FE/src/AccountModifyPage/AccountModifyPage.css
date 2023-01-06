@@ -1,29 +1,33 @@
-.AccountModifyMain {
+.AMMain {
   position: absolute;
   width: 346px;
   height: 742px;
   left: 22px;
   top: 20px;
-
+}
+.AMMainHeader {
+  position: absolute;
+  width: 307px;
+  height: 106px;
+  left: 19px;
+  top: 14px;
 }
 
-
-.AccountModifyTitleDiv {
+.AMTitleDiv {
   position: absolute;
-  width: 190px;
+  width: 165px;
   height: 61px;
-  left: 18px;
-  top: 20px;
+  left: 0px;
+  top: 6px;
 }
 
-.AccountModifyMainTitle {
+.AMMainTitle {
   position: absolute;
-  width: 150px;
-  height: 45px;
+  width: 125px;
+  height: 38px;
   left: 0px;
   top: 0px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 32px;
@@ -32,82 +36,241 @@
   color: rgba(49, 32, 130, 0.73);
 }
 
-.AccountModifySubTitle {
+.AMSubTitle {
   position: absolute;
   width: 190px;
   height: 17px;
   left: 0px;
   top: 44px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   /* identical to box height */
 
-
   color: rgba(0, 0, 0, 0.46);
 }
 
-.AccountModifyProfileDiv {
+.AMProfileDiv {
+  box-sizing: border-box;
+
   position: absolute;
-  width: 95px;
-  height: 110px;
-  left: 233px;
-  top: -5px;
+  width: 100px;
+  height: 67px;
+  left: 207px;
+  top: 0px;
+
+  border: 1px solid rgba(49, 32, 130, 0.73);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 20px;
 }
 
-.ProfileImage {
+.AMProfileImage {
   position: absolute;
-  width: 68.75px;
-  height: 70px;
-  left: 5px;
-  top: 20px;
+  width: 52px;
+  height: 51px;
+  left: 24px;
+  top: 8px;
 
-  background: url(../assets/images/DefaultProfile.png);
+  background: url(../assets/images/man.png);
   background-size: 100% 100%;
   z-index: 1;
 }
 
-.AccountProfileImgDiv {
+.AMMainBody {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  left: -11px;
-  top: 5px;
+  width: 307px;
+  height: 608px;
+  left: 19px;
+  top: 120px;
+}
+.AMInputs {
+  position: absolute;
+  width: 307px;
+  height: 598px;
+  left: 19px;
+  top: 120px;
+}
 
-  background: #D9D9D9;
+.AMIDDiv {
+  position: absolute;
+  width: 307px;
+  height: 73px;
+  left: 0px;
+  top: 0px;
+}
+.AMIDLabel {
+  position: absolute;
+  width: 16px;
+  height: 18px;
+  left: 0px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #312082;
+}
+
+.AMIDReadOnlyInput {
+  position: absolute;
+  height: 47px;
+  left: 0px;
+  top: 26px;
+  right: 0px;
+  font-size: medium;
+
+  background: rgba(128, 128, 128, 0.25);
   border-radius: 20px;
+  border: none;
 }
 
-
-.AccountModifyInputs {
+.AMNameDiv {
   position: absolute;
-  width: 340px;
-  height: 580px;
-  left: 15px;
-  top: 100px;
-  overflow-x: hidden;
-  background: #ecf4f3;
+  width: 307px;
+  height: 73px;
+  left: 0px;
+  top: 94px;
 }
 
-.AccountModifyReadOnlyInput {
-  background-color: rgba(0, 0, 0, 0.247);
-}
-
-.AccountModifyBtnsDiv {
+.AMNameLabel {
   position: absolute;
-  width: 304px;
+  width: 38px;
+  height: 18px;
+  left: 0px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #312082;
+}
+
+.AMNameInput {
+  position: absolute;
+  height: 47px;
+  left: 0px;
+  top: 26px;
+  right: 0px;
+  font-size: medium;
+
+  background: #ffffff;
+  border-radius: 20px;
+  border: none;
+}
+
+.AMNickNameDiv {
+  position: absolute;
+  width: 307px;
+  height: 73px;
+  left: 0px;
+  top: 188px;
+}
+.AMNickNameLabel {
+  position: absolute;
+  width: 75px;
+  height: 18px;
+  left: 0px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #312082;
+}
+
+.AMNickNameInput {
+  position: absolute;
+  height: 47px;
+  left: 0px;
+  top: 26px;
+  right: 0px;
+
+  font-size: medium;
+  background: #ffffff;
+  border-radius: 20px;
+  border: none;
+}
+.AMPWDiv {
+  position: absolute;
+  width: 307px;
+  height: 73px;
+  left: 0px;
+  top: 282px;
+}
+.AMPWLabel {
+  position: absolute;
+  width: 62px;
+  height: 18px;
+  left: 0px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #312082;
+}
+.AMPWInput {
+  position: absolute;
+  height: 47px;
+  left: 0px;
+  top: 26px;
+  right: 0px;
+
+  font-size: medium;
+  background: #ffffff;
+  border-radius: 20px;
+  border: none;
+}
+.AMPWChkDiv {
+  position: absolute;
+  width: 307px;
+  height: 73px;
+  left: 0px;
+  top: 376px;
+}
+.AMPWChkLabel {
+  position: absolute;
+  width: 120px;
+  height: 18px;
+  left: 0px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #312082;
+}
+.AMPWChkInput {
+  position: absolute;
+  height: 47px;
+  left: 0px;
+  top: 26px;
+  right: 0px;
+
+  font-size: medium;
+  background: #ffffff;
+  border-radius: 20px;
+  border: none;
+}
+
+.AMBtnsDiv {
+  position: absolute;
+  width: 307px;
   height: 115px;
-  left: 21px;
-  top: 620px;
-
+  left: 0px;
+  top: 493px;
 }
 
 .AcceptBtnDiv {
   position: absolute;
-  width: 304px;
+  width: 307px;
   height: 47px;
   left: 0px;
   top: 0px;
@@ -115,40 +278,39 @@
 
 .AccepBtnText {
   position: absolute;
-  width: 60px;
+  width: 54px;
   height: 18px;
-  left: 122px;
-  top: 15px;
+  left: 126px;
+  top: 14px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 18px;
-  /* identical to box height */
 
   display: flex;
   align-items: center;
   text-align: center;
 
-  color: #FFFFFF;
+  color: #ffffff;
   z-index: 1;
 }
 
 .AcceptBtn {
   position: absolute;
-  width: 304px;
+  width: 307px;
   height: 47px;
   left: 0px;
   top: 0px;
 
   background: rgba(51, 28, 158, 0.74);
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .CancleBtnDiv {
   position: absolute;
-  width: 304px;
+  width: 307px;
   height: 47px;
   left: 0px;
   top: 68px;
@@ -156,33 +318,32 @@
 
 .CancleBtnText {
   position: absolute;
-  width: 60px;
+  width: 28px;
   height: 18px;
-  left: 137px;
-  top: 15px;
+  left: 140px;
+  top: 14px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 18px;
-  /* identical to box height */
 
   display: flex;
   align-items: center;
   text-align: center;
 
-  color: #FFFFFF;
+  color: #ffffff;
   z-index: 1;
 }
 
 .CancleBtn {
   position: absolute;
-  width: 304px;
+  width: 307px;
   height: 47px;
   left: 0px;
   top: 0px;
 
   background: rgba(51, 28, 158, 0.74);
   border-radius: 20px;
+  cursor: pointer;
 }

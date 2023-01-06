@@ -7,66 +7,67 @@ import { Link } from "react-router-dom";
 const AccountModifyPage = () => {
   return (
     <div className="AccountModify">
-      <div className="AccountModifyMain">
-        <div className="AccountModifyTitleDiv">
-          <span className="AccountModifyMainTitle">정보 수정</span>
-          <span className="AccountModifySubTitle">회원님의 정보를 수정하세요!</span>
+      <div className="AMMain">
+        <div className="AMMainHeader">
+          <div className="AMTitleDiv">
+            <span className="AMMainTitle">정보 수정</span>
+            <span className="AMSubTitle">회원님의 정보를 수정하세요!</span>
+          </div>
+          <div className="AMProfileDiv">
+            <div className="AMProfileImage"></div>
+          </div>
         </div>
-        <div className="AccountModifyProfileDiv">
-          <div className="ProfileImage"></div>
-          <div className="AccountProfileImgDiv"></div>
-        </div>
-        <div className="AccountModifyInputs">
-          <div className="SignUpIDDiv">
-            <span className="SignUpIDLabel">ID</span>
-            <form>
+        <div className="AMMainBody">
+          <form>
+            <div className="AMIDDiv">
+              <span className="AMIDLabel">ID</span>
               <input
-                className="SignUpIDInput AccountModifyReadOnlyInput"
+                className="AMIDReadOnlyInput"
                 type="text"
                 placeholder="010-1234-5678"
                 readOnly
               ></input>
-            </form>
-          </div>
-          <div className="SignUpNameDiv">
-            <span className="SignUpNameLabel">Name</span>
-            <form>
-              <input className="SignUpNameInput" type="text" value={"지환"}></input>
-            </form>
-          </div>
-          <div className="SignUpNickNameDiv">
-            <span className="SignUpNickLabel">Nick Name</span>
-            <form>
-              <input className="SignUpNickInput" type="text" value={"지환"}></input>
-            </form>
-          </div>
-          <div className="SignUpPWDiv">
-            {/* <div className="SignUpPWView"></div> */}
-            <span className="SignUpPWLabel">Password</span>
-            <form>
-              <input className="SignUpPWInput" type="password" placeholder="변경할 비밀번호를 입력해 주세요 :)"></input>
-            </form>
-          </div>
-          <div className="SignUpPWChkDiv">
-            {/* <div className="SignUpPWHidden"></div> */}
-            <span className="SignUpPWChkLabel">Password Check</span>
-            <form>
-              <input className="SignUpPWChkInput" type="password" placeholder="한번 더 똑같이 적어주세요."></input>
-            </form>
-          </div>
-        </div>
-        <div className="AccountModifyBtnsDiv">
-          <div className="AcceptBtnDiv">
+            </div>
+            <div className="AMNameDiv">
+              <span className="AMNameLabel">Name</span>
+              <input className="AMNameInput" type="text" defaultValue={"홍길동"}></input>
+            </div>
+            <div className="AMNickNameDiv">
+              <span className="AMNickNameLabel">Nick Name</span>
+              <input className="AMNickNameInput" type="text" defaultValue={"지환"}></input>
+            </div>
+            <div className="AMPWDiv">
+              {/* <div className="SignUpPWView"></div> */}
+              <span className="AMPWLabel">Password</span>
+              <input
+                className="AMPWInput"
+                type="password"
+                placeholder="변경할 비밀번호를 입력해 주세요 :)"
+              ></input>
+            </div>
+            <div className="AMPWChkDiv">
+              {/* <div className="AMPWHidden"></div> */}
+              <span className="AMPWChkLabel">Password Check</span>
+              <input
+                className="AMPWChkInput"
+                type="password"
+                placeholder="한번 더 똑같이 적어주세요."
+              ></input>
+            </div>
+          </form>
+          <div className="AMBtnsDiv">
             <Link to="/account">
-              <span className="AccepBtnText">적용하기</span>
+              <div className="AcceptBtnDiv">
+                <span className="AccepBtnText">적용하기</span>
+                <div className="AcceptBtn"></div>
+              </div>
             </Link>
-            <div className="AcceptBtn"></div>
-          </div>
-          <div className="CancleBtnDiv">
             <Link to="/account">
-              <span className="CancleBtnText">취소</span>
+              <div className="CancleBtnDiv">
+                <span className="CancleBtnText">취소</span>
+                <div className="CancleBtn"></div>
+              </div>
             </Link>
-            <div className="CancleBtn"></div>
           </div>
         </div>
       </div>

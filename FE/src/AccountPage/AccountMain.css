@@ -249,3 +249,6 @@
   left: 0px;
   top: 390px;
 }
+.accountLogOutDiv {
+  cursor: pointer;
+}
