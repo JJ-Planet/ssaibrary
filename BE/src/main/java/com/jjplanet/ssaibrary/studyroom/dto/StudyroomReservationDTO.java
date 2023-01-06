@@ -27,9 +27,6 @@ public class StudyroomReservationDTO {
 	// 인원수
 	private int userCount;
 
-	// 예약일시
-	private String reservationDate;
-
 	// 예약시작일시
 	private String startDate;
 

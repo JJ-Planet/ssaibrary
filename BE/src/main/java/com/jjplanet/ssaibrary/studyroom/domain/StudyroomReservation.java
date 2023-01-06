@@ -11,15 +11,15 @@ import javax.persistence.ManyToOne;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import com.jjplanet.ssaibrary.member.domain.Member;
+import com.jjplanet.ssaibrary.studyroom.dto.StudyroomReservationDTO;
 
 @Entity
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // 동일한 패키지 내 클래스에서만 객체 생성
 public class StudyroomReservation {
@@ -46,9 +46,6 @@ public class StudyroomReservation {
 	// 인원수
 	private int userCount;
 
-	// 예약일시
-	private String reservationDate;
-
 	// 예약시작일시
 	private String startDate;
 
@@ -63,4 +60,26 @@ public class StudyroomReservation {
 
 	// 상태(W:대기,A:사용중,C:사용완료,X:취소)
 	private char status;
+
+	@Builder
+	public StudyroomReservation(StudyroomReservationDTO studyroomReservationDTO, Member member, Studyroom studyroom) {
+		this.member = member;
+		this.studyroom = studyroom;
+		this.purpose = studyroomReservationDTO.getPurpose();
+		this.userCount = studyroomReservationDTO.getUserCount();
+		this.startDate = studyroomReservationDTO.getStartDate();
+		this.time = studyroomReservationDTO.getTime();
+		this.checkinDate = studyroomReservationDTO.getCheckinDate();
+		this.checkoutDate = studyroomReservationDTO.getCheckoutDate();
+		this.status = studyroomReservationDTO.getStatus();
+	}
+
+	public StudyroomReservationDTO toDTO() {
+		return new StudyroomReservationDTO(id, member.getId(), member.getNickname(), studyroom.getId(), purpose,
+				userCount, startDate, time, checkinDate, checkoutDate, status);
+	}
+
+	public void updateStatus(char status) {
+		this.status = status;
+	}
 }

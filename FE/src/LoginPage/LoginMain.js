@@ -35,12 +35,12 @@ function Main() {
             <span className="searchPWBtn">비밀번호 찾기</span>
           </div>
         </form>
-        <div className="LoginBtnDiv">
-          <Link to="/main">
+        <Link to="/main">
+          <div className="LoginBtnDiv">
             <span className="LoginBtnTitle">로그인</span>
-          </Link>
-          <div className="LoginBtn"></div>
-        </div>
+            <div className="LoginBtn"></div>
+          </div>
+        </Link>
         <div className="SingUpDiv">
           <span className="SignUpTitle">회원가입을 하지 않았다면? </span>
           <Link to="/signUp">

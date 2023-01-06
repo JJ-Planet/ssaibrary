@@ -51,12 +51,14 @@ function Main() {
         </div>
         <div className="SeatDiv">
           <div id="seatDivLabel">좌석 현황 보기</div>
+          <Link to = "/fastCheck">
           <div id="currentbtnDiv">
             <div id="currentbtnTitle">한 눈에 좌석을 확인해요!</div>
             <div id="currentbtnTitleDesc">10초만에 확인할 수 있습니다.</div>
 
             <div id="ancestors"></div>
           </div>
+          </Link>
         </div>
       </div>
     </>

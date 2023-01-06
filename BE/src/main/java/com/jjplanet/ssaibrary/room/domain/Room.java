@@ -35,15 +35,11 @@ public class Room {
 
 	@Builder
 	public Room(RoomDTO roomDTO) {
+		this.id = roomDTO.getId();
 		this.floor = roomDTO.getFloor();
 		this.totalSeat = roomDTO.getTotalSeat();
 		this.reserveSeat = roomDTO.getReserveSeat();
 		this.isAvailable = roomDTO.getIsAvailable();
-	}
-
-	public static RoomDTO toDTOWithRoom(Room room) {
-		return new RoomDTO(room.getId(), room.getFloor(), room.getTotalSeat(), room.getReserveSeat(),
-				room.getIsAvailable());
 	}
 
 	public RoomDTO toDTO() {

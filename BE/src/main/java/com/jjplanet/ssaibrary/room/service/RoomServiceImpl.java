@@ -15,36 +15,37 @@ import com.jjplanet.ssaibrary.room.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class RoomServiceImpl implements RoomService {
 
 	private final RoomRepository roomRepository;
 
 	@Override
-	public List<RoomDTO> findAllRoom() throws Exception {
-		return roomRepository.findAll().stream().map(Room::toDTOWithRoom).collect(Collectors.toList());
+	public List<RoomDTO> findAllRoom() {
+		return roomRepository.findAll().stream().map(Room::toDTO).collect(Collectors.toList());
 	}
 
 	@Override
-	public RoomDTO findRoomById(Long id) throws Exception {
+	public RoomDTO findRoomById(Long id) {
 		return roomRepository.findById(id).orElseThrow(NotFoundException::new).toDTO();
 	}
 
 	@Override
-	@Transactional
-	public void insertRoom(RoomDTO roomDTO) throws Exception {
+	public void insertRoom(RoomDTO roomDTO) {
 		Room room = Room.builder().roomDTO(roomDTO).build();
 		roomRepository.save(room);
 	}
 
 	@Override
-	public void updateRoom(RoomDTO roomDTO) throws Exception {
+	@Transactional
+	public void updateRoom(RoomDTO roomDTO) {
 		Room room = roomRepository.findById(roomDTO.getId()).orElseThrow(NotFoundException::new);
 		room.updateRoom(roomDTO);
 	}
 
 	@Override
-	public void deleteRoom(Long id) throws Exception {
+	public void deleteRoom(Long id) {
 		roomRepository.deleteById(id);
 	}
 }

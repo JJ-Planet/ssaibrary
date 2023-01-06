@@ -6,11 +6,11 @@ import com.jjplanet.ssaibrary.studyroom.dto.StudyroomReservationDTO;
 
 public interface StudyroomReservationService {
 
-	List<StudyroomReservationDTO> findAllStudyroomReservation() throws Exception;
+	List<StudyroomReservationDTO> findAllStudyroomReservation();
 
-	StudyroomReservationDTO findStudyroomReservationById(Long id) throws Exception;
+	StudyroomReservationDTO findStudyroomReservationById(Long id);
 
-	void reservationStudyroom(StudyroomReservationDTO studyroomReservationDTO) throws Exception;
+	void reservationStudyroom(StudyroomReservationDTO studyroomReservationDTO);
 
-	void deleteStudyroomReservation(Long id) throws Exception;
+	void deleteStudyroomReservation(Long id);
 }

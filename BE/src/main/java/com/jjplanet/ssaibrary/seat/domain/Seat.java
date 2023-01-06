@@ -39,13 +39,10 @@ public class Seat {
 
 	@Builder
 	public Seat(SeatDTO seatDTO, Room room) {
+		this.id = seatDTO.getId();
 		this.room = room;
 		this.password = seatDTO.getPassword();
 		this.status = seatDTO.getStatus();
-	}
-
-	public static SeatDTO toDTOWithSeat(Seat seat) {
-		return new SeatDTO(seat.getId(), seat.getRoom().getId(), seat.getPassword(), seat.getStatus());
 	}
 
 	public SeatDTO toDTO() {

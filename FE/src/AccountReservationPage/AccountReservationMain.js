@@ -1,5 +1,7 @@
 import React from "react";
 import "./AccountReservationMain.css";
+import Swal from "sweetalert2";
+
 // const cancleBtn = document.querySelector(".ResvationCancleBtnDiv1");
 // const cancleModal = document.querySelector("#modal");
 // cancleBtn.addEventListener("click", () => {
@@ -7,6 +9,21 @@ import "./AccountReservationMain.css";
 //   console.log("hi");
 // });
 function Body() {
+  const info = '303호 07번'
+  const time = '09:00 - 13:00'
+  // const img = ''
+  function imgClick() {
+    Swal.fire({
+      title: `${info}`,
+      text: `${time}`,
+      // imageUrl: `${img}`,
+      imageUrl: 'https://unsplash.it/400/200',
+      imageWidth: 350,
+      imageHeight: 350,
+      imageAlt: 'Custom image',
+    })
+  }
+
   return (
     <>
       <div className="Body">
@@ -36,7 +53,7 @@ function Body() {
                 <span className="TimeData">09:00 - 13:00</span>
               </div>
               <div className="ImgBar"></div>
-              <div className="QRImg"></div>
+              <div className="QRImg" onClick={imgClick}></div>
             </div>
             <div className="ShareBtnDiv">
               <span className="ShareText">공유 하기</span>
