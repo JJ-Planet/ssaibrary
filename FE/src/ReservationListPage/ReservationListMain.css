@@ -21,7 +21,7 @@
   left: 0px;
   top: 33px;
 
-  border: 1px solid #B3A7FF;
+  border: 1px solid #b3a7ff;
   transform: matrix(1, 0, 0, 1, 0, 0);
 }
 
@@ -32,7 +32,6 @@
   left: 0px;
   top: 0px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -56,14 +55,13 @@
   left: 0px;
   top: 1px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 29px;
   text-align: center;
 
-  color: #FFFFFF;
+  color: #ffffff;
   z-index: 1;
 }
 
@@ -74,18 +72,14 @@
   left: 0px;
   top: 73px;
 
-  font-family: 'Inter';
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 20px;
-  line-height: 24px;
-  display: flex;
-  align-items: center;
+  line-height: 30px;
   text-align: center;
 
-  color: #FFFFFF;
+  color: #ffffff;
   z-index: 1;
-
 }
 
 .Room301Obj {
@@ -114,14 +108,13 @@
   left: 0px;
   top: 0px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 29px;
   text-align: center;
 
-  color: #FFFFFF;
+  color: #ffffff;
   z-index: 1;
 }
 
@@ -132,16 +125,13 @@
   left: 0px;
   top: 60px;
 
-  font-family: 'Inter';
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 20px;
-  line-height: 24px;
-  display: flex;
-  align-items: center;
+  line-height: 30px;
   text-align: center;
 
-  color: #FFFFFF;
+  color: #ffffff;
   z-index: 1;
 }
 
@@ -171,14 +161,13 @@
   left: 0px;
   top: 1px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 29px;
   text-align: center;
 
-  color: #FFFFFF;
+  color: #ffffff;
   z-index: 1;
 }
 
@@ -189,16 +178,13 @@
   left: 0px;
   top: 50px;
 
-  font-family: 'Itim';
   font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 29px;
-  display: flex;
-  align-items: center;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 30px;
   text-align: center;
 
-  color: #FFFFFF;
+  color: #ffffff;
   z-index: 1;
 }
 
@@ -228,14 +214,13 @@
   left: 0px;
   top: 0px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 29px;
   text-align: center;
 
-  color: #FFFFFF;
+  color: #ffffff;
   z-index: 1;
 }
 
@@ -246,16 +231,13 @@
   left: 0px;
   top: 50px;
 
-  font-family: 'Itim';
   font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 29px;
-  display: flex;
-  align-items: center;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 30px;
   text-align: center;
 
-  color: #FFFFFF;
+  color: #ffffff;
   z-index: 1;
 }
 
@@ -285,14 +267,13 @@
   left: 0px;
   top: 0px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 29px;
   text-align: center;
 
-  color: #FFFFFF;
+  color: #ffffff;
   z-index: 1;
 }
 
@@ -303,16 +284,13 @@
   left: 0px;
   top: 50px;
 
-  font-family: 'Itim';
   font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 29px;
-  display: flex;
-  align-items: center;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 30px;
   text-align: center;
 
-  color: #FFFFFF;
+  color: #ffffff;
   z-index: 1;
 }
 
