@@ -1,7 +1,23 @@
 import React, { useCallback, useState } from "react";
 import "./SignUpMain.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+
+function alertInputClear() {
+  Swal.fire({
+    text: "작성한 내용을 초기화했습니다.",
+    confirmButtonColor: "rgba(51, 28, 158, 0.74);",
+    confirmButtonText: "　확인　",
+    width: 300,
+    backdrop: `rgba(0,0,0,0.4)`,
+    allowEnterKey: true,
+    icon: "success",
+  });
+}
+
 function Main() {
+  const navigate = useNavigate();
+
   // each value useState
   const [id, setId] = useState("");
   const [name, setName] = useState("");
@@ -116,8 +132,139 @@ function Main() {
   const toggleCheckingCB = () => {
     setCheckingAllCB(!checkingAllCB);
   };
+  const SUInputClear = () => {
+    setId("");
+    setName("");
+    setNickName("");
+    setPw("");
+    setPwChk("");
+    alertInputClear();
+    const checkBoxes = document.querySelectorAll(".SUAcceptCB");
+    checkBoxes.forEach((cb) => {
+      cb.checked = false;
+    });
+  };
+  const SUProcessing = () => {
+    // - 모든 인풋 유효성검사 + 인증하기 + 필수 동의 3개 됐을 시 넘어감
+    const isCheckedCB2 = document.querySelector(".CB2").checked;
+    const isCheckedCB3 = document.querySelector(".CB3").checked;
+    const isCheckedCB4 = document.querySelector(".CB4").checked;
 
-  // const allCB = () => {};
+    if (
+      isId &&
+      isName &&
+      isNickName &&
+      isPw &&
+      isPwChk &&
+      isCheckedCB2 &&
+      isCheckedCB3 &&
+      isCheckedCB4
+    ) {
+      signUpDone();
+      console.log("회원가입이 완료되었습니다.");
+    } else {
+      if (!isId) {
+        alertIdError();
+        console.log("아이디를 확인해주세요.");
+      } else if (!isName) {
+        alertNameError();
+        console.log("이름을 확인해주세요.");
+      } else if (!isNickName) {
+        alertNickNameError();
+        console.log("닉네임을 확인해주세요.");
+      } else if (!isPw) {
+        alertPwError();
+        console.log("비밀번호를 확인해주세요.");
+      } else if (!isPwChk) {
+        alertPwChkError();
+        console.log("비밀번호 확인을 다시해주세요.");
+      } else if (!isCheckedCB2 || !isCheckedCB3 || !isCheckedCB4) {
+        alertTermsOfUseError();
+        console.log("필수 이용약관을 모두 동의해주세요.");
+      }
+    }
+
+    //
+    function signUpDone() {
+      Swal.fire({
+        text: "회원가입이 완료되었습니다:)",
+        confirmButtonColor: "rgba(51, 28, 158, 0.74);",
+        confirmButtonText: "　확인　",
+        icon: "success",
+        width: 300,
+        backdrop: `rgba(0,0,0,0.4)`,
+        allowEnterKey: true,
+      }).then((result) => {
+        navigate("/login");
+      });
+    }
+    function alertIdError() {
+      Swal.fire({
+        text: "아이디를 확인해주세요!",
+        confirmButtonColor: "rgba(51, 28, 158, 0.74);",
+        confirmButtonText: "　확인　",
+        width: 300,
+        backdrop: `rgba(0,0,0,0.4)`,
+        allowEnterKey: true,
+        icon: "error",
+      });
+    }
+    function alertNameError() {
+      Swal.fire({
+        text: "이름을 확인해주세요!",
+        confirmButtonColor: "rgba(51, 28, 158, 0.74);",
+        confirmButtonText: "　확인　",
+        width: 300,
+        backdrop: `rgba(0,0,0,0.4)`,
+        allowEnterKey: true,
+        icon: "error",
+      });
+    }
+    function alertNickNameError() {
+      Swal.fire({
+        text: "닉네임을 확인해주세요!",
+        confirmButtonColor: "rgba(51, 28, 158, 0.74);",
+        confirmButtonText: "　확인　",
+        width: 300,
+        backdrop: `rgba(0,0,0,0.4)`,
+        allowEnterKey: true,
+        icon: "error",
+      });
+    }
+    function alertPwError() {
+      Swal.fire({
+        text: "비밀번호를 확인해주세요!",
+        confirmButtonColor: "rgba(51, 28, 158, 0.74);",
+        confirmButtonText: "　확인　",
+        width: 300,
+        backdrop: `rgba(0,0,0,0.4)`,
+        allowEnterKey: true,
+        icon: "error",
+      });
+    }
+    function alertPwChkError() {
+      Swal.fire({
+        text: "비밀번호확인을 다시해주세요!",
+        confirmButtonColor: "rgba(51, 28, 158, 0.74);",
+        confirmButtonText: "　확인　",
+        width: 300,
+        backdrop: `rgba(0,0,0,0.4)`,
+        allowEnterKey: true,
+        icon: "error",
+      });
+    }
+    function alertTermsOfUseError() {
+      Swal.fire({
+        text: "필수 이용약관을 모두 동의해주세요!",
+        confirmButtonColor: "rgba(51, 28, 158, 0.74);",
+        confirmButtonText: "　확인　",
+        width: 300,
+        backdrop: `rgba(0,0,0,0.4)`,
+        allowEnterKey: true,
+        icon: "error",
+      });
+    }
+  };
 
   return (
     <>
@@ -142,6 +289,7 @@ function Main() {
                 type="text"
                 placeholder="ex) 010-1234-5678"
                 onChange={onChangeId}
+                value={id}
               ></input>
               {id.length > 0 && (
                 <span className={`SUValiText ${isId ? "Success" : "Fail"}`}>{idMessage}</span>
@@ -154,6 +302,7 @@ function Main() {
                 type="text"
                 placeholder="ex) 홍길동"
                 onChange={onChangeName}
+                value={name}
               ></input>
               {name.length > 0 && (
                 <span className={`SUValiText ${isName ? "Success" : "Fail"}`}>{nameMessage}</span>
@@ -166,6 +315,7 @@ function Main() {
                 type="text"
                 placeholder="ex) 김기린"
                 onChange={onChangeNickName}
+                value={nickName}
               ></input>
               {nickName.length > 0 && (
                 <span className={`SUValiText ${isNickName ? "Success" : "Fail"}`}>
@@ -181,6 +331,7 @@ function Main() {
                 type={showPw ? "text" : "password"}
                 placeholder="비밀번호를 입력해 주세요 :)"
                 onChange={onChangePw}
+                value={pw}
               ></input>
               {pw.length > 0 && (
                 <span className={`SUValiText ${isPw ? "Success" : "Fail"}`}>{pwMessage}</span>
@@ -197,6 +348,7 @@ function Main() {
                 type={showPwChk ? "text" : "password"}
                 placeholder="한번 더 똑같이 적어주세요."
                 onChange={onChangePwChk}
+                value={pwChk}
               ></input>
               {pw.length > 0 && pwChk.length > 0 && (
                 <span className={`SUValiText ${isPwChk ? "Success" : "Fail"}`}>{pwChkMessage}</span>
@@ -254,11 +406,11 @@ function Main() {
             </div>
           </form>
           <div className="SUBtnDivs">
-            <div className="SUReigsterBtnDiv">
+            <div className="SUReigsterBtnDiv" onClick={SUProcessing}>
               <span className="SingUpBtnText">회원 가입</span>
               <div className="SingUpBtn"></div>
             </div>
-            <div className="SUInitBtnDiv">
+            <div className="SUInitBtnDiv" onClick={SUInputClear}>
               <span className="SUClearBtnDivText">초기화</span>
               <div className="SUClearBtn"></div>
             </div>

@@ -7,21 +7,29 @@ function Main() {
   const navigate = useNavigate();
   function logoutAlert() {
     Swal.fire({
-      title: "로그아웃 하시려고요??",
-      text: "떠나지마요..",
-      icon: "warning",
+      text: "로그아웃 하시겠습니까?",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "rgba(51, 28, 158, 0.74);",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Log out",
+      confirmButtonText: "로그아웃",
+      cancelButtonText: "　취소　",
+      icon: "question",
+      width: 300,
+      heightAuto: false,
+      backdrop: `rgba(0,0,0,0.4)`,
+      allowEnterKey: true,
     }).then((result) => {
       if (result.isConfirmed) {
         navigate("/login");
-        Swal.fire("로그아웃되었습니다.", "다음에 또 봐요!", "success"); 
+        Swal.fire({
+          text: "다음에 또 봐요!",
+          icon: "success",
+          width: 300,
+        });
       }
     });
   }
-  
+
   return (
     <>
       <div className="accountMain">
