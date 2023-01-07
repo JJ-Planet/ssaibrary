@@ -2,6 +2,13 @@ input {
   padding-left: 15px;
 }
 
+.Success {
+  color: #00c236;
+}
+.Fail {
+  color: rgb(203, 48, 48);
+}
+
 .SUMain {
   position: absolute;
   width: 330px;
@@ -113,6 +120,19 @@ input {
   color: #312082;
 }
 
+.SUValiText {
+  position: absolute;
+  width: 220px;
+  height: 16px;
+  top: 1px;
+  right: 10px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: right;
+}
+
 .SUIDInput {
   position: absolute;
   height: 47px;
@@ -216,6 +236,19 @@ input {
   z-index: 11;
 }
 
+.SUPWHidden {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 270px;
+  top: 40px;
+
+  background: url(../assets/images/hidden.png);
+  background-size: 100% 100%;
+  opacity: 0.5;
+  z-index: 11;
+}
+
 .SUPWLabel {
   position: absolute;
   width: 62px;
@@ -251,19 +284,6 @@ input {
   top: 412px;
 }
 
-.SUPWHidden {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  left: 270px;
-  top: 48px;
-
-  background: url(../assets/images/hidden.png);
-  background-size: 100% 100%;
-  opacity: 0.5;
-  z-index: 11;
-}
-
 .SUPWChkLabel {
   position: absolute;
   width: 120px;
@@ -282,7 +302,7 @@ input {
   position: absolute;
   height: 47px;
   left: 1px;
-  top: 34px;
+  top: 26px;
   right: 0px;
 
   font-size: small;
@@ -607,4 +627,21 @@ input {
 
 .SUFooterA {
   color: rgba(49, 32, 130, 0.73);
+}
+.SULink {
+  cursor: pointer;
+}
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+input[type="checkbox"]:checked {
+  background: #32e732;
+  border: none;
 }
