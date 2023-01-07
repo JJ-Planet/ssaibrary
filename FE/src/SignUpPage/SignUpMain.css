@@ -1,44 +1,97 @@
 input {
   padding-left: 15px;
-  font-size: large;
 }
 
-.SignUpMain {
+.SUMain {
   position: absolute;
-  width: 340px;
-  height: 580px;
-  left: 30px;
-  top: 170px;
-  overflow: scroll;
+  width: 330px;
+  height: 773px;
+  left: 43px;
+  top: 41px;
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 /* Scroll Option Adjust*/
-.SignUpMain::-webkit-scrollbar {
+.SUMain::-webkit-scrollbar {
   width: 5px;
 }
 
-.SignUpMain::-webkit-scrollbar-thumb {
+.SUMain::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background-color: gray;
+  background-color: rgba(126, 101, 237, 0.805);
 }
 
-.SignUpMain::-webkit-scrollbar-track {
+.SUMain::-webkit-scrollbar-track {
   background-color: #ecf4f3;
 
   border-radius: 10px;
   box-shadow: inset 0px 0px 5px #ecf4f3;
 }
 
-.SignUpInputsDiv {
+.SUHeader {
   position: absolute;
   width: 304px;
-  height: 485px;
+  height: 131px;
   left: 0px;
   top: 0px;
 }
 
-.SignUpIDDiv {
+.SUBackBtn {
+  position: absolute;
+  width: 30px;
+  height: 19px;
+  left: 0px;
+  top: 1px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+
+  color: rgba(49, 32, 130, 0.73);
+}
+.SUMainTitle {
+  position: absolute;
+  width: 270px;
+  height: 38px;
+  left: 0px;
+  top: 48px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 38px;
+
+  color: rgba(49, 32, 130, 0.73);
+}
+
+.SUSubTitle {
+  position: absolute;
+  width: 172px;
+  height: 34px;
+  left: 0px;
+  top: 97px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: rgba(0, 0, 0, 0.46);
+}
+
+.SUInputsDiv {
+  position: absolute;
+  width: 304px;
+  height: 611px;
+  left: 0px;
+  top: 155px;
+}
+
+.SUIDDiv {
   position: absolute;
   width: 304px;
   height: 73px;
@@ -46,35 +99,34 @@ input {
   top: 0px;
 }
 
-.SignUpIDLabel {
+.SUIDLabel {
   position: absolute;
   width: 16px;
   height: 18px;
   left: 0px;
   top: 0px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 18px;
-  /* identical to box height */
-
   color: #312082;
 }
 
-.SignUpIDInput {
+.SUIDInput {
   position: absolute;
-  width: 304px;
   height: 47px;
-  left: 0px;
+  left: 1px;
   top: 26px;
+  right: 0px;
 
-  background: #FFFFFF;
+  font-size: small;
+  background: #ffffff;
   border-radius: 20px;
+  border: none;
 }
 
-.SignUpNameDiv {
+.SUNameDiv {
   position: absolute;
   width: 304px;
   height: 73px;
@@ -82,35 +134,34 @@ input {
   top: 103px;
 }
 
-.SignUpNameLabel {
+.SUNameLabel {
   position: absolute;
   width: 38px;
   height: 18px;
   left: 0px;
   top: 0px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 18px;
-  /* identical to box height */
-
   color: #312082;
 }
 
-.SignUpNameInput {
+.SUNameInput {
   position: absolute;
-  width: 304px;
   height: 47px;
-  left: 0px;
+  left: 1px;
   top: 26px;
+  right: 0px;
 
-  background: #FFFFFF;
+  font-size: small;
+  background: #ffffff;
   border-radius: 20px;
+  border: none;
 }
 
-.SignUpNickNameDiv {
+.SUNickNameDiv {
   position: absolute;
   width: 304px;
   height: 73px;
@@ -118,35 +169,34 @@ input {
   top: 206px;
 }
 
-.SignUpNickLabel {
+.SUNickLabel {
   position: absolute;
   width: 100px;
   height: 18px;
   left: 0px;
   top: 0px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 18px;
-  /* identical to box height */
-
   color: #312082;
 }
 
-.SignUpNickInput {
+.SUNickInput {
   position: absolute;
-  width: 304px;
   height: 47px;
-  left: 0px;
+  left: 1px;
   top: 26px;
+  right: 0px;
 
-  background: #FFFFFF;
+  font-size: small;
+  background: #ffffff;
   border-radius: 20px;
+  border: none;
 }
 
-.SignUpPWDiv {
+.SUPWDiv {
   position: absolute;
   width: 304px;
   height: 73px;
@@ -154,11 +204,11 @@ input {
   top: 309px;
 }
 
-.SignUpPWView {
+.SUPWView {
   position: absolute;
-  width: 25px;
-  height: 25px;
-  left: 280px;
+  width: 20px;
+  height: 20px;
+  left: 270px;
   top: 40px;
 
   background: url(../assets/images/view.png);
@@ -166,35 +216,34 @@ input {
   z-index: 11;
 }
 
-.SignUpPWLabel {
+.SUPWLabel {
   position: absolute;
   width: 62px;
   height: 18px;
   left: 0px;
   top: 0px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 18px;
-  /* identical to box height */
-
   color: #312082;
 }
 
-.SignUpPWInput {
+.SUPWInput {
   position: absolute;
-  width: 304px;
   height: 47px;
-  left: 0px;
+  left: 1px;
   top: 26px;
+  right: 0px;
 
-  background: #FFFFFF;
+  font-size: small;
+  background: #ffffff;
   border-radius: 20px;
+  border: none;
 }
 
-.SignUpPWChkDiv {
+.SUPWChkDiv {
   position: absolute;
   width: 304px;
   height: 73px;
@@ -202,11 +251,11 @@ input {
   top: 412px;
 }
 
-.SignUpPWHidden {
+.SUPWHidden {
   position: absolute;
-  width: 25px;
-  height: 25px;
-  left: 280px;
+  width: 20px;
+  height: 20px;
+  left: 270px;
   top: 48px;
 
   background: url(../assets/images/hidden.png);
@@ -215,49 +264,48 @@ input {
   z-index: 11;
 }
 
-.SignUpPWChkLabel {
+.SUPWChkLabel {
   position: absolute;
   width: 120px;
   height: 18px;
   left: 0px;
   top: 0px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 18px;
-  /* identical to box height */
-
   color: #312082;
 }
 
-.SignUpPWChkInput {
+.SUPWChkInput {
   position: absolute;
-  width: 304px;
   height: 47px;
-  left: 0px;
+  left: 1px;
   top: 34px;
+  right: 0px;
 
-  background: #FFFFFF;
+  font-size: small;
+  background: #ffffff;
   border-radius: 20px;
+  border: none;
 }
 
-.SignUpSeperator1 {
+.SUSeperator1 {
   box-sizing: border-box;
 
   position: absolute;
-  width: 320px;
   height: 5px;
   left: 0px;
   top: 515px;
+  right: 0px;
 
-  background: #FFFFFF;
-  border: 1px solid #E4E4F4;
+  background: #ffffff;
+  border: 1px solid #e4e4f4;
   border-radius: 5px;
 }
 
-.SignUpAuthDiv {
+.SUAuthDiv {
   position: absolute;
   width: 304px;
   height: 78px;
@@ -265,96 +313,92 @@ input {
   top: 539px;
 }
 
-.SignUpAuthLabel {
+.SUAuthLabel {
   position: absolute;
   width: 110px;
   height: 17px;
   left: 0px;
   top: 0px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  /* identical to box height */
-
   color: #312082;
 }
 
-.SignUpAuthBtnLabel {
+.SUAuthBtnLabel {
   position: absolute;
   width: 60px;
   height: 18px;
   left: 124px;
   top: 40px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 18px;
-  /* identical to box height */
   z-index: 1;
+  cursor: pointer;
 
   color: #312082;
 }
 
-.SignUpAuthBtn {
+.SUAuthBtn {
   position: absolute;
-  width: 320px;
   height: 47px;
   left: 0px;
   top: 25px;
+  right: 0px;
+  cursor: pointer;
 
-  background: #B6D8F2;
+  background: #b6d8f2;
   border-radius: 20px;
 }
 
-.SignUpAcceptDiv {
+.SUAcceptDiv {
   position: absolute;
-  width: 80px;
+  width: 90px;
   height: 20px;
   left: 0px;
   top: 640px;
 }
 
-.SignUpSeperator2 {
+.SUSeperator2 {
   box-sizing: border-box;
 
   position: absolute;
-  width: 320px;
+  width: 304px;
   height: 5px;
-  left: 1px;
+  left: 0px;
   top: 35px;
 
-  background: #FFFFFF;
-  border: 1px solid #E4E4F4;
+  background: #ffffff;
+  border: 1px solid #e4e4f4;
   border-radius: 5px;
 }
 
-.SignUpAcceptCB {
+.SUAcceptCB {
   position: absolute;
   width: 18px;
   height: 18px;
   left: 0px;
 
   box-sizing: border-box;
-  background: #FFFFFF;
+  background: #ffffff;
   mix-blend-mode: normal;
   border: 1px solid rgba(0, 0, 0, 0.35);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
 }
 
-.SignUpAcceptText {
+.SUAcceptText {
   position: absolute;
   width: 300px;
   height: 20px;
   left: 29px;
   line-height: 16px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
@@ -364,7 +408,6 @@ input {
   text-align: center;
   color: #000000;
 }
-
 
 .CB1 {
   top: 1px;
@@ -395,9 +438,9 @@ input {
 }
 
 .AcceptText1 {
-  width: 100px;
+  width: 60px;
   top: 0px;
-  font-size: 20px;
+  font-size: 13px;
 }
 
 .AcceptText2 {
@@ -424,11 +467,10 @@ input {
   top: 243px;
 }
 
-.SignUpLink {
+.SULink {
   position: absolute;
-  right: 10px;
+  right: 35px;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -450,20 +492,21 @@ input {
   padding-right: 5px;
 }
 
-.SignUpBtnDivs {
+.SUBtnDivs {
   position: absolute;
-  width: 80px;
-  height: 20px;
+  width: 307px;
+  height: 115px;
   left: 0px;
-  top: 930px;
+  top: 950px;
 }
 
-.SignUpReigsterBtnDiv {
+.SUReigsterBtnDiv {
   position: relative;
   width: 304px;
   height: 47px;
   left: 1px;
   top: 0px;
+  cursor: pointer;
 }
 
 .SingUpBtnText {
@@ -473,7 +516,6 @@ input {
   left: 120px;
   top: 14px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -482,7 +524,7 @@ input {
   align-items: center;
   text-align: center;
 
-  color: #FFFFFF;
+  color: #ffffff;
   z-index: 1;
 }
 
@@ -495,24 +537,25 @@ input {
 
   background: rgba(51, 28, 158, 0.74);
   border-radius: 20px;
+  cursor: pointer;
 }
 
-.SignUpInitBtnDiv {
+.SUInitBtnDiv {
   position: absolute;
   width: 304px;
   height: 47px;
   left: 0px;
   top: 68px;
+  cursor: pointer;
 }
 
-.SignUpClearBtnDivText {
+.SUClearBtnDivText {
   position: absolute;
   width: 45px;
   height: 20px;
   left: 130px;
   top: 14px;
 
-  font-family: 'Itim';
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -521,11 +564,11 @@ input {
   align-items: center;
   text-align: center;
 
-  color: #FFFFFF;
+  color: #ffffff;
   z-index: 1;
 }
 
-.SignUpClearBtn {
+.SUClearBtn {
   position: absolute;
   width: 304px;
   height: 47px;
@@ -534,4 +577,34 @@ input {
 
   background: rgba(51, 28, 158, 0.74);
   border-radius: 20px;
+  cursor: pointer;
+}
+.SUFooter {
+  width: 304px;
+  position: absolute;
+  height: 70px;
+  left: 0px;
+  top: 1250px;
+
+  border-radius: 45px;
+}
+
+.SUFooterTitle {
+  position: absolute;
+  height: 58px;
+  left: 0px;
+  top: 16px;
+  right: 0px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  color: rgba(49, 32, 130, 0.73);
+}
+
+.SUFooterA {
+  color: rgba(49, 32, 130, 0.73);
 }

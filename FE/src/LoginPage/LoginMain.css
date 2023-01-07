@@ -14,7 +14,7 @@
   top: 0px;
 
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 32px;
   line-height: 38px;
 
@@ -36,7 +36,6 @@
   left: 0px;
   top: 0px;
 
-   
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -56,8 +55,7 @@
   background: #ffffff;
   border-radius: 20px;
   border: none;
-  right:0px;
-
+  right: 0px;
 }
 
 .PwDiv {
@@ -75,7 +73,6 @@
   left: 0px;
   top: 0px;
 
-   
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -90,7 +87,7 @@
   height: 50px;
   left: 0px;
   top: 26px;
-  right:0px;
+  right: 0px;
 
   font-size: medium;
   padding-left: 15px;
@@ -116,7 +113,6 @@
 
   background: #ffffff;
   /* Note: backdrop-filter has minimal browser support */
-
 }
 
 .KeepLoginCBLabel {
@@ -125,7 +121,7 @@
   height: 13px;
   left: 18px;
   top: 3px;
-   
+
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -143,7 +139,7 @@
   top: 3.7px;
 
   cursor: pointer;
-   
+
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -169,7 +165,6 @@
   left: 130px;
   top: 15px;
 
-   
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -210,7 +205,6 @@
   left: 30px;
   top: 0px;
 
-   
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -230,7 +224,6 @@
   left: 166px;
   top: 5px;
 
-   
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -257,7 +250,6 @@
   left: 0px;
   top: 0px;
 
-   
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -338,4 +330,3 @@ input[type="checkbox"]:checked {
   background: #32e732;
   border: none;
 }
-
