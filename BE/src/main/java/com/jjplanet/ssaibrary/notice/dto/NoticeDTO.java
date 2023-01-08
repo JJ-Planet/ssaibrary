@@ -22,7 +22,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class FindOneNoticeByIdDTO {
+public class NoticeDTO {
 	
 	//글번호
 	private Long id;

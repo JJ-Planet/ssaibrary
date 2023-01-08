@@ -5,9 +5,11 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import com.jjplanet.ssaibrary.exception.NotFoundException;
+import com.jjplanet.ssaibrary.member.domain.Member;
 import com.jjplanet.ssaibrary.member.dto.DeleteMemberDTO;
 import com.jjplanet.ssaibrary.member.dto.FindMemberDTO;
 import com.jjplanet.ssaibrary.member.dto.JoinMemberDTO;
+import com.jjplanet.ssaibrary.member.dto.LoginDTO;
 import com.jjplanet.ssaibrary.member.dto.MemberDTO;
 import com.jjplanet.ssaibrary.member.dto.UpdateMemberDTO;
 
@@ -16,11 +18,14 @@ public interface MemberService {
 	// 회원가입
 	void joinMember(JoinMemberDTO m) throws NotFoundException;
 	
+	//로그인
+	Member loginMember(String id, String password) throws NotFoundException;
+	
 	//Account List
 	List<MemberDTO> findAllMember() throws NotFoundException;
 
 	// Account
-	FindMemberDTO findMember(String id) throws NotFoundException;
+	MemberDTO findMember(String id) throws NotFoundException;
 
 	// 회원삭제
 	public void deleteMember(DeleteMemberDTO deleteMemberDTO) throws NotFoundException;

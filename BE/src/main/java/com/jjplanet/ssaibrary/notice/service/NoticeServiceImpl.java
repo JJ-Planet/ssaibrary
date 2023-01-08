@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,8 @@ import com.jjplanet.ssaibrary.member.domain.Member;
 import com.jjplanet.ssaibrary.member.repository.MemberRepository;
 import com.jjplanet.ssaibrary.notice.domain.Notice;
 import com.jjplanet.ssaibrary.notice.dto.FindAllNoticeDTO;
-import com.jjplanet.ssaibrary.notice.dto.FindOneNoticeByIdDTO;
 import com.jjplanet.ssaibrary.notice.dto.InsertNoticeDTO;
+import com.jjplanet.ssaibrary.notice.dto.NoticeDTO;
 import com.jjplanet.ssaibrary.notice.dto.UpdateNoticeDTO;
 import com.jjplanet.ssaibrary.notice.repository.NoticeCustomRepositoryImpl;
 import com.jjplanet.ssaibrary.notice.repository.NoticeRepository;
@@ -35,21 +36,13 @@ public class NoticeServiceImpl implements NoticeService {
 
 	// 글작성
 	@Override
-	public void insertNotice(InsertNoticeDTO n) throws NotFoundException {
-		Optional<Member> writer = memberRepository.findById(n.getMemberId());
+	public void insertNotice(InsertNoticeDTO insertNoticeDTO) throws NotFoundException {
+		Member member = memberRepository.findById(insertNoticeDTO.getMemberId()).orElseThrow(NotFoundException::new);
 		
-		if(!writer.isPresent()) {
-			throw new NotFoundException("존재하지 않는 사용자입니다.");
-		}
-		
-		if (!writer.get().getId().equals("admin")) {
+		if (!member.getId().equals("admin")) {
 			throw new NotFoundException("작성 권한이 없는 계정입니다.");
 		}
-
-		n.setStatus('V');
-
-		Notice notice = new Notice(writer.get(), n.getTitle(), n.getContent(), n.getRegisterDate(), n.getIsPriority(),
-				n.getStatus());
+		Notice notice = Notice.builder().insertNoticeDTO(insertNoticeDTO).member(member).build();
 
 		noticeRepository.save(notice);
 	}
@@ -57,6 +50,7 @@ public class NoticeServiceImpl implements NoticeService {
 	// 전체목록조회
 	@Override
 	public Map<String, Object> findAllNotice() throws NotFoundException {
+//		return noticeRepository.findAll().stream().map(Notice::toDTO).collect(Collectors.toList());
 
 		List<Notice> list = noticeCustomRepository.findAllList();
 		List<FindAllNoticeDTO> noticeList = new ArrayList<>();
@@ -76,14 +70,14 @@ public class NoticeServiceImpl implements NoticeService {
 
 	// 상세조회
 	@Override
-	public FindOneNoticeByIdDTO findOneNoticeById(Long id) throws NotFoundException {
+	public NoticeDTO findOneNoticeById(Long id) throws NotFoundException {
 
-		Optional<Notice> n = noticeRepository.findOneById(id);
+		Optional<Notice> n = noticeRepository.findById(id);
 		if (!n.isPresent()) {
 			throw new NotFoundException("존재 하지 않는 게시글입니다.");
 		}
 
-		FindOneNoticeByIdDTO notice = new FindOneNoticeByIdDTO(n.get().getId(), n.get().getMemberId().getId(),
+		NoticeDTO notice = new NoticeDTO(n.get().getId(), n.get().getMemberId().getId(),
 				n.get().getTitle(), n.get().getContent(), n.get().getHitCount(), n.get().getRegisterDate(),
 				n.get().getUpdateDate(), n.get().getIsPriority(), n.get().getStatus());
 
@@ -104,7 +98,7 @@ public class NoticeServiceImpl implements NoticeService {
 			throw new NotFoundException("수정 권한이 없는 계정입니다.");
 		}
 
-		Optional<Notice> notice = noticeRepository.findOneById(n.getId());
+		Optional<Notice> notice = noticeRepository.findById(n.getId());
 
 		notice.get().setTitle(n.getTitle());
 		notice.get().setContent(n.getContent());
@@ -118,7 +112,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public void deleteNotice(Long id) throws NotFoundException {
 
-		Optional<Notice> notice = noticeRepository.findOneById(id);
+		Optional<Notice> notice = noticeRepository.findById(id);
 
 		notice.get().setStatus('D');
 

@@ -8,20 +8,20 @@ import org.springframework.http.ResponseEntity;
 import com.jjplanet.ssaibrary.exception.NotFoundException;
 import com.jjplanet.ssaibrary.notice.domain.Notice;
 import com.jjplanet.ssaibrary.notice.dto.FindAllNoticeDTO;
-import com.jjplanet.ssaibrary.notice.dto.FindOneNoticeByIdDTO;
 import com.jjplanet.ssaibrary.notice.dto.InsertNoticeDTO;
+import com.jjplanet.ssaibrary.notice.dto.NoticeDTO;
 import com.jjplanet.ssaibrary.notice.dto.UpdateNoticeDTO;
 
 public interface NoticeService {
 
 	//글작성
-	void insertNotice(InsertNoticeDTO n) throws NotFoundException; 
+	void insertNotice(InsertNoticeDTO insertNoticeDTO) throws NotFoundException; 
 
 	//전체목록조회
 	Map<String, Object> findAllNotice() throws NotFoundException; 
 
 	//상세조회
-	FindOneNoticeByIdDTO findOneNoticeById(Long id) throws NotFoundException;
+	NoticeDTO findOneNoticeById(Long id) throws NotFoundException;
 
 	//글수정
 	void updateNotice(UpdateNoticeDTO n) throws NotFoundException;
