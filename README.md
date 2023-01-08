@@ -136,6 +136,7 @@ FE - AccountModifyPage className 재정의 및 디자인 수정 완료
 
 - 공지사항, FAQ 페이지 드롭다운 구현완료
 - FastCheckPage, ReservationListPage 조정
+- Floor3 JS를 활용하여 서버에서 데이터 받아서 화면에 렌더링(사용 가능 유무에 따른 CSS 동적 적용)
 
 # DB ERD Diagram
 

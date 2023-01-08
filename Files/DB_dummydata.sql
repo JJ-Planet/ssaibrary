@@ -135,7 +135,14 @@ VALUES (301, 3, 30, 3),
 INSERT INTO `room`(`id`, `floor`, `total_seat`) 
 VALUES (303, 3, 24);
 
+-- INSERT INTO `room`(`id`, `floor`, `total_seat`) 
+-- VALUES (304, 24, 24);
+-- INSERT INTO `room`(`id`, `floor`, `total_seat`) 
+-- VALUES (305, 15, 24);
 -- 좌석 정보
+
+select * from room;
+
 
 INSERT INTO `seat` (`id`, `room_id`, `password`) 
 VALUES (1, 301, "0000"), 
