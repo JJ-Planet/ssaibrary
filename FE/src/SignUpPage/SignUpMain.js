@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./SignUpMain.css";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";

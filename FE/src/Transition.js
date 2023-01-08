@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import LandingPage from "./LandingPage/LandingPage";
 import Account from "./AccountPage/AccountPage";
 import AccountReservation from "./AccountReservationPage/AccountReservationPage";
+import AccountReservationQr from "./AccountReservationPage/AccountReservationPage";
 import History from "./HistoryPage/HistoryPage";
 import Main from "./MainPage/MainPage";
 import Community from "./CommunityPage/CommunityPage";
@@ -31,6 +32,7 @@ function Transition() {
 
             <Route path="/account" element={<Account />}></Route>
             <Route path="/account/reservation" element={<AccountReservation />}></Route>
+            <Route path="/account/reservation/qr" element={<AccountReservationQr />}></Route>
             <Route path="/account/modify" element={<AccountModify />}></Route>
 
             <Route path="/reservation/list" element={<ReservationList />}></Route>

@@ -199,3 +199,22 @@
   top: 0px;
   cursor: pointer;
 }
+.FAQDesc1,
+.FAQDesc2,
+.FAQDesc3,
+.FAQDesc4,
+.FAQDesc5,
+.FAQDesc6,
+.FAQDesc7,
+.FAQDesc8,
+.FAQDesc9,
+.FAQDesc10,
+.FAQDesc11 {
+  position: absolute;
+  width: 330px;
+  height: 80px;
+  top: 40px;
+  left: 20px;
+  font-size: 14px;
+  padding-bottom: 30px;
+}

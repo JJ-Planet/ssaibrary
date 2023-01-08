@@ -9,19 +9,19 @@ import Swal from "sweetalert2";
 //   console.log("hi");
 // });
 function Body() {
-  const info = '303호 07번'
-  const time = '09:00 - 13:00'
+  const info = "303호 07번";
+  const time = "09:00 - 13:00";
   // const img = ''
   function imgClick() {
     Swal.fire({
       title: `${info}`,
       text: `${time}`,
       // imageUrl: `${img}`,
-      imageUrl: 'https://unsplash.it/400/200',
+      imageUrl: "https://unsplash.it/400/200",
       imageWidth: 350,
       imageHeight: 350,
-      imageAlt: 'Custom image',
-    })
+      imageAlt: "Custom image",
+    });
   }
 
   return (

@@ -68,3 +68,20 @@
   transform: matrix(1, 0, 0, 1, 0, 0);
   z-index: 9;
 }
+
+.NoticeDesc1,
+.NoticeDesc2,
+.NoticeDesc3,
+.NoticeDesc4,
+.NoticeDesc5,
+.NoticeDesc6,
+.NoticeDesc7,
+.NoticeDesc8,
+.NoticeDesc9,
+.NoticeDesc10,
+.NoticeDesc11 {
+  display: none;
+  width: 330px;
+  margin-top: 20px;
+  font-size: 14px;
+}
