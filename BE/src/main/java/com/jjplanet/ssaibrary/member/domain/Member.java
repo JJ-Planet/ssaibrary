@@ -13,6 +13,7 @@ import javax.persistence.TemporalType;
 import com.jjplanet.ssaibrary.member.dto.DeleteMemberDTO;
 import com.jjplanet.ssaibrary.member.dto.FindMemberDTO;
 import com.jjplanet.ssaibrary.member.dto.JoinMemberDTO;
+import com.jjplanet.ssaibrary.member.dto.LoginDTO;
 import com.jjplanet.ssaibrary.member.dto.MemberDTO;
 import com.jjplanet.ssaibrary.member.dto.UpdateMemberDTO;
 
@@ -99,13 +100,18 @@ public class Member implements Serializable{
 	}
 	
 	//Account List
-	public static MemberDTO toDTOWithMember(Member member) {
-		return new MemberDTO(member.getId(), member.getPassword(), member.getRefreshToken(), member.getName(), member.getNickname(), member.getOriginImage(), member.getSaveImage(), member.getJoinDate(), member.getExitDate(), member.getIsAdmin(), member.getStatus());
-	}
+//	public static MemberDTO toDTOWithMember(Member member) {
+//		return new MemberDTO(member.getId(), member.getPassword(), member.getRefreshToken(), member.getName(), member.getNickname(), member.getOriginImage(), member.getSaveImage(), member.getJoinDate(), member.getExitDate(), member.getIsAdmin(), member.getStatus());
+//	}
 	
 	//Account
-	public FindMemberDTO toDTO() {
-		return new FindMemberDTO(id, password, name, nickname, originImage, saveImage);
+	public MemberDTO toDTO() {
+		return new MemberDTO(id, password, refreshToken, name, nickname, originImage, saveImage, joinDate, exitDate, isAdmin, status);
+	}
+	
+	//로그인
+	public LoginDTO toDTOWithMember() {
+		return new LoginDTO(id, password, name, nickname, status);
 	}
 	
 	//회원삭제

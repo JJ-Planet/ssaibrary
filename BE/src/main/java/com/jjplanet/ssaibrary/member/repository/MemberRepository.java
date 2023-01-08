@@ -13,6 +13,10 @@ public interface MemberRepository extends JpaRepository<Member, String>{
 
 	
     Optional<Member> findByNickname(String nickname);
+    
+    //로그인
+    @Query("select m from Member m where m.id=:id and m.password=:password")
+    Optional<Member> loginMember(@Param("id") String id,@Param("password") String password);
 	
 	
 

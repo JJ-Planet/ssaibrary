@@ -15,6 +15,8 @@ import javax.persistence.TemporalType;
 
 import com.jjplanet.ssaibrary.community.domain.Community;
 import com.jjplanet.ssaibrary.member.domain.Member;
+import com.jjplanet.ssaibrary.notice.dto.InsertNoticeDTO;
+import com.jjplanet.ssaibrary.notice.dto.NoticeDTO;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -77,14 +79,19 @@ public class Notice {
 
 	//글작성
 	@Builder
-	public Notice(Member memberId, String title, String content, Date registerDate, char isPriority, char status) {
-		this.memberId = memberId;
-		this.title = title;
-		this.content = content;
-		this.registerDate = registerDate;
-		this.isPriority = isPriority;
-		this.status = status;
+	public Notice(Member member, InsertNoticeDTO insertNoticeDTO) {
+		this.memberId = member;
+		this.title = insertNoticeDTO.getTitle();
+		this.content = insertNoticeDTO.getContent();
+		this.registerDate = insertNoticeDTO.getRegisterDate();
+		this.isPriority = insertNoticeDTO.getIsPriority();
+		this.status = 'V';
 	}
+	
+	//글 목록, 상세조회
+//	public NoticeDTO toDTO() {
+//		return new NoticeDTO(id, memberId, title, content, hitCount, registerDate, updateDate, isPriority, status);
+//	}
 
 	@Override
 	public String toString() {

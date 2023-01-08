@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jjplanet.ssaibrary.exception.NotFoundException;
 import com.jjplanet.ssaibrary.notice.dto.FindAllNoticeDTO;
-import com.jjplanet.ssaibrary.notice.dto.FindOneNoticeByIdDTO;
 import com.jjplanet.ssaibrary.notice.dto.InsertNoticeDTO;
+import com.jjplanet.ssaibrary.notice.dto.NoticeDTO;
 import com.jjplanet.ssaibrary.notice.dto.UpdateNoticeDTO;
 import com.jjplanet.ssaibrary.notice.service.NoticeServiceImpl;
 
@@ -36,8 +36,8 @@ public class NoticeController {
 
 	//글작성
 	@PostMapping
-	public ResponseEntity<String> insertNotice(@RequestBody InsertNoticeDTO notice, HttpSession session) throws NotFoundException {
-		noticeService.insertNotice(notice);
+	public ResponseEntity<String> insertNotice(@RequestBody InsertNoticeDTO insertNoticeDTO, HttpSession session) throws NotFoundException {
+		noticeService.insertNotice(insertNoticeDTO);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 

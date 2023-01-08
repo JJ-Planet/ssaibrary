@@ -16,8 +16,10 @@ import com.jjplanet.ssaibrary.member.domain.Member;
 import com.jjplanet.ssaibrary.member.dto.DeleteMemberDTO;
 import com.jjplanet.ssaibrary.member.dto.FindMemberDTO;
 import com.jjplanet.ssaibrary.member.dto.JoinMemberDTO;
+import com.jjplanet.ssaibrary.member.dto.LoginDTO;
 import com.jjplanet.ssaibrary.member.dto.MemberDTO;
 import com.jjplanet.ssaibrary.member.dto.UpdateMemberDTO;
+import com.jjplanet.ssaibrary.member.repository.MemberCustomRepositoryImpl;
 import com.jjplanet.ssaibrary.member.repository.MemberRepository;
 import com.jjplanet.ssaibrary.notice.repository.NoticeCustomRepositoryImpl;
 import com.jjplanet.ssaibrary.notice.repository.NoticeRepository;
@@ -29,6 +31,8 @@ import lombok.RequiredArgsConstructor;
 public class MemberServiceImpl implements MemberService {
 
 	private final MemberRepository memberRepository;
+	
+	private final MemberCustomRepositoryImpl memberCustomRepository;
 
 	// 회원가입
 	@Override
@@ -62,15 +66,29 @@ public class MemberServiceImpl implements MemberService {
 
 	}
 	
+	//로그인
+	@Override
+	public Member loginMember(String id, String password) throws NotFoundException {
+
+		
+		Member loginUser = memberRepository.loginMember(id, password).orElseThrow(NotFoundException::new);
+		
+		if(loginUser.getStatus() == 'X') {
+			throw new NotFoundException("탈퇴한 회원입니다.");
+		}
+		
+		return loginUser;
+	}
+	
 	//Account List
 	@Override
 	public List<MemberDTO> findAllMember() throws NotFoundException {
-		return memberRepository.findAll().stream().map(Member::toDTOWithMember).collect(Collectors.toList());
+		return memberRepository.findAll().stream().map(Member::toDTO).collect(Collectors.toList());
 	}
 
 	// Account
 	@Override
-	public FindMemberDTO findMember(String id) throws NotFoundException  {
+	public MemberDTO findMember(String id) throws NotFoundException  {
 		return memberRepository.findById(id).orElseThrow(NotFoundException::new).toDTO();
 	}
 	
@@ -98,5 +116,6 @@ public class MemberServiceImpl implements MemberService {
 
 		member.updateMember(updateMemberDTO);
 	}
+
 
 }

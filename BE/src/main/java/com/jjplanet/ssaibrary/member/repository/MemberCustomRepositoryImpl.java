@@ -1,5 +1,7 @@
 package com.jjplanet.ssaibrary.member.repository;
 
+import java.util.Optional;
+
 import javax.persistence.EntityManager;
 
 import org.springframework.stereotype.Repository;
@@ -19,6 +21,15 @@ public class MemberCustomRepositoryImpl implements MemberCustomRepository{
 //        return em.createQuery("select c from Member c where c.nickname=:nickname", Member.class)
 //                .setParameter("nickname", nickname)
 //                .getSingleResult();
+//	}
+	
+	//로그인
+//	@Override
+//	public Optional<Member> loginMember(String id, String password) {
+//	return Optional.ofNullable(em.createQuery("select m from Member m where m.id=:id and m.password=:password", Member.class)
+//			.setParameter("id", id)
+//			.setParameter("password", password)
+//			.getSingleResult());
 //	}
 
 }

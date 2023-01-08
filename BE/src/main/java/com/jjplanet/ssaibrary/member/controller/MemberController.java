@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jjplanet.ssaibrary.exception.NotFoundException;
@@ -21,6 +22,7 @@ import com.jjplanet.ssaibrary.member.domain.Member;
 import com.jjplanet.ssaibrary.member.dto.DeleteMemberDTO;
 import com.jjplanet.ssaibrary.member.dto.FindMemberDTO;
 import com.jjplanet.ssaibrary.member.dto.JoinMemberDTO;
+import com.jjplanet.ssaibrary.member.dto.LoginDTO;
 import com.jjplanet.ssaibrary.member.dto.MemberDTO;
 import com.jjplanet.ssaibrary.member.dto.UpdateMemberDTO;
 import com.jjplanet.ssaibrary.member.service.MemberServiceImpl;
@@ -46,6 +48,15 @@ public class MemberController {
 
 	}
 	
+	//로그인
+	@PostMapping("/login")
+	public Member loginMember(@RequestParam("id") String id, @RequestParam("password") String password, HttpSession session) throws NotFoundException{
+		Member loginUser = memberService.loginMember(id, password); 
+		
+		session.setAttribute("loginUser", loginUser);
+		return loginUser;
+	}
+	
 	//Account List
 	@GetMapping
 	public ResponseEntity<List<MemberDTO>> findAllMember() throws NotFoundException{
@@ -54,7 +65,7 @@ public class MemberController {
 
 	// Account
 	@GetMapping("/{id}")
-	public FindMemberDTO findMember(@PathVariable("id") String id) throws NotFoundException {
+	public MemberDTO findMember(@PathVariable("id") String id) throws NotFoundException {
 		return memberService.findMember(id);
 	}
 
