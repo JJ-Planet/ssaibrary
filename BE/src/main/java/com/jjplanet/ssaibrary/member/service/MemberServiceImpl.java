@@ -69,9 +69,8 @@ public class MemberServiceImpl implements MemberService {
 	//로그인
 	@Override
 	public Member loginMember(String id, String password) throws NotFoundException {
-
 		
-		Member loginUser = memberRepository.loginMember(id, password).orElseThrow(NotFoundException::new);
+		Member loginUser = memberRepository.findByIdAndPassword(id, password).orElseThrow(NotFoundException::new);
 		
 		if(loginUser.getStatus() == 'X') {
 			throw new NotFoundException("탈퇴한 회원입니다.");
