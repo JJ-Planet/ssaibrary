@@ -40,13 +40,12 @@
   color: #312082;
 }
 
-.RoomUsable{
-
-  background: rgba(49, 32, 130, 0.75);
+.RoomFull {
+  background: rgba(49, 32, 130, 0.2);
 }
 
-.RoomFull{
-  background: rgba(49, 32, 130, 0.2);
+.RoomUsable {
+  background: rgba(49, 32, 130, 0.75);
 }
 
 .Room301Div {

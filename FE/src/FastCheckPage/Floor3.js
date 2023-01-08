@@ -1,39 +1,100 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function Floor3() {
+  const [Rooms, setRooms] = useState(null);
+  const [StudyRooms, setStudyRooms] = useState(null);
+
+  const [loading, setLoading] = useState(false);
+
+  const fetchRooms = async () => {
+    try {
+      setRooms(null);
+      const response = await axios.get("http://localhost:8080/room");
+      setRooms(response.data);
+    } catch (e) {
+      console.log(e);
+    }
+    setLoading(false);
+  };
+
+  const fetchStudyRooms = async () => {
+    try {
+      setStudyRooms(null);
+      const response = await axios.get("http://localhost:8080/studyroom");
+      setStudyRooms(response.data);
+    } catch (e) {
+      console.log(e);
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchRooms();
+  }, []);
+  useEffect(() => {
+    fetchStudyRooms();
+  }, []);
+
+  console.log("Rooms:", Rooms);
+  console.log("StdudyRooms:", StudyRooms);
+
+  if (loading) return <div>로딩중..</div>;
+  if (!Rooms) return null;
+
+  function isRoomFull(a, b) {
+    if (b - a <= 0) return "RoomFull";
+    return "RoomUsable";
+  }
+  function isStudyRoomFull(a) {
+    if (a.status == `W`) return "RoomFull";
+    return "RoomUsable";
+  }
+
+  const RoomRendering = () => {
+    const result = [];
+    for (let i = 0; i < Rooms.length; i++) {
+      result.push(
+        <div className={`Room30${i + 1}Div`} key={Rooms[i].id}>
+          <span className={`Room30${i + 1}Num`}>{Rooms[i].id}</span>
+          <span className={`Room30${i + 1}Status`}>
+            {Rooms[i].totalSeat - Rooms[i].reserveSeat} / {Rooms[i].totalSeat}
+          </span>
+          <div
+            className={`Room30${i + 1}Obj ${isRoomFull(Rooms[i].reserveSeat, Rooms[i].totalSeat)}`}
+          ></div>
+        </div>
+      );
+    }
+    return result;
+  };
+
+  const StudyRoomRendering = () => {
+    const result = [];
+    for (let i = 0; i < StudyRooms.length; i++) {
+      result.push(
+        <div className={`Room30${i + Rooms.length + 1}Div`} key={StudyRooms[i].id}>
+          <span className={`Room30${i + Rooms.length + 1}Num`}>{StudyRooms[i].id}</span>
+          <span className={`Room30${i + Rooms.length + 1}Status`}>
+            {StudyRooms[i].status === "W" ? "사용 중" : "예약 가능"}
+          </span>
+          <div
+            className={`Room30${i + Rooms.length + 1}Obj ${isStudyRoomFull(StudyRooms[i])}`}
+          ></div>
+        </div>
+      );
+    }
+    return result;
+  };
+
   return (
     <>
-      
-        <div className="RoomLocation">
-          <div className="RoomSeperator"></div>
-          <span className="LocationLabel">대전 캠퍼스 3층</span>
-        </div>
-        <div className="Room301Div">
-          <span className="Room301Num">301</span>
-          <span className="Room301Status">예약 가능</span>
-          <div className="Room301Obj RoomUsable"></div>
-        </div>
-        <div className="Room302Div">
-          <span className="Room302Num">302</span>
-          <span className="Room302Status">사용 중</span>
-          <div className="Room302Obj RoomFull"></div>
-        </div>
-        <div className="Room303Div">
-          <span className="Room303Num">303</span>
-          <span className="Room303Status">12/24</span>
-          <div className="Room303Obj RoomUsable"></div>
-        </div>
-        <div className="Room304Div">
-          <span className="Room304Num">304</span>
-          <span className="Room304Status">24/24</span>
-          <div className="Room304Obj RoomFull"></div>
-        </div>
-        <div className="Room305Div">
-          <span className="Room305Num">305</span>
-          <span className="Room305Status">15/30</span>
-          <div className="Room305Obj RoomUsable"></div>
-        </div>
-      
+      <div className="RoomLocation">
+        <div className="RoomSeperator"></div>
+        <span className="LocationLabel">대전 캠퍼스 {Rooms[0].floor}층</span>
+      </div>
+      {RoomRendering()}
+      {StudyRoomRendering()}
     </>
   );
 }
