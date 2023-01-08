@@ -1,11 +1,17 @@
 import React from "react";
 import "./ReservationListMain.css";
+
 // import { Link } from "react-router-dom";
+
+import Floor3 from "../FastCheckPage/Floor3";
 
 function Main() {
   return (
     <>
       <div className="ReservationListMain">
+        <Floor3></Floor3>
+      </div>
+      {/* <div className="ReservationListMain">
         <div className="RoomLocation">
           <div className="RoomSeperator"></div>
           <span className="LocationLabel">대전 캠퍼스 3층</span>
@@ -35,7 +41,7 @@ function Main() {
           <span className="Room305Status">15/30</span>
           <div className="Room305Obj"></div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

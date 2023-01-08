@@ -41,6 +41,8 @@
   color: #312082;
 }
 
+
+
 .Room301Div {
   position: absolute;
   width: 158px;
@@ -95,7 +97,6 @@
   left: 0px;
   top: 0px;
 
-  background: rgba(49, 32, 130, 0.75);
   border-radius: 20px;
 }
 
@@ -152,7 +153,7 @@
   left: 0px;
   top: 0px;
 
-  background: rgba(49, 32, 130, 0.2);
+
   border-radius: 20px;
 }
 
@@ -209,7 +210,6 @@
   left: 0px;
   top: 0px;
 
-  background: rgba(49, 32, 130, 0.75);
   border-radius: 20px;
 }
 
@@ -266,7 +266,6 @@
   left: 0px;
   top: 0px;
 
-  background: rgba(49, 32, 130, 0.2);
   border-radius: 20px;
 }
 
@@ -323,6 +322,6 @@
   left: 0px;
   top: 0px;
 
-  background: rgba(49, 32, 130, 0.75);
+
   border-radius: 20px;
 }

@@ -243,7 +243,7 @@ VALUES (305, 3, 24, 6);
 INSERT INTO `studyroom_reservation` (`member_id`, `member_nickname`, `studyroom_id`, `purpose`, `user_count`, `start_date`, `time`, `status`) 
 VALUES ("010-1111-1111", "행성주인님", 304, "싸이브러리 회의를 하기 위해서", 4, "2022-12-18 22:00:00", 2, 'A');
 INSERT INTO `studyroom_reservation` (`member_id`, `member_nickname`, `studyroom_id`, `purpose`, `user_count`, `start_date`, `time`) 
-VALUES ("010-3333-3333", "싸피브레인2", 305, "금주 회의를 하기 위해서", 5, "2023-1-9 09:30:00", 4);
+VALUES ("010-3333-3333", "싸피브레인1", 305, "금주 회의를 하기 위해서", 5, "2023-1-9 09:30:00", 4);
 
 UPDATE `studyroom` SET `status` = 'A' WHERE `id` = 304;
 

@@ -112,6 +112,20 @@ BE - member 패키지 Entity와 DTO를 좀 더 잘 활용할 수 있도록 코�
 FE - FastCheck Footer를 통한 component loading 구현  
 BE - Seat Studyroom develop
 
+
+## 1.6
+FE -  AccountModifyPage className 재정의 및 디자인 수정 완료
+
+## 1.7
+### FE 
+- SignUpPage className 재정의 및 디자인 수정
+- SignUpPage JS
+- Input별 유효성 검사
+- 패스워드 show/hide 토글
+- 전체동의/해제 토글
+- 회원가입시 유효성 검사 및 모달
+- Input 및 CheckBox 초기화
+
 # DB ERD Diagram
 
 <img src = "./Files/Diagram.png">
