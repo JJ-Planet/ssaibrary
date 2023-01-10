@@ -1,25 +1,27 @@
 package com.jjplanet.ssaibrary.inquiry.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.jjplanet.ssaibrary.exception.NotFoundException;
 import com.jjplanet.ssaibrary.inquiry.dto.AnswerInquiryDTO;
 import com.jjplanet.ssaibrary.inquiry.dto.FindOneInquiryByIdDTO;
+import com.jjplanet.ssaibrary.inquiry.dto.InquiryDTO;
 import com.jjplanet.ssaibrary.inquiry.dto.InsertInquiryDTO;
 
 public interface InquiryService {
 	
 	//글 작성
-	void insertInquiry(InsertInquiryDTO i) throws NotFoundException;
+	void insertInquiry(InsertInquiryDTO insertInquiryDTO) throws NotFoundException;
 	
 	//전체목록조회
-	Map<String, Object> findAllInquiry() throws NotFoundException;
+	List<InquiryDTO> findAllInquiry() throws NotFoundException;
 	
 	//상세조회
-	FindOneInquiryByIdDTO findOneInquiryById(Long id) throws NotFoundException;
+	InquiryDTO findOneInquiryById(Long id) throws NotFoundException;
 	
 	//답변하기
-	void answerInquiry(AnswerInquiryDTO i) throws NotFoundException;
+	void answerInquiry(AnswerInquiryDTO answerInquiryDTO) throws NotFoundException;
 	
 	//글 삭제
 	void deleteInquiry(Long id) throws NotFoundException;

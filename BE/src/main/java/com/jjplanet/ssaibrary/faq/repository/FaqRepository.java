@@ -11,11 +11,8 @@ import com.jjplanet.ssaibrary.faq.domain.Faq;
 
 public interface FaqRepository extends JpaRepository<Faq, Long> {
 
-	// 전체목록조회
-	@Query(value = "select * from Faq where status='V'", nativeQuery = true)
-	List<Faq> findAllList();
 
-	@Query(value = "select * from Faq where id=:id", nativeQuery = true)
-	Optional<Faq> findOneById(@Param("id") Long id);
+	
+	List<Faq> findByStatus(char status);
 
 }

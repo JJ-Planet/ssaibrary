@@ -12,10 +12,10 @@ import com.jjplanet.ssaibrary.exception.NotFoundException;
 public interface CommentService {
 	
 	//댓글 작성
-	void insertComment(InsertCommentDTO c) throws NotFoundException;
+	void insertComment(InsertCommentDTO insertCommentDTO) throws NotFoundException;
 	
 	//대댓글 작성
-	void reInsertComment(ReInsertCommentDTO c) throws NotFoundException;
+	void reInsertComment(ReInsertCommentDTO reInsertCommentDTO) throws NotFoundException;
 
 	//댓글 조회
 //	Map<String, Object> findAllComment(Long communityId) throws NotFoundException;

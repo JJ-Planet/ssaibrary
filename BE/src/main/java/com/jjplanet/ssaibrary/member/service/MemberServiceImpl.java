@@ -27,6 +27,7 @@ import com.jjplanet.ssaibrary.notice.repository.NoticeRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService {
 
@@ -36,7 +37,6 @@ public class MemberServiceImpl implements MemberService {
 
 	// 회원가입
 	@Override
-	@Transactional
 	public void joinMember(JoinMemberDTO joinMemberDTO) throws NotFoundException {
 		
 		Member member = Member.builder().joinMemberDTO(joinMemberDTO).build();
@@ -94,7 +94,6 @@ public class MemberServiceImpl implements MemberService {
 	
 
 	// 회원삭제
-	@Transactional
 	public void deleteMember(DeleteMemberDTO deleteMemberDTO) throws NotFoundException {
 		Member member = memberRepository.findById(deleteMemberDTO.getId()).orElseThrow(NotFoundException::new);
 
@@ -106,7 +105,6 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	// 회원정보수정
-	@Transactional
 	public void updateMember(UpdateMemberDTO updateMemberDTO) throws NotFoundException {
 		Member member = memberRepository.findById(updateMemberDTO.getId()).orElseThrow(NotFoundException::new);
 

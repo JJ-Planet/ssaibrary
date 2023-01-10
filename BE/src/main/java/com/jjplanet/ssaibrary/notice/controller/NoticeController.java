@@ -43,8 +43,8 @@ public class NoticeController {
 
 	//전체목록조회
 	@GetMapping
-	public ResponseEntity<Map<String, Object>> findAllNotice() throws NotFoundException{
-		return new ResponseEntity<Map<String, Object>>(noticeService.findAllNotice(), HttpStatus.ACCEPTED);
+	public ResponseEntity<List<NoticeDTO>> findAllNotice() throws NotFoundException{
+		return new ResponseEntity<List<NoticeDTO>>(noticeService.findAllNotice(), HttpStatus.ACCEPTED);
 	}
 
 	//상세조회
@@ -55,8 +55,8 @@ public class NoticeController {
 
 	//글수정
 	@PutMapping
-	public ResponseEntity<String> updateNotice(@RequestBody UpdateNoticeDTO n) throws NotFoundException {
-		noticeService.updateNotice(n);
+	public ResponseEntity<String> updateNotice(@RequestBody UpdateNoticeDTO updateNoticeDTO) throws NotFoundException {
+		noticeService.updateNotice(updateNoticeDTO);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 

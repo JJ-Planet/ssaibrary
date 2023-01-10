@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class FindAllFaqDTO {
+public class FaqDTO {
 
 	// 글번호
 	private Long id;

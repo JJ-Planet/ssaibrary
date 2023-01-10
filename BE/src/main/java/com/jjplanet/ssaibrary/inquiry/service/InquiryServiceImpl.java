@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +15,7 @@ import com.jjplanet.ssaibrary.inquiry.domain.Inquiry;
 import com.jjplanet.ssaibrary.inquiry.dto.AnswerInquiryDTO;
 import com.jjplanet.ssaibrary.inquiry.dto.FindAllInquiryDTO;
 import com.jjplanet.ssaibrary.inquiry.dto.FindOneInquiryByIdDTO;
+import com.jjplanet.ssaibrary.inquiry.dto.InquiryDTO;
 import com.jjplanet.ssaibrary.inquiry.dto.InsertInquiryDTO;
 import com.jjplanet.ssaibrary.inquiry.repository.InquiryRepository;
 import com.jjplanet.ssaibrary.member.domain.Member;
@@ -31,80 +33,53 @@ public class InquiryServiceImpl implements InquiryService {
 
 	// 글 작성
 	@Override
-	public void insertInquiry(InsertInquiryDTO i) throws NotFoundException {
+	public void insertInquiry(InsertInquiryDTO insertInquiryDTO) throws NotFoundException {
 
-		Optional<Member> writer = memberRepository.findByNickname(i.getMemberNickname());
+		Member member = memberRepository.findByNickname(insertInquiryDTO.getMemberNickname()).orElseThrow(NotFoundException::new);
 
-		if (!writer.isPresent()) {
-			throw new NotFoundException("존재하지 않는 사용자입니다.");
-		}
-
-		i.setStatus('W');
-
-		Inquiry inquiry = new Inquiry(writer.get(), i.getTitle(), i.getQuestion(), i.getRegisterDate(), i.getStatus());
+		Inquiry inquiry = Inquiry.builder().insertInquiryDTO(insertInquiryDTO).member(member).build();
 
 		inquiryRepository.save(inquiry);
 	}
 
 	// 전체목록조회
 	@Override
-	public Map<String, Object> findAllInquiry() throws NotFoundException {
+	public List<InquiryDTO> findAllInquiry() throws NotFoundException {
+		
+		return inquiryRepository.findAll().stream().map(Inquiry::toDTO).collect(Collectors.toList());
 
-		List<Inquiry> list = inquiryRepository.findAllList();
-		List<FindAllInquiryDTO> inquiryList = new ArrayList<>();
-
-		Map<String, Object> result = new HashMap<>();
-
-		for (Inquiry i : list) {
-			FindAllInquiryDTO output = new FindAllInquiryDTO(i.getId(), i.getMemberNickname().getNickname(),
-					i.getTitle(), i.getQuestion(), i.getAnswer(), i.getRegisterDate(), i.getStatus());
-			inquiryList.add(output);
-		}
-
-		result.put("inquiryList", inquiryList);
-
-		return result;
 	}
 
 	// 상세조회
 	@Override
-	public FindOneInquiryByIdDTO findOneInquiryById(Long id) throws NotFoundException {
-
-		Optional<Inquiry> i = inquiryRepository.findOneById(id);
-
-		if (!i.isPresent()) {
-			throw new NotFoundException("존재하지 않는 게시글 입니다.");
-		}
-
-		FindOneInquiryByIdDTO inquiry = new FindOneInquiryByIdDTO(i.get().getId(),
-				i.get().getMemberNickname().getNickname(), i.get().getTitle(), i.get().getQuestion(),
-				i.get().getAnswer(), i.get().getRegisterDate(), i.get().getStatus());
-
-		return inquiry;
+	public InquiryDTO findOneInquiryById(Long id) throws NotFoundException {
+		
+		return inquiryRepository.findById(id).orElseThrow(NotFoundException::new).toDTO();
 	}
 
 	// 답변하기
 	@Override
-	public void answerInquiry(AnswerInquiryDTO i) throws NotFoundException {
-
-		Optional<Inquiry> inquiry = inquiryRepository.findOneById(i.getId());
-
-		inquiry.get().setAnswer(i.getAnswer());
-		inquiry.get().setStatus('C');
-
-		inquiryRepository.save(inquiry.get());
+	public void answerInquiry(AnswerInquiryDTO answerInquiryDTO) throws NotFoundException {
+		
+		Inquiry inquiry = inquiryRepository.findById(answerInquiryDTO.getId()).orElseThrow(NotFoundException::new);
+		
+		Member member = memberRepository.findByNickname(answerInquiryDTO.getMemberNickname()).orElseThrow(NotFoundException::new);
+		
+		if(member.getIsAdmin()=='N') {
+			throw new NotFoundException("답변 권한이 없는 회원입니다.");
+		}
+		
+		inquiry.anserInquiry(answerInquiryDTO);
 
 	}
 
 	// 글 삭제
 	@Override
 	public void deleteInquiry(Long id) throws NotFoundException {
-
-		Optional<Inquiry> inquiry = inquiryRepository.findOneById(id);
-
-		inquiry.get().setStatus('D');
-
-		inquiryRepository.save(inquiry.get());
+		
+		Inquiry inquiry = inquiryRepository.findById(id).orElseThrow(NotFoundException::new);
+		
+		inquiry.deleteInquiry('D');
 
 	}
 

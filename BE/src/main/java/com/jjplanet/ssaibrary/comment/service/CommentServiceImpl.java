@@ -17,7 +17,6 @@ import com.jjplanet.ssaibrary.comment.dto.InsertCommentDTO;
 import com.jjplanet.ssaibrary.comment.dto.ReInsertCommentDTO;
 import com.jjplanet.ssaibrary.comment.repository.CommentRepository;
 import com.jjplanet.ssaibrary.community.domain.Community;
-import com.jjplanet.ssaibrary.community.dto.FindAllCommunityDTO;
 import com.jjplanet.ssaibrary.community.repository.CommunityRepository;
 import com.jjplanet.ssaibrary.exception.NotFoundException;
 import com.jjplanet.ssaibrary.member.domain.Member;
@@ -36,19 +35,13 @@ public class CommentServiceImpl implements CommentService {
 
 	// 댓글 작성
 	@Override
-	public void insertComment(InsertCommentDTO c) {
-		Optional<Member> member = memberRepository.findByNickname(c.getMemberNickname());
-		Optional<Community> community = communityRepository.findOneById(c.getCommunityId());
+	public void insertComment(InsertCommentDTO insertCommentDTO) {
+		Member member = memberRepository.findByNickname(insertCommentDTO.getMemberNickname()).orElseThrow(NotFoundException::new);
+		Community community = communityRepository.findById(insertCommentDTO.getCommunityId()).orElseThrow(NotFoundException::new);
 
-		if (!member.isPresent()) {
-			throw new NotFoundException("존재하지 않는 사용자입니다.");
-		}
 		Date now = new Date();
-		c.setRegisterDate(now);
-		c.setStatus('V');
-
-		Comment comment = new Comment(community.get(), member.get(), c.getContent(), c.getRegisterDate(),
-				c.getStatus());
+		
+		Comment comment = Comment.builder().insertCommentDTO(insertCommentDTO).member(member).community(community).now(now).build();
 
 		commentRepository.save(comment);
 
@@ -56,21 +49,19 @@ public class CommentServiceImpl implements CommentService {
 
 	// 대댓글 작성
 	@Override
-	public void reInsertComment(ReInsertCommentDTO c) throws NotFoundException {
-		Optional<Member> member = memberRepository.findByNickname(c.getMemberNickname());
-		Optional<Community> community = communityRepository.findOneById(c.getCommunityId());
-		Optional<Comment> parent = commentRepository.findOneById(c.getParentId());
-
-		if (!member.isPresent()) {
-			throw new NotFoundException("존재하지 않는 사용자입니다.");
-		}
+	public void reInsertComment(ReInsertCommentDTO reInsertCommentDTO) throws NotFoundException {
+		Member member = memberRepository.findByNickname(reInsertCommentDTO.getMemberNickname()).orElseThrow(NotFoundException::new);
+		Community community = communityRepository.findById(reInsertCommentDTO.getCommunityId()).orElseThrow(NotFoundException::new);
+		Comment parentComment = commentRepository.findById(reInsertCommentDTO.getParentId()).orElseThrow(NotFoundException::new);
+		
 		Date now = new Date();
-		c.setRegisterDate(now);
-		c.setStatus('V');
-
-		Comment comment = new Comment(community.get(), member.get(), c.getContent(), parent.get(), c.getRegisterDate(),
-				c.getStatus());
-
+		
+//		Comment comment = Comment.builder().reInsertCommentDTO(reInsertCommentDTO).member(member).community(community).parentComment(parentComment).now(now).build();
+		
+		reInsertCommentDTO.setStatus('V');
+		
+		Comment comment = new Comment(reInsertCommentDTO, member, community, parentComment, now);
+		
 		commentRepository.save(comment);
 
 	}
@@ -78,15 +69,9 @@ public class CommentServiceImpl implements CommentService {
 	// 댓글 삭제
 	@Override
 	public void deleteComment(Long id) throws NotFoundException {
-		Optional<Comment> comment = commentRepository.findOneById(id);
+		Comment comment = commentRepository.findById(id).orElseThrow(NotFoundException::new);
 
-		if (!comment.isPresent()) {
-			throw new NotFoundException("존재하지 않는 댓글입니다.");
-		}
-
-		comment.get().setStatus('D');
-
-		commentRepository.save(comment.get());
+		comment.deleteComment('D');
 
 	}
 

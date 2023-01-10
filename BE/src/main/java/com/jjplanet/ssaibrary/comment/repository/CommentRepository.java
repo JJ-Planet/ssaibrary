@@ -13,12 +13,6 @@ import io.swagger.v3.oas.annotations.Parameter;
 
 public interface CommentRepository extends JpaRepository<Comment, Long>{
 	
-	//@Query(value = "select * from Comment where id=:id", nativeQuery = true)
-	Optional<Comment> findOneById(@Param("id") Long id);
-
-	// 전체 목록 불러오기
-	@Query(value = "select * from Comment where community_id=:community_id", nativeQuery = true)
-	List<Comment> findAllList(@Param("community_id")Long communityId);
 	
 
 }

@@ -37,10 +37,10 @@ public class FindAllReCommentDTO {
 		
 	public FindAllReCommentDTO(Comment reComment) {
 		this.id = reComment.getId();
-		this.communityId = reComment.getCommunityId().getId();
-		this.memberNickname = reComment.getMemberNickname().getNickname();
+		this.communityId = reComment.getCommunity().getId();
+		this.memberNickname = reComment.getMember().getNickname();
 		this.content = reComment.getContent();
-		this.parentId = reComment.getParentId().getId();
+		this.parentId = reComment.getParentComment().getId();
 		this.likeCount = reComment.getLikeCount();
 		this.registerDate = reComment.getRegisterDate();
 		this.status = reComment.getStatus();

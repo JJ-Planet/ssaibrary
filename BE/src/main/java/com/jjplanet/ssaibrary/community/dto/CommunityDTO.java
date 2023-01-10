@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class FindAllCommunityDTO {
+public class CommunityDTO {
 
 	// 글번호
 	private Long id;

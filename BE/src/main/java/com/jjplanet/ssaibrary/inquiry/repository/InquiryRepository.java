@@ -11,12 +11,5 @@ import com.jjplanet.ssaibrary.inquiry.domain.Inquiry;
 
 public interface InquiryRepository extends JpaRepository<Inquiry, Long> {
 	
-	//전체목록조회
-	@Query(value = "select * from Inquiry where status != 'D'", nativeQuery = true)
-	List<Inquiry> findAllList();
-	
-	//상세조회
-	@Query(value = "select * from Inquiry where id=:id", nativeQuery = true)
-	Optional<Inquiry> findOneById(@Param("id")Long id);
 
 }

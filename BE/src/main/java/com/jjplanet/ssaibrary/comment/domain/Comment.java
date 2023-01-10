@@ -18,6 +18,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.jjplanet.ssaibrary.comment.dto.InsertCommentDTO;
+import com.jjplanet.ssaibrary.comment.dto.ReInsertCommentDTO;
 import com.jjplanet.ssaibrary.community.domain.Community;
 import com.jjplanet.ssaibrary.member.domain.Member;
 
@@ -43,12 +45,12 @@ public class Comment implements Serializable{
 	//글번호
 	@ManyToOne(cascade = CascadeType.REMOVE, targetEntity = Community.class)
 	@JoinColumn(name = "community_id")
-	private Community communityId;
+	private Community community;
 
 	//작성자닉네임
 	@ManyToOne(targetEntity = Member.class, cascade = { CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE })
 	@JoinColumn(name = "member_nickname", referencedColumnName = "nickname")
-	private Member memberNickname;
+	private Member member;
 
 	//내용
 	@Column(nullable = false, length = 2000)
@@ -57,11 +59,11 @@ public class Comment implements Serializable{
 	//부모댓글
 	@ManyToOne
 	@JoinColumn(name = "parent_id")
-	private Comment parentId;
+	private Comment parentComment;
 
 	//자식댓글
 	@ElementCollection
-	@OneToMany(mappedBy = "parentId")
+	@OneToMany(mappedBy = "parentComment")
 	private List<Comment> childList = new ArrayList<>();
 
 	//좋아요수
@@ -78,38 +80,38 @@ public class Comment implements Serializable{
 	@Column(nullable = false, columnDefinition = "CHAR(1) DEFAULT 'V'")
 	private char status;
 	
-	//댓글
+	//댓글 작성
 	@Builder
-	public Comment(Community communityId, Member memberNickname, String content, Date registerDate, char status) {
-		this.communityId = communityId;
-		this.memberNickname = memberNickname;
-		this.content = content;
-		this.registerDate = registerDate;
-		this.status = status;
+	public Comment(InsertCommentDTO insertCommentDTO, Community community, Member member, Date now) {
+		this.community = community;
+		this.member = member;
+		this.content = insertCommentDTO.getContent();
+		this.registerDate = now;
+		this.status = 'V';
 	}
 	
-	//대댓글
-	@Builder
-	public Comment(Community communityId, Member memberNickname, String content, Comment parentId, Date registerDate, char status) {
-		this.communityId = communityId;
-		this.memberNickname = memberNickname;
-		this.content = content;
-		this.parentId = parentId;
-		parentId.addChild(this);
-		this.registerDate = registerDate;
-		this.status = status;
+	//대댓글 작성
+	@Builder 
+	public Comment(ReInsertCommentDTO reInsertCommentDTO, Member member, Community community, Comment parentComment, Date now) {
+		this.community = community;
+		this.member = member;
+		this.content = reInsertCommentDTO.getContent();
+		this.parentComment = parentComment;
+		parentComment.addChild(this);
+		this.registerDate = now;
+		this.status = 'V';
 	}
 	
 	public void addChild(Comment child) {
 		childList.add(child);
 		System.out.println(childList.size());
 		for(int i=0; i<childList.size(); i++) {
-			System.out.println("부모id : "+childList.get(i).parentId.getId());
+			System.out.println("부모id : "+childList.get(i).parentComment.getId());
 			System.out.println("id : "+childList.get(i).id);
-			System.out.println("게시글id : "+childList.get(i).communityId.getId());
+			System.out.println("게시글id : "+childList.get(i).community.getId());
 			System.out.println("내용 : "+childList.get(i).content);
 			System.out.println("조회수 : "+childList.get(i).likeCount);
-			System.out.println("작성자 : "+childList.get(i).memberNickname.getNickname());
+			System.out.println("작성자 : "+childList.get(i).member.getNickname());
 			System.out.println("등록일 : "+childList.get(i).registerDate);
 			System.out.println("상태 : "+childList.get(i).status);
 			System.out.println("자식댓글사이즈 : "+childList.get(i).childList.size());
@@ -117,11 +119,16 @@ public class Comment implements Serializable{
 			
 		}
 	}
+	
+	//댓글 삭제
+	public void deleteComment(char status) {
+		this.status = status;
+	}
 
 	@Override
 	public String toString() {
-		return "Comment [id=" + id + ", communityId=" + communityId + ", memberNickname=" + memberNickname
-				+ ", content=" + content + ", parentId=" + parentId + ", childList=" + childList + ", likeCount="
+		return "Comment [id=" + id + ", community=" + community + ", member=" + member
+				+ ", content=" + content + ", parentComment=" + parentComment + ", childList=" + childList + ", likeCount="
 				+ likeCount + ", registerDate=" + registerDate + ", status=" + status + "]";
 	}
 

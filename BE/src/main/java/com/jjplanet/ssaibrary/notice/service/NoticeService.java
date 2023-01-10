@@ -18,13 +18,13 @@ public interface NoticeService {
 	void insertNotice(InsertNoticeDTO insertNoticeDTO) throws NotFoundException; 
 
 	//전체목록조회
-	Map<String, Object> findAllNotice() throws NotFoundException; 
+	List<NoticeDTO> findAllNotice() throws NotFoundException; 
 
 	//상세조회
 	NoticeDTO findOneNoticeById(Long id) throws NotFoundException;
 
 	//글수정
-	void updateNotice(UpdateNoticeDTO n) throws NotFoundException;
+	void updateNotice(UpdateNoticeDTO updateNoticeDTO) throws NotFoundException;
 
 	//글삭제
 	void deleteNotice(Long id) throws NotFoundException;

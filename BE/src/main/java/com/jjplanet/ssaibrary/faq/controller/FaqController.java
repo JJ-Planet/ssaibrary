@@ -1,5 +1,6 @@
 package com.jjplanet.ssaibrary.faq.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jjplanet.ssaibrary.exception.NotFoundException;
+import com.jjplanet.ssaibrary.faq.dto.FaqDTO;
 import com.jjplanet.ssaibrary.faq.dto.InsertFaqDTO;
 import com.jjplanet.ssaibrary.faq.dto.UpdateFaqDTO;
 import com.jjplanet.ssaibrary.faq.repository.FaqRepository;
@@ -32,21 +34,21 @@ public class FaqController {
 
 	// 글 작성
 	@PostMapping
-	public ResponseEntity<String> insertFaq(@RequestBody InsertFaqDTO f) throws NotFoundException {
-		faqService.insertFaq(f);
+	public ResponseEntity<String> insertFaq(@RequestBody InsertFaqDTO insertFaqDTO) throws NotFoundException {
+		faqService.insertFaq(insertFaqDTO);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 
 	// 전체목록조회
 	@GetMapping
-	public ResponseEntity<Map<String, Object>> findAllFaq() throws NotFoundException {
-		return new ResponseEntity<Map<String, Object>>(faqService.findAllFaq(), HttpStatus.ACCEPTED);
+	public ResponseEntity<List<FaqDTO>> findAllFaq() throws NotFoundException {
+		return new ResponseEntity<List<FaqDTO>>(faqService.findAllFaq(), HttpStatus.ACCEPTED);
 	}
 
 	// 글 수정
 	@PutMapping
-	public ResponseEntity<String> updateFaq(@RequestBody UpdateFaqDTO f) throws NotFoundException {
-		faqService.updateFaq(f);
+	public ResponseEntity<String> updateFaq(@RequestBody UpdateFaqDTO updateFaqDTO) throws NotFoundException {
+		faqService.updateFaq(updateFaqDTO);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 

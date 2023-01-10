@@ -17,6 +17,9 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.jjplanet.ssaibrary.community.dto.CommunityDTO;
+import com.jjplanet.ssaibrary.community.dto.InsertCommunityDTO;
+import com.jjplanet.ssaibrary.community.dto.UpdateCommunityDTO;
 import com.jjplanet.ssaibrary.member.domain.Member;
 
 import lombok.AccessLevel;
@@ -50,7 +53,7 @@ public class Community implements Serializable{
 	// 작성자 닉네임
 	@ManyToOne(targetEntity = Member.class, cascade = { CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE })
 	@JoinColumn(name = "member_nickname", referencedColumnName = "nickname")
-	private Member memberNickname;
+	private Member member;
 
 	// 제목
 	@Setter
@@ -90,11 +93,28 @@ public class Community implements Serializable{
 
 	// 글작성
 	@Builder
-	public Community(Member memberNickname, String title, String content, Date registerDate, char status) {
-		this.memberNickname = memberNickname;
-		this.title = title;
-		this.content = content;
-		this.registerDate = registerDate;
+	public Community(InsertCommunityDTO insertCommunityDTO, Member member) {
+		this.member = member;
+		this.title = insertCommunityDTO.getTitle();
+		this.content = insertCommunityDTO.getContent();
+		this.registerDate = insertCommunityDTO.getRegisterDate();
+		this.status = 'V';
+	}
+	
+	// 전체목록조회
+	public CommunityDTO toDTO() {
+		return new CommunityDTO(id, member.getId(), title, content, hitCount, likeCount, registerDate, updateDate, status);
+	}
+	
+	// 글 수정
+	public void updateCommunity(UpdateCommunityDTO updateCommunityDTO) {
+		this.title = updateCommunityDTO.getTitle();
+		this.content = updateCommunityDTO.getContent();
+		this.updateDate = updateCommunityDTO.getUpdateDate();
+	}
+	
+	// 글 삭제
+	public void deleteCommunity(char status) {
 		this.status = status;
 	}
 

@@ -17,6 +17,7 @@ import com.jjplanet.ssaibrary.community.domain.Community;
 import com.jjplanet.ssaibrary.member.domain.Member;
 import com.jjplanet.ssaibrary.notice.dto.InsertNoticeDTO;
 import com.jjplanet.ssaibrary.notice.dto.NoticeDTO;
+import com.jjplanet.ssaibrary.notice.dto.UpdateNoticeDTO;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -40,7 +41,7 @@ public class Notice {
 	//작성자아이디
 	@ManyToOne(targetEntity = Member.class, cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "member_id") //기본키를 참조하므로 referencedColumnName 생략함.
-	private Member memberId;
+	private Member member;
 
 	//제목
 	@Setter
@@ -80,7 +81,7 @@ public class Notice {
 	//글작성
 	@Builder
 	public Notice(Member member, InsertNoticeDTO insertNoticeDTO) {
-		this.memberId = member;
+		this.member = member;
 		this.title = insertNoticeDTO.getTitle();
 		this.content = insertNoticeDTO.getContent();
 		this.registerDate = insertNoticeDTO.getRegisterDate();
@@ -89,13 +90,28 @@ public class Notice {
 	}
 	
 	//글 목록, 상세조회
-//	public NoticeDTO toDTO() {
-//		return new NoticeDTO(id, memberId, title, content, hitCount, registerDate, updateDate, isPriority, status);
-//	}
+	public NoticeDTO toDTO() {
+		return new NoticeDTO(id, member.getId(), title, content, hitCount, registerDate, updateDate, isPriority, status);
+	}
 
+
+	//글 수정
+	public void updateNotice(UpdateNoticeDTO updateNoticeDTO) {
+		this.title = updateNoticeDTO.getContent();
+		this.content = updateNoticeDTO.getContent();
+		this.updateDate = updateNoticeDTO.getUpdateDate();
+		this.isPriority = updateNoticeDTO.getIsPriority();
+		
+	}
+	
+	//글 삭제
+	public void deleteNotice(char status) {
+		this.status = status;
+	}
+	
 	@Override
 	public String toString() {
-		return "Notice [id=" + id + ", memberId=" + memberId + ", title=" + title + ", content=" + content
+		return "Notice [id=" + id + ", member=" + member + ", title=" + title + ", content=" + content
 				+ ", hitCount=" + hitCount + ", registerDate=" + registerDate + ", updateDate=" + updateDate
 				+ ", isPriority=" + isPriority + ", status=" + status + "]";
 	}

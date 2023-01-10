@@ -33,15 +33,15 @@ public class CommentController {
 	
 	//댓글 작성
 	@PostMapping
-	public ResponseEntity<String> insertComment(InsertCommentDTO c) throws NotFoundException{
-		commentService.insertComment(c);
+	public ResponseEntity<String> insertComment(InsertCommentDTO insertCommentDTO) throws NotFoundException{
+		commentService.insertComment(insertCommentDTO);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 	
 	//대댓글 작성
 	@PostMapping("/reply")
-	public ResponseEntity<String> reInsertComment(ReInsertCommentDTO c) throws NotFoundException{
-		commentService.reInsertComment(c);
+	public ResponseEntity<String> reInsertComment(ReInsertCommentDTO reInsertCommentDTO) throws NotFoundException{
+		commentService.reInsertComment(reInsertCommentDTO);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 	

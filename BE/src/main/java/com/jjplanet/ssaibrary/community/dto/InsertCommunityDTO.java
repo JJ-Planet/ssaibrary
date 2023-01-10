@@ -17,10 +17,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class insertCommunityDTO {
+public class InsertCommunityDTO {
 
-	// 글번호
-	private Long id;
 
 	// 작성자 닉네임
 	private String memberNickname;

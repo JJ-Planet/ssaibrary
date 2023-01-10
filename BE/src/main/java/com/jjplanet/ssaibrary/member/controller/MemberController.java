@@ -52,9 +52,15 @@ public class MemberController {
 	@PostMapping("/login")
 	public Member loginMember(@RequestParam("id") String id, @RequestParam("password") String password, HttpSession session) throws NotFoundException{
 		Member loginUser = memberService.loginMember(id, password); 
-		
 		session.setAttribute("loginUser", loginUser);
 		return loginUser;
+	}
+	
+	//로그아웃
+	@GetMapping("/logout")
+	public ResponseEntity<String> logoutMember(HttpSession session){
+		session.invalidate();
+		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 	
 	//Account List

@@ -11,10 +11,7 @@ import com.jjplanet.ssaibrary.community.domain.Community;
 import com.jjplanet.ssaibrary.community.dto.FindOneCommunityByIdDTO;
 
 public interface CommunityRepository extends JpaRepository<Community, Long> {
-
-	// 전체 목록 불러오기
-	List<Community> findAllByStatus(char status);
 	
-	// 상세조회
-	Optional<Community> findOneById(Long id);
+	List<Community> findByStatus(char status);
+
 }

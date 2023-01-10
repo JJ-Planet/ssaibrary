@@ -1,5 +1,6 @@
 package com.jjplanet.ssaibrary.community.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -16,8 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jjplanet.ssaibrary.community.dto.CommunityDTO;
+import com.jjplanet.ssaibrary.community.dto.InsertCommunityDTO;
 import com.jjplanet.ssaibrary.community.dto.UpdateCommunityDTO;
-import com.jjplanet.ssaibrary.community.dto.insertCommunityDTO;
 import com.jjplanet.ssaibrary.community.service.CommunityServiceImpl;
 import com.jjplanet.ssaibrary.exception.NotFoundException;
 import com.jjplanet.ssaibrary.notice.service.NoticeServiceImpl;
@@ -35,16 +37,16 @@ public class CommunityController {
 
 	// 글 작성
 	@PostMapping
-	public ResponseEntity<String> insertCommunity(@RequestBody insertCommunityDTO community, HttpSession session)
+	public ResponseEntity<String> insertCommunity(@RequestBody InsertCommunityDTO insertCommunityDTO, HttpSession session)
 			throws NotFoundException {
-		communityService.insertCommunity(community);
+		communityService.insertCommunity(insertCommunityDTO);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 
 	// 전체목록조회
 	@GetMapping
-	public ResponseEntity<Map<String, Object>> findAllCommunity() throws NotFoundException {
-		return new ResponseEntity<Map<String, Object>>(communityService.findAllCommunity(), HttpStatus.ACCEPTED);
+	public ResponseEntity<List<CommunityDTO>> findAllCommunity() throws NotFoundException {
+		return new ResponseEntity<List<CommunityDTO>>(communityService.findAllCommunity(), HttpStatus.ACCEPTED);
 	}
 
 	// 상세조회
@@ -56,8 +58,8 @@ public class CommunityController {
 
 	// 글 수정
 	@PutMapping
-	public ResponseEntity<String> updateCommunity(@RequestBody UpdateCommunityDTO c) throws NotFoundException {
-		communityService.updateCommunity(c);
+	public ResponseEntity<String> updateCommunity(@RequestBody UpdateCommunityDTO updateCommunityDTO) throws NotFoundException {
+		communityService.updateCommunity(updateCommunityDTO);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 
 	}

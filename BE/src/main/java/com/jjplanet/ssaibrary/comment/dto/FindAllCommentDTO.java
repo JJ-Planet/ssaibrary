@@ -53,8 +53,8 @@ public class FindAllCommentDTO {
 	
 	public FindAllCommentDTO(Comment comment, List<Comment> reCommentList) {
 		this.id = comment.getId();
-		this.communityId = comment.getCommunityId().getId();
-		this.memberNickname = comment.getMemberNickname().getNickname();
+		this.communityId = comment.getCommunity().getId();
+		this.memberNickname = comment.getMember().getNickname();
 		this.content = comment.getContent();
 		this.likeCount = comment.getLikeCount();
 		this.registerDate = comment.getRegisterDate();

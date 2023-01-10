@@ -39,7 +39,7 @@ public class NoticeServiceImpl implements NoticeService {
 	public void insertNotice(InsertNoticeDTO insertNoticeDTO) throws NotFoundException {
 		Member member = memberRepository.findById(insertNoticeDTO.getMemberId()).orElseThrow(NotFoundException::new);
 		
-		if (!member.getId().equals("admin")) {
+		if (member.getIsAdmin()=='N') {
 			throw new NotFoundException("작성 권한이 없는 계정입니다.");
 		}
 		Notice notice = Notice.builder().insertNoticeDTO(insertNoticeDTO).member(member).build();
@@ -49,74 +49,53 @@ public class NoticeServiceImpl implements NoticeService {
 
 	// 전체목록조회
 	@Override
-	public Map<String, Object> findAllNotice() throws NotFoundException {
-//		return noticeRepository.findAll().stream().map(Notice::toDTO).collect(Collectors.toList());
+	public List<NoticeDTO> findAllNotice() throws NotFoundException {
+		
+		//상태가 V인 것들만 목록으로 보여주기 위해 findAll()을 안 쓰고 findByStatus를 적어줌.
+		return noticeRepository.findByStatus('V').stream().map(Notice::toDTO).collect(Collectors.toList());
 
-		List<Notice> list = noticeCustomRepository.findAllList();
-		List<FindAllNoticeDTO> noticeList = new ArrayList<>();
-
-		Map<String, Object> result = new HashMap<String, Object>();
-
-		for (Notice n : list) {
-			FindAllNoticeDTO output = new FindAllNoticeDTO(n.getId(), n.getMemberId().getId(), n.getTitle(),
-					n.getContent(), n.getHitCount(), n.getRegisterDate(), n.getUpdateDate(), n.getIsPriority(),
-					n.getStatus());
-			noticeList.add(output);
-		}
-		result.put("noticeList", noticeList);
-
-		return result;
 	}
 
 	// 상세조회
 	@Override
 	public NoticeDTO findOneNoticeById(Long id) throws NotFoundException {
+		
+		return noticeRepository.findById(id).orElseThrow(NotFoundException::new).toDTO();
 
-		Optional<Notice> n = noticeRepository.findById(id);
-		if (!n.isPresent()) {
-			throw new NotFoundException("존재 하지 않는 게시글입니다.");
-		}
-
-		NoticeDTO notice = new NoticeDTO(n.get().getId(), n.get().getMemberId().getId(),
-				n.get().getTitle(), n.get().getContent(), n.get().getHitCount(), n.get().getRegisterDate(),
-				n.get().getUpdateDate(), n.get().getIsPriority(), n.get().getStatus());
-
-		return notice;
 	}
 
 	// 글수정
 	@Override
-	public void updateNotice(UpdateNoticeDTO n) throws NotFoundException {
-
-		Optional<Member> writer = memberRepository.findById(n.getMemberId());
+	public void updateNotice(UpdateNoticeDTO updateNoticeDTO) throws NotFoundException {
 		
-		if(!writer.isPresent()) {
-			throw new NotFoundException("존재하지 않는 사용자입니다.");
+		Member member = memberRepository.findById(updateNoticeDTO.getMemberId()).orElseThrow(NotFoundException::new);
+		
+		if(member.getIsAdmin()=='N') {
+			throw new NotFoundException("수정 권한이 없는 사용자입니다.");
 		}
+		
+		Notice notice = noticeRepository.findById(updateNoticeDTO.getId()).orElseThrow(NotFoundException::new);
+		
+		notice.updateNotice(updateNoticeDTO);
 
-		if (!writer.get().getId().equals("admin")) {
-			throw new NotFoundException("수정 권한이 없는 계정입니다.");
-		}
-
-		Optional<Notice> notice = noticeRepository.findById(n.getId());
-
-		notice.get().setTitle(n.getTitle());
-		notice.get().setContent(n.getContent());
-		notice.get().setUpdateDate(n.getUpdateDate());
-		notice.get().setIsPriority(n.getIsPriority());
-
-		noticeRepository.save(notice.get());
+		
 	}
 
 	// 글삭제
 	@Override
 	public void deleteNotice(Long id) throws NotFoundException {
+		
+		Notice notice = noticeRepository.findById(id).orElseThrow(NotFoundException::new);
+		
+		Member member = memberRepository.findById(notice.getMember().getId()).orElseThrow(NotFoundException::new);
+		
+		if(member.getIsAdmin()=='N') {
+			throw new NotFoundException("삭제 권한이 없는 사용자입니다.");
+		}
+		
+		
+		notice.deleteNotice('D');
 
-		Optional<Notice> notice = noticeRepository.findById(id);
-
-		notice.get().setStatus('D');
-
-		noticeRepository.save(notice.get());
 
 	}
 

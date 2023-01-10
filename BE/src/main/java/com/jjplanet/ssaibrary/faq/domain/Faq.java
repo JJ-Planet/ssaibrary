@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.jjplanet.ssaibrary.faq.dto.FaqDTO;
+import com.jjplanet.ssaibrary.faq.dto.InsertFaqDTO;
+import com.jjplanet.ssaibrary.faq.dto.UpdateFaqDTO;
 import com.jjplanet.ssaibrary.inquiry.domain.Inquiry;
 
 import lombok.AccessLevel;
@@ -46,9 +49,24 @@ public class Faq {
 
 	// 글 작성
 	@Builder
-	public Faq(String question, String answer, char status) {
-		this.question = question;
-		this.answer = answer;
+	public Faq(InsertFaqDTO insertFaqDTO) {
+		this.question = insertFaqDTO.getQuestion();
+		this.answer = insertFaqDTO.getAnswer();
+		this.status = 'V';
+	}
+	
+	public FaqDTO toDTO() {
+		return new FaqDTO(id, question, answer, status);
+	}
+	
+	// 글 수정
+	public void updateFaq(UpdateFaqDTO updateFaqDTO) {
+		this.question = updateFaqDTO.getQuestion();
+		this.answer = updateFaqDTO.getAnswer();
+	}
+	
+	// 글 삭제
+	public void deleteFaq(char status) {
 		this.status = status;
 	}
 

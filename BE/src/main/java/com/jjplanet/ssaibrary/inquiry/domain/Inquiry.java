@@ -13,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.jjplanet.ssaibrary.inquiry.dto.AnswerInquiryDTO;
+import com.jjplanet.ssaibrary.inquiry.dto.InquiryDTO;
+import com.jjplanet.ssaibrary.inquiry.dto.InsertInquiryDTO;
 import com.jjplanet.ssaibrary.member.domain.Member;
 import com.jjplanet.ssaibrary.notice.domain.Notice;
 
@@ -38,7 +41,7 @@ public class Inquiry {
 	//작성자닉네임
 	@ManyToOne(targetEntity = Member.class, cascade = { CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE })
 	@JoinColumn(name = "member_nickname", referencedColumnName = "nickname")
-	private Member memberNickname;
+	private Member member;
 
 	//제목
 	@Column(nullable = false, length = 100)
@@ -63,14 +66,30 @@ public class Inquiry {
 	@Column(nullable = false, columnDefinition = "CHAR(1) DEFAULT 'W'")
 	private char status;
 	
+
 	//글 작성
 	@Builder
-	public Inquiry(Member memberNickname, String title, String question, Date registerDate, char status) {
-		this.memberNickname = memberNickname;
-		this.title = title;
-		this.question = question;
-		this.registerDate = registerDate;
-		this.status = status;
+	public Inquiry(Member member, InsertInquiryDTO insertInquiryDTO) {
+		this.member = member;
+		this.title = insertInquiryDTO.getTitle();
+		this.question = insertInquiryDTO.getQuestion();
+		this.registerDate = insertInquiryDTO.getRegisterDate();
+		this.status = 'W';
 	}
 
+	// 전체목록조회
+	public InquiryDTO toDTO() {
+		return new InquiryDTO(id, member.getNickname(), title, question, answer, registerDate, status);
+	}
+
+	// 답변하기
+	public void anserInquiry(AnswerInquiryDTO answerInquiryDTO) {
+		this.answer = answerInquiryDTO.getAnswer();
+		this.status = 'C';
+	}
+	
+	// 삭제하기
+	public void deleteInquiry(char status) {
+		this.status = status;
+	}
 }
