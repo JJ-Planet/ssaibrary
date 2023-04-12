@@ -2,9 +2,9 @@ import React from "react";
 import "./FastCheckMain";
 import { useSelector } from "react-redux";
 
-import Floor1 from "./Floor1";
-import Floor2 from "./Floor2";
-import Floor3 from "./Floor3";
+import Floor1 from "../../components/Floor/Floor1";
+import Floor2 from "../../components/Floor/Floor2";
+import Floor3 from "../../components/Floor/Floor3";
 
 function Main() {
   const floor = useSelector((state) => state.counter.value);

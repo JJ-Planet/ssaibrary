@@ -3,7 +3,7 @@ import "./Footer.css";
 import { Link } from "react-router-dom";
 
 function Footer() {
-  console.log("est")
+  console.log("est");
   return (
     <>
       <div className="bottomBar">
@@ -11,7 +11,7 @@ function Footer() {
           <div className="homeBtn">
             <div className="home"></div>
             <div>
-              <img className="home" src="assets/images/home.png"/>
+              <img className="home" src="/assets/images/home.png" />
             </div>
             <div className="homeTitle">Home</div>
           </div>
@@ -21,7 +21,7 @@ function Footer() {
             <div>
               <img
                 className="reservation"
-                src="assets/images/schedule.png"
+                src="/assets/images/schedule.png"
               ></img>
             </div>
             <div className="reservationTitle">Reservation</div>
@@ -30,7 +30,7 @@ function Footer() {
         <Link to="/community">
           <div className="communityBtn">
             <div>
-              <img className="community" src="assets/images/chat.png"/>
+              <img className="community" src="/assets/images/chat.png" />
             </div>
             <div className="communityTitle">Community</div>
           </div>
@@ -38,7 +38,7 @@ function Footer() {
         <Link to="/account">
           <div className="accountBtn">
             <div>
-              <img className="account" src="assets/images/user.png"/>
+              <img className="account" src="/assets/images/user.png" />
             </div>
             <div className="accountTitle">Account</div>
           </div>

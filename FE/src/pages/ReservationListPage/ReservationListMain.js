@@ -3,13 +3,14 @@ import "./ReservationListMain.css";
 
 // import { Link } from "react-router-dom";
 
-import Floor3 from "../FastCheckPage/Floor3";
+import Floor3 from "../../components/Floor/Floor3";
+import Floor1 from "../../components/Floor/Floor1";
 
 function Main() {
   return (
     <>
       <div className="ReservationListMain">
-        <Floor3></Floor3>
+        <Floor1></Floor1>
       </div>
       {/* <div className="ReservationListMain">
         <div className="RoomLocation">
