@@ -1,21 +1,24 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import LandingPage from "./LandingPage/LandingPage";
-import Account from "./AccountPage/AccountPage";
-import AccountReservation from "./AccountReservationPage/AccountReservationPage";
-import AccountReservationQr from "./AccountReservationPage/AccountReservationPage";
-import History from "./HistoryPage/HistoryPage";
-import Main from "./MainPage/MainPage";
-import Community from "./CommunityPage/CommunityPage";
-import Login from "./LoginPage/LoginPage";
-import SignUp from "./SignUpPage/SignUpPage";
-import Notice from "./NoticePage/NoticePage";
-import Modify from "./AccountModifyPage/AccountModifyPage";
-import CommunityWrite from "./CommunityWritePage/CommunityWritePage";
-import CommunityDetail from "./CommunityDetailPage/CommunityDetailPage";
-import AccountModify from "./AccountModifyPage/AccountModifyPage";
-import ReservationList from "./ReservationListPage/ReservationListPage";
-import FastCheckPage from "./FastCheckPage/FastCheckPage";
-import FAQ from "./FAQPage/FAQPage";
+import Main from "./pages/MainPage/Main";
+
+
+
+import LandingPage from "./pages/LandingPage/LandingPage";
+import Account from "./pages/AccountPage/AccountPage";
+import AccountReservation from "./pages/AccountReservationPage/AccountReservationPage";
+import AccountReservationQr from "./pages/AccountReservationPage/AccountReservationPage";
+import History from "./pages/HistoryPage/HistoryPage";
+import Community from "./pages/CommunityPage/CommunityPage";
+import Login from "./pages/LoginPage/LoginPage";
+import SignUp from "./pages/SignUpPage/SignUpPage";
+import Notice from "./pages/NoticePage/NoticePage";
+import Modify from "./pages/AccountModifyPage/AccountModifyPage";
+import CommunityWrite from "./pages/CommunityWritePage/CommunityWritePage";
+import CommunityDetail from "./pages/CommunityDetailPage/CommunityDetailPage";
+import AccountModify from "./pages/AccountModifyPage/AccountModifyPage";
+import ReservationList from "./pages/ReservationListPage/ReservationListPage";
+import FastCheckPage from "./pages/FastCheckPage/FastCheckPage";
+import FAQ from "./pages/FAQPage/FAQPage";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "./Transition.css";
 

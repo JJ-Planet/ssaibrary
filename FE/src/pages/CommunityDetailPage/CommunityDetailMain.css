@@ -1,0 +1,466 @@
+.CommunityDetailMain {
+  position: absolute;
+  width: 390px;
+  height: 690px;
+  left: calc(50% - 390px / 2);
+  top: calc(50% - 690px / 2 - 17px);
+
+  background-color: #fff;
+  font-family: "Pretendard";
+}
+.PDHeader {
+  position: absolute;
+  width: 390px;
+  height: 101px;
+  left: 0px;
+  top: 0px;
+}
+.PDTitleText {
+  position: absolute;
+  width: 233px;
+  height: 25px;
+  left: 15px;
+  top: 15px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 21px;
+  color: #000000;
+}
+.PDInfoDiv {
+  position: absolute;
+  width: 358px;
+  height: 45px;
+  left: 15px;
+  top: 45px;
+}
+.PDProfileImgDiv {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  left: 0px;
+  top: 0px;
+
+  background: #fef9f9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+.PDProfileImg {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 8px;
+  top: 8px;
+
+  background-size: 100% 100%;
+  border-radius: 10%;
+  z-index: 999;
+}
+.PDInfoDescDiv {
+  position: absolute;
+  width: 118px;
+  height: 32px;
+  left: 56px;
+  top: 9px;
+}
+.PDNameText {
+  position: absolute;
+  width: 84px;
+  height: 15px;
+  left: 0px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+}
+.PDDateText {
+  position: absolute;
+  width: 47px;
+  height: 11px;
+  left: 0px;
+  top: 18px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 11px;
+  color: rgba(0, 0, 0, 0.4);
+}
+.PDTimeText {
+  position: absolute;
+  width: 25px;
+  height: 11px;
+  left: 53px;
+  top: 18px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 11px;
+  color: rgba(0, 0, 0, 0.4);
+}
+.PDHitsDiv {
+  position: absolute;
+  width: 26px;
+  height: 11px;
+  left: 82px;
+  top: 18px;
+}
+.PDHitsText {
+  position: absolute;
+  width: 18px;
+  height: 10px;
+  left: 0px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 11px;
+  color: rgba(0, 0, 0, 0.4);
+}
+.PDHitsCnt {
+  position: absolute;
+  width: 6px;
+  height: 10px;
+  left: 20px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 11px;
+  color: rgba(0, 0, 0, 0.4);
+}
+.PDSeperator1 {
+  position: absolute;
+  width: 390px;
+  height: 1px;
+  left: 0px;
+  top: 100px;
+
+  background: rgba(49, 32, 130, 0.2);
+}
+.PDDescDiv {
+  position: absolute;
+  width: 390px;
+  height: 589px;
+  left: calc(50% - 390px / 2);
+  top: calc(50% - 589px / 2 + 49.5px);
+}
+.PDDescAttachImgDiv {
+  position: absolute;
+  width: 360px;
+  height: 300px;
+  left: 15px;
+  top: 25px;
+
+  background: #ffeded;
+  border-radius: 10px;
+}
+.PDDescAttachImg {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  left: 41px;
+  top: 10px;
+
+  background-size: 100% 100%;
+  border-radius: 10%;
+  z-index: 999;
+}
+.PDDescText {
+  position: absolute;
+  width: 360px;
+  height: 85px;
+  left: 15px;
+  top: 341px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 21px;
+  color: #000000;
+}
+.PDControlBtnDiv {
+  position: absolute;
+  width: 228px;
+  height: 27px;
+  left: 147px;
+  top: 438px;
+}
+.PDModifyBtn {
+  position: absolute;
+  width: 66px;
+  height: 27px;
+  left: 0px;
+  top: 0px;
+
+  background: rgba(51, 28, 158, 0.6);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: "Pretendard";
+}
+.PDModifyBtnText {
+  position: absolute;
+  width: 41px;
+  height: 18px;
+  left: 12px;
+  top: 5px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+}
+.PDDeleteBtn {
+  position: absolute;
+  width: 66px;
+  height: 27px;
+  left: 81px;
+  top: 0px;
+
+  background: rgba(51, 28, 158, 0.6);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: "Pretendard";
+}
+.PDDeleteBtnText {
+  position: absolute;
+  width: 41px;
+  height: 18px;
+  left: 12px;
+  top: 5px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+}
+.PDListBtn {
+  position: absolute;
+  width: 66px;
+  height: 27px;
+  left: 162px;
+  top: 0px;
+
+  background: rgba(51, 28, 158, 0.6);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: "Pretendard";
+}
+.PDListBtnText {
+  position: absolute;
+  width: 41px;
+  height: 18px;
+  left: 12px;
+  top: 5px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+}
+.PDSeperator2 {
+  position: absolute;
+  width: 390px;
+  height: 1px;
+  left: 0px;
+  top: 480px;
+
+  background: rgba(49, 32, 130, 0.2);
+}
+.PDCommentLabelDiv {
+  position: absolute;
+  width: 61px;
+  height: 18px;
+  left: 20px;
+  top: 499px;
+}
+.PDCommentLabelText {
+  position: absolute;
+  width: 28px;
+  height: 18px;
+  left: 0px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  color: #000000;
+}
+.PDCommentLabelCnt {
+  position: absolute;
+  width: 8px;
+  height: 18px;
+  left: 33px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  color: #000000;
+}
+.PDCommentArrowImg {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 45px;
+  top: 4.5px;
+
+  background-size: 100% 100%;
+  border-radius: 10%;
+  z-index: 999;
+}
+.PDCommentInfoDiv {
+  position: absolute;
+  width: 369px;
+  height: 44px;
+  left: 20px;
+  top: 530px;
+}
+.PDCommentProfileDiv {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 0px;
+  top: 2px;
+
+  background: #fef9f9;
+  border-radius: 20px;
+}
+.PDCommentProfileImg {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 8px;
+  top: 8px;
+
+  background-size: 100% 100%;
+  border-radius: 10%;
+  z-index: 999;
+}
+.PDCommentInfoDescDiv {
+  position: absolute;
+  width: 115px;
+  height: 44px;
+  left: 50px;
+  top: 0px;
+}
+.PDCommentNameText {
+  position: absolute;
+  width: 31px;
+  height: 13px;
+  left: 0px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: center;
+  color: #000000;
+}
+.PDCommentNewImg {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  left: 34px;
+  top: 1.5px;
+
+  background: #ff0000;
+  border-radius: 50px;
+}
+.PDCommentNewText {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  left: 2px;
+  top: 3px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3px;
+  line-height: 5px;
+  text-align: center;
+  color: #ffffff;
+}
+.PDCommentDescText {
+  position: absolute;
+  width: 71px;
+  height: 15px;
+  left: 0px;
+  top: 17px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 12px;
+  text-align: left;
+  color: #000000;
+}
+.PDCommentDateText {
+  position: absolute;
+  width: 47px;
+  height: 11px;
+  left: 0px;
+  top: 33px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 8px;
+  line-height: 11px;
+  color: rgba(0, 0, 0, 0.4);
+}
+.PDCommentTimeText {
+  position: absolute;
+  width: 25px;
+  height: 11px;
+  left: 53px;
+  top: 33px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 8px;
+  line-height: 11px;
+  color: rgba(0, 0, 0, 0.4);
+}
+.PDCommentingBtn {
+  position: absolute;
+  width: 56px;
+  height: 11px;
+  left: 82px;
+  top: 33px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 7px;
+  line-height: 9.5px;
+  color: rgba(0, 0, 0, 0.4);
+  border: none;
+  padding: 0px;
+  text-align: left;
+  background-color: #fff;
+  cursor: pointer;
+  font-family: "Pretendard";
+}

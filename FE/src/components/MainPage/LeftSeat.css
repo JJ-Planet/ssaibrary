@@ -1,0 +1,94 @@
+.SeatCounter {
+    position: absolute;
+    width: 332px;
+    height: 85px;
+    left: 31px;
+    top: 26px;
+  }
+  
+  .SeatCountDiv {
+    position: absolute;
+    width: 332px;
+    height: 85px;
+    left: 0px;
+    top: 0px;
+  
+    background: rgba(51, 28, 158, 0.74);
+    border-radius: 20px;
+  }
+  #spareSeatLabel {
+    position: absolute;
+    width: 59px;
+    height: 19px;
+    left: 51px;
+    top: 16px;
+  
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  
+    color: #e0d8d8;
+  }
+  
+  #spareSeatCnt {
+    position: absolute;
+    width: 29px;
+    height: 29px;
+    left: 68px;
+    top: 42px;
+  
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+  
+    color: #ffffff;
+  }
+  
+  #allSeatCnt {
+    position: absolute;
+    width: 46px;
+    height: 29px;
+    left: 222px;
+    top: 42px;
+  
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+  
+    color: #ffffff;
+  }
+
+  #allSeatLabel {
+    position: absolute;
+    width: 46px;
+    height: 19px;
+    left: 222px;
+    top: 16px;
+  
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  
+    color: #e0d8d8;
+  }
+  

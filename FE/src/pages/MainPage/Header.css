@@ -1,0 +1,64 @@
+.userInfo {
+  position: absolute;
+  width: 332px;
+  height: 71px;
+  left: 29px;
+  top: 33px;
+}
+
+.profileTitle {
+  position: absolute;
+  width: 210px;
+  height: 30px;
+  left: 0px;
+  top: 11px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #312082;
+}
+
+.profileTitleDesc {
+  position: absolute;
+  width: 230px;
+  height: 17px;
+  left: 0px;
+  top: 45px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: flex-end;
+
+  color: #b3a7ff;
+}
+
+.profileImgDiv {
+  position: absolute;
+  width: 67px;
+  height: 67px;
+  left: 265px;
+  top: 4px;
+
+  background: #d9d9d9;
+  border-radius: 20px;
+}
+
+.ProfileImg {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 273px;
+  top: 13px;
+
+  background-size: 100% 100%;
+  border-radius: 10%;
+  z-index: 999;
+}

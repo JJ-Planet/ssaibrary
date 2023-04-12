@@ -1,0 +1,328 @@
+.LoginMain {
+  position: absolute;
+  width: 305px;
+  height: 586px;
+  left: 43px;
+  top: 129px;
+}
+
+.MainTitle {
+  position: absolute;
+  width: 346px;
+  height: 152px;
+  left: 1px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 38px;
+
+  color: rgba(49, 32, 130, 0.73);
+}
+
+.IdDiv {
+  position: absolute;
+  width: 304px;
+  height: 73px;
+  left: 1px;
+  top: 162px;
+}
+
+.IDLabel {
+  position: absolute;
+  width: 16px;
+  height: 18px;
+  left: 0px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  /* identical to box height */
+
+  color: #312082;
+}
+
+.IDInput {
+  position: absolute;
+  height: 50px;
+  left: 0px;
+  top: 26px;
+  font-size: large;
+  padding-left: 15px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: none;
+  right: 0px;
+}
+
+.PwDiv {
+  position: absolute;
+  width: 304px;
+  height: 73px;
+  left: 1px;
+  top: 256px;
+}
+
+.PWLabel {
+  position: absolute;
+  width: 62px;
+  height: 18px;
+  left: 0px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  /* identical to box height */
+
+  color: #312082;
+}
+
+.PWInput {
+  position: absolute;
+  height: 50px;
+  left: 0px;
+  top: 26px;
+  right: 0px;
+
+  font-size: medium;
+  padding-left: 15px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: none;
+}
+
+.SubDiv {
+  position: absolute;
+  width: 304px;
+  height: 22px;
+  left: 1px;
+  top: 345px;
+}
+
+.KeepLoginCB {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  left: 0px;
+  top: -1px;
+
+  background: #ffffff;
+  /* Note: backdrop-filter has minimal browser support */
+}
+
+.KeepLoginCBLabel {
+  position: absolute;
+  width: 95px;
+  height: 13px;
+  left: 18px;
+  top: 3px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+
+  color: rgba(0, 0, 0, 0.48);
+}
+
+.searchPWBtn {
+  position: absolute;
+  width: 130px;
+  height: 13px;
+  left: 171px;
+  top: 3.7px;
+
+  cursor: pointer;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  align-items: center;
+  text-align: right;
+
+  color: rgba(0, 0, 0, 0.48);
+}
+
+.LoginBtnDiv {
+  position: absolute;
+  width: 304px;
+  height: 47px;
+  left: 0px;
+  top: 405px;
+}
+
+.LoginBtnTitle {
+  position: absolute;
+  width: 45px;
+  height: 18px;
+  left: 130px;
+  top: 15px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #ffffff;
+  z-index: 1;
+}
+
+.LoginBtn {
+  position: absolute;
+  width: 304px;
+  height: 47px;
+  left: 0px;
+  top: 0px;
+
+  background: rgba(51, 28, 158, 0.74);
+  border-radius: 20px;
+}
+
+.SingUpDiv {
+  position: absolute;
+  width: 218px;
+  height: 23px;
+  left: 84px;
+  top: 457px;
+}
+
+.SignUpTitle {
+  position: absolute;
+  width: 148px;
+  height: 23px;
+  left: 30px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+
+  color: rgba(0, 0, 0, 0.48);
+  z-index: 10;
+}
+
+.SignUpBtn {
+  position: absolute;
+  width: 50px;
+  height: 14px;
+  left: 166px;
+  top: 5px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #312082;
+}
+
+.SNSFrame {
+  position: absolute;
+  width: 301px;
+  height: 75px;
+  left: 1px;
+  top: 511px;
+}
+
+.SNSTitle {
+  position: absolute;
+  width: 301px;
+  height: 23px;
+  left: 0px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+
+  color: rgba(0, 0, 0, 0.48);
+}
+
+.naver {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 226px;
+  top: 25px;
+  background-size: 100% 100%;
+  z-index: 999;
+}
+
+.facebook {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 96px;
+  top: 23px;
+  background-size: 100% 100%;
+  z-index: 999;
+}
+
+.kakao1 {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 31px;
+  top: 23px;
+  background-size: 100% 100%;
+  z-index: 999;
+}
+
+.google {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 166px;
+  top: 30px;
+  background-size: 100% 100%;
+  z-index: 999;
+}
+
+.googleDiv {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 161px;
+  top: 25px;
+
+  background: #ffffff;
+  backdrop-filter: blur(2px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 50px;
+}
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+input[type="checkbox"]:checked {
+  background: #32e732;
+  border: none;
+}

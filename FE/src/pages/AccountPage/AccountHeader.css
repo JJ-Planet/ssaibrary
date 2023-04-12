@@ -1,0 +1,106 @@
+.accoutUserInfo {
+  position: absolute;
+  width: 355px;
+  height: 60px;
+  left: 15px;
+  top: 25px;
+}
+
+.accountProfileImgDiv {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 0px;
+  top: 0px;
+
+  background: #d9d9d9;
+  border-radius: 20px;
+}
+
+.accountProfileImg {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 10px;
+  top: 10px;
+  background-size: 100% 100%;
+  border-radius: 10%;
+  z-index: 999;
+}
+
+.accountUserName {
+  position: absolute;
+  width: 80px;
+  height: 26px;
+  left: 77px;
+  top: 19px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #312082;
+}
+
+.userRanking {
+  position: absolute;
+  width: 67px;
+  height: 24px;
+  left: 288px;
+  top: 29px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #000000;
+}
+
+.userPoint {
+  position: absolute;
+  width: 77px;
+  height: 24px;
+  left: 182px;
+  top: 29px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #000000;
+}
+
+.ranking {
+  position: absolute;
+  width: 34px;
+  height: 19px;
+  left: 305px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #312082;
+}
+
+.point {
+  position: absolute;
+  width: 50px;
+  height: 19px;
+  left: 195px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #312082;
+}
