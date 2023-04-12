@@ -4,7 +4,6 @@ import Main from "./Main";
 import Footer from "./Footer";
 import "./MainPage.css";
 
-
 const MainPage = () => {
   return (
     <div>

@@ -150,16 +150,7 @@ function Main() {
     const isCheckedCB3 = document.querySelector(".CB3").checked;
     const isCheckedCB4 = document.querySelector(".CB4").checked;
 
-    if (
-      isId &&
-      isName &&
-      isNickName &&
-      isPw &&
-      isPwChk &&
-      isCheckedCB2 &&
-      isCheckedCB3 &&
-      isCheckedCB4
-    ) {
+    if (isId && isName && isNickName && isPw && isPwChk && isCheckedCB2 && isCheckedCB3 && isCheckedCB4) {
       signUpDone();
       console.log("회원가입이 완료되었습니다.");
     } else {
@@ -181,6 +172,21 @@ function Main() {
       } else if (!isCheckedCB2 || !isCheckedCB3 || !isCheckedCB4) {
         alertTermsOfUseError();
         console.log("필수 이용약관을 모두 동의해주세요.");
+      }
+      // 회원가입 axios: 모든 분기 통과했을 때
+      else {
+        // axios({
+        //   method: "get",
+        //   url: `@@@@@@@@@@@@@@@ 회원가입 url @@@@@@@@@@@@@@@`,
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //     Authorization: `Bearer ${myToken}`,
+        //   },
+        // })
+        //   .then((res) => {
+        //     console.log(`res.data: ${res.data}`);
+        //   })
+        //   .catch((err) => console.log(err));
       }
     }
 
@@ -284,78 +290,34 @@ function Main() {
             <div className="SUIDDiv">
               <span className="SUIDLabel">ID</span>
 
-              <input
-                className="SUIDInput"
-                type="text"
-                placeholder="ex) 010-1234-5678"
-                onChange={onChangeId}
-                value={id}
-              ></input>
-              {id.length > 0 && (
-                <span className={`SUValiText ${isId ? "Success" : "Fail"}`}>{idMessage}</span>
-              )}
+              <input className="SUIDInput" type="text" placeholder="ex) 010-1234-5678" onChange={onChangeId} value={id}></input>
+              {id.length > 0 && <span className={`SUValiText ${isId ? "Success" : "Fail"}`}>{idMessage}</span>}
             </div>
             <div className="SUNameDiv">
               <span className="SUNameLabel">Name</span>
-              <input
-                className="SUNameInput"
-                type="text"
-                placeholder="ex) 홍길동"
-                onChange={onChangeName}
-                value={name}
-              ></input>
-              {name.length > 0 && (
-                <span className={`SUValiText ${isName ? "Success" : "Fail"}`}>{nameMessage}</span>
-              )}
+              <input className="SUNameInput" type="text" placeholder="ex) 홍길동" onChange={onChangeName} value={name}></input>
+              {name.length > 0 && <span className={`SUValiText ${isName ? "Success" : "Fail"}`}>{nameMessage}</span>}
             </div>
             <div className="SUNickNameDiv">
               <span className="SUNickLabel">Nick Name</span>
-              <input
-                className="SUNickInput"
-                type="text"
-                placeholder="ex) 김기린"
-                onChange={onChangeNickName}
-                value={nickName}
-              ></input>
-              {nickName.length > 0 && (
-                <span className={`SUValiText ${isNickName ? "Success" : "Fail"}`}>
-                  {nickNameMessage}
-                </span>
-              )}
+              <input className="SUNickInput" type="text" placeholder="ex) 김기린" onChange={onChangeNickName} value={nickName}></input>
+              {nickName.length > 0 && <span className={`SUValiText ${isNickName ? "Success" : "Fail"}`}>{nickNameMessage}</span>}
             </div>
             <div className="SUPWDiv">
-              <div  onClick={toggleShowPw}>
-                <img className={showPw ? "SUPWView" : "SUPWHidden"} src = {showPw ?"assets/images/view.png" : "assets/images/hidden.png"}/>
+              <div onClick={toggleShowPw}>
+                <img className={showPw ? "SUPWView" : "SUPWHidden"} src={showPw ? "assets/images/view.png" : "assets/images/hidden.png"} />
               </div>
               <span className="SUPWLabel">Password</span>
-              <input
-                className="SUPWInput"
-                type={showPw ? "text" : "password"}
-                placeholder="비밀번호를 입력해 주세요 :)"
-                onChange={onChangePw}
-                value={pw}
-              ></input>
-              {pw.length > 0 && (
-                <span className={`SUValiText ${isPw ? "Success" : "Fail"}`}>{pwMessage}</span>
-              )}
+              <input className="SUPWInput" type={showPw ? "text" : "password"} placeholder="비밀번호를 입력해 주세요 :)" onChange={onChangePw} value={pw}></input>
+              {pw.length > 0 && <span className={`SUValiText ${isPw ? "Success" : "Fail"}`}>{pwMessage}</span>}
             </div>
             <div className="SUPWChkDiv">
-              <div
-                onClick={toggleShowPwChk}
-              >
-                <img className={showPw ? "SUPWView" : "SUPWHidden"} src = {showPw ?"assets/images/view.png" : "assets/images/hidden.png"}/>
+              <div onClick={toggleShowPwChk}>
+                <img className={showPwChk ? "SUPWView" : "SUPWHidden"} src={showPwChk ? "assets/images/view.png" : "assets/images/hidden.png"} />
               </div>
               <span className="SUPWChkLabel">Password Check</span>
-              <input
-                className="SUPWChkInput"
-                type={showPwChk ? "text" : "password"}
-                placeholder="한번 더 똑같이 적어주세요."
-                onChange={onChangePwChk}
-                value={pwChk}
-              ></input>
-              {pw.length > 0 && pwChk.length > 0 && (
-                <span className={`SUValiText ${isPwChk ? "Success" : "Fail"}`}>{pwChkMessage}</span>
-              )}
+              <input className="SUPWChkInput" type={showPwChk ? "text" : "password"} placeholder="한번 더 똑같이 적어주세요." onChange={onChangePwChk} value={pwChk}></input>
+              {pw.length > 0 && pwChk.length > 0 && <span className={`SUValiText ${isPwChk ? "Success" : "Fail"}`}>{pwChkMessage}</span>}
             </div>
 
             <div className="SUSeperator1"></div>
@@ -365,12 +327,7 @@ function Main() {
               <div className="SUAuthBtn"></div>
             </div>
             <div className="SUAcceptDiv">
-              <input
-                type="checkbox"
-                className="SUAcceptCB CB1"
-                onClick={toggleCheckingCB}
-                onChange={onChangeCheckingAllCB}
-              ></input>
+              <input type="checkbox" className="SUAcceptCB CB1" onClick={toggleCheckingCB} onChange={onChangeCheckingAllCB}></input>
               <span className="SUAcceptText AcceptText1">전체 동의</span>
               <div className="SUSeperator2"></div>
               <input type="checkbox" className="SUAcceptCB CB2"></input>

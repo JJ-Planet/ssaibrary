@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./LoginMain.css";
+import axios from "axios";
 
 function Main() {
   // 로그인 상태유지(체크박스) true 일 때, 이벤트 발생하기 위한 코드
@@ -9,6 +10,29 @@ function Main() {
   if (CBClick) {
     console.log("로그인 상태유지 OK");
   }
+
+  const loginKakao = () => {
+    // window.Kakao.Auth.authorize({
+    //   redirectUri: process.env.PUBLIC_KAKAO_REDIRECTURI,
+    // });
+    // window.location.href = process.env.PUBLIC_LOGIN_REDIRECTURI ? process.env.PUBLIC_LOGIN_REDIRECTURI : "/";
+  };
+
+  const handleLogin = () => {
+    // axios({
+    //   method: "get",
+    //   url: `@@@@@@@@@@@@@@@ 로그인 url @@@@@@@@@@@@@@@`,
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Authorization: `Bearer ${myToken}`,
+    //   },
+    // })
+    //   .then((res) => {
+    //     console.log(`res.data: ${res.data}`);
+    //   })
+    //   .catch((err) => console.log(err));
+  };
+
   return (
     <>
       <div className="LoginMain">
@@ -37,9 +61,8 @@ function Main() {
           </div>
         </form>
         <Link to="/main">
-          <div className="LoginBtnDiv">
+          <div className="LoginBtnDiv" onClick={handleLogin}>
             <span className="LoginBtnTitle">로그인</span>
-            <div className="LoginBtn"></div>
           </div>
         </Link>
         <div className="SingUpDiv">
@@ -49,18 +72,9 @@ function Main() {
           </Link>
         </div>
         <div className="SNSFrame">
-          <div className="SNSTitle"></div>
-          <div>
-            <img className="facebook" src="assets/images/facebook.png" />
-          </div>
-          <div>
-            <img className="kakao1" src="assets/images/kakao.png" />
-          </div>
-          <div>
-            <img className="google" src="assets/images/google.png" />
-          </div>
-
-          <div className="googleDiv"></div>
+          <button className="kakaoLoginBtn" onClick={loginKakao}>
+            카카오로 로그인하기
+          </button>
         </div>
       </div>
     </>

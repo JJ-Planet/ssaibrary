@@ -10,8 +10,8 @@ function Header() {
           <div className="SlideBarLine2"></div>
         </div>
         <div className="ReservationListProfileImgDiv">
-          <div >
-            <img className="ReservationListProfileImg" src = "assets/images/man.png"></img>
+          <div>
+            <img className="ReservationListProfileImg" src="assets/images/man.png"></img>
           </div>
           <div className="ReservationListProfileImgBox"></div>
         </div>

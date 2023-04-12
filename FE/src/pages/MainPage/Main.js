@@ -3,6 +3,19 @@ import { Link } from "react-router-dom";
 import LeftSeat from "../../components/MainPage/LeftSeat";
 import "./Main.css";
 function Main() {
+  // 남은좌석/ 총좌석 데이터 받아오기 위한 axios
+  // axios({
+  //   method: "get",
+  //   url: `@@@@@@@@@@@@@@@ 남은좌석/ 총좌석 데이터 url @@@@@@@@@@@@@@@`,
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //     Authorization: `Bearer ${myToken}`,
+  //   },
+  // })
+  //   .then((res) => {
+  //     console.log(`res.data: ${res.data}`);
+  //   })
+  //   .catch((err) => console.log(err));
   return (
     <>
       <div className="main">
@@ -65,7 +78,7 @@ function Main() {
               <div id="currentbtnTitleDesc">10초만에 확인할 수 있습니다.</div>
 
               <div>
-                <img id="ancestors" src="assets/images/ancestors.png"/>
+                <img id="ancestors" src="assets/images/ancestors.png" />
               </div>
             </div>
           </Link>
