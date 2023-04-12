@@ -65,7 +65,7 @@ function Main() {
               <div id="currentbtnTitleDesc">10초만에 확인할 수 있습니다.</div>
 
               <div>
-                <img id="ancestors" src="assets/images/ancestors.png"></img>
+                <img id="ancestors" src="assets/images/ancestors.png"/>
               </div>
             </div>
           </Link>

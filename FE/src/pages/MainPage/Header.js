@@ -15,7 +15,7 @@ function Header() {
         <div className="profileImgDiv"></div>
         <Link to="/account">
           <div >
-            <img className="ProfileImg" src = {profileUrl}></img>
+            <img className="ProfileImg" src = {profileUrl}/>
           </div>
         </Link>
       </div>
