@@ -43,7 +43,7 @@ function Main() {
                 <img
                   className="accountUpdateIcon1"
                   src="assets/images/arrowRight.png"
-                ></img>
+                 />
               </div>
             </Link>
           </div>
@@ -53,7 +53,7 @@ function Main() {
               <img
                 className="accountUpdateIcon2"
                 src="assets/images/arrowRight.png"
-              ></img>
+              />
             </div>
           </div>
         </div>
@@ -67,7 +67,7 @@ function Main() {
                 <img
                   className="accountUpdateIcon1"
                   src="assets/images/arrowRight.png"
-                ></img>
+                />
               </div>
             </Link>
           </div>
@@ -78,7 +78,7 @@ function Main() {
                 <img
                   className="accountUpdateIcon2"
                   src="assets/images/arrowRight.png"
-                ></img>
+                />
               </div>
             </Link>
           </div>
@@ -93,7 +93,7 @@ function Main() {
                 <img
                   className="accountUpdateIcon1"
                   src="assets/images/arrowRight.png"
-                ></img>
+                />
               </div>
             </Link>
           </div>
@@ -104,7 +104,7 @@ function Main() {
                 <img
                   className="accountUpdateIcon2"
                   src="assets/images/arrowRight.png"
-                ></img>
+                />
               </div>
             </Link>
           </div>
@@ -114,7 +114,7 @@ function Main() {
                 <img
                   className="accountUpdateIcon3"
                   src="assets/images/arrowRight.png"
-                ></img>
+                />
               </div>
           </div>
         </div>

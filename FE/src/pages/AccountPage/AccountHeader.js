@@ -7,7 +7,7 @@ function Header() {
         <div className="accoutUserInfo">
           <div className="accountProfileImgDiv"></div>
           <div >
-            <img className="accountProfileImg" src = "assets/images/man.png"></img>
+            <img className="accountProfileImg" src = "assets/images/man.png" />
           </div>
           <div className="accountUserName">창겸 님</div>
           <div className="ranking">랭킹</div>

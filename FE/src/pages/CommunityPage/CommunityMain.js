@@ -77,12 +77,12 @@ const rendering = () => {
             </div>
             <div className="AttachImgDiv">
               <div >
-                <img className="AttachImg" src = "assets/images/youngMan.png"></img>
+                <img className="AttachImg" src = "assets/images/youngMan.png"/>
               </div>
             </div>
             <div className="CommentDiv">
             <div >
-                <img className="CommentImg" src = "assets/images/Balloon.png"></img>
+                <img className="CommentImg" src = "assets/images/Balloon.png"/>
               </div>
               <span className="CommentCnt">{DataInfo[i].commentCnt}</span>
             </div>

@@ -21,7 +21,7 @@ function Main() {
                 <img
                   className="PDProfileImg"
                   src="assets/images/man2.png"
-                ></img>
+                />
               </div>
             </div>
             <div className="PDInfoDescDiv">
@@ -42,7 +42,7 @@ function Main() {
               <img
                 className="PDDescAttachImg"
                 src="assets/images/youngMan.png"
-              ></img>
+              />
             </div>
           </div>
           <span className="PDDescText">내용 입력 칸 입니다.</span>
@@ -65,7 +65,7 @@ function Main() {
               <img
                 className="PDCommentArrowImg"
                 src="assets/images/arrowRight.png"
-              ></img>
+              />
             </div>
           </div>
           <div className="PDCommentInfoDiv">
@@ -74,7 +74,7 @@ function Main() {
                 <img
                   className="PDCommentProfileImg"
                   src="assets/images/man2.png"
-                ></img>
+                />
               </div>
             </div>
             <div className="PDCommentInfoDescDiv">

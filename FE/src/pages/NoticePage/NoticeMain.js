@@ -83,7 +83,7 @@ function Main() {
             <img
               className="ArrowBottomImg"
               src="assets/images/arrowDown.png"
-            ></img>
+              />
           </div>
           <div className="NoticeLine"></div>
           <span className="NoticeData">{DataInfo[i].date}</span>

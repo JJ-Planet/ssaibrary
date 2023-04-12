@@ -20,37 +20,37 @@ function Main() {
               <div className="PWSeperator2"></div>
               <div className="BtnDiv1">
                 <div >
-                  <img className="PhotoBtn" src = "assets/images/image.png"></img>
+                  <img className="PhotoBtn" src = "assets/images/image.png"/>
                 </div>
               </div>
               <div className="BtnDiv2">
                 <div >
-                  <img className="VideoBtn" src = "assets/images/video.png"></img>
+                  <img className="VideoBtn" src = "assets/images/video.png"/>
                 </div>
               </div>
               <div className="BtnDiv3">
                 <div >
-                  <img className="TextBtn" src = "assets/images/text.png"></img>
+                  <img className="TextBtn" src = "assets/images/text.png"/>
                 </div>
               </div>
               <div className="BtnDiv4">
                 <div >
-                  <img className="DdaomBtn" src = "assets/images/quote.png"></img>
+                  <img className="DdaomBtn" src = "assets/images/quote.png"/>
                 </div>
               </div>
               <div className="BtnDiv5">
                 <div >
-                  <img className="ImotionBtn" src = "assets/images/happy.png"></img>
+                  <img className="ImotionBtn" src = "assets/images/happy.png"/>
                 </div>
               </div>
               <div className="BtnDiv6">
                 <div >
-                  <img className="AddFileBtn" src = "assets/images/clip.png"></img>
+                  <img className="AddFileBtn" src = "assets/images/clip.png"/>
                 </div>
               </div>
               <div className="BtnDiv7">
                 <div >
-                  <img className="LocationBtn" src = "assets/images/marker.png"></img>
+                  <img className="LocationBtn" src = "assets/images/marker.png"/>
                 </div>
               </div>
             </div>
@@ -58,7 +58,7 @@ function Main() {
           <div className="PWDescDiv">
             <div className="PWDescAttachImgDiv">
               <div >
-                  <img className="PWDescAttachImg" src = "assets/images/youngMan.png"></img>
+                  <img className="PWDescAttachImg" src = "assets/images/youngMan.png"/>
                 </div>
             </div>
             <div className="PWDescTextDiv">
@@ -85,7 +85,7 @@ function Main() {
             </div>
             <div className="FocusCeilingBtnDiv">
               <div >
-                  <img className="FocusCeilingBtnImg" src = "assets/images/upArrow.png"></img>
+                  <img className="FocusCeilingBtnImg" src = "assets/images/upArrow.png"/>
                 </div>
               <span className="FocusCeilingBtnText">맨 위로</span>
             </div>

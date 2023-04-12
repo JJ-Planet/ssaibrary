@@ -325,7 +325,7 @@ function Main() {
             </div>
             <div className="SUPWDiv">
               <div  onClick={toggleShowPw}>
-                <img className={showPw ? "SUPWView" : "SUPWHidden"} src = {showPw ?"assets/images/view.png" : "assets/images/hidden.png"}></img>
+                <img className={showPw ? "SUPWView" : "SUPWHidden"} src = {showPw ?"assets/images/view.png" : "assets/images/hidden.png"}/>
               </div>
               <span className="SUPWLabel">Password</span>
               <input
@@ -343,7 +343,7 @@ function Main() {
               <div
                 onClick={toggleShowPwChk}
               >
-                <img className={showPw ? "SUPWView" : "SUPWHidden"} src = {showPw ?"assets/images/view.png" : "assets/images/hidden.png"}></img>
+                <img className={showPw ? "SUPWView" : "SUPWHidden"} src = {showPw ?"assets/images/view.png" : "assets/images/hidden.png"}/>
               </div>
               <span className="SUPWChkLabel">Password Check</span>
               <input

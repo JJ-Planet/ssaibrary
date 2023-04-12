@@ -33,7 +33,7 @@ const AccountModifyPage = () => {
           </div>
           <div className="AMProfileDiv">
             <div>
-              <img className="AMProfileImage" src = "/assets/images/man.png"></img>
+              <img className="AMProfileImage" src = "/assets/images/man.png" />
             </div>
           </div>
         </div>

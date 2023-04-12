@@ -50,16 +50,16 @@ function Main() {
         </div>
         <div className="SNSFrame">
           <div className="SNSTitle"></div>
-          <div >
-            <img className="facebook" src = "assets/images/facebook.png"> </img>
+          <div>
+            <img className="facebook" src="assets/images/facebook.png" />
           </div>
-          <div >
-            <img className="kakao1" src = "assets/images/kakao.png"> </img>
+          <div>
+            <img className="kakao1" src="assets/images/kakao.png" />
           </div>
-          <div >
-            <img className="google" src = "assets/images/google.png"> </img>
+          <div>
+            <img className="google" src="assets/images/google.png" />
           </div>
- 
+
           <div className="googleDiv"></div>
         </div>
       </div>

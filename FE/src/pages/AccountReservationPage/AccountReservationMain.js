@@ -53,7 +53,9 @@ function Body() {
                 <span className="TimeData">09:00 - 13:00</span>
               </div>
               <div className="ImgBar"></div>
-              <div className="QRImg" onClick={imgClick}></div>
+              <div  onClick={imgClick}>
+                <img className="QRImg" src = "assets/images/QRImg.png"/>
+              </div>
             </div>
             <div className="ShareBtnDiv">
               <span className="ShareText">공유 하기</span>
@@ -75,7 +77,7 @@ function Body() {
               </div>
               <div className="ImgBar"></div>
               <div>
-                <img className="QRImg" src = "assets/images/QRImg.png"></img>
+                <img className="QRImg" src = "assets/images/QRImg.png"/>
               </div>
             </div>
             <div className="ShareBtnDiv">
