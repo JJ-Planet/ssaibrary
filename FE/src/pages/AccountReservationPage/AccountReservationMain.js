@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AccountReservationMain.css";
 import Swal from "sweetalert2";
+import QRCode from "qrcode";
 
 // const cancleBtn = document.querySelector(".ResvationCancleBtnDiv1");
 // const cancleModal = document.querySelector("#modal");
@@ -9,6 +10,10 @@ import Swal from "sweetalert2";
 //   console.log("hi");
 // });
 function Body() {
+  const dummyQRData = "hi I'm DummyData";
+  const [QRData, setQRData] = useState("");
+  QRCode.toDataURL(dummyQRData).then((data) => setQRData(data));
+
   const info = "303호 07번";
   const time = "09:00 - 13:00";
   // const img = ''
@@ -53,8 +58,8 @@ function Body() {
                 <span className="TimeData">09:00 - 13:00</span>
               </div>
               <div className="ImgBar"></div>
-              <div  onClick={imgClick}>
-                <img className="QRImg" src = "assets/images/QRImg.png"/>
+              <div onClick={imgClick}>
+                <img className="QRImg" src={QRData} />
               </div>
             </div>
             <div className="ShareBtnDiv">
@@ -77,7 +82,7 @@ function Body() {
               </div>
               <div className="ImgBar"></div>
               <div>
-                <img className="QRImg" src = "assets/images/QRImg.png"/>
+                <img className="QRImg" src={QRData} />
               </div>
             </div>
             <div className="ShareBtnDiv">

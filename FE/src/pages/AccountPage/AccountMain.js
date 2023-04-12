@@ -40,20 +40,14 @@ function Main() {
             <Link to="/account/modify">
               <span className="accountUpdateTitle">정보 수정</span>
               <div>
-                <img
-                  className="accountUpdateIcon1"
-                  src="assets/images/arrowRight.png"
-                 />
+                <img className="accountUpdateIcon1" src="assets/images/arrowRight.png" />
               </div>
             </Link>
           </div>
           <div className="accountLogOutDiv" onClick={logoutAlert}>
             <div className="LogOutTitle">로그아웃</div>
             <div>
-              <img
-                className="accountUpdateIcon2"
-                src="assets/images/arrowRight.png"
-              />
+              <img className="accountUpdateIcon2" src="assets/images/arrowRight.png" />
             </div>
           </div>
         </div>
@@ -64,10 +58,7 @@ function Main() {
             <Link to="/account/reservation">
               <div className="accountUpdateTitle">예약 확인</div>
               <div>
-                <img
-                  className="accountUpdateIcon1"
-                  src="assets/images/arrowRight.png"
-                />
+                <img className="accountUpdateIcon1" src="assets/images/arrowRight.png" />
               </div>
             </Link>
           </div>
@@ -75,10 +66,7 @@ function Main() {
             <Link to="/history">
               <div className="UsageHistoryTitle">사용 기록</div>
               <div>
-                <img
-                  className="accountUpdateIcon2"
-                  src="assets/images/arrowRight.png"
-                />
+                <img className="accountUpdateIcon2" src="assets/images/arrowRight.png" />
               </div>
             </Link>
           </div>
@@ -90,10 +78,7 @@ function Main() {
             <Link to="/notice">
               <div className="accountUpdateTitle">공지사항</div>
               <div>
-                <img
-                  className="accountUpdateIcon1"
-                  src="assets/images/arrowRight.png"
-                />
+                <img className="accountUpdateIcon1" src="assets/images/arrowRight.png" />
               </div>
             </Link>
           </div>
@@ -101,21 +86,20 @@ function Main() {
             <Link to="/faq">
               <div className="accountUpdateTitle">FAQ</div>
               <div>
-                <img
-                  className="accountUpdateIcon2"
-                  src="assets/images/arrowRight.png"
-                />
+                <img className="accountUpdateIcon2" src="assets/images/arrowRight.png" />
               </div>
             </Link>
           </div>
-          <div className="accountUpdateDiv">
+          <div
+            className="accountUpdateDiv"
+            onClick={() => {
+              window.open("https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=kyum8562@gmail.com");
+            }}
+          >
             <div className="accountUpdateTitle">문의하기</div>
             <div>
-                <img
-                  className="accountUpdateIcon3"
-                  src="assets/images/arrowRight.png"
-                />
-              </div>
+              <img className="accountUpdateIcon3" src="assets/images/arrowRight.png" />
+            </div>
           </div>
         </div>
       </div>

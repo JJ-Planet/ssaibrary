@@ -3,7 +3,6 @@ import "./Footer.css";
 import { Link } from "react-router-dom";
 
 function Footer() {
-  console.log("est");
   return (
     <>
       <div className="bottomBar">

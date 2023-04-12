@@ -63,6 +63,7 @@
   flex: none;
   order: 2;
   flex-grow: 0;
+  cursor: pointer;
 }
 
 .accountUpdateTitle {
