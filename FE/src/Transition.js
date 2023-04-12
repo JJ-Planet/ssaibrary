@@ -38,7 +38,7 @@ function Transition() {
             <Route path="/account/reservation/qr" element={<AccountReservationQr />}></Route>
             <Route path="/account/modify" element={<AccountModify />}></Route>
 
-            <Route path="/reservation/list" element={<ReservationList />}></Route>
+            <Route path="/reservation/list/:room" element={<ReservationList />}></Route>
 
             <Route path="/history" element={<History />}></Route>
             <Route path="/login" element={<Login />}></Route>
