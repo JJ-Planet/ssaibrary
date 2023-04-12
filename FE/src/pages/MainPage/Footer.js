@@ -11,7 +11,7 @@ function Footer() {
           <div className="homeBtn">
             <div className="home"></div>
             <div>
-              <img className="home" src="assets/images/home.png" />
+              <img className="home" src="/assets/images/home.png" />
             </div>
             <div className="homeTitle">Home</div>
           </div>
@@ -19,7 +19,7 @@ function Footer() {
         <Link to="/account/reservation">
           <div className="reservationBtn">
             <div>
-              <img className="reservation" src="assets/images/schedule.png" />
+              <img className="reservation" src="/assets/images/schedule.png" />
             </div>
             <div className="reservationTitle">Reservation</div>
           </div>
@@ -27,7 +27,7 @@ function Footer() {
         <Link to="/community">
           <div className="communityBtn">
             <div>
-              <img className="community" src="assets/images/chat.png" />
+              <img className="community" src="/assets/images/chat.png" />
             </div>
             <div className="communityTitle">Community</div>
           </div>
@@ -35,7 +35,7 @@ function Footer() {
         <Link to="/account">
           <div className="accountBtn">
             <div>
-              <img className="account" src="assets/images/user.png" />
+              <img className="account" src="/assets/images/user.png" />
             </div>
             <div className="accountTitle">Account</div>
           </div>

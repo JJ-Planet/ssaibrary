@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Main from "./pages/MainPage/MainPage";
-
 import LandingPage from "./pages/LandingPage/LandingPage";
 import Account from "./pages/AccountPage/AccountPage";
 import AccountReservation from "./pages/AccountReservationPage/AccountReservationPage";
@@ -36,7 +35,7 @@ function Transition() {
             <Route path="/account/reservation/qr" element={<AccountReservationQr />}></Route>
             <Route path="/account/modify" element={<AccountModify />}></Route>
 
-            <Route path="/reservation/list" element={<ReservationList />}></Route>
+            <Route path="/reservation/list/:room" element={<ReservationList />}></Route>
 
             <Route path="/history" element={<History />}></Route>
             <Route path="/login" element={<Login />}></Route>

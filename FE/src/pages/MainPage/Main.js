@@ -22,7 +22,7 @@ function Main() {
         <LeftSeat></LeftSeat>
         <div className="MainBtnsDiv">
           {/* 자습실 예약 */}
-          <Link to="/reservation/list">
+          <Link to="/reservation/list/0">
             <div className="SingleResvationDiv">
               <div className="btnDiv">
                 <div className="imgDiv"> </div>
@@ -84,6 +84,7 @@ function Main() {
           </Link>
         </div>
       </div>
+      
     </>
   );
 }

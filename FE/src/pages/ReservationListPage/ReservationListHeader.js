@@ -11,7 +11,7 @@ function Header() {
         </div>
         <div className="ReservationListProfileImgDiv">
           <div>
-            <img className="ReservationListProfileImg" src="assets/images/man.png"></img>
+            <img className="ReservationListProfileImg" src="/assets/images/man.png"></img>
           </div>
           <div className="ReservationListProfileImgBox"></div>
         </div>

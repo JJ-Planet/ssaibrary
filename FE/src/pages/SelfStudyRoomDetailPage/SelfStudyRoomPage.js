@@ -1,9 +1,11 @@
 import React from "react";
-import Header from "./NoticeHeader";
-import Main from "./NoticeMain";
+import Header from "../ReservationListPage/ReservationListHeader";
+import Main from "./SelfStudyRoom";
 import Footer from "../MainPage/Footer";
 import "./NoticePage.css";
-const NoticePage = () => {
+
+
+const SelfStudyRoomPage = () => {
   return (
     <div className="NoticePage">
       <Header />
@@ -13,5 +15,5 @@ const NoticePage = () => {
   );
 };
 
-export default NoticePage;
+export default SelfStudyRoomPage;
  
