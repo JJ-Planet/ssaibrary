@@ -1,0 +1,9 @@
+.list{
+    margin: 0 auto;
+    font-size: 24px;
+    line-height: 30px;
+    padding: 10px;
+
+    text-align: center;
+    border-bottom: 1px solid blue;
+}

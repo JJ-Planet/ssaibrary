@@ -22,11 +22,7 @@
   z-index: 1;
 }
 
-
 .Room1Obj {
-  width: 158px;
-  height: 175px;
-
   border-radius: 20px;
 }
 
@@ -54,19 +50,12 @@
   z-index: 1;
 }
 
-
-
 .Room2Obj {
-  width: 158px;
-  height: 150px;
-
   border-radius: 20px;
 }
 
 .Room3Div {
   position: absolute;
-  width: 144px;
-  height: 130px;
   left: 226px;
   top: 99px;
 }
@@ -89,16 +78,11 @@
 
 
 .Room3Obj {
-  width: 144px;
-  height: 130px;
-
   border-radius: 20px;
 }
 
 .Room4Div {
   position: absolute;
-  width: 144px;
-  height: 130px;
   left: 226px;
   top: 274px;
 }
@@ -120,16 +104,11 @@
 }
 
 .Room4Obj {
-  width: 144px;
-  height: 130px;
-
   border-radius: 20px;
 }
 
 .Room5Div {
   position: absolute;
-  width: 144px;
-  height: 130px;
   left: 226px;
   top: 449px;
 }
@@ -150,11 +129,7 @@
   z-index: 1;
 }
 
-
 .Room5Obj {
-  width: 144px;
-  height: 130px;
-
   border-radius: 20px;
 }
 
@@ -174,14 +149,14 @@
 }
 
 .EmptySmall {
-  width: 158px;
+  width: 140px;
   height: 130px;
 
   border-radius: 20px;
   background: rgba(49, 32, 130, 0.75);
 }
 .FullSmall {
-  width: 158px;
+  width: 140px;
   height: 130px;
   
   border-radius: 20px;
@@ -210,7 +185,7 @@
 
 .SmallRoomStatus {
   position: absolute;
-  width: 158px;
+  width: 140px;
   height: 30px;
   left: 0px;
   top: 50px;

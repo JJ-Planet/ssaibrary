@@ -2,9 +2,11 @@ import React from "react";
 import "./FastCheckMain";
 import { useSelector } from "react-redux";
 
-import Floor1 from "../../components/Floor/Floor1";
-import Floor2 from "../../components/Floor/Floor2";
-import Floor3 from "../../components/Floor/Floor3";
+import Floor from "../../components/Floor/Floor";
+
+// import Floor1 from "../../components/Floor/Floor1";
+// import Floor2 from "../../components/Floor/Floor2";
+// import Floor3 from "../../components/Floor/Floor3";
 
 function Main() {
   const floor = useSelector((state) => state.counter.value);
@@ -14,7 +16,7 @@ function Main() {
       return (
         <>
           <div className="ReservationListMain">
-            <Floor1></Floor1>
+            <Floor></Floor>
           </div>
         </>
       );
@@ -22,7 +24,7 @@ function Main() {
       return (
         <>
           <div className="ReservationListMain">
-            <Floor2></Floor2>
+            <Floor></Floor>
           </div>
         </>
       );
@@ -30,7 +32,7 @@ function Main() {
       return (
         <>
           <div className="ReservationListMain">
-            <Floor3></Floor3>
+            <Floor></Floor>
           </div>
         </>
       );
@@ -38,7 +40,7 @@ function Main() {
       return (
         <>
           <div className="ReservationListMain">
-            <Floor3></Floor3>
+            <Floor></Floor>
           </div>
         </>
       );

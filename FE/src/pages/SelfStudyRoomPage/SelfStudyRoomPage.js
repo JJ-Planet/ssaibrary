@@ -1,16 +1,12 @@
 import React from "react";
+import LeftSeat from "../../components/MainPage/LeftSeat";
 import Header from "../ReservationListPage/ReservationListHeader";
-import Main from "./SelfStudyRoom";
-import Footer from "../MainPage/Footer";
-import "./NoticePage.css";
-
 
 const SelfStudyRoomPage = () => {
   return (
     <div className="NoticePage">
-      <Header />
-      <Main />
-      <Footer />
+      <Header></Header>
+      
     </div>
   );
 };

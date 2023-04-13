@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+
+
 import Main from "./pages/MainPage/MainPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import Account from "./pages/AccountPage/AccountPage";
@@ -13,9 +15,13 @@ import Modify from "./pages/AccountModifyPage/AccountModifyPage";
 import CommunityWrite from "./pages/CommunityWritePage/CommunityWritePage";
 import CommunityDetail from "./pages/CommunityDetailPage/CommunityDetailPage";
 import AccountModify from "./pages/AccountModifyPage/AccountModifyPage";
+
 import ReservationList from "./pages/ReservationListPage/ReservationListPage";
+import SelfStudyRoomPage from "./pages/SelfStudyRoomPage/SelfStudyRoomPage";
 import FastCheckPage from "./pages/FastCheckPage/FastCheckPage";
 import FAQ from "./pages/FAQPage/FAQPage";
+
+
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "./Transition.css";
 
@@ -35,7 +41,8 @@ function Transition() {
             <Route path="/account/reservation/qr" element={<AccountReservationQr />}></Route>
             <Route path="/account/modify" element={<AccountModify />}></Route>
 
-            <Route path="/reservation/list/:room" element={<ReservationList />}></Route>
+            <Route path="/reservation/list" element={<ReservationList />}></Route>
+            <Route path="/SelfStudyRoomPage/:roomId" element={<SelfStudyRoomPage />}></Route>
 
             <Route path="/history" element={<History />}></Route>
             <Route path="/login" element={<Login />}></Route>

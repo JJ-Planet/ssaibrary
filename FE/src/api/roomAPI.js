@@ -10,13 +10,29 @@ axios.defaults.baseURL = "http://localhost:8080";
 axios.defaults.withCredentials = true;
 
 
-const getRoomById = async (id) => {
+const getAllRoomInfo = async () => {
+  let url = `/room/`;
+  let value;
+  await axios
+    .get(url)
+    .then((response) => {
+      // console.log(response);
+      value = response.data;
+    })
+    .catch((error) => {
+      console.log(error)
+    });
+  return value;
+};
+
+const getRoomInfoById = async (id) => {
     let url = `/room/${id}`;
     let value;
     await axios
-      .post(url)
+      .get(url)
       .then((response) => {
         console.log(response);
+        value = response.data
       })
       .catch((error) => {
         console.log(error)
@@ -24,4 +40,4 @@ const getRoomById = async (id) => {
     return value;
   };
   
-  export {getRoomById};
+  export {getAllRoomInfo, getRoomInfoById};
