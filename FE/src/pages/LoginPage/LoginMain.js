@@ -12,25 +12,25 @@ function Main() {
   }
 
   const loginKakao = () => {
-    // window.Kakao.Auth.authorize({
-    //   redirectUri: process.env.PUBLIC_KAKAO_REDIRECTURI,
-    // });
-    // window.location.href = process.env.PUBLIC_LOGIN_REDIRECTURI ? process.env.PUBLIC_LOGIN_REDIRECTURI : "/";
+    window.Kakao.Auth.authorize({
+      redirectUri: process.env.PUBLIC_KAKAO_REDIRECTURI,
+    });
+    window.location.href = process.env.PUBLIC_LOGIN_REDIRECTURI ? process.env.PUBLIC_LOGIN_REDIRECTURI : "/";
   };
 
   const handleLogin = () => {
-    // axios({
-    //   method: "get",
-    //   url: `@@@@@@@@@@@@@@@ 로그인 url @@@@@@@@@@@@@@@`,
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     Authorization: `Bearer ${myToken}`,
-    //   },
-    // })
-    //   .then((res) => {
-    //     console.log(`res.data: ${res.data}`);
-    //   })
-    //   .catch((err) => console.log(err));
+    axios({
+      method: "get",
+      url: `http://localhost:8080/member`,
+      // headers: {
+      //   "Content-Type": "application/json",
+      //   Authorization: `Bearer ${myToken}`,
+      // },
+    })
+      .then((res) => {
+        console.log(`res.data: `, res.data);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

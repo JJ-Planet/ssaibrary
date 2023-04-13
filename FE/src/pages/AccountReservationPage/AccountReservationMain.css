@@ -147,14 +147,15 @@
   background: #ecf4f3;
   border-radius: 20px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ShareText {
   position: absolute;
-  width: 60px;
+  width: 80px;
   height: 26px;
-  left: 35px;
-  top: 8px;
 
   font-style: normal;
   font-weight: 500;
@@ -176,14 +177,15 @@
   background: #ecf4f3;
   border-radius: 20px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ResvationCancleText {
   position: absolute;
   width: 60px;
   height: 26px;
-  left: 35px;
-  top: 8px;
 
   font-style: normal;
   font-weight: 500;

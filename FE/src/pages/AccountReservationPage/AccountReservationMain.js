@@ -29,6 +29,12 @@ function Body() {
     });
   }
 
+  function reservationCancle() {
+    if (window.confirm("예약을 취소하시겠습니까?")) {
+      console.log("성공");
+    }
+  }
+
   return (
     <>
       <div className="Body">
@@ -63,10 +69,12 @@ function Body() {
               </div>
             </div>
             <div className="ShareBtnDiv">
-              <span className="ShareText">공유 하기</span>
+              <span className="ShareText">이미지 저장</span>
             </div>
             <div className="ResvationCancleBtnDiv1">
-              <span className="ResvationCancleText">예약 취소</span>
+              <span className="ResvationCancleText" onClick={reservationCancle}>
+                예약 취소
+              </span>
             </div>
           </div>
         </div>
@@ -86,7 +94,7 @@ function Body() {
               </div>
             </div>
             <div className="ShareBtnDiv">
-              <span className="ShareText">공유 하기</span>
+              <span className="ShareText">이미지 저장</span>
             </div>
             <div className="ResvationCancleBtnDiv">
               <span className="ResvationCancleText">예약 취소</span>

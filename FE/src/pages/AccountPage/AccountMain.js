@@ -93,7 +93,7 @@ function Main() {
           <div
             className="accountUpdateDiv"
             onClick={() => {
-              window.open("https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=kyum8562@gmail.com");
+              window.open("mailto:kyum8562@gmail.com");
             }}
           >
             <div className="accountUpdateTitle">문의하기</div>

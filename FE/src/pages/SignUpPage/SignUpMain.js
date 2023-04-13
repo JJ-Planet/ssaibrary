@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import "./SignUpMain.css";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 function alertInputClear() {
   Swal.fire({
@@ -41,12 +42,14 @@ function Main() {
   const [showPwChk, setShowPwChk] = useState(false);
   const [checkingAllCB, setCheckingAllCB] = useState(false);
 
+  const API_URL = `http://localhost:8080`;
+
   // onChange
   const onChangeId = useCallback(
     (e) => {
       setId(e.target.value);
-      if (e.target.value.length < 2 || e.target.value.length > 5) {
-        setIdMessage("2글자 이상 5글자 미만으로 입력해주세요.");
+      if (e.target.value.length < 2 || e.target.value.length > 15) {
+        setIdMessage("2글자 이상 15글자 이하로 입력해주세요.");
         setIsId(false);
       } else {
         setIdMessage("올바른 ID입니다.");
@@ -108,19 +111,19 @@ function Main() {
     },
     [pwChk]
   );
-  const onChangeCheckingAllCB = useCallback(
-    (e) => {
-      const checkBoxes = document.querySelectorAll(".SUAcceptCB");
-      checkBoxes.forEach((cb) => {
-        if (checkingAllCB) {
-          cb.checked = false;
-        } else {
-          cb.checked = true;
-        }
-      });
-    },
-    [checkingAllCB]
-  );
+  // const onChangeCheckingAllCB = useCallback(
+  //   (e) => {
+  //     const checkBoxes = document.querySelectorAll(".SUAcceptCB");
+  //     checkBoxes.forEach((cb) => {
+  //       if (checkingAllCB) {
+  //         cb.checked = false;
+  //       } else {
+  //         cb.checked = true;
+  //       }
+  //     });
+  //   },
+  //   [checkingAllCB]
+  // );
 
   // onClick
   const toggleShowPw = () => {
@@ -139,20 +142,46 @@ function Main() {
     setPw("");
     setPwChk("");
     alertInputClear();
-    const checkBoxes = document.querySelectorAll(".SUAcceptCB");
-    checkBoxes.forEach((cb) => {
-      cb.checked = false;
-    });
+    // const checkBoxes = document.querySelectorAll(".SUAcceptCB");
+    // checkBoxes.forEach((cb) => {
+    //   cb.checked = false;
+    // });
   };
   const SUProcessing = () => {
     // - 모든 인풋 유효성검사 + 인증하기 + 필수 동의 3개 됐을 시 넘어감
-    const isCheckedCB2 = document.querySelector(".CB2").checked;
-    const isCheckedCB3 = document.querySelector(".CB3").checked;
-    const isCheckedCB4 = document.querySelector(".CB4").checked;
+    // const isCheckedCB2 = document.querySelector(".CB2").checked;
+    // const isCheckedCB3 = document.querySelector(".CB3").checked;
+    // const isCheckedCB4 = document.querySelector(".CB4").checked;
 
-    if (isId && isName && isNickName && isPw && isPwChk && isCheckedCB2 && isCheckedCB3 && isCheckedCB4) {
-      signUpDone();
-      console.log("회원가입이 완료되었습니다.");
+    // 회원가입 axios: 모든 분기 통과했을 때
+    if (isId && isName && isNickName && isPw && isPwChk) {
+      console.log(id, name, nickName, pw);
+      axios({
+        method: "post",
+        url: `${API_URL}/member`,
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   Authorization: `Bearer ${myToken}`,
+        // },
+        data: {
+          id: id,
+          isAdmin: "",
+          joinDate: "",
+          name: name,
+          nickname: nickName,
+          originImage: "",
+          password: pw,
+          saveImage: "",
+          status: "",
+        },
+      })
+        .then((res) => {
+          console.log(`res.data: ${res.data}`);
+          console.log("회원가입이 완료되었습니다.");
+        })
+        .catch((err) => console.log(err));
+
+      // signUpDone();
     } else {
       if (!isId) {
         alertIdError();
@@ -169,24 +198,6 @@ function Main() {
       } else if (!isPwChk) {
         alertPwChkError();
         console.log("비밀번호 확인을 다시해주세요.");
-      } else if (!isCheckedCB2 || !isCheckedCB3 || !isCheckedCB4) {
-        alertTermsOfUseError();
-        console.log("필수 이용약관을 모두 동의해주세요.");
-      }
-      // 회원가입 axios: 모든 분기 통과했을 때
-      else {
-        // axios({
-        //   method: "get",
-        //   url: `@@@@@@@@@@@@@@@ 회원가입 url @@@@@@@@@@@@@@@`,
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //     Authorization: `Bearer ${myToken}`,
-        //   },
-        // })
-        //   .then((res) => {
-        //     console.log(`res.data: ${res.data}`);
-        //   })
-        //   .catch((err) => console.log(err));
       }
     }
 
@@ -259,17 +270,17 @@ function Main() {
         icon: "error",
       });
     }
-    function alertTermsOfUseError() {
-      Swal.fire({
-        text: "필수 이용약관을 모두 동의해주세요!",
-        confirmButtonColor: "rgba(51, 28, 158, 0.74);",
-        confirmButtonText: "　확인　",
-        width: 300,
-        backdrop: `rgba(0,0,0,0.4)`,
-        allowEnterKey: true,
-        icon: "error",
-      });
-    }
+    // function alertTermsOfUseError() {
+    //   Swal.fire({
+    //     text: "필수 이용약관을 모두 동의해주세요!",
+    //     confirmButtonColor: "rgba(51, 28, 158, 0.74);",
+    //     confirmButtonText: "　확인　",
+    //     width: 300,
+    //     backdrop: `rgba(0,0,0,0.4)`,
+    //     allowEnterKey: true,
+    //     icon: "error",
+    //   });
+    // }
   };
 
   return (
@@ -318,51 +329,6 @@ function Main() {
               <span className="SUPWChkLabel">Password Check</span>
               <input className="SUPWChkInput" type={showPwChk ? "text" : "password"} placeholder="한번 더 똑같이 적어주세요." onChange={onChangePwChk} value={pwChk}></input>
               {pw.length > 0 && pwChk.length > 0 && <span className={`SUValiText ${isPwChk ? "Success" : "Fail"}`}>{pwChkMessage}</span>}
-            </div>
-
-            <div className="SUSeperator1"></div>
-            <div className="SUAuthDiv">
-              <span className="SUAuthLabel">핸드폰 인증하기</span>
-              <span className="SUAuthBtnLabel">인증하기</span>
-              <div className="SUAuthBtn"></div>
-            </div>
-            <div className="SUAcceptDiv">
-              <input type="checkbox" className="SUAcceptCB CB1" onClick={toggleCheckingCB} onChange={onChangeCheckingAllCB}></input>
-              <span className="SUAcceptText AcceptText1">전체 동의</span>
-              <div className="SUSeperator2"></div>
-              <input type="checkbox" className="SUAcceptCB CB2"></input>
-              <div className="SUAcceptText AcceptText2">
-                <span className="MandatoryOption">[필수]</span>
-                <span>이용약관 동의</span>
-                <span className="SULink">보기</span>
-              </div>
-              <input type="checkbox" className="SUAcceptCB CB3"></input>
-              <div className="SUAcceptText AcceptText3">
-                <span className="MandatoryOption">[필수]</span>
-                <span>개인정보 처리방침 동의</span>
-                <span className="SULink">보기</span>
-              </div>
-              <input type="checkbox" className="SUAcceptCB CB4"></input>
-              <div className="SUAcceptText AcceptText4">
-                <span className="MandatoryOption">[필수]</span>
-                <span>위치정보 처리방침 동의</span>
-                <span className="SULink">보기</span>
-              </div>
-              <input type="checkbox" className="SUAcceptCB CB5"></input>
-              <div className="SUAcceptText AcceptText5">
-                <span className="OptionalOption">[선택]</span>
-                <span>마켓팅 정보 수신 선택 동의</span>
-              </div>
-              <input type="checkbox" className="SUAcceptCB CB6"></input>
-              <div className="SUAcceptText AcceptText6">
-                <span className="OptionalOption">[선택]</span>
-                <span>이메일 수신 동의</span>
-              </div>
-              <input type="checkbox" className="SUAcceptCB CB7"></input>
-              <div className="SUAcceptText AcceptText7">
-                <span className="OptionalOption">[선택]</span>
-                <span>SMS 수신 동의</span>
-              </div>
             </div>
           </form>
           <div className="SUBtnDivs">

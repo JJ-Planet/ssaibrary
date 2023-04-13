@@ -515,7 +515,7 @@ input {
   width: 307px;
   height: 115px;
   left: 0px;
-  top: 950px;
+  top: 530px;
 }
 
 .SUReigsterBtnDiv {
@@ -535,14 +535,14 @@ input {
   top: 14px;
 
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 15px;
   line-height: 18px;
   display: flex;
   align-items: center;
   text-align: center;
 
-  color: #ffffff;
+  color: #312082;
   z-index: 1;
 }
 
@@ -553,7 +553,7 @@ input {
   left: 0px;
   top: 0px;
 
-  background: rgba(51, 28, 158, 0.74);
+  background: #b6d8f2;
   border-radius: 20px;
   cursor: pointer;
 }
@@ -602,7 +602,7 @@ input {
   position: absolute;
   height: 70px;
   left: 0px;
-  top: 1250px;
+  top: 850px;
 
   border-radius: 45px;
 }
