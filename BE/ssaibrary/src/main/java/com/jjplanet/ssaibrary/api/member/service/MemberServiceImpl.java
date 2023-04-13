@@ -1,5 +1,6 @@
 package com.jjplanet.ssaibrary.api.member.service;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,14 +30,18 @@ public class MemberServiceImpl implements MemberService {
 	// 회원가입
 	@Override
 	public void joinMember(JoinMemberDTO joinMemberDTO) throws NotFoundException {
-		
-		Member member = Member.builder().joinMemberDTO(joinMemberDTO).build();
+
 
 		// 아이디 중복 체크
-		duplicateId(member.getId());
+		duplicateId(joinMemberDTO.getId());
 
 		// 닉네임 중복 체크
-		duplicateNickname(member.getNickname());
+		duplicateNickname(joinMemberDTO.getNickname());
+
+		Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
+		
+		Member member = Member.builder().joinMemberDTO(joinMemberDTO).currentTimestamp(currentTimestamp).build();
+
 
 		memberRepository.save(member);
 

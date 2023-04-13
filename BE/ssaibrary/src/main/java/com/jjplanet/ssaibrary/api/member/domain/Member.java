@@ -2,6 +2,7 @@ package com.jjplanet.ssaibrary.api.member.domain;
 
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -24,7 +25,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Builder
 @AllArgsConstructor(access = AccessLevel.PROTECTED) //모든 필드 값을 파라미터로 받는 생성자를 만듦
 @NoArgsConstructor(access = AccessLevel.PROTECTED) //기본생성자 생성
 @Getter //getter 생성
@@ -86,16 +86,16 @@ public class Member implements Serializable{
 
 	//회원가입
 	@Builder
-	public Member(JoinMemberDTO joinMemberDTO) {
+	public Member(JoinMemberDTO joinMemberDTO, Timestamp currentTimestamp) {
 		this.id = joinMemberDTO.getId();
 		this.password = joinMemberDTO.getPassword();
 		this.name = joinMemberDTO.getName();
 		this.nickname = joinMemberDTO.getNickname();
-		this.originImage = joinMemberDTO.getOriginImage();
-		this.saveImage = joinMemberDTO.getSaveImage();
-		this.joinDate = joinMemberDTO.getJoinDate();
-		this.isAdmin = joinMemberDTO.getIsAdmin();
-		this.status = joinMemberDTO.getStatus();
+		this.originImage = "default";
+		this.saveImage = "default";
+		this.joinDate = currentTimestamp;
+		this.isAdmin = 'N';
+		this.status = 'A';
 	}
 	
 	//Account List

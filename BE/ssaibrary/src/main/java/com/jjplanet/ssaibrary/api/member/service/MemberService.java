@@ -12,7 +12,7 @@ import com.jjplanet.ssaibrary.api.member.dto.UpdateMemberDTO;
 public interface MemberService {
 
 	// 회원가입
-	void joinMember(JoinMemberDTO m) throws NotFoundException;
+	void joinMember(JoinMemberDTO joinMemberDTO) throws NotFoundException;
 	
 	//로그인
 	Member loginMember(String id, String password) throws NotFoundException;

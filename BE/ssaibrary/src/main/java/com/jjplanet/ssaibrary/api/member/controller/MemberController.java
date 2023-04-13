@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,6 +27,7 @@ import com.jjplanet.ssaibrary.api.member.service.MemberServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 
+@Slf4j
 @RestController
 @RequestMapping("/member")
 @RequiredArgsConstructor
@@ -37,10 +39,11 @@ public class MemberController {
 
 	// 회원가입
 	@PostMapping
-	public ResponseEntity<String> joinMember(@RequestBody JoinMemberDTO member, HttpSession session)
+	public ResponseEntity<String> joinMember(@RequestBody JoinMemberDTO joinMemberDTO)
 			throws NotFoundException {
 
-		memberService.joinMember(member);
+		log.debug("회원가입 정보 들어왔다!! : {}", joinMemberDTO);
+		memberService.joinMember(joinMemberDTO);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 
 	}
