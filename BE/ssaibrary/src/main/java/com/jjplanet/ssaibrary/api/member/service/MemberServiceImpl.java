@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +19,7 @@ import com.jjplanet.ssaibrary.api.member.dto.UpdateMemberDTO;
 
 import lombok.RequiredArgsConstructor;
 
+@Slf4j
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -67,6 +69,8 @@ public class MemberServiceImpl implements MemberService {
 	public Member loginMember(String id, String password) throws NotFoundException {
 		
 		Member loginUser = memberRepository.findByIdAndPassword(id, password).orElseThrow(NotFoundException::new);
+
+		log.debug("로그인 한 사용자 확인해보장 : {}", loginUser);
 		
 		if(loginUser.getStatus() == 'X') {
 			throw new NotFoundException("탈퇴한 회원입니다.");

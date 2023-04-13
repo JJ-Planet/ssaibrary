@@ -2,6 +2,7 @@ package com.jjplanet.ssaibrary.api.member.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import lombok.extern.slf4j.Slf4j;
@@ -50,9 +51,9 @@ public class MemberController {
 	
 	//로그인
 	@PostMapping("/login")
-	public Member loginMember(@RequestParam("id") String id, @RequestParam("password") String password, HttpSession session) throws NotFoundException{
-		Member loginUser = memberService.loginMember(id, password); 
-		session.setAttribute("loginUser", loginUser);
+	public Member loginMember(@RequestParam("id") String id, @RequestParam("password") String password, HttpServletResponse httpServletResponse) throws NotFoundException{
+		Member loginUser = memberService.loginMember(id, password);
+		log.debug("로그인 한 사용자 controller임 : {}", loginUser);
 		return loginUser;
 	}
 	
