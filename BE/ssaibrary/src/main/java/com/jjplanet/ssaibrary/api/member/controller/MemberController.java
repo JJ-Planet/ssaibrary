@@ -53,7 +53,7 @@ public class MemberController {
 		Member loginUser = memberService.loginMember(loginReqDTO.getId(), loginReqDTO.getPassword());
 		log.debug("로그인 한 사용자 controller임 : {}", loginUser);
 
-		LoginDTO loginDTO = LoginDTO.builder().id(loginUser.getId()).accessToken("").name(loginUser.getName()).nickname(loginUser.getNickname()).build();
+		LoginDTO loginDTO = LoginDTO.builder().id(loginUser.getId()).accessToken("").name(loginUser.getName()).nickname(loginUser.getNickname()).originImage(loginUser.getOriginImage()).build();
 		return new ResponseEntity<>(loginDTO, HttpStatus.OK);
 	}
 	

@@ -91,7 +91,7 @@ public class Member implements Serializable{
 		this.password = joinMemberDTO.getPassword();
 		this.name = joinMemberDTO.getName();
 		this.nickname = joinMemberDTO.getNickname();
-		this.originImage = "default";
+		this.originImage = "https://ssaibrary.s3.ap-northeast-2.amazonaws.com/profile/default_profile.png";
 		this.saveImage = "default";
 		this.joinDate = currentTimestamp;
 		this.isAdmin = 'N';
