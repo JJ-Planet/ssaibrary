@@ -22,7 +22,7 @@ import com.jjplanet.ssaibrary.api.faq.service.FaqServiceImpl;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/faq")
+@RequestMapping("/api/v1/faq")
 @RequiredArgsConstructor
 public class FaqController {
 

@@ -22,7 +22,7 @@ import com.jjplanet.ssaibrary.api.seat.service.SeatReservationService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/seat")
+@RequestMapping("/api/v1/seat")
 @RequiredArgsConstructor
 public class SeatController {
 

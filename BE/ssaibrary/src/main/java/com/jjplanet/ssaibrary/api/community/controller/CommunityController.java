@@ -25,7 +25,7 @@ import com.jjplanet.ssaibrary.common.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/community")
+@RequestMapping("/api/v1/community")
 @RequiredArgsConstructor
 public class CommunityController {
 

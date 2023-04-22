@@ -18,7 +18,7 @@ import com.jjplanet.ssaibrary.common.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/comment")
+@RequestMapping("/api/v1/comment")
 @RequiredArgsConstructor
 public class CommentController {
 	

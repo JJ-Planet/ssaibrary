@@ -23,7 +23,7 @@ import com.jjplanet.ssaibrary.api.inquiry.service.InquiryServiceImpl;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/inquiry")
+@RequestMapping("/api/v1/inquiry")
 @RequiredArgsConstructor
 public class InquiryController {
 	

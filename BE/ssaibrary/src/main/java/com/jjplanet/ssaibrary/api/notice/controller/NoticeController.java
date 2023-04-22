@@ -25,7 +25,7 @@ import com.jjplanet.ssaibrary.api.notice.service.NoticeServiceImpl;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/notice")
+@RequestMapping("/api/v1/notice")
 @RequiredArgsConstructor
 public class NoticeController {
 	

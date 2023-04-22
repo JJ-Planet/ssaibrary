@@ -19,7 +19,7 @@ import com.jjplanet.ssaibrary.api.room.dto.RoomDTO;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/room")
+@RequestMapping("/api/v1/room")
 @RequiredArgsConstructor
 public class RoomController {
 

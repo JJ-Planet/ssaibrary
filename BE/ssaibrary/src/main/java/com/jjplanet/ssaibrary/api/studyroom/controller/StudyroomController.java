@@ -23,7 +23,7 @@ import com.jjplanet.ssaibrary.api.studyroom.service.StudyroomStateService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/studyroom")
+@RequestMapping("/api/v1/studyroom")
 @RequiredArgsConstructor
 public class StudyroomController {
 
