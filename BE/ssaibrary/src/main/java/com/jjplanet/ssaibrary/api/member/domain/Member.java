@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.swing.plaf.metal.MetalMenuBarUI;
 
 import com.jjplanet.ssaibrary.api.member.dto.DeleteMemberDTO;
 import com.jjplanet.ssaibrary.api.member.dto.JoinMemberDTO;
@@ -26,7 +27,7 @@ import lombok.Setter;
 
 @Entity
 @AllArgsConstructor(access = AccessLevel.PROTECTED) //모든 필드 값을 파라미터로 받는 생성자를 만듦
-@NoArgsConstructor(access = AccessLevel.PROTECTED) //기본생성자 생성
+@NoArgsConstructor //기본생성자 생성
 @Getter //getter 생성
 public class Member implements Serializable{
 
@@ -49,6 +50,10 @@ public class Member implements Serializable{
 	@Setter
 	@Column(nullable = false, length = 20)
 	private String name;
+
+	//카카오 id
+	@Column(name = "kakao_id", length = 50)
+	private String kakaoId;
 
 	//닉네임
 	@Setter
@@ -97,7 +102,22 @@ public class Member implements Serializable{
 		this.isAdmin = 'N';
 		this.status = 'A';
 	}
-	
+
+	//카카오 회원가입
+	public Member(String nickname, Timestamp joinDate, String kakaoId){
+		this.nickname = nickname;
+		this.kakaoId = kakaoId;
+		this.originImage = "https://ssaibrary.s3.ap-northeast-2.amazonaws.com/profile/default_profile.png";
+		this.joinDate = joinDate;
+		this.isAdmin = 'N';
+		this.status = 'A';
+
+	}
+
+	// refresh 토큰 저장
+	public void saveRefreshToken(String refreshToken) {
+		this.refreshToken = refreshToken;
+	}
 	//Account List
 //	public static MemberDTO toDTOWithMember(Member member) {
 //		return new MemberDTO(member.getId(), member.getPassword(), member.getRefreshToken(), member.getName(), member.getNickname(), member.getOriginImage(), member.getSaveImage(), member.getJoinDate(), member.getExitDate(), member.getIsAdmin(), member.getStatus());
@@ -120,12 +140,10 @@ public class Member implements Serializable{
 	}
 
 	//회원정보수정
-	public void updateMember(UpdateMemberDTO updateMemberDTO) {
-		this.name = updateMemberDTO.getName();
-		this.nickname = updateMemberDTO.getNickname();
-		this.password = updateMemberDTO.getPassword();
-		this.originImage = updateMemberDTO.getOriginImage();
-		this.saveImage = updateMemberDTO.getSaveImage();
+	public void updateMember(String nickname, String password, String originImage) {
+		this.nickname = nickname;
+		this.password = password;
+		this.originImage = originImage;
 	}
 
 	@Override

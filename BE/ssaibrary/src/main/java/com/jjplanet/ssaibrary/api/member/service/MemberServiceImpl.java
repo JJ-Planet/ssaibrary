@@ -5,7 +5,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.jjplanet.ssaibrary.api.member.dto.*;
+import com.jjplanet.ssaibrary.api.member.model.Role;
+import com.jjplanet.ssaibrary.api.member.model.Token;
+import com.jjplanet.ssaibrary.api.member.provider.TokenProvider;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +19,7 @@ import com.jjplanet.ssaibrary.api.member.repository.MemberRepository;
 import com.jjplanet.ssaibrary.common.exception.NotFoundException;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 @Slf4j
 @Service
@@ -23,8 +28,14 @@ import lombok.RequiredArgsConstructor;
 public class MemberServiceImpl implements MemberService {
 
 	private final MemberRepository memberRepository;
+
+	private final TokenProvider tokenProvider;
 	
 	private final MemberCustomRepositoryImpl memberCustomRepository;
+	private final S3Service s3Service;
+
+	@Value("${app.auth.refresh-token-expiry}")
+	long refreshTokenValidityInMilliseconds;
 
 	// 회원가입
 	@Override
@@ -63,7 +74,7 @@ public class MemberServiceImpl implements MemberService {
 	
 	//로그인
 	@Override
-	public Member loginMember(String id, String password) throws NotFoundException {
+	public LoginDTO loginMember(String id, String password) throws NotFoundException {
 
 		Member loginUser = memberRepository.findByIdAndPassword(id, password).orElseThrow(NotFoundException::new);
 
@@ -73,7 +84,14 @@ public class MemberServiceImpl implements MemberService {
 			throw new NotFoundException("탈퇴한 회원입니다.");
 		}
 
-		return loginUser;
+		Token token = tokenProvider.generateToken(loginUser.getId(), Role.USER.getKey());
+
+		log.debug("일반로그인 토큰 발급했다! {}", token);
+		LoginDTO loginDTO = LoginDTO.builder().id(loginUser.getId()).accessToken(token.getAccessToken()).refreshToken(token.getRefreshToken()).name(loginUser.getName()).nickname(loginUser.getNickname()).originImage(loginUser.getOriginImage()).build();
+
+
+
+		return loginDTO;
 	}
 	
 	//Account List
@@ -102,13 +120,36 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	// 회원정보수정
-	public void updateMember(UpdateMemberDTO updateMemberDTO) throws NotFoundException {
+	public UpdateMemberResDTO updateMember(UpdateMemberDTO updateMemberDTO, MultipartFile multipartFile) throws Exception {
 		Member member = memberRepository.findById(updateMemberDTO.getId()).orElseThrow(NotFoundException::new);
 
-		// 닉네임 중복 체크
-		duplicateNickname(updateMemberDTO.getNickname());
+		String nickname = member.getNickname();
+		String password = member.getPassword();
+		String originImage = member.getOriginImage();
 
-		member.updateMember(updateMemberDTO);
+		if(!updateMemberDTO.getNickname().equals(nickname)){
+			log.debug("닉네임 변경했네");
+
+			// 닉네임 중복 체크
+			duplicateNickname(updateMemberDTO.getNickname());
+			nickname = updateMemberDTO.getNickname();
+		}
+
+		if(!updateMemberDTO.getPassword().equals(password)){
+			log.debug("비밀번호 변경했네");
+
+			password = updateMemberDTO.getPassword();
+		}
+
+		if(multipartFile != null){
+			log.debug("프사 수정했네");
+			originImage = s3Service.upload(multipartFile, "profile");
+		}
+
+
+		member.updateMember(nickname, password, originImage);
+
+		return UpdateMemberResDTO.builder().nickname(nickname).originImage(originImage).build();
 	}
 
 

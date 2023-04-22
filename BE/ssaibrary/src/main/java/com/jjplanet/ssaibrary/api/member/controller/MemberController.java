@@ -9,22 +9,16 @@ import javax.servlet.http.HttpSession;
 import com.jjplanet.ssaibrary.api.member.dto.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.jjplanet.ssaibrary.common.exception.NotFoundException;
 import com.jjplanet.ssaibrary.api.member.domain.Member;
 import com.jjplanet.ssaibrary.api.member.service.MemberServiceImpl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 @Slf4j
 @RestController
@@ -50,10 +44,9 @@ public class MemberController {
 	//로그인
 	@PostMapping("/login")
 	public ResponseEntity<LoginDTO> loginMember(@RequestBody LoginReqDTO loginReqDTO, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws NotFoundException{
-		Member loginUser = memberService.loginMember(loginReqDTO.getId(), loginReqDTO.getPassword());
-		log.debug("로그인 한 사용자 controller임 : {}", loginUser);
+		LoginDTO loginDTO = memberService.loginMember(loginReqDTO.getId(), loginReqDTO.getPassword());
+		log.debug("로그인 한 사용자 controller임 : {}", loginDTO);
 
-		LoginDTO loginDTO = LoginDTO.builder().id(loginUser.getId()).accessToken("").name(loginUser.getName()).nickname(loginUser.getNickname()).originImage(loginUser.getOriginImage()).build();
 		return new ResponseEntity<>(loginDTO, HttpStatus.OK);
 	}
 	
@@ -84,10 +77,10 @@ public class MemberController {
 	}
 
 	// 회원정보수정
-	@PutMapping
-	public ResponseEntity<String> updateMember(@RequestBody UpdateMemberDTO updateMemberDTO) throws NotFoundException {
-		memberService.updateMember(updateMemberDTO);
-		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+	@PutMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ResponseEntity<UpdateMemberResDTO> updateMember(@RequestPart("memberInfo") UpdateMemberDTO updateMemberDTO, @RequestPart(value = "profileImg", required = false) MultipartFile multipartFile) throws Exception {
+		UpdateMemberResDTO updateMemberResDTO = memberService.updateMember(updateMemberDTO, multipartFile);
+		return new ResponseEntity<>(updateMemberResDTO, HttpStatus.OK);
 	}
 
 }

@@ -13,6 +13,9 @@ public class LoginDTO {
     // access token
     private String accessToken;
 
+    // refresh toekn
+    private String refreshToken;
+
     // 이름
     private String name;
 
@@ -23,9 +26,10 @@ public class LoginDTO {
     private String originImage;
 
     @Builder
-    public LoginDTO(String id, String accessToken, String name, String nickname, String originImage) {
+    public LoginDTO(String id, String accessToken, String refreshToken, String name, String nickname, String originImage) {
         this.id = id;
         this.accessToken = accessToken;
+        this.refreshToken = refreshToken;
         this.name = name;
         this.nickname = nickname;
         this.originImage = originImage;
