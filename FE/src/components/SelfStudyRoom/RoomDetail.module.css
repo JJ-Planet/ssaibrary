@@ -1,0 +1,122 @@
+.RoomDetail {
+  height: 75vh;
+}
+
+.RoomLocation {
+  padding-top: 5px;
+  width: 350px;
+  height: 33.05px;
+
+}
+
+.RoomSeperator {
+  width: 350px;
+  height: 0px;
+
+  border: 1px solid #B3A7FF;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.LocationLabel {
+  width: 180px;
+  height: 33px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #312082;
+}
+
+.mainHeader {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.SeatStatusTitle {
+  width: 103px;
+  height: 24px;
+  left: 0px;
+  top: 0px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  justify-content: center;
+
+}
+
+.SeatStatus {
+  width: 103px;
+  height: 45px;
+
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  justify-content: center;
+
+  background: rgba(49, 32, 130, 0.75);
+  border-radius: 20px;
+
+  font-family: 'Itim';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 45px;
+
+  color: #FFFFFF;
+}
+
+
+.SeatList {
+  width: 96%;
+  padding-top: 10px;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 1fr 2fr 2fr 2fr;
+
+
+  font-family: 'Itim';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 40px;
+
+  color: #FFFFFF;
+}
+
+.seatNodeUsing {
+  width: 40px;
+  height: 40px;
+
+  background: rgba(49, 32, 130, 0.2);
+  border-radius: 5px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.seatNode {
+  width: 40px;
+  height: 40px;
+
+  background: rgba(49, 32, 130, 0.75);
+  border-radius: 5px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 10px;
+}

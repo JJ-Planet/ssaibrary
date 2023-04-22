@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
-
 import Main from "./pages/MainPage/MainPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import Account from "./pages/AccountPage/AccountPage";
@@ -21,7 +20,6 @@ import SelfStudyRoomPage from "./pages/SelfStudyRoomPage/SelfStudyRoomPage";
 import FastCheckPage from "./pages/FastCheckPage/FastCheckPage";
 import FAQ from "./pages/FAQPage/FAQPage";
 
-
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "./Transition.css";
 
@@ -41,6 +39,7 @@ function Transition() {
             <Route path="/account/reservation/qr" element={<AccountReservationQr />}></Route>
             <Route path="/account/modify" element={<AccountModify />}></Route>
 
+            {/* 자습실 자리 현황 조회 관련 */}
             <Route path="/reservation/list" element={<ReservationList />}></Route>
             <Route path="/SelfStudyRoomPage/:roomId" element={<SelfStudyRoomPage />}></Route>
 
