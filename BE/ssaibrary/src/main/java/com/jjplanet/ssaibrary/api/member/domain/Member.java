@@ -109,9 +109,9 @@ public class Member implements Serializable{
 	}
 	
 	//로그인
-	public LoginDTO toDTOWithMember() {
-		return new LoginDTO(id, password, name, nickname, status);
-	}
+//	public LoginDTO toDTOWithMember() {
+//		return new LoginDTO(id, name, nickname);
+//	}
 	
 	//회원삭제
 	public void deleteMember(DeleteMemberDTO deleteMemberDTO) {

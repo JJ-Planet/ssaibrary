@@ -4,18 +4,15 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.jjplanet.ssaibrary.api.member.dto.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jjplanet.ssaibrary.api.member.domain.Member;
-import com.jjplanet.ssaibrary.api.member.dto.JoinMemberDTO;
 import com.jjplanet.ssaibrary.api.member.repository.MemberCustomRepositoryImpl;
 import com.jjplanet.ssaibrary.api.member.repository.MemberRepository;
 import com.jjplanet.ssaibrary.common.exception.NotFoundException;
-import com.jjplanet.ssaibrary.api.member.dto.DeleteMemberDTO;
-import com.jjplanet.ssaibrary.api.member.dto.MemberDTO;
-import com.jjplanet.ssaibrary.api.member.dto.UpdateMemberDTO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -67,7 +64,7 @@ public class MemberServiceImpl implements MemberService {
 	//로그인
 	@Override
 	public Member loginMember(String id, String password) throws NotFoundException {
-		
+
 		Member loginUser = memberRepository.findByIdAndPassword(id, password).orElseThrow(NotFoundException::new);
 
 		log.debug("로그인 한 사용자 확인해보장 : {}", loginUser);
@@ -75,7 +72,7 @@ public class MemberServiceImpl implements MemberService {
 		if(loginUser.getStatus() == 'X') {
 			throw new NotFoundException("탈퇴한 회원입니다.");
 		}
-		
+
 		return loginUser;
 	}
 	

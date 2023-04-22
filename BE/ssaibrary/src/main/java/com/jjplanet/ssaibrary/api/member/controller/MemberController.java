@@ -2,9 +2,11 @@ package com.jjplanet.ssaibrary.api.member.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.jjplanet.ssaibrary.api.member.dto.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,10 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jjplanet.ssaibrary.common.exception.NotFoundException;
 import com.jjplanet.ssaibrary.api.member.domain.Member;
-import com.jjplanet.ssaibrary.api.member.dto.DeleteMemberDTO;
-import com.jjplanet.ssaibrary.api.member.dto.JoinMemberDTO;
-import com.jjplanet.ssaibrary.api.member.dto.MemberDTO;
-import com.jjplanet.ssaibrary.api.member.dto.UpdateMemberDTO;
 import com.jjplanet.ssaibrary.api.member.service.MemberServiceImpl;
 
 import lombok.RequiredArgsConstructor;
@@ -51,10 +49,12 @@ public class MemberController {
 	
 	//로그인
 	@PostMapping("/login")
-	public Member loginMember(@RequestParam("id") String id, @RequestParam("password") String password, HttpServletResponse httpServletResponse) throws NotFoundException{
-		Member loginUser = memberService.loginMember(id, password);
+	public ResponseEntity<LoginDTO> loginMember(@RequestBody LoginReqDTO loginReqDTO, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws NotFoundException{
+		Member loginUser = memberService.loginMember(loginReqDTO.getId(), loginReqDTO.getPassword());
 		log.debug("로그인 한 사용자 controller임 : {}", loginUser);
-		return loginUser;
+
+		LoginDTO loginDTO = LoginDTO.builder().id(loginUser.getId()).accessToken("").name(loginUser.getName()).nickname(loginUser.getNickname()).build();
+		return new ResponseEntity<>(loginDTO, HttpStatus.OK);
 	}
 	
 	//로그아웃
